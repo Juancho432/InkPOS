@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InkPos")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bfd0379aa3bcefbd14914c3bf4497724860bbf27")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+71c1134a46d20a0d4332e4f99b878c9b5fba1bd8")]
 [assembly: System.Reflection.AssemblyProductAttribute("InkPos")]
 [assembly: System.Reflection.AssemblyTitleAttribute("InkPos")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
