@@ -26,5 +26,10 @@ namespace InkPos
         {
 
         }
+
+        private void txtbox_valorTotal_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
