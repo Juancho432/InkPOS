@@ -10,22 +10,27 @@ namespace InkPos
     {
         public string FinalizarPago(Pago pago)
         {
-            if (!pago.CamposCompletos())
-            {
+            if (string.IsNullOrEmpty(pago.MetodoPago))
                 return "Advertencia: Hay campos vacíos.";
-            }
 
-            if (!pago.ValidarPago())
+            if (pago.MetodoPago == "Efectivo")
             {
-                if (pago.MetodoPago == "Efectivo")
+                if (pago.CantidadIngresada < pago.TotalVenta)
                     return "Advertencia: Dinero ingresado menor al total de venta.";
-                else if (pago.MetodoPago == "Transferencia")
-                    return "Advertencia: Código de transferencia inválido.";
+                return "Pago registrado correctamente.";
             }
 
-            // Aquí guardarías el pago en la base de datos o lista
-            return "Pago registrado correctamente.";
+            if (pago.MetodoPago == "Transferencia")
+            {
+                if (string.IsNullOrEmpty(pago.CodigoTransferencia))
+                    return "Advertencia: Código de transferencia inválido.";
+                return "Pago registrado correctamente.";
+            }
+
+            return "Advertencia: Método de pago no reconocido.";
         }
+
+
     }
 
 }

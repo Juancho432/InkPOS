@@ -13,6 +13,7 @@ namespace InkPos
         public string MetodoPago { get; set; }
         public string CodigoTransferencia { get; set; }
 
+
         public decimal CalcularResto()
         {
             if (MetodoPago == "Efectivo")
@@ -34,6 +35,7 @@ namespace InkPos
             }
             return false;
         }
+
 
         public bool CamposCompletos()
         {
