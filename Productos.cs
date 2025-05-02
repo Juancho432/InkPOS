@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InkPos
 {
-    internal class Productos
+    public class Productos
     {
         public int IdProducto { get; set; }
         public string NombreItem { get; set; }

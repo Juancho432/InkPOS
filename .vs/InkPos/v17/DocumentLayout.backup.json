@@ -3,32 +3,25 @@
   "WorkspaceRootPath": "C:\\Users\\EMMANUEL\\source\\repos\\InkPos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|c:\\users\\emmanuel\\source\\repos\\inkpos\\formpruebadb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|solutionrelative:formpruebadb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{33111259-3332-49EA-904A-2EBCB054315B}|..\\InkPos.Tests\\InkPos.Tests.csproj|c:\\users\\emmanuel\\source\\repos\\inkpos.tests\\productosdatostests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|c:\\users\\emmanuel\\source\\repos\\inkpos\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|c:\\users\\emmanuel\\source\\repos\\inkpos\\productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|solutionrelative:productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{33111259-3332-49EA-904A-2EBCB054315B}|..\\InkPos.Tests\\InkPos.Tests.csproj|c:\\users\\emmanuel\\source\\repos\\inkpos.tests\\inkpos.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|c:\\users\\emmanuel\\source\\repos\\inkpos\\productosdatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|solutionrelative:productosdatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|c:\\users\\emmanuel\\source\\repos\\inkpos\\conexiondb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|solutionrelative:conexiondb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|c:\\users\\emmanuel\\source\\repos\\inkpos\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|C:\\Users\\EMMANUEL\\source\\repos\\InkPos\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{33111259-3332-49EA-904A-2EBCB054315B}|..\\InkPos.Tests\\InkPos.Tests.csproj|c:\\users\\emmanuel\\source\\repos\\inkpos.tests\\mstestsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|C:\\Users\\EMMANUEL\\source\\repos\\InkPos\\formpruebadb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|solutionrelative:formpruebadb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|c:\\users\\emmanuel\\source\\repos\\inkpos\\productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|solutionrelative:productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +31,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,89 +67,76 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "InkPos.Tests.csproj",
+              "DocumentMoniker": "C:\\Users\\EMMANUEL\\source\\repos\\InkPos.Tests\\InkPos.Tests.csproj",
+              "RelativeDocumentMoniker": "..\\InkPos.Tests\\InkPos.Tests.csproj",
+              "ToolTip": "C:\\Users\\EMMANUEL\\source\\repos\\InkPos.Tests\\InkPos.Tests.csproj",
+              "RelativeToolTip": "..\\InkPos.Tests\\InkPos.Tests.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-02T17:27:40.317Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProductosDatosTests.cs",
+              "DocumentMoniker": "C:\\Users\\EMMANUEL\\source\\repos\\InkPos.Tests\\ProductosDatosTests.cs",
+              "RelativeDocumentMoniker": "..\\InkPos.Tests\\ProductosDatosTests.cs",
+              "ToolTip": "C:\\Users\\EMMANUEL\\source\\repos\\InkPos.Tests\\ProductosDatosTests.cs",
+              "RelativeToolTip": "..\\InkPos.Tests\\ProductosDatosTests.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAqwBwAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-02T17:18:28.051Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MSTestSettings.cs",
+              "DocumentMoniker": "C:\\Users\\EMMANUEL\\source\\repos\\InkPos.Tests\\MSTestSettings.cs",
+              "RelativeDocumentMoniker": "..\\InkPos.Tests\\MSTestSettings.cs",
+              "ToolTip": "C:\\Users\\EMMANUEL\\source\\repos\\InkPos.Tests\\MSTestSettings.cs",
+              "RelativeToolTip": "..\\InkPos.Tests\\MSTestSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-02T17:16:22.797Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\EMMANUEL\\source\\repos\\InkPos\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\EMMANUEL\\source\\repos\\InkPos\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-02T15:45:26.201Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "ProductosDatos.cs",
               "DocumentMoniker": "C:\\Users\\EMMANUEL\\source\\repos\\InkPos\\ProductosDatos.cs",
               "RelativeDocumentMoniker": "ProductosDatos.cs",
               "ToolTip": "C:\\Users\\EMMANUEL\\source\\repos\\InkPos\\ProductosDatos.cs",
               "RelativeToolTip": "ProductosDatos.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAcwDUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T20:07:55.673Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-29T20:07:55.673Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Productos.cs",
               "DocumentMoniker": "C:\\Users\\EMMANUEL\\source\\repos\\InkPos\\Productos.cs",
               "RelativeDocumentMoniker": "Productos.cs",
               "ToolTip": "C:\\Users\\EMMANUEL\\source\\repos\\InkPos\\Productos.cs",
               "RelativeToolTip": "Productos.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T19:38:17.345Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\EMMANUEL\\source\\repos\\InkPos\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\EMMANUEL\\source\\repos\\InkPos\\Form1.cs",
-              "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T19:07:18.772Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FormPruebaDB.cs",
-              "DocumentMoniker": "C:\\Users\\EMMANUEL\\source\\repos\\InkPos\\FormPruebaDB.cs",
-              "RelativeDocumentMoniker": "FormPruebaDB.cs",
-              "ToolTip": "C:\\Users\\EMMANUEL\\source\\repos\\InkPos\\FormPruebaDB.cs",
-              "RelativeToolTip": "FormPruebaDB.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAUwCAAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T19:03:32.791Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "FormPruebaDB.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\EMMANUEL\\source\\repos\\InkPos\\FormPruebaDB.cs",
-              "RelativeDocumentMoniker": "FormPruebaDB.cs",
-              "ToolTip": "C:\\Users\\EMMANUEL\\source\\repos\\InkPos\\FormPruebaDB.cs [Dise\u00F1o]",
-              "RelativeToolTip": "FormPruebaDB.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T19:03:23.137Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ConexionDB.cs",
-              "DocumentMoniker": "C:\\Users\\EMMANUEL\\source\\repos\\InkPos\\ConexionDB.cs",
-              "RelativeDocumentMoniker": "ConexionDB.cs",
-              "ToolTip": "C:\\Users\\EMMANUEL\\source\\repos\\InkPos\\ConexionDB.cs",
-              "RelativeToolTip": "ConexionDB.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAcwBgAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T18:55:21.895Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Form1.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\EMMANUEL\\source\\repos\\InkPos\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\EMMANUEL\\source\\repos\\InkPos\\Form1.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Form1.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T18:41:36.12Z"
+              "WhenOpened": "2025-04-29T19:38:17.345Z"
             }
           ]
         }
