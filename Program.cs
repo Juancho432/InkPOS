@@ -8,10 +8,24 @@ namespace InkPos
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            ProductosDatos datos = new ProductosDatos();
+
+            Console.WriteLine("¿Buscar por ID o por Nombre?");
+            string criterio = Console.ReadLine();
+
+            Console.WriteLine("Ingrese el valor a buscar:");
+            string valor = Console.ReadLine();
+
+            List<Productos> resultado = datos.BuscarProductos(criterio.ToUpper(), valor);
+
+            Console.WriteLine("=== Resultados de la búsqueda ===");
+            foreach (var prod in resultado)
+            {
+                Console.WriteLine($"ID: {prod.IdProducto} | Nombre: {prod.NombreItem} | Stock: {prod.Stock} | Precio: {prod.Pvp} | IVA: {prod.Iva}");
+            }
+
+            Console.WriteLine("Presione una tecla para salir...");
+            Console.ReadKey();
         }
     }
 }
