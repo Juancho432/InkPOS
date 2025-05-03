@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            f4_search = new TextBox();
-            Button_search = new Button();
-            coindienci = new ListBox();
-            dgvDetalleVenta = new DataGridView();
+            txtBuscarProducto = new TextBox();
+            btnBuscar = new Button();
+            lstResultados = new ListBox();
+            dgvDetallesProducto = new DataGridView();
             column_codigo = new DataGridViewTextBoxColumn();
             column_NombreP = new DataGridViewTextBoxColumn();
             column_cantidad = new DataGridViewTextBoxColumn();
@@ -43,49 +43,50 @@
             lbl_valorTotal = new Label();
             button_finalizarVenta = new Button();
             groupBox1 = new GroupBox();
-            ((System.ComponentModel.ISupportInitialize)dgvDetalleVenta).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDetallesProducto).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
-            // f4_search
+            // txtBuscarProducto
             // 
-            f4_search.Anchor = AnchorStyles.None;
-            f4_search.Location = new Point(105, 92);
-            f4_search.Name = "f4_search";
-            f4_search.Size = new Size(233, 27);
-            f4_search.TabIndex = 0;
-            f4_search.Text = "(F4) Código/nombre del producto";
+            txtBuscarProducto.Anchor = AnchorStyles.None;
+            txtBuscarProducto.Location = new Point(105, 92);
+            txtBuscarProducto.Name = "txtBuscarProducto";
+            txtBuscarProducto.Size = new Size(233, 27);
+            txtBuscarProducto.TabIndex = 0;
+            txtBuscarProducto.Text = "(F4) Código/nombre del producto";
             // 
-            // Button_search
+            // btnBuscar
             // 
-            Button_search.Anchor = AnchorStyles.None;
-            Button_search.Location = new Point(176, 154);
-            Button_search.Name = "Button_search";
-            Button_search.Size = new Size(94, 29);
-            Button_search.TabIndex = 1;
-            Button_search.Text = "Buscar";
-            Button_search.UseVisualStyleBackColor = true;
+            btnBuscar.Anchor = AnchorStyles.None;
+            btnBuscar.Location = new Point(176, 154);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(94, 29);
+            btnBuscar.TabIndex = 1;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
             // 
-            // coindienci
+            // lstResultados
             // 
-            coindienci.Anchor = AnchorStyles.None;
-            coindienci.FormattingEnabled = true;
-            coindienci.Location = new Point(105, 220);
-            coindienci.Name = "coindienci";
-            coindienci.Size = new Size(233, 224);
-            coindienci.TabIndex = 2;
+            lstResultados.Anchor = AnchorStyles.None;
+            lstResultados.FormattingEnabled = true;
+            lstResultados.Location = new Point(105, 220);
+            lstResultados.Name = "lstResultados";
+            lstResultados.Size = new Size(233, 224);
+            lstResultados.TabIndex = 2;
             // 
-            // dgvDetalleVenta
+            // dgvDetallesProducto
             // 
-            dgvDetalleVenta.Anchor = AnchorStyles.None;
-            dgvDetalleVenta.BackgroundColor = SystemColors.ControlLight;
-            dgvDetalleVenta.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDetalleVenta.Columns.AddRange(new DataGridViewColumn[] { column_codigo, column_NombreP, column_cantidad, column_valor });
-            dgvDetalleVenta.Location = new Point(490, 63);
-            dgvDetalleVenta.Name = "dgvDetalleVenta";
-            dgvDetalleVenta.RowHeadersWidth = 51;
-            dgvDetalleVenta.Size = new Size(853, 396);
-            dgvDetalleVenta.TabIndex = 7;
+            dgvDetallesProducto.Anchor = AnchorStyles.None;
+            dgvDetallesProducto.BackgroundColor = SystemColors.ControlLight;
+            dgvDetallesProducto.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDetallesProducto.Columns.AddRange(new DataGridViewColumn[] { column_codigo, column_NombreP, column_cantidad, column_valor });
+            dgvDetallesProducto.Location = new Point(490, 63);
+            dgvDetallesProducto.Name = "dgvDetallesProducto";
+            dgvDetallesProducto.RowHeadersWidth = 51;
+            dgvDetallesProducto.Size = new Size(853, 396);
+            dgvDetallesProducto.TabIndex = 7;
             // 
             // column_codigo
             // 
@@ -176,16 +177,16 @@
             // groupBox1
             // 
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox1.Controls.Add(coindienci);
+            groupBox1.Controls.Add(lstResultados);
             groupBox1.Controls.Add(lbl_valorTotal);
             groupBox1.Controls.Add(button_finalizarVenta);
             groupBox1.Controls.Add(lbl_cantidad_productos);
-            groupBox1.Controls.Add(Button_search);
+            groupBox1.Controls.Add(btnBuscar);
             groupBox1.Controls.Add(txtbox_valorTotal);
-            groupBox1.Controls.Add(f4_search);
+            groupBox1.Controls.Add(txtBuscarProducto);
             groupBox1.Controls.Add(txtbox_cantidadProducto);
             groupBox1.Controls.Add(lbl_detalleVenta);
-            groupBox1.Controls.Add(dgvDetalleVenta);
+            groupBox1.Controls.Add(dgvDetallesProducto);
             groupBox1.Location = new Point(24, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(1387, 617);
@@ -203,7 +204,8 @@
             Name = "busqueda_productos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "InkPos - Venta";
-            ((System.ComponentModel.ISupportInitialize)dgvDetalleVenta).EndInit();
+            Load += busqueda_productos_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvDetallesProducto).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
@@ -211,10 +213,10 @@
 
         #endregion
 
-        private TextBox f4_search;
-        private Button Button_search;
-        private ListBox coindienci;
-        private DataGridView dgvDetalleVenta;
+        private TextBox txtBuscarProducto;
+        private Button btnBuscar;
+        private ListBox lstResultados;
+        private DataGridView dgvDetallesProducto;
         private Label lbl_detalleVenta;
         private TextBox txtbox_cantidadProducto;
         private TextBox txtbox_valorTotal;
