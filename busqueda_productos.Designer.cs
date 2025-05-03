@@ -68,7 +68,6 @@
             // 
             // coindienci
             // 
-            coindienci.Anchor = AnchorStyles.None;
             coindienci.FormattingEnabled = true;
             coindienci.Location = new Point(105, 220);
             coindienci.Name = "coindienci";
