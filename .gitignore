@@ -27,3 +27,32 @@ publish/
 ## Archivos de log o backups
 *.log
 *.bak
+
+
+## Archivos de compilación
+bin/
+obj/
+
+## Configuración de Visual Studio
+.vs/
+*.user
+*.suo
+
+## Sistema
+Thumbs.db
+Desktop.ini
+
+## Archivos de paquetes NuGet
+packages/
+*.nupkg
+
+## Publicaciones
+publish/
+
+## IDEs alternativos
+.idea/
+.vscode/
+
+## Archivos de log o backups
+*.log
+*.bak
