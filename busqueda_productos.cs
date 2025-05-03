@@ -23,6 +23,7 @@ namespace InkPos
             this.lstCoincidencias.DoubleClick += new System.EventHandler(this.lstCoincidencias_DoubleClick);
             this.lstCoincidencias.KeyDown += new KeyEventHandler(this.lstCoincidencias_KeyDown);
             this.dgvProductos.CellDoubleClick += dgvProductos_CellDoubleClick;
+            this.txtBusqueda.KeyDown += new KeyEventHandler(this.txtBusqueda_KeyDown);
             ConfigurarDataGridView();
         }
         private void ConfigurarDataGridView()
@@ -196,7 +197,13 @@ namespace InkPos
             txtValorTotal.Text = totalVenta.ToString("C");
         }
 
-
+        private void txtBusqueda_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) // Verifica si la tecla presionada es Enter
+            {
+                btnBuscar_Click(sender, e); // Llama al evento click del botón de búsqueda
+            }
+        }
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
