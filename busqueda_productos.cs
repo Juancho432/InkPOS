@@ -21,6 +21,8 @@ namespace InkPos
             InitializeComponent();
             // Asocia el evento DoubleClick al método que se encarga de agregar el producto al DataGridView
             this.lstCoincidencias.DoubleClick += new System.EventHandler(this.lstCoincidencias_DoubleClick);
+            this.lstCoincidencias.KeyDown += new KeyEventHandler(this.lstCoincidencias_KeyDown);
+            this.dgvProductos.CellDoubleClick += dgvProductos_CellDoubleClick;
             ConfigurarDataGridView();
         }
         private void ConfigurarDataGridView()
@@ -83,7 +85,6 @@ namespace InkPos
             {
                 if (fila.Cells[0].Value != null && (int)fila.Cells[0].Value == producto.IdProducto)
                 {
-                    // Ya existe, actualizamos cantidad y valor
                     int cantidadActual = Convert.ToInt32(fila.Cells[2].Value);
                     int nuevaCantidad = cantidadActual + cantidad;
 
@@ -105,16 +106,95 @@ namespace InkPos
 
             if (!yaExiste)
             {
-                // Agregar al DataGridView
                 dgvProductos.Rows.Add(producto.IdProducto, producto.NombreItem, cantidad, producto.Pvp * cantidad);
                 totalVenta += producto.Pvp * cantidad;
                 txtValorTotal.Text = totalVenta.ToString("C");
             }
 
-            // Opcional: almacenar el producto para futuras referencias
             productosEnVenta.Add(producto);
+
+            // 🔄 Actualiza el total de productos agregados
+            ActualizarCantidadTotal();
         }
 
+
+        private void ActualizarCantidadTotal()
+        {
+            int totalCantidad = 0;
+
+            foreach (DataGridViewRow fila in dgvProductos.Rows)
+            {
+                if (fila.Cells[2].Value != null)
+                {
+                    totalCantidad += Convert.ToInt32(fila.Cells[2].Value);
+                }
+            }
+
+            txtboxCantidadProducto.Text = totalCantidad.ToString();
+        }
+
+        private void dgvProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == 2) // Columna "Cantidad"
+            {
+                var fila = dgvProductos.Rows[e.RowIndex];
+
+                int cantidadActual = 0;
+                if (fila.Cells[2].Value != null)
+                {
+                    cantidadActual = Convert.ToInt32(fila.Cells[2].Value);
+                }
+
+                int idProducto = Convert.ToInt32(fila.Cells[0].Value);
+
+
+                var producto = productosDatos.ObtenerProductoPorId(idProducto);
+
+                // Verificar si el producto no se encontró
+                if (producto == null)
+                {
+                    MessageBox.Show("Producto no encontrado.");
+                    return; // Salir de la función si no se encuentra el producto
+                }
+
+                string input = Microsoft.VisualBasic.Interaction.InputBox("Modificar cantidad:", "Cantidad", cantidadActual.ToString());
+
+                if (!int.TryParse(input, out int nuevaCantidad) || nuevaCantidad <= 0)
+                {
+                    MessageBox.Show("Cantidad no válida.");
+                    return;
+                }
+
+                // Verificar stock
+                if (nuevaCantidad > producto.Stock)
+                {
+                    MessageBox.Show("No hay suficiente stock.");
+                    return;
+                }
+
+                // Actualizar valores
+                fila.Cells[2].Value = nuevaCantidad;
+                fila.Cells[3].Value = producto.Pvp * nuevaCantidad;
+
+                RecalcularTotalVenta();
+                ActualizarCantidadTotal();
+            }
+        }
+
+
+
+        private void RecalcularTotalVenta()
+        {
+            totalVenta = 0;
+
+            foreach (DataGridViewRow fila in dgvProductos.Rows)
+            {
+                if (fila.Cells[3].Value != null)
+                    totalVenta += Convert.ToDecimal(fila.Cells[3].Value);
+            }
+
+            txtValorTotal.Text = totalVenta.ToString("C");
+        }
 
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)

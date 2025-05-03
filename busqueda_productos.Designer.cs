@@ -37,7 +37,7 @@
             column_cantidad = new DataGridViewTextBoxColumn();
             column_valor = new DataGridViewTextBoxColumn();
             lbl_detalleVenta = new Label();
-            txtbox_cantidadProducto = new TextBox();
+            txtboxCantidadProducto = new TextBox();
             txtValorTotal = new TextBox();
             lbl_cantidad_productos = new Label();
             lbl_valorTotal = new Label();
@@ -126,14 +126,14 @@
             lbl_detalleVenta.TabIndex = 8;
             lbl_detalleVenta.Text = "Detalle de venta";
             // 
-            // txtbox_cantidadProducto
+            // txtboxCantidadProducto
             // 
-            txtbox_cantidadProducto.Anchor = AnchorStyles.None;
-            txtbox_cantidadProducto.Location = new Point(703, 506);
-            txtbox_cantidadProducto.Name = "txtbox_cantidadProducto";
-            txtbox_cantidadProducto.Size = new Size(160, 27);
-            txtbox_cantidadProducto.TabIndex = 9;
-            txtbox_cantidadProducto.TextChanged += textBox1_TextChanged;
+            txtboxCantidadProducto.Anchor = AnchorStyles.None;
+            txtboxCantidadProducto.Location = new Point(703, 506);
+            txtboxCantidadProducto.Name = "txtboxCantidadProducto";
+            txtboxCantidadProducto.Size = new Size(160, 27);
+            txtboxCantidadProducto.TabIndex = 9;
+            txtboxCantidadProducto.TextChanged += textBox1_TextChanged;
             // 
             // txtValorTotal
             // 
@@ -185,7 +185,7 @@
             groupBox1.Controls.Add(btnBuscar);
             groupBox1.Controls.Add(txtValorTotal);
             groupBox1.Controls.Add(txtBusqueda);
-            groupBox1.Controls.Add(txtbox_cantidadProducto);
+            groupBox1.Controls.Add(txtboxCantidadProducto);
             groupBox1.Controls.Add(lbl_detalleVenta);
             groupBox1.Controls.Add(dgvProductos);
             groupBox1.Location = new Point(24, 12);
@@ -219,7 +219,7 @@
         private ListBox lstCoincidencias;
         private DataGridView dgvProductos;
         private Label lbl_detalleVenta;
-        private TextBox txtbox_cantidadProducto;
+        private TextBox txtboxCantidadProducto;
         private TextBox txtValorTotal;
         private Label lbl_cantidad_productos;
         private Label lbl_valorTotal;

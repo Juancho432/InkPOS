@@ -48,5 +48,46 @@ namespace InkPos
 
             return productos;
         }
+        public Productos ObtenerProductoPorId(int idProducto)
+        {
+            Productos producto = null;
+
+            string query = @"
+                SELECT p.id_producto, i.nombre_item, p.stock, i.pvp_item, i.porcentaje_iva_item
+                FROM productos p
+                JOIN items i ON p.id_item = i.id_item
+                WHERE p.id_producto = @idProducto";
+
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@idProducto", idProducto);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read()) // Solo debe devolver un producto
+                        {
+                            producto = new Productos
+                            {
+                                IdProducto = reader.GetInt32(0),
+                                NombreItem = reader.GetString(1),
+                                Stock = reader.GetInt32(2),
+                                Pvp = reader.GetDecimal(3),
+                                Iva = reader.GetDecimal(4)
+                            };
+                        }
+                    }
+                }
+            }
+
+            return producto;
+        }
+
     }
+
+
+
+
 }
