@@ -14,20 +14,108 @@ namespace InkPos
     {
 
         private ProductosDatos productosDatos = new ProductosDatos();
+        private List<Productos> productosEnVenta = new List<Productos>();
+        private decimal totalVenta = 0;
         public busqueda_productos()
         {
             InitializeComponent();
+            // Asocia el evento DoubleClick al método que se encarga de agregar el producto al DataGridView
+            this.lstCoincidencias.DoubleClick += new System.EventHandler(this.lstCoincidencias_DoubleClick);
             ConfigurarDataGridView();
         }
         private void ConfigurarDataGridView()
         {
             // Configurar columnas del DataGridView manualmente
-            dgvDetallesProducto.ColumnCount = 4;
-            dgvDetallesProducto.Columns[0].Name = "ID";
-            dgvDetallesProducto.Columns[1].Name = "Producto";
-            dgvDetallesProducto.Columns[2].Name = "Cantidad";
-            dgvDetallesProducto.Columns[3].Name = "Valor";
+            dgvProductos.ColumnCount = 4;
+            dgvProductos.Columns[0].Name = "ID";
+            dgvProductos.Columns[1].Name = "Producto";
+            dgvProductos.Columns[2].Name = "Cantidad";
+            dgvProductos.Columns[3].Name = "Valor";
         }
+
+        private void lstCoincidencias_DoubleClick(object sender, EventArgs e)
+        {
+            AgregarProductoSeleccionado(false);
+        }
+
+        private void lstCoincidencias_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && e.Control)
+            {
+                AgregarProductoSeleccionado(true); // con cantidad
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                AgregarProductoSeleccionado(false); // sin cantidad
+            }
+        }
+
+        private void AgregarProductoSeleccionado(bool preguntarCantidad)
+        {
+            if (lstCoincidencias.SelectedItem == null)
+                return;
+
+            Productos producto = (Productos)lstCoincidencias.SelectedItem;
+
+            int cantidad = 1;
+
+            if (preguntarCantidad)
+            {
+                string input = Microsoft.VisualBasic.Interaction.InputBox("Ingrese la cantidad:", "Cantidad", "1");
+
+                if (!int.TryParse(input, out cantidad) || cantidad <= 0)
+                {
+                    MessageBox.Show("Cantidad no válida.");
+                    return;
+                }
+
+                if (cantidad > producto.Stock)
+                {
+                    MessageBox.Show("No hay suficiente stock.");
+                    return;
+                }
+            }
+
+            // Verifica si ya está en el DataGridView
+            bool yaExiste = false;
+
+            foreach (DataGridViewRow fila in dgvProductos.Rows)
+            {
+                if (fila.Cells[0].Value != null && (int)fila.Cells[0].Value == producto.IdProducto)
+                {
+                    // Ya existe, actualizamos cantidad y valor
+                    int cantidadActual = Convert.ToInt32(fila.Cells[2].Value);
+                    int nuevaCantidad = cantidadActual + cantidad;
+
+                    if (nuevaCantidad > producto.Stock)
+                    {
+                        MessageBox.Show("Supera el stock disponible.");
+                        return;
+                    }
+
+                    fila.Cells[2].Value = nuevaCantidad;
+                    fila.Cells[3].Value = producto.Pvp * nuevaCantidad;
+
+                    totalVenta += producto.Pvp * cantidad;
+                    txtValorTotal.Text = totalVenta.ToString("C");
+                    yaExiste = true;
+                    break;
+                }
+            }
+
+            if (!yaExiste)
+            {
+                // Agregar al DataGridView
+                dgvProductos.Rows.Add(producto.IdProducto, producto.NombreItem, cantidad, producto.Pvp * cantidad);
+                totalVenta += producto.Pvp * cantidad;
+                txtValorTotal.Text = totalVenta.ToString("C");
+            }
+
+            // Opcional: almacenar el producto para futuras referencias
+            productosEnVenta.Add(producto);
+        }
+
+
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -51,7 +139,7 @@ namespace InkPos
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            string criterio = txtBuscarProducto.Text.Trim();
+            string criterio = txtBusqueda.Text.Trim();
 
             if (string.IsNullOrEmpty(criterio))
             {
@@ -63,8 +151,7 @@ namespace InkPos
             List<Productos> productos = productosDatos.BuscarProductos(criterio);
 
             // Limpiar resultados anteriores
-            lstResultados.Items.Clear();
-            dgvDetallesProducto.Rows.Clear();
+            lstCoincidencias.Items.Clear();
 
             if (productos.Count == 0)
             {
@@ -72,15 +159,29 @@ namespace InkPos
                 return;
             }
 
-            // Mostrar resultados
+            // Mostrar resultados SOLO en el ListBox
             foreach (var prod in productos)
             {
-                // ListBox muestra el nombre
-                lstResultados.Items.Add(prod.NombreItem);
-
-                // DataGridView muestra los detalles
-                dgvDetallesProducto.Rows.Add(prod.IdProducto, prod.NombreItem, prod.Stock, prod.Pvp);
+                lstCoincidencias.Items.Add(prod); // ToString ya muestra nombre y stock
             }
+        }
+
+        private void btnFinalizar_Click(object sender, EventArgs e)
+        {
+            if (productosEnVenta.Count == 0)
+            {
+                MessageBox.Show("No hay productos agregados.");
+                return;
+            }
+
+            // Aquí podrías guardar en base de datos o pasar a otro formulario
+            MessageBox.Show("Venta finalizada. Total: " + txtValorTotal.Text);
+
+            // Limpiar
+            productosEnVenta.Clear();
+            dgvProductos.Rows.Clear();
+            totalVenta = 0;
+            txtValorTotal.Text = "";
         }
     }
 }

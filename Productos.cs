@@ -14,5 +14,10 @@ namespace InkPos
         public decimal Pvp { get; set; }
         public decimal Iva { get; set; }
 
+        public override string ToString()
+        {
+            return $"{NombreItem} - Stock: {Stock}";
+        }
+
     }
 }
