@@ -3,11 +3,37 @@
   "WorkspaceRootPath": "C:\\Users\\juanp\\OneDrive\\Escritorio\\InkPos\\InkPOS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|c:\\users\\juanp\\onedrive\\escritorio\\inkpos\\inkpos\\pago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|solutionrelative:pago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E25BFAC8-F6E0-4589-9D7D-C3F4BE290863}|..\\InkPos_Test\\InkPos_Test.csproj|c:\\users\\juanp\\onedrive\\escritorio\\inkpos\\inkpos_test\\empleadomanagertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E25BFAC8-F6E0-4589-9D7D-C3F4BE290863}|..\\InkPos_Test\\InkPos_Test.csproj|c:\\users\\juanp\\onedrive\\escritorio\\inkpos\\inkpos_test\\inkpos_test.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|c:\\users\\juanp\\onedrive\\escritorio\\inkpos\\inkpos\\empleadomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|solutionrelative:empleadomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|c:\\users\\juanp\\onedrive\\escritorio\\inkpos\\inkpos\\empleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|solutionrelative:empleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E25BFAC8-F6E0-4589-9D7D-C3F4BE290863}|..\\InkPos_Test\\InkPos_Test.csproj|c:\\users\\juanp\\onedrive\\escritorio\\inkpos\\inkpos_test\\generarduplicadofactura_exitoso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|c:\\users\\juanp\\onedrive\\escritorio\\inkpos\\inkpos\\facturamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|solutionrelative:facturamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|c:\\users\\juanp\\onedrive\\escritorio\\inkpos\\inkpos\\factura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|solutionrelative:factura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|c:\\users\\juanp\\onedrive\\escritorio\\inkpos\\inkpos\\itemfactura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|solutionrelative:itemfactura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E25BFAC8-F6E0-4589-9D7D-C3F4BE290863}|..\\InkPos_Test\\InkPos_Test.csproj|c:\\users\\juanp\\onedrive\\escritorio\\inkpos\\inkpos_test\\productomanagertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|c:\\users\\juanp\\onedrive\\escritorio\\inkpos\\inkpos\\productomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|solutionrelative:productomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5A17FDD2-4385-409F-8DDC-B58729CD2BE6}|InkPos.csproj|c:\\users\\juanp\\onedrive\\escritorio\\inkpos\\inkpos\\pagomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -61,19 +87,123 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Pago.cs",
-              "DocumentMoniker": "C:\\Users\\juanp\\OneDrive\\Escritorio\\InkPos\\InkPOS\\Pago.cs",
-              "RelativeDocumentMoniker": "Pago.cs",
-              "ToolTip": "C:\\Users\\juanp\\OneDrive\\Escritorio\\InkPos\\InkPOS\\Pago.cs",
-              "RelativeToolTip": "Pago.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Title": "EmpleadoManagerTests.cs",
+              "DocumentMoniker": "C:\\Users\\juanp\\OneDrive\\Escritorio\\InkPos\\InkPos_Test\\EmpleadoManagerTests.cs",
+              "RelativeDocumentMoniker": "..\\InkPos_Test\\EmpleadoManagerTests.cs",
+              "ToolTip": "C:\\Users\\juanp\\OneDrive\\Escritorio\\InkPos\\InkPos_Test\\EmpleadoManagerTests.cs",
+              "RelativeToolTip": "..\\InkPos_Test\\EmpleadoManagerTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-02T18:58:32.913Z",
+              "WhenOpened": "2025-05-03T20:23:08.66Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EmpleadoManager.cs",
+              "DocumentMoniker": "C:\\Users\\juanp\\OneDrive\\Escritorio\\InkPos\\InkPOS\\EmpleadoManager.cs",
+              "RelativeDocumentMoniker": "EmpleadoManager.cs",
+              "ToolTip": "C:\\Users\\juanp\\OneDrive\\Escritorio\\InkPos\\InkPOS\\EmpleadoManager.cs",
+              "RelativeToolTip": "EmpleadoManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T20:22:42.034Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Empleado.cs",
+              "DocumentMoniker": "C:\\Users\\juanp\\OneDrive\\Escritorio\\InkPos\\InkPOS\\Empleado.cs",
+              "RelativeDocumentMoniker": "Empleado.cs",
+              "ToolTip": "C:\\Users\\juanp\\OneDrive\\Escritorio\\InkPos\\InkPOS\\Empleado.cs",
+              "RelativeToolTip": "Empleado.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T20:22:27.032Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GenerarDuplicadoFactura_Exitoso.cs",
+              "DocumentMoniker": "C:\\Users\\juanp\\OneDrive\\Escritorio\\InkPos\\InkPos_Test\\GenerarDuplicadoFactura_Exitoso.cs",
+              "RelativeDocumentMoniker": "..\\InkPos_Test\\GenerarDuplicadoFactura_Exitoso.cs",
+              "ToolTip": "C:\\Users\\juanp\\OneDrive\\Escritorio\\InkPos\\InkPos_Test\\GenerarDuplicadoFactura_Exitoso.cs",
+              "RelativeToolTip": "..\\InkPos_Test\\GenerarDuplicadoFactura_Exitoso.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T20:20:18.714Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FacturaManager.cs",
+              "DocumentMoniker": "C:\\Users\\juanp\\OneDrive\\Escritorio\\InkPos\\InkPOS\\FacturaManager.cs",
+              "RelativeDocumentMoniker": "FacturaManager.cs",
+              "ToolTip": "C:\\Users\\juanp\\OneDrive\\Escritorio\\InkPos\\InkPOS\\FacturaManager.cs",
+              "RelativeToolTip": "FacturaManager.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAcwDMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T20:19:18.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ItemFactura.cs",
+              "DocumentMoniker": "C:\\Users\\juanp\\OneDrive\\Escritorio\\InkPos\\InkPOS\\ItemFactura.cs",
+              "RelativeDocumentMoniker": "ItemFactura.cs",
+              "ToolTip": "C:\\Users\\juanp\\OneDrive\\Escritorio\\InkPos\\InkPOS\\ItemFactura.cs",
+              "RelativeToolTip": "ItemFactura.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T20:18:51.714Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Factura.cs",
+              "DocumentMoniker": "C:\\Users\\juanp\\OneDrive\\Escritorio\\InkPos\\InkPOS\\Factura.cs",
+              "RelativeDocumentMoniker": "Factura.cs",
+              "ToolTip": "C:\\Users\\juanp\\OneDrive\\Escritorio\\InkPos\\InkPOS\\Factura.cs",
+              "RelativeToolTip": "Factura.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T20:18:35.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ProductoManagerTest.cs",
+              "DocumentMoniker": "C:\\Users\\juanp\\OneDrive\\Escritorio\\InkPos\\InkPos_Test\\ProductoManagerTest.cs",
+              "RelativeDocumentMoniker": "..\\InkPos_Test\\ProductoManagerTest.cs",
+              "ToolTip": "C:\\Users\\juanp\\OneDrive\\Escritorio\\InkPos\\InkPos_Test\\ProductoManagerTest.cs",
+              "RelativeToolTip": "..\\InkPos_Test\\ProductoManagerTest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T20:12:13.695Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ProductoManager.cs",
+              "DocumentMoniker": "C:\\Users\\juanp\\OneDrive\\Escritorio\\InkPos\\InkPOS\\ProductoManager.cs",
+              "RelativeDocumentMoniker": "ProductoManager.cs",
+              "ToolTip": "C:\\Users\\juanp\\OneDrive\\Escritorio\\InkPos\\InkPOS\\ProductoManager.cs",
+              "RelativeToolTip": "ProductoManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T20:11:49.025Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "PagoManager.cs",
               "DocumentMoniker": "C:\\Users\\juanp\\OneDrive\\Escritorio\\InkPos\\InkPOS\\PagoManager.cs",
               "RelativeDocumentMoniker": "PagoManager.cs",
@@ -86,20 +216,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "InkPos_Test.csproj",
-              "DocumentMoniker": "C:\\Users\\juanp\\OneDrive\\Escritorio\\InkPos\\InkPos_Test\\InkPos_Test.csproj",
-              "RelativeDocumentMoniker": "..\\InkPos_Test\\InkPos_Test.csproj",
-              "ToolTip": "C:\\Users\\juanp\\OneDrive\\Escritorio\\InkPos\\InkPos_Test\\InkPos_Test.csproj",
-              "RelativeToolTip": "..\\InkPos_Test\\InkPos_Test.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-02T18:47:58.087Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 10,
               "Title": "Pago_Test.cs",
               "DocumentMoniker": "C:\\Users\\juanp\\OneDrive\\Escritorio\\InkPos\\InkPos_Test\\Pago_Test.cs",
               "RelativeDocumentMoniker": "..\\InkPos_Test\\Pago_Test.cs",
@@ -107,8 +224,7 @@
               "RelativeToolTip": "..\\InkPos_Test\\Pago_Test.cs",
               "ViewState": "AgIAADgAAAAAAAAAAAAIwEcAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-02T18:15:57.67Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-02T18:15:57.67Z"
             }
           ]
         }
