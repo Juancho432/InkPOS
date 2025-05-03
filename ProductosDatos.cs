@@ -7,20 +7,19 @@ using Npgsql;
 
 namespace InkPos
 {
-    internal class ProductosDatos
+    public class ProductosDatos
     {
         private string connectionString = "Host=localhost;Username=postgres;Password=emg1234;Database=InkPosDB";
 
-        public List<Productos> BuscarProductos(string criterio, string valor)
+        public List<Productos> BuscarProductos(string valor)
         {
             List<Productos> productos = new List<Productos>();
-            string columna = (criterio == "ID") ? "p.id_producto::text" : "i.nombre_item";
 
-            string query = $@"
-            SELECT p.id_producto, i.nombre_item, p.stock, i.pvp_item, i.porcentaje_iva_item
-            FROM productos p
-            JOIN items i ON p.id_item = i.id_item
-            WHERE {columna} ILIKE @valor";
+            string query = @"
+                SELECT p.id_producto, i.nombre_item, p.stock, i.pvp_item, i.porcentaje_iva_item
+                FROM productos p
+                JOIN items i ON p.id_item = i.id_item
+                WHERE p.id_producto::text ILIKE @valor OR i.nombre_item ILIKE @valor";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
