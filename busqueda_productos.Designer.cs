@@ -28,45 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            f4_search = new TextBox();
-            Button_search = new Button();
-            coindienci = new ListBox();
-            dgvDetalleVenta = new DataGridView();
+            txtBusqueda = new TextBox();
+            btnBuscar = new Button();
+            lstCoincidencias = new ListBox();
+            dgvProductos = new DataGridView();
             column_codigo = new DataGridViewTextBoxColumn();
             column_NombreP = new DataGridViewTextBoxColumn();
             column_cantidad = new DataGridViewTextBoxColumn();
             column_valor = new DataGridViewTextBoxColumn();
             lbl_detalleVenta = new Label();
-            txtbox_cantidadProducto = new TextBox();
-            txtbox_valorTotal = new TextBox();
+            txtboxCantidadProducto = new TextBox();
+            txtValorTotal = new TextBox();
             lbl_cantidad_productos = new Label();
             lbl_valorTotal = new Label();
-            button_finalizarVenta = new Button();
+            btnFinalizar = new Button();
             groupBox1 = new GroupBox();
-            ((System.ComponentModel.ISupportInitialize)dgvDetalleVenta).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
-            // f4_search
+            // txtBusqueda
             // 
-            f4_search.Anchor = AnchorStyles.None;
-            f4_search.Location = new Point(105, 92);
-            f4_search.Name = "f4_search";
-            f4_search.Size = new Size(233, 27);
-            f4_search.TabIndex = 0;
-            f4_search.Text = "(F4) Código/nombre del producto";
+            txtBusqueda.Anchor = AnchorStyles.None;
+            txtBusqueda.Location = new Point(105, 92);
+            txtBusqueda.Name = "txtBusqueda";
+            txtBusqueda.Size = new Size(233, 27);
+            txtBusqueda.TabIndex = 0;
+            txtBusqueda.Text = "(F4) Código/nombre del producto";
             // 
-            // Button_search
+            // btnBuscar
             // 
-            Button_search.Anchor = AnchorStyles.None;
-            Button_search.Location = new Point(176, 154);
-            Button_search.Name = "Button_search";
-            Button_search.Size = new Size(94, 29);
-            Button_search.TabIndex = 1;
-            Button_search.Text = "Buscar";
-            Button_search.UseVisualStyleBackColor = true;
+            btnBuscar.Anchor = AnchorStyles.None;
+            btnBuscar.Location = new Point(176, 154);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(94, 29);
+            btnBuscar.TabIndex = 1;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
             // 
-            // coindienci
+            // lstCoincidencias
             // 
             coindienci.FormattingEnabled = true;
             coindienci.Location = new Point(105, 220);
@@ -74,17 +75,17 @@
             coindienci.Size = new Size(233, 224);
             coindienci.TabIndex = 2;
             // 
-            // dgvDetalleVenta
+            // dgvProductos
             // 
-            dgvDetalleVenta.Anchor = AnchorStyles.None;
-            dgvDetalleVenta.BackgroundColor = SystemColors.ControlLight;
-            dgvDetalleVenta.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDetalleVenta.Columns.AddRange(new DataGridViewColumn[] { column_codigo, column_NombreP, column_cantidad, column_valor });
-            dgvDetalleVenta.Location = new Point(490, 63);
-            dgvDetalleVenta.Name = "dgvDetalleVenta";
-            dgvDetalleVenta.RowHeadersWidth = 51;
-            dgvDetalleVenta.Size = new Size(853, 396);
-            dgvDetalleVenta.TabIndex = 7;
+            dgvProductos.Anchor = AnchorStyles.None;
+            dgvProductos.BackgroundColor = SystemColors.ControlLight;
+            dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProductos.Columns.AddRange(new DataGridViewColumn[] { column_codigo, column_NombreP, column_cantidad, column_valor });
+            dgvProductos.Location = new Point(490, 63);
+            dgvProductos.Name = "dgvProductos";
+            dgvProductos.RowHeadersWidth = 51;
+            dgvProductos.Size = new Size(853, 396);
+            dgvProductos.TabIndex = 7;
             // 
             // column_codigo
             // 
@@ -124,23 +125,23 @@
             lbl_detalleVenta.TabIndex = 8;
             lbl_detalleVenta.Text = "Detalle de venta";
             // 
-            // txtbox_cantidadProducto
+            // txtboxCantidadProducto
             // 
-            txtbox_cantidadProducto.Anchor = AnchorStyles.None;
-            txtbox_cantidadProducto.Location = new Point(703, 506);
-            txtbox_cantidadProducto.Name = "txtbox_cantidadProducto";
-            txtbox_cantidadProducto.Size = new Size(160, 27);
-            txtbox_cantidadProducto.TabIndex = 9;
-            txtbox_cantidadProducto.TextChanged += textBox1_TextChanged;
+            txtboxCantidadProducto.Anchor = AnchorStyles.None;
+            txtboxCantidadProducto.Location = new Point(703, 506);
+            txtboxCantidadProducto.Name = "txtboxCantidadProducto";
+            txtboxCantidadProducto.Size = new Size(160, 27);
+            txtboxCantidadProducto.TabIndex = 9;
+            txtboxCantidadProducto.TextChanged += textBox1_TextChanged;
             // 
-            // txtbox_valorTotal
+            // txtValorTotal
             // 
-            txtbox_valorTotal.Anchor = AnchorStyles.None;
-            txtbox_valorTotal.Location = new Point(930, 506);
-            txtbox_valorTotal.Name = "txtbox_valorTotal";
-            txtbox_valorTotal.Size = new Size(154, 27);
-            txtbox_valorTotal.TabIndex = 10;
-            txtbox_valorTotal.TextChanged += txtbox_valorTotal_TextChanged;
+            txtValorTotal.Anchor = AnchorStyles.None;
+            txtValorTotal.Location = new Point(930, 506);
+            txtValorTotal.Name = "txtValorTotal";
+            txtValorTotal.Size = new Size(154, 27);
+            txtValorTotal.TabIndex = 10;
+            txtValorTotal.TextChanged += txtbox_valorTotal_TextChanged;
             // 
             // lbl_cantidad_productos
             // 
@@ -162,29 +163,30 @@
             lbl_valorTotal.TabIndex = 12;
             lbl_valorTotal.Text = "Valor total:";
             // 
-            // button_finalizarVenta
+            // btnFinalizar
             // 
-            button_finalizarVenta.Anchor = AnchorStyles.None;
-            button_finalizarVenta.Location = new Point(837, 572);
-            button_finalizarVenta.Name = "button_finalizarVenta";
-            button_finalizarVenta.Size = new Size(94, 29);
-            button_finalizarVenta.TabIndex = 13;
-            button_finalizarVenta.Text = "Finalizar venta";
-            button_finalizarVenta.UseVisualStyleBackColor = true;
+            btnFinalizar.Anchor = AnchorStyles.None;
+            btnFinalizar.Location = new Point(837, 572);
+            btnFinalizar.Name = "btnFinalizar";
+            btnFinalizar.Size = new Size(94, 29);
+            btnFinalizar.TabIndex = 13;
+            btnFinalizar.Text = "Finalizar venta";
+            btnFinalizar.UseVisualStyleBackColor = true;
+            btnFinalizar.Click += btnFinalizar_Click;
             // 
             // groupBox1
             // 
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox1.Controls.Add(coindienci);
+            groupBox1.Controls.Add(lstCoincidencias);
             groupBox1.Controls.Add(lbl_valorTotal);
-            groupBox1.Controls.Add(button_finalizarVenta);
+            groupBox1.Controls.Add(btnFinalizar);
             groupBox1.Controls.Add(lbl_cantidad_productos);
-            groupBox1.Controls.Add(Button_search);
-            groupBox1.Controls.Add(txtbox_valorTotal);
-            groupBox1.Controls.Add(f4_search);
-            groupBox1.Controls.Add(txtbox_cantidadProducto);
+            groupBox1.Controls.Add(btnBuscar);
+            groupBox1.Controls.Add(txtValorTotal);
+            groupBox1.Controls.Add(txtBusqueda);
+            groupBox1.Controls.Add(txtboxCantidadProducto);
             groupBox1.Controls.Add(lbl_detalleVenta);
-            groupBox1.Controls.Add(dgvDetalleVenta);
+            groupBox1.Controls.Add(dgvProductos);
             groupBox1.Location = new Point(24, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(1387, 617);
@@ -202,7 +204,6 @@
             Name = "busqueda_productos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "InkPos - Venta";
-            WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)dgvDetalleVenta).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -211,20 +212,20 @@
 
         #endregion
 
-        private TextBox f4_search;
-        private Button Button_search;
-        private ListBox coindienci;
-        private DataGridView dgvDetalleVenta;
+        private TextBox txtBusqueda;
+        private Button btnBuscar;
+        private ListBox lstCoincidencias;
+        private DataGridView dgvProductos;
         private Label lbl_detalleVenta;
-        private TextBox txtbox_cantidadProducto;
-        private TextBox txtbox_valorTotal;
+        private TextBox txtboxCantidadProducto;
+        private TextBox txtValorTotal;
         private Label lbl_cantidad_productos;
         private Label lbl_valorTotal;
         private DataGridViewTextBoxColumn column_codigo;
         private DataGridViewTextBoxColumn column_NombreP;
         private DataGridViewTextBoxColumn column_cantidad;
         private DataGridViewTextBoxColumn column_valor;
-        private Button button_finalizarVenta;
+        private Button btnFinalizar;
         private GroupBox groupBox1;
     }
 }
