@@ -28,32 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(gestion_empleados));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             groupBox1 = new GroupBox();
+            label4 = new Label();
+            txtbox_cargo = new TextBox();
+            txtbox_salario = new TextBox();
+            txtbox_telefono = new TextBox();
+            txtbox_cedula = new TextBox();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            lbl_nuevovalor = new Label();
+            button_agregar_empleado = new Button();
+            button_confirmar = new Button();
+            button_limpiar = new Button();
             button_salir = new Button();
             linkLabel_ver = new LinkLabel();
             txtbox_buscar_cedula_empleado = new Guna.UI2.WinForms.Guna2TextBox();
             txtbox_nombre = new TextBox();
             lbl_gestion_empleados = new Label();
-            button_limpiar = new Button();
-            button_confirmar = new Button();
-            button_agregar_empleado = new Button();
-            lbl_nuevovalor = new Label();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            txtbox_cedula = new TextBox();
-            txtbox_telefono = new TextBox();
-            txtbox_salario = new TextBox();
-            txtbox_cargo = new TextBox();
-            label4 = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(txtbox_cargo);
             groupBox1.Controls.Add(txtbox_salario);
@@ -77,6 +78,131 @@
             groupBox1.Size = new Size(1499, 1054);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.None;
+            label4.AutoSize = true;
+            label4.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(590, 523);
+            label4.Name = "label4";
+            label4.Size = new Size(89, 25);
+            label4.TabIndex = 29;
+            label4.Text = "Salario:";
+            // 
+            // txtbox_cargo
+            // 
+            txtbox_cargo.Anchor = AnchorStyles.None;
+            txtbox_cargo.Location = new Point(713, 463);
+            txtbox_cargo.Multiline = true;
+            txtbox_cargo.Name = "txtbox_cargo";
+            txtbox_cargo.Size = new Size(176, 33);
+            txtbox_cargo.TabIndex = 28;
+            // 
+            // txtbox_salario
+            // 
+            txtbox_salario.Anchor = AnchorStyles.None;
+            txtbox_salario.Location = new Point(713, 515);
+            txtbox_salario.Multiline = true;
+            txtbox_salario.Name = "txtbox_salario";
+            txtbox_salario.Size = new Size(176, 33);
+            txtbox_salario.TabIndex = 27;
+            // 
+            // txtbox_telefono
+            // 
+            txtbox_telefono.Anchor = AnchorStyles.None;
+            txtbox_telefono.Location = new Point(713, 402);
+            txtbox_telefono.Multiline = true;
+            txtbox_telefono.Name = "txtbox_telefono";
+            txtbox_telefono.Size = new Size(176, 33);
+            txtbox_telefono.TabIndex = 26;
+            // 
+            // txtbox_cedula
+            // 
+            txtbox_cedula.Anchor = AnchorStyles.None;
+            txtbox_cedula.Location = new Point(713, 345);
+            txtbox_cedula.Multiline = true;
+            txtbox_cedula.Name = "txtbox_cedula";
+            txtbox_cedula.Size = new Size(176, 33);
+            txtbox_cedula.TabIndex = 25;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.None;
+            label3.AutoSize = true;
+            label3.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(596, 460);
+            label3.Name = "label3";
+            label3.Size = new Size(83, 25);
+            label3.TabIndex = 24;
+            label3.Text = "Cargo:";
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.None;
+            label2.AutoSize = true;
+            label2.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(575, 402);
+            label2.Name = "label2";
+            label2.Size = new Size(104, 25);
+            label2.TabIndex = 23;
+            label2.Text = "Teléfono:";
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.None;
+            label1.AutoSize = true;
+            label1.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(589, 353);
+            label1.Name = "label1";
+            label1.Size = new Size(90, 25);
+            label1.TabIndex = 22;
+            label1.Text = "Cédula:";
+            // 
+            // lbl_nuevovalor
+            // 
+            lbl_nuevovalor.Anchor = AnchorStyles.None;
+            lbl_nuevovalor.AutoSize = true;
+            lbl_nuevovalor.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_nuevovalor.Location = new Point(577, 303);
+            lbl_nuevovalor.Name = "lbl_nuevovalor";
+            lbl_nuevovalor.Size = new Size(102, 25);
+            lbl_nuevovalor.TabIndex = 21;
+            lbl_nuevovalor.Text = "Nombre:";
+            lbl_nuevovalor.Click += lbl_nuevovalor_Click;
+            // 
+            // button_agregar_empleado
+            // 
+            button_agregar_empleado.Anchor = AnchorStyles.None;
+            button_agregar_empleado.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button_agregar_empleado.Location = new Point(837, 183);
+            button_agregar_empleado.Name = "button_agregar_empleado";
+            button_agregar_empleado.Size = new Size(262, 60);
+            button_agregar_empleado.TabIndex = 20;
+            button_agregar_empleado.Text = "Agregar nuevo empleado";
+            button_agregar_empleado.UseVisualStyleBackColor = true;
+            // 
+            // button_confirmar
+            // 
+            button_confirmar.Anchor = AnchorStyles.None;
+            button_confirmar.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button_confirmar.Location = new Point(486, 615);
+            button_confirmar.Name = "button_confirmar";
+            button_confirmar.Size = new Size(128, 44);
+            button_confirmar.TabIndex = 19;
+            button_confirmar.Text = "Confirmar";
+            button_confirmar.UseVisualStyleBackColor = true;
+            // 
+            // button_limpiar
+            // 
+            button_limpiar.Anchor = AnchorStyles.None;
+            button_limpiar.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button_limpiar.Location = new Point(694, 615);
+            button_limpiar.Name = "button_limpiar";
+            button_limpiar.Size = new Size(94, 44);
+            button_limpiar.TabIndex = 18;
+            button_limpiar.Text = "Limpiar";
+            button_limpiar.UseVisualStyleBackColor = true;
             // 
             // button_salir
             // 
@@ -102,7 +228,7 @@
             // 
             txtbox_buscar_cedula_empleado.Anchor = AnchorStyles.None;
             txtbox_buscar_cedula_empleado.BorderRadius = 20;
-            txtbox_buscar_cedula_empleado.CustomizableEdges = customizableEdges7;
+            txtbox_buscar_cedula_empleado.CustomizableEdges = customizableEdges1;
             txtbox_buscar_cedula_empleado.DefaultText = "";
             txtbox_buscar_cedula_empleado.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtbox_buscar_cedula_empleado.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -118,7 +244,7 @@
             txtbox_buscar_cedula_empleado.Name = "txtbox_buscar_cedula_empleado";
             txtbox_buscar_cedula_empleado.PlaceholderText = "Ingrese la cédula del empleado";
             txtbox_buscar_cedula_empleado.SelectedText = "";
-            txtbox_buscar_cedula_empleado.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            txtbox_buscar_cedula_empleado.ShadowDecoration.CustomizableEdges = customizableEdges2;
             txtbox_buscar_cedula_empleado.Size = new Size(260, 60);
             txtbox_buscar_cedula_empleado.TabIndex = 2;
             // 
@@ -141,131 +267,6 @@
             lbl_gestion_empleados.Size = new Size(466, 48);
             lbl_gestion_empleados.TabIndex = 0;
             lbl_gestion_empleados.Text = "Gestión de empleados";
-            // 
-            // button_limpiar
-            // 
-            button_limpiar.Anchor = AnchorStyles.None;
-            button_limpiar.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button_limpiar.Location = new Point(694, 615);
-            button_limpiar.Name = "button_limpiar";
-            button_limpiar.Size = new Size(94, 44);
-            button_limpiar.TabIndex = 18;
-            button_limpiar.Text = "Limpiar";
-            button_limpiar.UseVisualStyleBackColor = true;
-            // 
-            // button_confirmar
-            // 
-            button_confirmar.Anchor = AnchorStyles.None;
-            button_confirmar.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button_confirmar.Location = new Point(486, 615);
-            button_confirmar.Name = "button_confirmar";
-            button_confirmar.Size = new Size(128, 44);
-            button_confirmar.TabIndex = 19;
-            button_confirmar.Text = "Confirmar";
-            button_confirmar.UseVisualStyleBackColor = true;
-            // 
-            // button_agregar_empleado
-            // 
-            button_agregar_empleado.Anchor = AnchorStyles.None;
-            button_agregar_empleado.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button_agregar_empleado.Location = new Point(837, 183);
-            button_agregar_empleado.Name = "button_agregar_empleado";
-            button_agregar_empleado.Size = new Size(262, 60);
-            button_agregar_empleado.TabIndex = 20;
-            button_agregar_empleado.Text = "Agregar nuevo empleado";
-            button_agregar_empleado.UseVisualStyleBackColor = true;
-            // 
-            // lbl_nuevovalor
-            // 
-            lbl_nuevovalor.Anchor = AnchorStyles.None;
-            lbl_nuevovalor.AutoSize = true;
-            lbl_nuevovalor.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_nuevovalor.Location = new Point(577, 303);
-            lbl_nuevovalor.Name = "lbl_nuevovalor";
-            lbl_nuevovalor.Size = new Size(102, 25);
-            lbl_nuevovalor.TabIndex = 21;
-            lbl_nuevovalor.Text = "Nombre:";
-            lbl_nuevovalor.Click += lbl_nuevovalor_Click;
-            // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.None;
-            label1.AutoSize = true;
-            label1.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(589, 353);
-            label1.Name = "label1";
-            label1.Size = new Size(90, 25);
-            label1.TabIndex = 22;
-            label1.Text = "Cédula:";
-            // 
-            // label2
-            // 
-            label2.Anchor = AnchorStyles.None;
-            label2.AutoSize = true;
-            label2.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(575, 402);
-            label2.Name = "label2";
-            label2.Size = new Size(104, 25);
-            label2.TabIndex = 23;
-            label2.Text = "Teléfono:";
-            // 
-            // label3
-            // 
-            label3.Anchor = AnchorStyles.None;
-            label3.AutoSize = true;
-            label3.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(596, 460);
-            label3.Name = "label3";
-            label3.Size = new Size(83, 25);
-            label3.TabIndex = 24;
-            label3.Text = "Cargo:";
-            // 
-            // txtbox_cedula
-            // 
-            txtbox_cedula.Anchor = AnchorStyles.None;
-            txtbox_cedula.Location = new Point(713, 345);
-            txtbox_cedula.Multiline = true;
-            txtbox_cedula.Name = "txtbox_cedula";
-            txtbox_cedula.Size = new Size(176, 33);
-            txtbox_cedula.TabIndex = 25;
-            // 
-            // txtbox_telefono
-            // 
-            txtbox_telefono.Anchor = AnchorStyles.None;
-            txtbox_telefono.Location = new Point(713, 402);
-            txtbox_telefono.Multiline = true;
-            txtbox_telefono.Name = "txtbox_telefono";
-            txtbox_telefono.Size = new Size(176, 33);
-            txtbox_telefono.TabIndex = 26;
-            // 
-            // txtbox_salario
-            // 
-            txtbox_salario.Anchor = AnchorStyles.None;
-            txtbox_salario.Location = new Point(713, 515);
-            txtbox_salario.Multiline = true;
-            txtbox_salario.Name = "txtbox_salario";
-            txtbox_salario.Size = new Size(176, 33);
-            txtbox_salario.TabIndex = 27;
-            // 
-            // txtbox_cargo
-            // 
-            txtbox_cargo.Anchor = AnchorStyles.None;
-            txtbox_cargo.Location = new Point(713, 463);
-            txtbox_cargo.Multiline = true;
-            txtbox_cargo.Name = "txtbox_cargo";
-            txtbox_cargo.Size = new Size(176, 33);
-            txtbox_cargo.TabIndex = 28;
-            // 
-            // label4
-            // 
-            label4.Anchor = AnchorStyles.None;
-            label4.AutoSize = true;
-            label4.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(590, 523);
-            label4.Name = "label4";
-            label4.Size = new Size(89, 25);
-            label4.TabIndex = 29;
-            label4.Text = "Salario:";
             // 
             // gestion_empleados
             // 

@@ -40,6 +40,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Tahoma", 28.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(461, 123);
@@ -110,6 +111,7 @@
             Name = "seleccion_maestro_productos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "InkPOS - Maestro de productos";
+            WindowState = FormWindowState.Maximized;
             ResumeLayout(false);
             PerformLayout();
         }

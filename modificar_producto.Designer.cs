@@ -57,6 +57,7 @@
             // 
             // box_campomodificar
             // 
+            box_campomodificar.Anchor = AnchorStyles.None;
             box_campomodificar.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             box_campomodificar.FormattingEnabled = true;
             box_campomodificar.Location = new Point(568, 163);

@@ -69,6 +69,7 @@
             // 
             // lstCoincidencias
             // 
+            lstCoincidencias.Anchor = AnchorStyles.None;
             lstCoincidencias.FormattingEnabled = true;
             lstCoincidencias.Location = new Point(105, 220);
             lstCoincidencias.Name = "lstCoincidencias";

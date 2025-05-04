@@ -28,21 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(busqueda_factura));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             groupBox1 = new GroupBox();
-            lbl_busqueda_factura = new Label();
+            button_salir = new Button();
+            button_imprimir = new Button();
+            linkLabel_ver = new LinkLabel();
             txtbox_num_factura = new Guna.UI2.WinForms.Guna2TextBox();
             txtbox_resultado_factura = new TextBox();
-            linkLabel_ver = new LinkLabel();
-            button_imprimir = new Button();
-            button_salir = new Button();
+            lbl_busqueda_factura = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBox1.Controls.Add(button_salir);
             groupBox1.Controls.Add(button_imprimir);
             groupBox1.Controls.Add(linkLabel_ver);
@@ -56,22 +57,43 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             // 
-            // lbl_busqueda_factura
+            // button_salir
             // 
-            lbl_busqueda_factura.Anchor = AnchorStyles.None;
-            lbl_busqueda_factura.AutoSize = true;
-            lbl_busqueda_factura.Font = new Font("Tahoma", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_busqueda_factura.Location = new Point(487, 79);
-            lbl_busqueda_factura.Name = "lbl_busqueda_factura";
-            lbl_busqueda_factura.Size = new Size(456, 48);
-            lbl_busqueda_factura.TabIndex = 0;
-            lbl_busqueda_factura.Text = "Búsqueda de facturas";
+            button_salir.Anchor = AnchorStyles.None;
+            button_salir.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button_salir.Location = new Point(669, 599);
+            button_salir.Name = "button_salir";
+            button_salir.Size = new Size(94, 44);
+            button_salir.TabIndex = 17;
+            button_salir.Text = "Salir";
+            button_salir.UseVisualStyleBackColor = true;
+            // 
+            // button_imprimir
+            // 
+            button_imprimir.Anchor = AnchorStyles.None;
+            button_imprimir.Image = (Image)resources.GetObject("button_imprimir.Image");
+            button_imprimir.Location = new Point(836, 350);
+            button_imprimir.Name = "button_imprimir";
+            button_imprimir.Size = new Size(69, 48);
+            button_imprimir.TabIndex = 4;
+            button_imprimir.UseVisualStyleBackColor = true;
+            // 
+            // linkLabel_ver
+            // 
+            linkLabel_ver.Anchor = AnchorStyles.None;
+            linkLabel_ver.AutoSize = true;
+            linkLabel_ver.Location = new Point(727, 359);
+            linkLabel_ver.Name = "linkLabel_ver";
+            linkLabel_ver.Size = new Size(49, 31);
+            linkLabel_ver.TabIndex = 3;
+            linkLabel_ver.TabStop = true;
+            linkLabel_ver.Text = "Ver";
             // 
             // txtbox_num_factura
             // 
             txtbox_num_factura.Anchor = AnchorStyles.None;
             txtbox_num_factura.BorderRadius = 20;
-            txtbox_num_factura.CustomizableEdges = customizableEdges3;
+            txtbox_num_factura.CustomizableEdges = customizableEdges1;
             txtbox_num_factura.DefaultText = "";
             txtbox_num_factura.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtbox_num_factura.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -87,7 +109,7 @@
             txtbox_num_factura.Name = "txtbox_num_factura";
             txtbox_num_factura.PlaceholderText = "Ingrese en N° de factura";
             txtbox_num_factura.SelectedText = "";
-            txtbox_num_factura.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            txtbox_num_factura.ShadowDecoration.CustomizableEdges = customizableEdges2;
             txtbox_num_factura.Size = new Size(237, 60);
             txtbox_num_factura.TabIndex = 2;
             // 
@@ -101,37 +123,16 @@
             txtbox_resultado_factura.Size = new Size(176, 46);
             txtbox_resultado_factura.TabIndex = 1;
             // 
-            // linkLabel_ver
+            // lbl_busqueda_factura
             // 
-            linkLabel_ver.Anchor = AnchorStyles.None;
-            linkLabel_ver.AutoSize = true;
-            linkLabel_ver.Location = new Point(727, 359);
-            linkLabel_ver.Name = "linkLabel_ver";
-            linkLabel_ver.Size = new Size(49, 31);
-            linkLabel_ver.TabIndex = 3;
-            linkLabel_ver.TabStop = true;
-            linkLabel_ver.Text = "Ver";
-            // 
-            // button_imprimir
-            // 
-            button_imprimir.Anchor = AnchorStyles.None;
-            button_imprimir.Image = (Image)resources.GetObject("button_imprimir.Image");
-            button_imprimir.Location = new Point(836, 350);
-            button_imprimir.Name = "button_imprimir";
-            button_imprimir.Size = new Size(69, 48);
-            button_imprimir.TabIndex = 4;
-            button_imprimir.UseVisualStyleBackColor = true;
-            // 
-            // button_salir
-            // 
-            button_salir.Anchor = AnchorStyles.None;
-            button_salir.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button_salir.Location = new Point(669, 599);
-            button_salir.Name = "button_salir";
-            button_salir.Size = new Size(94, 44);
-            button_salir.TabIndex = 17;
-            button_salir.Text = "Salir";
-            button_salir.UseVisualStyleBackColor = true;
+            lbl_busqueda_factura.Anchor = AnchorStyles.None;
+            lbl_busqueda_factura.AutoSize = true;
+            lbl_busqueda_factura.Font = new Font("Tahoma", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_busqueda_factura.Location = new Point(487, 79);
+            lbl_busqueda_factura.Name = "lbl_busqueda_factura";
+            lbl_busqueda_factura.Size = new Size(456, 48);
+            lbl_busqueda_factura.TabIndex = 0;
+            lbl_busqueda_factura.Text = "Búsqueda de facturas";
             // 
             // busqueda_factura
             // 
@@ -142,6 +143,7 @@
             Controls.Add(groupBox1);
             Name = "busqueda_factura";
             Text = "InkPOS - Búsquda de facturas";
+            WindowState = FormWindowState.Maximized;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
