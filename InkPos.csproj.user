@@ -4,6 +4,9 @@
     <Compile Update="agregar_producto.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="busqueda_factura.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="busqueda_productos.cs">
       <SubType>Form</SubType>
     </Compile>
