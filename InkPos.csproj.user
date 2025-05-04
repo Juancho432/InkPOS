@@ -16,6 +16,9 @@
     <Compile Update="FormPruebaDB.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="gestion_empleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="InformeFactura.cs">
       <SubType>Form</SubType>
     </Compile>
