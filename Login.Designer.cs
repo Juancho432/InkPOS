@@ -69,6 +69,7 @@
             button_salir.TabIndex = 8;
             button_salir.Text = "Salir";
             button_salir.UseVisualStyleBackColor = true;
+            button_salir.Click += button_salir_Click;
             // 
             // button_limpiar
             // 
@@ -92,6 +93,7 @@
             button_ingresar.TabIndex = 6;
             button_ingresar.Text = "Ingresar";
             button_ingresar.UseVisualStyleBackColor = true;
+            button_ingresar.Click += button_ingresar_Click;
             // 
             // lbl_contraseña
             // 
