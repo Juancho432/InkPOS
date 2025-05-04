@@ -269,6 +269,20 @@ namespace InkPos
             dgvProductos.Rows.Clear();
             totalVenta = 0;
             txtValorTotal.Text = "";
+
+            if (productosEnVenta.Count == 0)
+            {
+                MessageBox.Show("No hay productos agregados.");
+                return;
+            }
+
+            Ventana_Pago pago = new Ventana_Pago(productosEnVenta, totalVenta);
+            pago.ShowDialog();
+        }
+
+        private void busqueda_productos_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

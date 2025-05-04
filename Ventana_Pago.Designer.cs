@@ -75,6 +75,7 @@
             button_generarPDF.TabIndex = 12;
             button_generarPDF.Text = "Generar PDF";
             button_generarPDF.UseVisualStyleBackColor = true;
+            button_generarPDF.Click += button_generarPDF_Click;
             // 
             // txtbox_cambio
             // 
@@ -135,6 +136,7 @@
             button_aceptar.TabIndex = 6;
             button_aceptar.Text = "Aceptar";
             button_aceptar.UseVisualStyleBackColor = true;
+            button_aceptar.Click += button_aceptar_Click;
             // 
             // lbl_valorRecibido
             // 
@@ -198,6 +200,7 @@
             Name = "Ventana_Pago";
             Text = "InkPOS - Pago";
             WindowState = FormWindowState.Maximized;
+            Load += Ventana_Pago_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
