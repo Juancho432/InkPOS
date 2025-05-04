@@ -206,7 +206,8 @@
             ClientSize = new Size(1448, 721);
             Controls.Add(groupBox1);
             Name = "agregar_producto";
-            Text = "agregar_producto";
+            Text = "InkPOS - Agregar producto";
+            WindowState = FormWindowState.Maximized;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);

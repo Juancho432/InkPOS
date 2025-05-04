@@ -29,28 +29,28 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            button2 = new Button();
-            button1 = new Button();
+            button_salir = new Button();
+            button_limpiar = new Button();
+            button_ingresar = new Button();
             lbl_contraseña = new Label();
             lbl_IDusuario = new Label();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            txtbox_contraseña = new TextBox();
+            txtbox_ID = new TextBox();
             label1 = new Label();
             lbl_InkPOS = new Label();
-            button3 = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox1.Controls.Add(button3);
-            groupBox1.Controls.Add(button2);
-            groupBox1.Controls.Add(button1);
+            groupBox1.Controls.Add(button_salir);
+            groupBox1.Controls.Add(button_limpiar);
+            groupBox1.Controls.Add(button_ingresar);
             groupBox1.Controls.Add(lbl_contraseña);
             groupBox1.Controls.Add(lbl_IDusuario);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(txtbox_contraseña);
+            groupBox1.Controls.Add(txtbox_ID);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(lbl_InkPOS);
             groupBox1.Location = new Point(21, 21);
@@ -59,28 +59,39 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             // 
-            // button2
+            // button_salir
             // 
-            button2.Anchor = AnchorStyles.None;
-            button2.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(708, 487);
-            button2.Name = "button2";
-            button2.Size = new Size(100, 38);
-            button2.TabIndex = 7;
-            button2.Text = "Limpiar";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            button_salir.Anchor = AnchorStyles.None;
+            button_salir.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button_salir.Location = new Point(617, 572);
+            button_salir.Name = "button_salir";
+            button_salir.Size = new Size(100, 38);
+            button_salir.TabIndex = 8;
+            button_salir.Text = "Salir";
+            button_salir.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // button_limpiar
             // 
-            button1.Anchor = AnchorStyles.None;
-            button1.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(518, 487);
-            button1.Name = "button1";
-            button1.Size = new Size(100, 38);
-            button1.TabIndex = 6;
-            button1.Text = "Ingresar";
-            button1.UseVisualStyleBackColor = true;
+            button_limpiar.Anchor = AnchorStyles.None;
+            button_limpiar.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button_limpiar.Location = new Point(708, 487);
+            button_limpiar.Name = "button_limpiar";
+            button_limpiar.Size = new Size(100, 38);
+            button_limpiar.TabIndex = 7;
+            button_limpiar.Text = "Limpiar";
+            button_limpiar.UseVisualStyleBackColor = true;
+            button_limpiar.Click += button2_Click;
+            // 
+            // button_ingresar
+            // 
+            button_ingresar.Anchor = AnchorStyles.None;
+            button_ingresar.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button_ingresar.Location = new Point(518, 487);
+            button_ingresar.Name = "button_ingresar";
+            button_ingresar.Size = new Size(100, 38);
+            button_ingresar.TabIndex = 6;
+            button_ingresar.Text = "Ingresar";
+            button_ingresar.UseVisualStyleBackColor = true;
             // 
             // lbl_contraseña
             // 
@@ -106,21 +117,21 @@
             lbl_IDusuario.Text = "ID de usuario:";
             lbl_IDusuario.Click += label2_Click;
             // 
-            // textBox2
+            // txtbox_contraseña
             // 
-            textBox2.Anchor = AnchorStyles.None;
-            textBox2.Location = new Point(567, 385);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(209, 27);
-            textBox2.TabIndex = 3;
+            txtbox_contraseña.Anchor = AnchorStyles.None;
+            txtbox_contraseña.Location = new Point(567, 385);
+            txtbox_contraseña.Name = "txtbox_contraseña";
+            txtbox_contraseña.Size = new Size(209, 27);
+            txtbox_contraseña.TabIndex = 3;
             // 
-            // textBox1
+            // txtbox_ID
             // 
-            textBox1.Anchor = AnchorStyles.None;
-            textBox1.Location = new Point(567, 308);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(209, 27);
-            textBox1.TabIndex = 2;
+            txtbox_ID.Anchor = AnchorStyles.None;
+            txtbox_ID.Location = new Point(567, 308);
+            txtbox_ID.Name = "txtbox_ID";
+            txtbox_ID.Size = new Size(209, 27);
+            txtbox_ID.TabIndex = 2;
             // 
             // label1
             // 
@@ -144,17 +155,6 @@
             lbl_InkPOS.TabIndex = 0;
             lbl_InkPOS.Text = "InkPOS";
             // 
-            // button3
-            // 
-            button3.Anchor = AnchorStyles.None;
-            button3.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.Location = new Point(617, 572);
-            button3.Name = "button3";
-            button3.Size = new Size(100, 38);
-            button3.TabIndex = 8;
-            button3.Text = "Salir";
-            button3.UseVisualStyleBackColor = true;
-            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -164,6 +164,7 @@
             Controls.Add(groupBox1);
             Name = "Login";
             Text = "InkPOS - Login";
+            WindowState = FormWindowState.Maximized;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
@@ -175,11 +176,11 @@
         private Label label1;
         private Label lbl_InkPOS;
         private Label lbl_IDusuario;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox txtbox_contraseña;
+        private TextBox txtbox_ID;
         private Label lbl_contraseña;
-        private Button button2;
-        private Button button1;
-        private Button button3;
+        private Button button_limpiar;
+        private Button button_ingresar;
+        private Button button_salir;
     }
 }

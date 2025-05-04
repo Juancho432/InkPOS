@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            button_generarPDF = new Button();
+            txtbox_cambio = new TextBox();
+            txtbox_valorRecibido = new TextBox();
+            box_metodopago = new ComboBox();
             button3 = new Button();
             button_cancelar = new Button();
             button_aceptar = new Button();
@@ -37,10 +41,6 @@
             txtbox_valor = new TextBox();
             label1 = new Label();
             lbl_valor = new Label();
-            box_metodopago = new ComboBox();
-            txtbox_valorRecibido = new TextBox();
-            txtbox_cambio = new TextBox();
-            button_generarPDF = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -64,6 +64,44 @@
             groupBox1.Size = new Size(1422, 699);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
+            // 
+            // button_generarPDF
+            // 
+            button_generarPDF.Anchor = AnchorStyles.None;
+            button_generarPDF.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button_generarPDF.Location = new Point(678, 536);
+            button_generarPDF.Name = "button_generarPDF";
+            button_generarPDF.Size = new Size(144, 38);
+            button_generarPDF.TabIndex = 12;
+            button_generarPDF.Text = "Generar PDF";
+            button_generarPDF.UseVisualStyleBackColor = true;
+            // 
+            // txtbox_cambio
+            // 
+            txtbox_cambio.Anchor = AnchorStyles.None;
+            txtbox_cambio.Location = new Point(734, 362);
+            txtbox_cambio.Multiline = true;
+            txtbox_cambio.Name = "txtbox_cambio";
+            txtbox_cambio.Size = new Size(260, 50);
+            txtbox_cambio.TabIndex = 11;
+            // 
+            // txtbox_valorRecibido
+            // 
+            txtbox_valorRecibido.Anchor = AnchorStyles.None;
+            txtbox_valorRecibido.Location = new Point(734, 290);
+            txtbox_valorRecibido.Multiline = true;
+            txtbox_valorRecibido.Name = "txtbox_valorRecibido";
+            txtbox_valorRecibido.Size = new Size(260, 50);
+            txtbox_valorRecibido.TabIndex = 10;
+            // 
+            // box_metodopago
+            // 
+            box_metodopago.FormattingEnabled = true;
+            box_metodopago.Location = new Point(655, 215);
+            box_metodopago.Name = "box_metodopago";
+            box_metodopago.Size = new Size(151, 28);
+            box_metodopago.TabIndex = 9;
+            box_metodopago.Text = "Método de pago";
             // 
             // button3
             // 
@@ -150,44 +188,6 @@
             lbl_valor.TabIndex = 0;
             lbl_valor.Text = "Valor: ";
             // 
-            // box_metodopago
-            // 
-            box_metodopago.FormattingEnabled = true;
-            box_metodopago.Location = new Point(655, 215);
-            box_metodopago.Name = "box_metodopago";
-            box_metodopago.Size = new Size(151, 28);
-            box_metodopago.TabIndex = 9;
-            box_metodopago.Text = "Método de pago";
-            // 
-            // txtbox_valorRecibido
-            // 
-            txtbox_valorRecibido.Anchor = AnchorStyles.None;
-            txtbox_valorRecibido.Location = new Point(734, 290);
-            txtbox_valorRecibido.Multiline = true;
-            txtbox_valorRecibido.Name = "txtbox_valorRecibido";
-            txtbox_valorRecibido.Size = new Size(260, 50);
-            txtbox_valorRecibido.TabIndex = 10;
-            // 
-            // txtbox_cambio
-            // 
-            txtbox_cambio.Anchor = AnchorStyles.None;
-            txtbox_cambio.Location = new Point(734, 362);
-            txtbox_cambio.Multiline = true;
-            txtbox_cambio.Name = "txtbox_cambio";
-            txtbox_cambio.Size = new Size(260, 50);
-            txtbox_cambio.TabIndex = 11;
-            // 
-            // button_generarPDF
-            // 
-            button_generarPDF.Anchor = AnchorStyles.None;
-            button_generarPDF.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button_generarPDF.Location = new Point(678, 536);
-            button_generarPDF.Name = "button_generarPDF";
-            button_generarPDF.Size = new Size(144, 38);
-            button_generarPDF.TabIndex = 12;
-            button_generarPDF.Text = "Generar PDF";
-            button_generarPDF.UseVisualStyleBackColor = true;
-            // 
             // Ventana_Pago
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -197,6 +197,7 @@
             Controls.Add(groupBox1);
             Name = "Ventana_Pago";
             Text = "InkPOS - Pago";
+            WindowState = FormWindowState.Maximized;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
