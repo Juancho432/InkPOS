@@ -28,146 +28,157 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menu_opciones));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            label1 = new Label();
-            label2 = new Label();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            lbl_welcome = new Label();
+            lbl_nombre_empleado = new Label();
             groupBox1 = new GroupBox();
-            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
+            button_facturas = new Guna.UI2.WinForms.Guna2Button();
+            button_gestion_empleados = new Guna.UI2.WinForms.Guna2Button();
+            button_maestro_productos = new Guna.UI2.WinForms.Guna2Button();
+            button_venta = new Guna.UI2.WinForms.Guna2Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
-            // label1
+            // lbl_welcome
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Tahoma", 28.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label1.Location = new Point(432, 98);
-            label1.Name = "label1";
-            label1.Size = new Size(287, 57);
-            label1.TabIndex = 0;
-            label1.Text = "Bienvenido";
+            lbl_welcome.Anchor = AnchorStyles.None;
+            lbl_welcome.AutoSize = true;
+            lbl_welcome.Font = new Font("Tahoma", 28.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            lbl_welcome.Location = new Point(432, 98);
+            lbl_welcome.Name = "lbl_welcome";
+            lbl_welcome.Size = new Size(287, 57);
+            lbl_welcome.TabIndex = 0;
+            lbl_welcome.Text = "Bienvenido";
             // 
-            // label2
+            // lbl_nombre_empleado
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Tahoma", 28.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label2.Location = new Point(725, 98);
-            label2.Name = "label2";
-            label2.Size = new Size(325, 57);
-            label2.TabIndex = 1;
-            label2.Text = "__________";
+            lbl_nombre_empleado.Anchor = AnchorStyles.None;
+            lbl_nombre_empleado.AutoSize = true;
+            lbl_nombre_empleado.Font = new Font("Tahoma", 28.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            lbl_nombre_empleado.Location = new Point(725, 98);
+            lbl_nombre_empleado.Name = "lbl_nombre_empleado";
+            lbl_nombre_empleado.Size = new Size(325, 57);
+            lbl_nombre_empleado.TabIndex = 1;
+            lbl_nombre_empleado.Text = "__________";
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(guna2Button4);
-            groupBox1.Controls.Add(guna2Button3);
-            groupBox1.Controls.Add(guna2Button2);
-            groupBox1.Controls.Add(guna2Button1);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(label1);
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.Controls.Add(button_facturas);
+            groupBox1.Controls.Add(button_gestion_empleados);
+            groupBox1.Controls.Add(button_maestro_productos);
+            groupBox1.Controls.Add(button_venta);
+            groupBox1.Controls.Add(lbl_nombre_empleado);
+            groupBox1.Controls.Add(lbl_welcome);
             groupBox1.Location = new Point(8, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(1608, 740);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             // 
-            // guna2Button1
+            // button_facturas
             // 
-            guna2Button1.BorderRadius = 90;
-            guna2Button1.CustomizableEdges = customizableEdges7;
-            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button1.FillColor = Color.Purple;
-            guna2Button1.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2Button1.ForeColor = Color.White;
-            guna2Button1.Image = (Image)resources.GetObject("guna2Button1.Image");
-            guna2Button1.ImageOffset = new Point(13, -10);
-            guna2Button1.ImageSize = new Size(90, 90);
-            guna2Button1.Location = new Point(498, 213);
-            guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2Button1.Size = new Size(180, 180);
-            guna2Button1.TabIndex = 2;
-            guna2Button1.Text = "Venta";
-            guna2Button1.TextOffset = new Point(-22, 60);
+            button_facturas.Anchor = AnchorStyles.None;
+            button_facturas.BorderRadius = 90;
+            button_facturas.CustomizableEdges = customizableEdges1;
+            button_facturas.DisabledState.BorderColor = Color.DarkGray;
+            button_facturas.DisabledState.CustomBorderColor = Color.DarkGray;
+            button_facturas.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            button_facturas.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            button_facturas.FillColor = Color.Purple;
+            button_facturas.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button_facturas.ForeColor = Color.White;
+            button_facturas.Image = (Image)resources.GetObject("button_facturas.Image");
+            button_facturas.ImageOffset = new Point(20, -10);
+            button_facturas.ImageSize = new Size(90, 90);
+            button_facturas.Location = new Point(808, 442);
+            button_facturas.Name = "button_facturas";
+            button_facturas.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            button_facturas.Size = new Size(180, 180);
+            button_facturas.TabIndex = 5;
+            button_facturas.Text = "Facturas";
+            button_facturas.TextOffset = new Point(-22, 60);
+            button_facturas.Click += button_facturas_Click;
             // 
-            // guna2Button2
+            // button_gestion_empleados
             // 
-            guna2Button2.BorderRadius = 90;
-            guna2Button2.CustomizableEdges = customizableEdges5;
-            guna2Button2.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button2.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button2.FillColor = Color.Purple;
-            guna2Button2.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2Button2.ForeColor = Color.White;
-            guna2Button2.Image = (Image)resources.GetObject("guna2Button2.Image");
-            guna2Button2.ImageOffset = new Point(43, -10);
-            guna2Button2.ImageSize = new Size(90, 90);
-            guna2Button2.Location = new Point(808, 213);
-            guna2Button2.Name = "guna2Button2";
-            guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            guna2Button2.Size = new Size(180, 180);
-            guna2Button2.TabIndex = 3;
-            guna2Button2.Text = "Maestro de productos";
-            guna2Button2.TextOffset = new Point(-23, 60);
+            button_gestion_empleados.Anchor = AnchorStyles.None;
+            button_gestion_empleados.BorderRadius = 90;
+            button_gestion_empleados.CustomizableEdges = customizableEdges3;
+            button_gestion_empleados.DisabledState.BorderColor = Color.DarkGray;
+            button_gestion_empleados.DisabledState.CustomBorderColor = Color.DarkGray;
+            button_gestion_empleados.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            button_gestion_empleados.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            button_gestion_empleados.FillColor = Color.Purple;
+            button_gestion_empleados.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button_gestion_empleados.ForeColor = Color.White;
+            button_gestion_empleados.Image = (Image)resources.GetObject("button_gestion_empleados.Image");
+            button_gestion_empleados.ImageOffset = new Point(43, -10);
+            button_gestion_empleados.ImageSize = new Size(90, 90);
+            button_gestion_empleados.Location = new Point(498, 442);
+            button_gestion_empleados.Name = "button_gestion_empleados";
+            button_gestion_empleados.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            button_gestion_empleados.Size = new Size(180, 180);
+            button_gestion_empleados.TabIndex = 4;
+            button_gestion_empleados.Text = "Gestión de empleados";
+            button_gestion_empleados.TextOffset = new Point(-24, 60);
+            button_gestion_empleados.Click += button_gestion_empleados_Click;
             // 
-            // guna2Button3
+            // button_maestro_productos
             // 
-            guna2Button3.BorderRadius = 90;
-            guna2Button3.CustomizableEdges = customizableEdges3;
-            guna2Button3.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button3.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button3.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button3.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button3.FillColor = Color.Purple;
-            guna2Button3.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2Button3.ForeColor = Color.White;
-            guna2Button3.Image = (Image)resources.GetObject("guna2Button3.Image");
-            guna2Button3.ImageOffset = new Point(43, -10);
-            guna2Button3.ImageSize = new Size(90, 90);
-            guna2Button3.Location = new Point(498, 442);
-            guna2Button3.Name = "guna2Button3";
-            guna2Button3.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2Button3.Size = new Size(180, 180);
-            guna2Button3.TabIndex = 4;
-            guna2Button3.Text = "Gestión de empleados";
-            guna2Button3.TextOffset = new Point(-24, 60);
+            button_maestro_productos.Anchor = AnchorStyles.None;
+            button_maestro_productos.BorderRadius = 90;
+            button_maestro_productos.CustomizableEdges = customizableEdges5;
+            button_maestro_productos.DisabledState.BorderColor = Color.DarkGray;
+            button_maestro_productos.DisabledState.CustomBorderColor = Color.DarkGray;
+            button_maestro_productos.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            button_maestro_productos.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            button_maestro_productos.FillColor = Color.Purple;
+            button_maestro_productos.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button_maestro_productos.ForeColor = Color.White;
+            button_maestro_productos.Image = (Image)resources.GetObject("button_maestro_productos.Image");
+            button_maestro_productos.ImageOffset = new Point(43, -10);
+            button_maestro_productos.ImageSize = new Size(90, 90);
+            button_maestro_productos.Location = new Point(808, 213);
+            button_maestro_productos.Name = "button_maestro_productos";
+            button_maestro_productos.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            button_maestro_productos.Size = new Size(180, 180);
+            button_maestro_productos.TabIndex = 3;
+            button_maestro_productos.Text = "Maestro de productos";
+            button_maestro_productos.TextOffset = new Point(-23, 60);
+            button_maestro_productos.Click += button_maestro_productos_Click;
             // 
-            // guna2Button4
+            // button_venta
             // 
-            guna2Button4.BorderRadius = 90;
-            guna2Button4.CustomizableEdges = customizableEdges1;
-            guna2Button4.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button4.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button4.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button4.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button4.FillColor = Color.Purple;
-            guna2Button4.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2Button4.ForeColor = Color.White;
-            guna2Button4.Image = (Image)resources.GetObject("guna2Button4.Image");
-            guna2Button4.ImageOffset = new Point(20, -10);
-            guna2Button4.ImageSize = new Size(90, 90);
-            guna2Button4.Location = new Point(808, 442);
-            guna2Button4.Name = "guna2Button4";
-            guna2Button4.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2Button4.Size = new Size(180, 180);
-            guna2Button4.TabIndex = 5;
-            guna2Button4.Text = "Facturas";
-            guna2Button4.TextOffset = new Point(-22, 60);
+            button_venta.Anchor = AnchorStyles.None;
+            button_venta.BorderRadius = 90;
+            button_venta.CustomizableEdges = customizableEdges7;
+            button_venta.DisabledState.BorderColor = Color.DarkGray;
+            button_venta.DisabledState.CustomBorderColor = Color.DarkGray;
+            button_venta.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            button_venta.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            button_venta.FillColor = Color.Purple;
+            button_venta.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button_venta.ForeColor = Color.White;
+            button_venta.Image = (Image)resources.GetObject("button_venta.Image");
+            button_venta.ImageOffset = new Point(13, -10);
+            button_venta.ImageSize = new Size(90, 90);
+            button_venta.Location = new Point(498, 213);
+            button_venta.Name = "button_venta";
+            button_venta.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            button_venta.Size = new Size(180, 180);
+            button_venta.TabIndex = 2;
+            button_venta.Text = "Venta";
+            button_venta.TextOffset = new Point(-22, 60);
+            button_venta.Click += guna2Button1_Click;
             // 
             // menu_opciones
             // 
@@ -186,12 +197,12 @@
 
         #endregion
 
-        private Label label1;
-        private Label label2;
+        private Label lbl_welcome;
+        private Label lbl_nombre_empleado;
         private GroupBox groupBox1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
+        private Guna.UI2.WinForms.Guna2Button button_venta;
+        private Guna.UI2.WinForms.Guna2Button button_gestion_empleados;
+        private Guna.UI2.WinForms.Guna2Button button_maestro_productos;
+        private Guna.UI2.WinForms.Guna2Button button_facturas;
     }
 }

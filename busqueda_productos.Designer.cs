@@ -52,9 +52,9 @@
             txtBusqueda.Anchor = AnchorStyles.None;
             txtBusqueda.Location = new Point(105, 92);
             txtBusqueda.Name = "txtBusqueda";
+            txtBusqueda.PlaceholderText = "(F4) Código/nombre del producto";
             txtBusqueda.Size = new Size(233, 27);
             txtBusqueda.TabIndex = 0;
-            txtBusqueda.Text = "(F4) Código/nombre del producto";
             // 
             // btnBuscar
             // 
@@ -69,11 +69,11 @@
             // 
             // lstCoincidencias
             // 
-            coindienci.FormattingEnabled = true;
-            coindienci.Location = new Point(105, 220);
-            coindienci.Name = "coindienci";
-            coindienci.Size = new Size(233, 224);
-            coindienci.TabIndex = 2;
+            lstCoincidencias.FormattingEnabled = true;
+            lstCoincidencias.Location = new Point(105, 220);
+            lstCoincidencias.Name = "lstCoincidencias";
+            lstCoincidencias.Size = new Size(233, 224);
+            lstCoincidencias.TabIndex = 2;
             // 
             // dgvProductos
             // 
@@ -204,7 +204,8 @@
             Name = "busqueda_productos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "InkPos - Venta";
-            ((System.ComponentModel.ISupportInitialize)dgvDetalleVenta).EndInit();
+            WindowState = FormWindowState.Maximized;
+            ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);

@@ -16,5 +16,10 @@ namespace InkPos
         {
             InitializeComponent();
         }
+
+        private void lbl_nuevovalor_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

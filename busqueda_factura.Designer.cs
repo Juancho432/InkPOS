@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(busqueda_factura));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             groupBox1 = new GroupBox();
             lbl_busqueda_factura = new Label();
             txtbox_num_factura = new Guna.UI2.WinForms.Guna2TextBox();
@@ -71,7 +71,7 @@
             // 
             txtbox_num_factura.Anchor = AnchorStyles.None;
             txtbox_num_factura.BorderRadius = 20;
-            txtbox_num_factura.CustomizableEdges = customizableEdges1;
+            txtbox_num_factura.CustomizableEdges = customizableEdges3;
             txtbox_num_factura.DefaultText = "";
             txtbox_num_factura.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtbox_num_factura.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -85,9 +85,9 @@
             txtbox_num_factura.Location = new Point(591, 185);
             txtbox_num_factura.Margin = new Padding(3, 4, 3, 4);
             txtbox_num_factura.Name = "txtbox_num_factura";
-            txtbox_num_factura.PlaceholderText = "Ingrese el N° de factura";
+            txtbox_num_factura.PlaceholderText = "Ingrese en N° de factura";
             txtbox_num_factura.SelectedText = "";
-            txtbox_num_factura.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            txtbox_num_factura.ShadowDecoration.CustomizableEdges = customizableEdges4;
             txtbox_num_factura.Size = new Size(237, 60);
             txtbox_num_factura.TabIndex = 2;
             // 

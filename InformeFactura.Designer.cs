@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InformeFactura));
             pictureBox1 = new PictureBox();
-            button2 = new Button();
+            button_imprimir = new Button();
             lbl_PapeleríaAJ = new Label();
             tlb_info_cliente = new TableLayoutPanel();
             lbl_fve = new Label();
@@ -65,7 +65,7 @@
             lbl_generación = new Label();
             lbl_fecha_generacion = new Label();
             lbl_hora_generacion = new Label();
-            button1 = new Button();
+            button_salir = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tlb_info_cliente.SuspendLayout();
             tbl_fecha_metodo.SuspendLayout();
@@ -82,14 +82,14 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // button2
+            // button_imprimir
             // 
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.Location = new Point(37, 12);
-            button2.Name = "button2";
-            button2.Size = new Size(69, 48);
-            button2.TabIndex = 2;
-            button2.UseVisualStyleBackColor = true;
+            button_imprimir.Image = (Image)resources.GetObject("button_imprimir.Image");
+            button_imprimir.Location = new Point(37, 12);
+            button_imprimir.Name = "button_imprimir";
+            button_imprimir.Size = new Size(69, 48);
+            button_imprimir.TabIndex = 2;
+            button_imprimir.UseVisualStyleBackColor = true;
             // 
             // lbl_PapeleríaAJ
             // 
@@ -485,15 +485,15 @@
             lbl_hora_generacion.TabIndex = 15;
             lbl_hora_generacion.Text = "00:00";
             // 
-            // button1
+            // button_salir
             // 
-            button1.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(935, 986);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 44);
-            button1.TabIndex = 16;
-            button1.Text = "Salir";
-            button1.UseVisualStyleBackColor = true;
+            button_salir.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button_salir.Location = new Point(935, 986);
+            button_salir.Name = "button_salir";
+            button_salir.Size = new Size(94, 44);
+            button_salir.TabIndex = 16;
+            button_salir.Text = "Salir";
+            button_salir.UseVisualStyleBackColor = true;
             // 
             // InformeFactura
             // 
@@ -501,7 +501,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonShadow;
             ClientSize = new Size(1924, 1175);
-            Controls.Add(button1);
+            Controls.Add(button_salir);
             Controls.Add(lbl_hora_generacion);
             Controls.Add(lbl_fecha_generacion);
             Controls.Add(lbl_generación);
@@ -513,7 +513,7 @@
             Controls.Add(label14);
             Controls.Add(tlb_info_cliente);
             Controls.Add(lbl_PapeleríaAJ);
-            Controls.Add(button2);
+            Controls.Add(button_imprimir);
             Controls.Add(pictureBox1);
             Name = "InformeFactura";
             RightToLeft = RightToLeft.No;
@@ -533,7 +533,7 @@
 
         #endregion
         private PictureBox pictureBox1;
-        private Button button2;
+        private Button button_imprimir;
         private Label lbl_PapeleríaAJ;
         private TableLayoutPanel tlb_info_cliente;
         private Label label2;
@@ -568,6 +568,6 @@
         private Label lbl_generación;
         private Label lbl_fecha_generacion;
         private Label lbl_hora_generacion;
-        private Button button1;
+        private Button button_salir;
     }
 }
