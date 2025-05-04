@@ -13,6 +13,8 @@ namespace InkPos
         public string Telefono { get; set; }
         public string Cargo { get; set; }
         public decimal Salario { get; set; }
+        public string Usuario { get; set; }
+        public string Contrasena { get; set; }
     }
 
 }

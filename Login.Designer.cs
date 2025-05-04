@@ -165,6 +165,7 @@
             Name = "Login";
             Text = "InkPOS - Login";
             WindowState = FormWindowState.Maximized;
+            Load += Login_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);

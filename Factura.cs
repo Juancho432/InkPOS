@@ -11,6 +11,9 @@ namespace InkPos
         public string IdFactura { get; set; }
         public List<ItemFactura> Items { get; set; }
         public decimal Total { get; set; }
+        public decimal ValorRecibido { get; set; }
+        public decimal Cambio { get; set; }
+        public string MetodoPago { get; set; }
     }
 
 }

@@ -60,8 +60,8 @@ namespace InkPos
             }
 
             // Abrir ventana de factura
-            Factura factura = new Factura(productosVendidos, totalVenta);
-            factura.ShowDialog();
+           // Factura factura = new Factura(productosVendidos, totalVenta);
+            //factura.ShowDialog();
         }
     }
 }
