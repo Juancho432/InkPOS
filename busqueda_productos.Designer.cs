@@ -69,12 +69,11 @@
             // 
             // lstCoincidencias
             // 
-            lstCoincidencias.Anchor = AnchorStyles.None;
-            lstCoincidencias.FormattingEnabled = true;
-            lstCoincidencias.Location = new Point(105, 220);
-            lstCoincidencias.Name = "lstCoincidencias";
-            lstCoincidencias.Size = new Size(233, 224);
-            lstCoincidencias.TabIndex = 2;
+            coindienci.FormattingEnabled = true;
+            coindienci.Location = new Point(105, 220);
+            coindienci.Name = "coindienci";
+            coindienci.Size = new Size(233, 224);
+            coindienci.TabIndex = 2;
             // 
             // dgvProductos
             // 
@@ -205,8 +204,7 @@
             Name = "busqueda_productos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "InkPos - Venta";
-            Load += busqueda_productos_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDetalleVenta).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);

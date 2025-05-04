@@ -1,0 +1,156 @@
+﻿namespace InkPos
+{
+    partial class modificar_producto
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            groupBox1 = new GroupBox();
+            txtbox_nuevovalor = new TextBox();
+            lbl_precio = new Label();
+            button_confirmar = new Button();
+            button_cancelar = new Button();
+            lbl_nuevovalor = new Label();
+            lbl_modificarproducto = new Label();
+            box_campomodificar = new ComboBox();
+            groupBox1.SuspendLayout();
+            SuspendLayout();
+            // 
+            // groupBox1
+            // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.Controls.Add(box_campomodificar);
+            groupBox1.Controls.Add(txtbox_nuevovalor);
+            groupBox1.Controls.Add(lbl_precio);
+            groupBox1.Controls.Add(button_confirmar);
+            groupBox1.Controls.Add(button_cancelar);
+            groupBox1.Controls.Add(lbl_nuevovalor);
+            groupBox1.Controls.Add(lbl_modificarproducto);
+            groupBox1.Location = new Point(28, 24);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(1387, 684);
+            groupBox1.TabIndex = 2;
+            groupBox1.TabStop = false;
+            // 
+            // txtbox_nuevovalor
+            // 
+            txtbox_nuevovalor.Anchor = AnchorStyles.None;
+            txtbox_nuevovalor.Location = new Point(666, 339);
+            txtbox_nuevovalor.Name = "txtbox_nuevovalor";
+            txtbox_nuevovalor.Size = new Size(209, 27);
+            txtbox_nuevovalor.TabIndex = 13;
+            // 
+            // lbl_precio
+            // 
+            lbl_precio.Anchor = AnchorStyles.None;
+            lbl_precio.AutoSize = true;
+            lbl_precio.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_precio.Location = new Point(751, 274);
+            lbl_precio.Name = "lbl_precio";
+            lbl_precio.Size = new Size(0, 23);
+            lbl_precio.TabIndex = 11;
+            // 
+            // button_confirmar
+            // 
+            button_confirmar.Anchor = AnchorStyles.None;
+            button_confirmar.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button_confirmar.Location = new Point(536, 590);
+            button_confirmar.Name = "button_confirmar";
+            button_confirmar.Size = new Size(117, 38);
+            button_confirmar.TabIndex = 8;
+            button_confirmar.Text = "Confirmar ";
+            button_confirmar.UseVisualStyleBackColor = true;
+            // 
+            // button_cancelar
+            // 
+            button_cancelar.Anchor = AnchorStyles.None;
+            button_cancelar.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button_cancelar.Location = new Point(752, 590);
+            button_cancelar.Name = "button_cancelar";
+            button_cancelar.Size = new Size(100, 38);
+            button_cancelar.TabIndex = 6;
+            button_cancelar.Text = "Cancelar";
+            button_cancelar.UseVisualStyleBackColor = true;
+            // 
+            // lbl_nuevovalor
+            // 
+            lbl_nuevovalor.Anchor = AnchorStyles.None;
+            lbl_nuevovalor.AutoSize = true;
+            lbl_nuevovalor.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_nuevovalor.Location = new Point(433, 339);
+            lbl_nuevovalor.Name = "lbl_nuevovalor";
+            lbl_nuevovalor.Size = new Size(203, 23);
+            lbl_nuevovalor.TabIndex = 4;
+            lbl_nuevovalor.Text = "Ingrese el nuevo valor:";
+            // 
+            // lbl_modificarproducto
+            // 
+            lbl_modificarproducto.Anchor = AnchorStyles.None;
+            lbl_modificarproducto.AutoSize = true;
+            lbl_modificarproducto.Font = new Font("Times New Roman", 28.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_modificarproducto.Location = new Point(491, 35);
+            lbl_modificarproducto.Name = "lbl_modificarproducto";
+            lbl_modificarproducto.Size = new Size(419, 53);
+            lbl_modificarproducto.TabIndex = 1;
+            lbl_modificarproducto.Text = "Modificar producto";
+            // 
+            // box_campomodificar
+            // 
+            box_campomodificar.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            box_campomodificar.FormattingEnabled = true;
+            box_campomodificar.Location = new Point(568, 163);
+            box_campomodificar.Name = "box_campomodificar";
+            box_campomodificar.Size = new Size(270, 30);
+            box_campomodificar.TabIndex = 14;
+            box_campomodificar.Text = "¿Qué campo desea modificar?";
+            // 
+            // modificar_producto
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Thistle;
+            ClientSize = new Size(1435, 720);
+            Controls.Add(groupBox1);
+            Name = "modificar_producto";
+            Text = "InkPOS - Maestro de productos";
+            WindowState = FormWindowState.Maximized;
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ResumeLayout(false);
+        }
+
+        #endregion
+
+        private GroupBox groupBox1;
+        private TextBox txtbox_nuevovalor;
+        private Label lbl_precio;
+        private Button button_confirmar;
+        private Button button_cancelar;
+        private Label lbl_nuevovalor;
+        private Label lbl_modificarproducto;
+        private ComboBox box_campomodificar;
+    }
+}
