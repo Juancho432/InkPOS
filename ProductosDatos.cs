@@ -9,7 +9,7 @@ namespace InkPos
 {
     public class ProductosDatos
     {
-        private string connectionString = "Host=localhost;Username=postgres;Password=emg1234;Database=InkPosDB";
+        private string connectionString = "Host=localhost;Username=postgres;Password=admin;Database=InkPosDB";
 
         public List<Productos> BuscarProductos(string valor)
         {
