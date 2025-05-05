@@ -17,7 +17,7 @@ namespace InkPos
         public string Usuario { get; set; }
         public string Contrasena { get; set; }
 
-        private string connectionString = "Host=localhost;Username=postgres;Password=emg1234;Database=InkPosDB";
+        private string connectionString = "Host=localhost;Username=postgres;Password=admin;Database=InkPosDB";
 
         public Empleado VerificarCredenciales(string usuario, string contrasena)
         {

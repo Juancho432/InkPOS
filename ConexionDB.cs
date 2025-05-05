@@ -9,7 +9,7 @@ namespace InkPos
 {
     internal class ConexionDB
     {
-        private string cadenaConexion = "Host=localhost;Port=5432;Username=postgres;Password=emg1234;Database=InkPosDB";
+        private string cadenaConexion = "Host=localhost;Port=5432;Username=postgres;Password=admin;Database=InkPosDB";
 
         public NpgsqlConnection ObtenerConexion()
         {
