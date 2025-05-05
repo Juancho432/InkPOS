@@ -7,7 +7,6 @@ obj/
 .vs/
 *.user
 *.suo
-*.sln
 
 ## Sistema
 Thumbs.db
