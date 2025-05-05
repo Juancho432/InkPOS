@@ -270,11 +270,6 @@ namespace InkPos
             totalVenta = 0;
             txtValorTotal.Text = "";
 
-            if (productosEnVenta.Count == 0)
-            {
-                MessageBox.Show("No hay productos agregados.");
-                return;
-            }
 
             Ventana_Pago pago = new Ventana_Pago(productosEnVenta, totalVenta);
             pago.ShowDialog();
