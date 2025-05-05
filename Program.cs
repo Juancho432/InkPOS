@@ -12,11 +12,8 @@ namespace InkPos
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new Form1());
-<<<<<<< HEAD
             Application.Run(new busqueda_productos());
-=======
             Application.Run(new menu_opciones_admin());
->>>>>>> GitHub/dev_seq016
         }
     }
 
