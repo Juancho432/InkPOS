@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(modificar_producto));
             groupBox1 = new GroupBox();
+            box_campomodificar = new ComboBox();
             txtbox_nuevovalor = new TextBox();
             lbl_precio = new Label();
             button_confirmar = new Button();
             button_cancelar = new Button();
             lbl_nuevovalor = new Label();
             lbl_modificarproducto = new Label();
-            box_campomodificar = new ComboBox();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -54,6 +55,17 @@
             groupBox1.Size = new Size(1387, 684);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
+            // 
+            // box_campomodificar
+            // 
+            box_campomodificar.Anchor = AnchorStyles.None;
+            box_campomodificar.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            box_campomodificar.FormattingEnabled = true;
+            box_campomodificar.Location = new Point(568, 163);
+            box_campomodificar.Name = "box_campomodificar";
+            box_campomodificar.Size = new Size(270, 30);
+            box_campomodificar.TabIndex = 14;
+            box_campomodificar.Text = "¿Qué campo desea modificar?";
             // 
             // txtbox_nuevovalor
             // 
@@ -117,16 +129,6 @@
             lbl_modificarproducto.TabIndex = 1;
             lbl_modificarproducto.Text = "Modificar producto";
             // 
-            // box_campomodificar
-            // 
-            box_campomodificar.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            box_campomodificar.FormattingEnabled = true;
-            box_campomodificar.Location = new Point(568, 163);
-            box_campomodificar.Name = "box_campomodificar";
-            box_campomodificar.Size = new Size(270, 30);
-            box_campomodificar.TabIndex = 14;
-            box_campomodificar.Text = "¿Qué campo desea modificar?";
-            // 
             // modificar_producto
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -134,6 +136,7 @@
             BackColor = Color.Thistle;
             ClientSize = new Size(1435, 720);
             Controls.Add(groupBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "modificar_producto";
             Text = "InkPOS - Maestro de productos";
             WindowState = FormWindowState.Maximized;

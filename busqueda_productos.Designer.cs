@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(busqueda_productos));
             txtBusqueda = new TextBox();
             btnBuscar = new Button();
             lstCoincidencias = new ListBox();
@@ -69,6 +70,7 @@
             // 
             // lstCoincidencias
             // 
+            lstCoincidencias.Anchor = AnchorStyles.None;
             lstCoincidencias.FormattingEnabled = true;
             lstCoincidencias.Location = new Point(105, 220);
             lstCoincidencias.Name = "lstCoincidencias";
@@ -201,12 +203,11 @@
             ClientSize = new Size(1439, 651);
             Controls.Add(groupBox1);
             ForeColor = SystemColors.ActiveCaptionText;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "busqueda_productos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "InkPos - Venta";
-            WindowState = FormWindowState.Maximized;
-            Load += busqueda_productos_Load_1;
-            ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDetalleVenta).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ventana_Pago));
             groupBox1 = new GroupBox();
             button_generarPDF = new Button();
             txtbox_cambio = new TextBox();
@@ -197,6 +198,7 @@
             BackColor = Color.Thistle;
             ClientSize = new Size(1446, 723);
             Controls.Add(groupBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Ventana_Pago";
             Text = "InkPOS - Pago";
             WindowState = FormWindowState.Maximized;
