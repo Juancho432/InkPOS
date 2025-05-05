@@ -11,9 +11,9 @@ using static System.Windows.Forms.DataFormats;
 
 namespace InkPos
 {
-    public partial class menu_opciones : Form
+    public partial class menu_opciones_admin : Form
     {
-        public menu_opciones()
+        public menu_opciones_admin()
         {
             InitializeComponent();
         }
@@ -31,6 +31,7 @@ namespace InkPos
             seleccion_maestro_productos seleccion_Maestro_Productos = new seleccion_maestro_productos();
             seleccion_Maestro_Productos.Show();
             this.Hide();
+            seleccion_Maestro_Productos.FormClosed += (s, args) => this.Show();
         }
 
         private void button_gestion_empleados_Click(object sender, EventArgs e)
