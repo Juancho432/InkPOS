@@ -96,7 +96,7 @@
             lbl_PapeleríaAJ.Anchor = AnchorStyles.None;
             lbl_PapeleríaAJ.AutoSize = true;
             lbl_PapeleríaAJ.Font = new Font("Tahoma", 28.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_PapeleríaAJ.Location = new Point(818, 66);
+            lbl_PapeleríaAJ.Location = new Point(818, 6);
             lbl_PapeleríaAJ.Name = "lbl_PapeleríaAJ";
             lbl_PapeleríaAJ.Size = new Size(316, 57);
             lbl_PapeleríaAJ.TabIndex = 3;
@@ -125,7 +125,7 @@
             tlb_info_cliente.Controls.Add(label3, 2, 0);
             tlb_info_cliente.Controls.Add(label5, 2, 1);
             tlb_info_cliente.Controls.Add(lbl_señor_es, 1, 0);
-            tlb_info_cliente.Location = new Point(575, 165);
+            tlb_info_cliente.Location = new Point(575, 105);
             tlb_info_cliente.Name = "tlb_info_cliente";
             tlb_info_cliente.RowCount = 2;
             tlb_info_cliente.RowStyles.Add(new RowStyle(SizeType.Percent, 53.75F));
@@ -269,7 +269,7 @@
             // 
             label14.Anchor = AnchorStyles.Left;
             label14.AutoSize = true;
-            label14.Location = new Point(921, 577);
+            label14.Location = new Point(921, 517);
             label14.Name = "label14";
             label14.Size = new Size(0, 20);
             label14.TabIndex = 5;
@@ -288,7 +288,7 @@
             tbl_fecha_metodo.Controls.Add(label21, 0, 0);
             tbl_fecha_metodo.Controls.Add(label24, 2, 0);
             tbl_fecha_metodo.Controls.Add(lbl_fecha_expedicion, 1, 0);
-            tbl_fecha_metodo.Location = new Point(575, 266);
+            tbl_fecha_metodo.Location = new Point(575, 206);
             tbl_fecha_metodo.Name = "tbl_fecha_metodo";
             tbl_fecha_metodo.RowCount = 1;
             tbl_fecha_metodo.RowStyles.Add(new RowStyle(SizeType.Percent, 53.75F));
@@ -346,7 +346,7 @@
             dgvDetalleVenta.BackgroundColor = SystemColors.ControlLight;
             dgvDetalleVenta.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDetalleVenta.Columns.AddRange(new DataGridViewColumn[] { column_codigo, column_NombreP, column_cantidad, column_valor });
-            dgvDetalleVenta.Location = new Point(575, 339);
+            dgvDetalleVenta.Location = new Point(575, 279);
             dgvDetalleVenta.Name = "dgvDetalleVenta";
             dgvDetalleVenta.RowHeadersWidth = 51;
             dgvDetalleVenta.Size = new Size(836, 396);
@@ -384,7 +384,7 @@
             // 
             label15.Anchor = AnchorStyles.Left;
             label15.AutoSize = true;
-            label15.Location = new Point(964, 838);
+            label15.Location = new Point(964, 778);
             label15.Name = "label15";
             label15.Size = new Size(0, 20);
             label15.TabIndex = 10;
@@ -394,7 +394,7 @@
             // 
             label20.Anchor = AnchorStyles.Left;
             label20.AutoSize = true;
-            label20.Location = new Point(1134, 851);
+            label20.Location = new Point(1134, 791);
             label20.Name = "label20";
             label20.Size = new Size(0, 20);
             label20.TabIndex = 11;
@@ -412,7 +412,7 @@
             tableLayoutPanel3.Controls.Add(label17, 0, 0);
             tableLayoutPanel3.Controls.Add(lbl_valor_total, 2, 0);
             tableLayoutPanel3.Controls.Add(lbl_total_cantidad, 1, 0);
-            tableLayoutPanel3.Location = new Point(575, 731);
+            tableLayoutPanel3.Location = new Point(575, 671);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 53.75F));
@@ -457,7 +457,7 @@
             lbl_generación.Anchor = AnchorStyles.None;
             lbl_generación.AutoSize = true;
             lbl_generación.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_generación.Location = new Point(650, 851);
+            lbl_generación.Location = new Point(650, 791);
             lbl_generación.Name = "lbl_generación";
             lbl_generación.Size = new Size(346, 28);
             lbl_generación.TabIndex = 13;
@@ -468,7 +468,7 @@
             lbl_fecha_generacion.Anchor = AnchorStyles.None;
             lbl_fecha_generacion.AutoSize = true;
             lbl_fecha_generacion.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_fecha_generacion.Location = new Point(1002, 851);
+            lbl_fecha_generacion.Location = new Point(1002, 791);
             lbl_fecha_generacion.Name = "lbl_fecha_generacion";
             lbl_fecha_generacion.Size = new Size(144, 28);
             lbl_fecha_generacion.TabIndex = 14;
@@ -479,7 +479,7 @@
             lbl_hora_generacion.Anchor = AnchorStyles.None;
             lbl_hora_generacion.AutoSize = true;
             lbl_hora_generacion.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_hora_generacion.Location = new Point(1176, 851);
+            lbl_hora_generacion.Location = new Point(1176, 791);
             lbl_hora_generacion.Name = "lbl_hora_generacion";
             lbl_hora_generacion.Size = new Size(80, 28);
             lbl_hora_generacion.TabIndex = 15;
@@ -500,7 +500,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonShadow;
-            ClientSize = new Size(1924, 1175);
+            ClientSize = new Size(1924, 1055);
             Controls.Add(button_salir);
             Controls.Add(lbl_hora_generacion);
             Controls.Add(lbl_fecha_generacion);
@@ -520,6 +520,7 @@
             RightToLeft = RightToLeft.No;
             Text = "InformeFactura";
             WindowState = FormWindowState.Maximized;
+            Load += InformeFactura_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             tlb_info_cliente.ResumeLayout(false);
             tlb_info_cliente.PerformLayout();

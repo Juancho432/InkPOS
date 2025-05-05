@@ -31,5 +31,10 @@ namespace InkPos
         {
 
         }
+
+        private void InformeFactura_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
