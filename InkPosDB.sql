@@ -5,7 +5,7 @@
 -- Dumped from database version 17.4
 -- Dumped by pg_dump version 17.4
 
--- Started on 2025-05-02 13:36:22
+-- Started on 2025-05-04 20:12:17
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -18,6 +18,25 @@ SET check_function_bodies = false;
 SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
+
+--
+-- TOC entry 4 (class 2615 OID 2200)
+-- Name: public; Type: SCHEMA; Schema: -; Owner: pg_database_owner
+--
+
+CREATE SCHEMA public;
+
+
+ALTER SCHEMA public OWNER TO pg_database_owner;
+
+--
+-- TOC entry 4925 (class 0 OID 0)
+-- Dependencies: 4
+-- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: pg_database_owner
+--
+
+COMMENT ON SCHEMA public IS 'standard public schema';
+
 
 SET default_tablespace = '';
 
@@ -80,6 +99,8 @@ CREATE TABLE public.empleados (
     telefono_empleado character varying(10) NOT NULL,
     cargo_empleado character varying(60) NOT NULL,
     salario_empleado numeric(10,2) NOT NULL,
+    usuario character varying(50) NOT NULL,
+    contrasena character varying(50) NOT NULL,
     CONSTRAINT empleados_salario_empleado_check CHECK (((salario_empleado >= (1300000)::numeric) AND (salario_empleado <= (1500000)::numeric)))
 );
 
@@ -177,7 +198,7 @@ CREATE TABLE public.servicios (
 ALTER TABLE public.servicios OWNER TO postgres;
 
 --
--- TOC entry 4908 (class 0 OID 16545)
+-- TOC entry 4910 (class 0 OID 16545)
 -- Dependencies: 217
 -- Data for Name: clientes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -195,7 +216,7 @@ COPY public.clientes (id_cliente, nombre_cliente, direccion_cliente, telefono_cl
 
 
 --
--- TOC entry 4915 (class 0 OID 16602)
+-- TOC entry 4917 (class 0 OID 16602)
 -- Dependencies: 224
 -- Data for Name: detalles; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -213,7 +234,7 @@ COPY public.detalles (id_factura, id_item, cantidad, valor_unitario) FROM stdin;
 
 
 --
--- TOC entry 4916 (class 0 OID 16618)
+-- TOC entry 4918 (class 0 OID 16618)
 -- Dependencies: 225
 -- Data for Name: devoluciones; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -231,22 +252,22 @@ COPY public.devoluciones (id_factura, id_item, fecha_devolucion, hora_devolucion
 
 
 --
--- TOC entry 4909 (class 0 OID 16550)
+-- TOC entry 4911 (class 0 OID 16550)
 -- Dependencies: 218
 -- Data for Name: empleados; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.empleados (id_empleado, nombre_empleado, telefono_empleado, cargo_empleado, salario_empleado) FROM stdin;
-1	Juan Perez	3011234567	Cajero	1350000.00
-2	Maria Lopez	3027654321	Vendedor	1400000.00
-3	Carlos Mejia	3032345678	Supervisor	1450000.00
-4	Ana Gonzalez	3048765432	Limpieza	1300000.00
-5	Luis Ramirez	3053456789	Almacenista	1500000.00
+COPY public.empleados (id_empleado, nombre_empleado, telefono_empleado, cargo_empleado, salario_empleado, usuario, contrasena) FROM stdin;
+1	Juan Perez	3011234567	Cajero	1350000.00	juan123	pass123
+2	Maria Lopez	3027654321	Vendedor	1400000.00	maria456	pass456
+3	Carlos Mejia	3032345678	Supervisor	1450000.00	carlos789	pass789
+4	Ana Gonzalez	3048765432	Limpieza	1300000.00	ana101	pass101
+5	Luis Ramirez	3053456789	Almacenista	1500000.00	luis202	pass202
 \.
 
 
 --
--- TOC entry 4914 (class 0 OID 16587)
+-- TOC entry 4916 (class 0 OID 16587)
 -- Dependencies: 223
 -- Data for Name: facturas; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -264,7 +285,7 @@ COPY public.facturas (id_factura, id_cliente, id_empleado, fecha_compra, hora_co
 
 
 --
--- TOC entry 4911 (class 0 OID 16561)
+-- TOC entry 4913 (class 0 OID 16561)
 -- Dependencies: 220
 -- Data for Name: items; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -282,7 +303,7 @@ COPY public.items (id_item, nombre_item, pvp_item, porcentaje_iva_item) FROM std
 
 
 --
--- TOC entry 4912 (class 0 OID 16566)
+-- TOC entry 4914 (class 0 OID 16566)
 -- Dependencies: 221
 -- Data for Name: productos; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -300,7 +321,7 @@ COPY public.productos (id_producto, stock, id_item) FROM stdin;
 
 
 --
--- TOC entry 4910 (class 0 OID 16556)
+-- TOC entry 4912 (class 0 OID 16556)
 -- Dependencies: 219
 -- Data for Name: proveedores; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -318,7 +339,7 @@ COPY public.proveedores (id_proveedor, nombre_proveedor, direccion_proveedor, te
 
 
 --
--- TOC entry 4917 (class 0 OID 16633)
+-- TOC entry 4919 (class 0 OID 16633)
 -- Dependencies: 226
 -- Data for Name: proveedores_productos; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -336,7 +357,7 @@ COPY public.proveedores_productos (id_proveedor, id_producto, valor_compra) FROM
 
 
 --
--- TOC entry 4913 (class 0 OID 16576)
+-- TOC entry 4915 (class 0 OID 16576)
 -- Dependencies: 222
 -- Data for Name: servicios; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -363,7 +384,7 @@ ALTER TABLE ONLY public.clientes
 
 
 --
--- TOC entry 4748 (class 2606 OID 16607)
+-- TOC entry 4750 (class 2606 OID 16607)
 -- Name: detalles detalles_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -372,7 +393,7 @@ ALTER TABLE ONLY public.detalles
 
 
 --
--- TOC entry 4750 (class 2606 OID 16622)
+-- TOC entry 4752 (class 2606 OID 16622)
 -- Name: devoluciones devoluciones_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -390,7 +411,7 @@ ALTER TABLE ONLY public.empleados
 
 
 --
--- TOC entry 4746 (class 2606 OID 16591)
+-- TOC entry 4748 (class 2606 OID 16591)
 -- Name: facturas facturas_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -399,7 +420,7 @@ ALTER TABLE ONLY public.facturas
 
 
 --
--- TOC entry 4740 (class 2606 OID 16565)
+-- TOC entry 4742 (class 2606 OID 16565)
 -- Name: items items_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -408,7 +429,7 @@ ALTER TABLE ONLY public.items
 
 
 --
--- TOC entry 4742 (class 2606 OID 16570)
+-- TOC entry 4744 (class 2606 OID 16570)
 -- Name: productos productos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -417,7 +438,7 @@ ALTER TABLE ONLY public.productos
 
 
 --
--- TOC entry 4738 (class 2606 OID 16560)
+-- TOC entry 4740 (class 2606 OID 16560)
 -- Name: proveedores proveedores_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -426,7 +447,7 @@ ALTER TABLE ONLY public.proveedores
 
 
 --
--- TOC entry 4752 (class 2606 OID 16637)
+-- TOC entry 4754 (class 2606 OID 16637)
 -- Name: proveedores_productos proveedores_productos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -435,7 +456,7 @@ ALTER TABLE ONLY public.proveedores_productos
 
 
 --
--- TOC entry 4744 (class 2606 OID 16581)
+-- TOC entry 4746 (class 2606 OID 16581)
 -- Name: servicios servicios_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -444,7 +465,16 @@ ALTER TABLE ONLY public.servicios
 
 
 --
--- TOC entry 4757 (class 2606 OID 16608)
+-- TOC entry 4738 (class 2606 OID 24743)
+-- Name: empleados usuario_unico; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.empleados
+    ADD CONSTRAINT usuario_unico UNIQUE (usuario);
+
+
+--
+-- TOC entry 4759 (class 2606 OID 16608)
 -- Name: detalles detalles_id_factura_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -453,7 +483,7 @@ ALTER TABLE ONLY public.detalles
 
 
 --
--- TOC entry 4758 (class 2606 OID 16613)
+-- TOC entry 4760 (class 2606 OID 16613)
 -- Name: detalles detalles_id_item_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -462,7 +492,7 @@ ALTER TABLE ONLY public.detalles
 
 
 --
--- TOC entry 4759 (class 2606 OID 16623)
+-- TOC entry 4761 (class 2606 OID 16623)
 -- Name: devoluciones devoluciones_id_factura_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -471,7 +501,7 @@ ALTER TABLE ONLY public.devoluciones
 
 
 --
--- TOC entry 4760 (class 2606 OID 16628)
+-- TOC entry 4762 (class 2606 OID 16628)
 -- Name: devoluciones devoluciones_id_item_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -480,7 +510,7 @@ ALTER TABLE ONLY public.devoluciones
 
 
 --
--- TOC entry 4755 (class 2606 OID 16592)
+-- TOC entry 4757 (class 2606 OID 16592)
 -- Name: facturas facturas_id_cliente_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -489,7 +519,7 @@ ALTER TABLE ONLY public.facturas
 
 
 --
--- TOC entry 4756 (class 2606 OID 16597)
+-- TOC entry 4758 (class 2606 OID 16597)
 -- Name: facturas facturas_id_empleado_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -498,7 +528,7 @@ ALTER TABLE ONLY public.facturas
 
 
 --
--- TOC entry 4753 (class 2606 OID 16571)
+-- TOC entry 4755 (class 2606 OID 16571)
 -- Name: productos productos_id_item_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -507,7 +537,7 @@ ALTER TABLE ONLY public.productos
 
 
 --
--- TOC entry 4761 (class 2606 OID 16643)
+-- TOC entry 4763 (class 2606 OID 16643)
 -- Name: proveedores_productos proveedores_productos_id_producto_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -516,7 +546,7 @@ ALTER TABLE ONLY public.proveedores_productos
 
 
 --
--- TOC entry 4762 (class 2606 OID 16638)
+-- TOC entry 4764 (class 2606 OID 16638)
 -- Name: proveedores_productos proveedores_productos_id_proveedor_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -525,7 +555,7 @@ ALTER TABLE ONLY public.proveedores_productos
 
 
 --
--- TOC entry 4754 (class 2606 OID 16582)
+-- TOC entry 4756 (class 2606 OID 16582)
 -- Name: servicios servicios_id_item_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -533,7 +563,7 @@ ALTER TABLE ONLY public.servicios
     ADD CONSTRAINT servicios_id_item_fkey FOREIGN KEY (id_item) REFERENCES public.items(id_item);
 
 
--- Completed on 2025-05-02 13:36:22
+-- Completed on 2025-05-04 20:12:17
 
 --
 -- PostgreSQL database dump complete
