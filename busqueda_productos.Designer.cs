@@ -207,7 +207,7 @@
             Name = "busqueda_productos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "InkPos - Venta";
-            ((System.ComponentModel.ISupportInitialize)dgvDetalleVenta).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
