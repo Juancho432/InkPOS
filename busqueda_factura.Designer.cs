@@ -141,6 +141,7 @@
             BackColor = Color.Thistle;
             ClientSize = new Size(1523, 735);
             Controls.Add(groupBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "busqueda_factura";
             Text = "InkPOS - Búsquda de facturas";
             WindowState = FormWindowState.Maximized;

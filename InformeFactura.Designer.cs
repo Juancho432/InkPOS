@@ -515,6 +515,7 @@
             Controls.Add(lbl_PapeleríaAJ);
             Controls.Add(button_imprimir);
             Controls.Add(pictureBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "InformeFactura";
             RightToLeft = RightToLeft.No;
             Text = "InformeFactura";

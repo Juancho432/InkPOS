@@ -107,6 +107,7 @@
             Controls.Add(button_mod);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "seleccion_maestro_productos";
             StartPosition = FormStartPosition.CenterScreen;

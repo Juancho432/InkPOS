@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(modificar_producto));
             groupBox1 = new GroupBox();
             box_campomodificar = new ComboBox();
             txtbox_nuevovalor = new TextBox();
@@ -135,6 +136,7 @@
             BackColor = Color.Thistle;
             ClientSize = new Size(1435, 720);
             Controls.Add(groupBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "modificar_producto";
             Text = "InkPOS - Maestro de productos";
             WindowState = FormWindowState.Maximized;

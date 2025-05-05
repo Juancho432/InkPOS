@@ -28,7 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(agregar_producto));
             groupBox1 = new GroupBox();
+            txtbox_precio = new TextBox();
+            txtbox_cantidad = new TextBox();
+            lbl_precio = new Label();
+            label3 = new Label();
+            lbl_stock = new Label();
             button_salir = new Button();
             button_agregar = new Button();
             button_limpiar = new Button();
@@ -37,11 +43,6 @@
             txtbox_codigoproducto = new TextBox();
             txtbox_nombreproducto = new TextBox();
             lbl_agregarproducto = new Label();
-            lbl_stock = new Label();
-            label3 = new Label();
-            lbl_precio = new Label();
-            txtbox_cantidad = new TextBox();
-            txtbox_precio = new TextBox();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -66,6 +67,55 @@
             groupBox1.Size = new Size(1394, 671);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
+            // 
+            // txtbox_precio
+            // 
+            txtbox_precio.Anchor = AnchorStyles.None;
+            txtbox_precio.Location = new Point(676, 410);
+            txtbox_precio.Name = "txtbox_precio";
+            txtbox_precio.Size = new Size(209, 27);
+            txtbox_precio.TabIndex = 13;
+            // 
+            // txtbox_cantidad
+            // 
+            txtbox_cantidad.Anchor = AnchorStyles.None;
+            txtbox_cantidad.Location = new Point(676, 347);
+            txtbox_cantidad.Name = "txtbox_cantidad";
+            txtbox_cantidad.Size = new Size(209, 27);
+            txtbox_cantidad.TabIndex = 12;
+            // 
+            // lbl_precio
+            // 
+            lbl_precio.Anchor = AnchorStyles.None;
+            lbl_precio.AutoSize = true;
+            lbl_precio.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_precio.Location = new Point(583, 410);
+            lbl_precio.Name = "lbl_precio";
+            lbl_precio.Size = new Size(71, 23);
+            lbl_precio.TabIndex = 11;
+            lbl_precio.Text = "Precio:";
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.None;
+            label3.AutoSize = true;
+            label3.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(561, 347);
+            label3.Name = "label3";
+            label3.Size = new Size(93, 23);
+            label3.TabIndex = 10;
+            label3.Text = "Cantidad:";
+            // 
+            // lbl_stock
+            // 
+            lbl_stock.Anchor = AnchorStyles.None;
+            lbl_stock.AutoSize = true;
+            lbl_stock.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_stock.Location = new Point(518, 300);
+            lbl_stock.Name = "lbl_stock";
+            lbl_stock.Size = new Size(72, 23);
+            lbl_stock.TabIndex = 9;
+            lbl_stock.Text = "(Stock)";
             // 
             // button_salir
             // 
@@ -149,55 +199,6 @@
             lbl_agregarproducto.TabIndex = 1;
             lbl_agregarproducto.Text = "Agregar producto";
             // 
-            // lbl_stock
-            // 
-            lbl_stock.Anchor = AnchorStyles.None;
-            lbl_stock.AutoSize = true;
-            lbl_stock.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_stock.Location = new Point(518, 300);
-            lbl_stock.Name = "lbl_stock";
-            lbl_stock.Size = new Size(72, 23);
-            lbl_stock.TabIndex = 9;
-            lbl_stock.Text = "(Stock)";
-            // 
-            // label3
-            // 
-            label3.Anchor = AnchorStyles.None;
-            label3.AutoSize = true;
-            label3.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(561, 347);
-            label3.Name = "label3";
-            label3.Size = new Size(93, 23);
-            label3.TabIndex = 10;
-            label3.Text = "Cantidad:";
-            // 
-            // lbl_precio
-            // 
-            lbl_precio.Anchor = AnchorStyles.None;
-            lbl_precio.AutoSize = true;
-            lbl_precio.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_precio.Location = new Point(583, 410);
-            lbl_precio.Name = "lbl_precio";
-            lbl_precio.Size = new Size(71, 23);
-            lbl_precio.TabIndex = 11;
-            lbl_precio.Text = "Precio:";
-            // 
-            // txtbox_cantidad
-            // 
-            txtbox_cantidad.Anchor = AnchorStyles.None;
-            txtbox_cantidad.Location = new Point(676, 347);
-            txtbox_cantidad.Name = "txtbox_cantidad";
-            txtbox_cantidad.Size = new Size(209, 27);
-            txtbox_cantidad.TabIndex = 12;
-            // 
-            // txtbox_precio
-            // 
-            txtbox_precio.Anchor = AnchorStyles.None;
-            txtbox_precio.Location = new Point(676, 410);
-            txtbox_precio.Name = "txtbox_precio";
-            txtbox_precio.Size = new Size(209, 27);
-            txtbox_precio.TabIndex = 13;
-            // 
             // agregar_producto
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -205,6 +206,7 @@
             BackColor = Color.Thistle;
             ClientSize = new Size(1448, 721);
             Controls.Add(groupBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "agregar_producto";
             Text = "InkPOS - Agregar producto";
             WindowState = FormWindowState.Maximized;

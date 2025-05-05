@@ -180,14 +180,15 @@
             button_venta.TextOffset = new Point(-22, 60);
             button_venta.Click += guna2Button1_Click;
             // 
-            // menu_opciones
+            // menu_opciones_admin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Thistle;
             ClientSize = new Size(1527, 735);
             Controls.Add(groupBox1);
-            Name = "menu_opciones";
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "menu_opciones_admin";
             Text = "InkPos - Menú de inicio";
             WindowState = FormWindowState.Maximized;
             groupBox1.ResumeLayout(false);

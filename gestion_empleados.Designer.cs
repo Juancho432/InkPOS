@@ -275,6 +275,7 @@
             BackColor = Color.Thistle;
             ClientSize = new Size(1529, 737);
             Controls.Add(groupBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "gestion_empleados";
             Text = "InkPOS - Gestión de empleados";
             WindowState = FormWindowState.Maximized;

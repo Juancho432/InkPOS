@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             groupBox1 = new GroupBox();
             button_salir = new Button();
             button_limpiar = new Button();
@@ -162,6 +163,7 @@
             BackColor = Color.Thistle;
             ClientSize = new Size(1416, 721);
             Controls.Add(groupBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Login";
             Text = "InkPOS - Login";
             WindowState = FormWindowState.Maximized;

@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menu_opciones_empleado));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             groupBox1 = new GroupBox();
             button_facturas = new Guna.UI2.WinForms.Guna2Button();
             button_venta = new Guna.UI2.WinForms.Guna2Button();
@@ -58,7 +58,7 @@
             // 
             button_facturas.Anchor = AnchorStyles.None;
             button_facturas.BorderRadius = 90;
-            button_facturas.CustomizableEdges = customizableEdges9;
+            button_facturas.CustomizableEdges = customizableEdges1;
             button_facturas.DisabledState.BorderColor = Color.DarkGray;
             button_facturas.DisabledState.CustomBorderColor = Color.DarkGray;
             button_facturas.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -71,7 +71,7 @@
             button_facturas.ImageSize = new Size(90, 90);
             button_facturas.Location = new Point(782, 231);
             button_facturas.Name = "button_facturas";
-            button_facturas.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            button_facturas.ShadowDecoration.CustomizableEdges = customizableEdges2;
             button_facturas.Size = new Size(180, 180);
             button_facturas.TabIndex = 5;
             button_facturas.Text = "Facturas";
@@ -81,7 +81,7 @@
             // 
             button_venta.Anchor = AnchorStyles.None;
             button_venta.BorderRadius = 90;
-            button_venta.CustomizableEdges = customizableEdges11;
+            button_venta.CustomizableEdges = customizableEdges3;
             button_venta.DisabledState.BorderColor = Color.DarkGray;
             button_venta.DisabledState.CustomBorderColor = Color.DarkGray;
             button_venta.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -94,7 +94,7 @@
             button_venta.ImageSize = new Size(90, 90);
             button_venta.Location = new Point(510, 231);
             button_venta.Name = "button_venta";
-            button_venta.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            button_venta.ShadowDecoration.CustomizableEdges = customizableEdges4;
             button_venta.Size = new Size(180, 180);
             button_venta.TabIndex = 2;
             button_venta.Text = "Venta";
@@ -129,6 +129,7 @@
             BackColor = Color.Thistle;
             ClientSize = new Size(1527, 667);
             Controls.Add(groupBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "menu_opciones_empleado";
             Text = "InkPOS - Menú de inicio";
             WindowState = FormWindowState.Maximized;
