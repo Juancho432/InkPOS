@@ -279,6 +279,7 @@
             Name = "gestion_empleados";
             Text = "InkPOS - Gestión de empleados";
             WindowState = FormWindowState.Maximized;
+            Load += gestion_empleados_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);

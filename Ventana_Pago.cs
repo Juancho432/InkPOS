@@ -68,23 +68,23 @@ namespace InkPos
 
         private void button_generarPDF_Click(object sender, EventArgs e)
         {
-            if (!pagoConfirmado)
+            // Validación: asegurarse de que el pago fue confirmado
+            if (!pagoConfirmado)  // usa una bandera que tú controles
             {
                 MessageBox.Show("Debe confirmar el pago antes de generar la factura.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Aquí puedes abrir la ventana de factura o generar el PDF
-            MessageBox.Show("Factura generada (simulación).");
-            // Ejemplo: new Factura(productosVendidos, totalVenta).ShowDialog();
-        }
+            // Construir la lista de detalles de venta (aquí pones los datos reales de la venta)
+            List<DetalleVenta> detallesVenta = new List<DetalleVenta>
+    {
+        new DetalleVenta { Codigo = "P001", Producto = "Mouse", Cantidad = 2, Valor = 50000 },
+        new DetalleVenta { Codigo = "P002", Producto = "Teclado", Cantidad = 1, Valor = 70000 }
+    };
 
-        private void comboBox_metodoPago_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (box_metodopago.SelectedItem.ToString() == "Efectivo")
-            {
-                txtbox_valorRecibido.Enabled = true;
-            }
+            // Mostrar la factura
+            InformeFactura frm = new InformeFactura(detallesVenta);
+            frm.ShowDialog();  // o frm.Show() si no quieres bloquear
         }
     }
 }
