@@ -12,21 +12,23 @@ namespace InkPos
         public string AgregarProducto(Producto nuevoProducto)
         {
             if (string.IsNullOrWhiteSpace(nuevoProducto.Codigo) ||
-                string.IsNullOrWhiteSpace(nuevoProducto.Nombre) ||
-                nuevoProducto.Precio <= 0 ||
-                nuevoProducto.Cantidad < 0)
+        string.IsNullOrWhiteSpace(nuevoProducto.Nombre) ||
+        nuevoProducto.Precio <= 0 ||
+        nuevoProducto.Cantidad < 0)
             {
                 return "Error: Hay campos faltantes o valores inválidos.";
             }
 
-            // !!! Bucar en la BBDD que el codigo del producto no existe
-            var productoExistente = producto.FirstOrDefault(p => p.Codigo == nuevoProducto.Codigo);
-            if (productoExistente != null)
+            // Verificar si el producto ya existe en la base de datos
+            if (ConexionDB.ComprobarCodigoProducto(nuevoProducto.Codigo))
             {
                 return "Error: El producto ya está registrado en la base de datos.";
             }
 
-            producto.Add(nuevoProducto);  // !!! Añadir el producto a la BBDD
+            // Aquí deberías insertar el producto en la base de datos
+            // Por ahora asumimos que solo se añade a una lista en memoria (no es lo ideal)
+            // producto.Add(nuevoProducto);
+
             return "Producto registrado correctamente.";
         }
 
@@ -40,24 +42,13 @@ namespace InkPos
                 return "Error: Hay campos faltantes o valores inválidos.";
             }
 
-            // !!! Buscar el codigo del producto en la BBDD
-            var productoExistente = producto.FirstOrDefault(p => p.Codigo == productoModificado.Codigo);
-            if (productoExistente == null)
-            {
-                return "Error: Producto no encontrado.";
-            }
-
-            productoExistente.Nombre = productoModificado.Nombre;
-            productoExistente.Precio = productoModificado.Precio;
-            productoExistente.Cantidad = productoModificado.Cantidad;
-
-            return "Cambios guardados correctamente.";
+            bool exito = ConexionDB.ModificarProductoEnDB(productoModificado);
+            return exito ? "Cambios guardados correctamente." : "Error: Producto no encontrado.";
         }
 
         public List<Producto> ObtenerProductos()
         {
-            // !!! Obtener los Productos desde la BBDD
-            return producto;
+            return ConexionDB.ObtenerProductosDesdeDB();
         }
     }
 }

@@ -16,7 +16,7 @@ namespace InkPos
 
             ApplicationConfiguration.Initialize();
             Application.ApplicationExit += OnApplicationExit;
-            Application.Run(new agregar_producto());
+            Application.Run(new Login());
         }
 
         static void InitializeDatabase()

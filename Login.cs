@@ -90,7 +90,7 @@ namespace InkPos
                 }
 
                 Empleado empleado = new Empleado();
-                var empleadoLogueado = empleado.VerificarCredenciales(usuario, contrasena);
+                var empleadoLogueado = ConexionDB.VerificarCredenciales(usuario, contrasena);
 
                 if (empleadoLogueado == null)
                     throw new Exception("Usuario o contraseña incorrectos.");
