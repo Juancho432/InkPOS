@@ -32,10 +32,10 @@ namespace InkPos
 
         private void button_mod_Click(object sender, EventArgs e)
         {
-            modificar_producto modificar_Producto = new modificar_producto();
-            modificar_Producto.Show();
-            this.Hide();
-            modificar_Producto.FormClosed += (s, args) => this.Show();
+            //modificar_producto modificar_Producto = new();
+            //modificar_Producto.Show();
+            //this.Hide();
+            //modificar_Producto.FormClosed += (s, args) => this.Show();
         }
     }
 }

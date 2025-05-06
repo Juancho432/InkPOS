@@ -8,7 +8,6 @@ namespace InkPos
 {
     public class ProductoManager
     {
-        private List<Producto> productos = new List<Producto>();
 
         public string AgregarProducto(Producto nuevoProducto)
         {
@@ -20,13 +19,14 @@ namespace InkPos
                 return "Error: Hay campos faltantes o valores inválidos.";
             }
 
+            // !!! Bucar en la BBDD que el codigo del producto no existe
             var productoExistente = productos.FirstOrDefault(p => p.Codigo == nuevoProducto.Codigo);
             if (productoExistente != null)
             {
                 return "Error: El producto ya está registrado en la base de datos.";
             }
 
-            productos.Add(nuevoProducto);
+            productos.Add(nuevoProducto);  // !!! Añadir el producto a la BBDD
             return "Producto registrado correctamente.";
         }
 
@@ -40,6 +40,7 @@ namespace InkPos
                 return "Error: Hay campos faltantes o valores inválidos.";
             }
 
+            // !!! Buscar el codigo del producto en la BBDD
             var productoExistente = productos.FirstOrDefault(p => p.Codigo == productoModificado.Codigo);
             if (productoExistente == null)
             {
@@ -55,6 +56,7 @@ namespace InkPos
 
         public List<Producto> ObtenerProductos()
         {
+            // !!! Obtener los Productos desde la BBDD
             return productos;
         }
     }
