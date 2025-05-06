@@ -12,9 +12,11 @@ namespace InkPos
 {
     public partial class InformeFactura : Form
     {
-        public InformeFactura()
+        public InformeFactura(List<DetalleVenta> detallesVenta)
         {
             InitializeComponent();
+            dgvDetalleVenta.AutoGenerateColumns = false;
+            dgvDetalleVenta.DataSource = detallesVenta;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

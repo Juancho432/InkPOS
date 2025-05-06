@@ -21,5 +21,10 @@ namespace InkPos
         {
 
         }
+
+        private void gestion_empleados_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
