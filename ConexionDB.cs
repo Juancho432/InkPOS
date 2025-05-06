@@ -7,7 +7,7 @@ using Npgsql;
 
 namespace InkPos
 {
-    internal class ConexionDB
+    public class ConexionDB
     {
         private string cadenaConexion = "Host=localhost;Port=5432;Username=postgres;Password=admin;Database=InkPosDB";
         private static string connectionString = "Host=localhost; Port=5432; Username=postgres;Password=admin;Database=InkPosDB";
