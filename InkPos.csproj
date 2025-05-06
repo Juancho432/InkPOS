@@ -9,6 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="ThirdPartyApp\pgsql\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>pgsql\%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="icon_inkpos.ico" />
   </ItemGroup>
 
