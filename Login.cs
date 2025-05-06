@@ -15,6 +15,8 @@ namespace InkPos
         public Login()
         {
             InitializeComponent();
+            this.button_limpiar.Click += new System.EventHandler(this.button2_Click);
+
         }
 
         private void label2_Click(object sender, EventArgs e)
