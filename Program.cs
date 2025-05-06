@@ -14,7 +14,7 @@ namespace InkPos
             string rutaStart = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "start_pg.bat");
             string rutaStop = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "stop_pg.bat");
 
-            // Ejecutar start_pg.bat oculto
+           
             try
             {
                 ProcessStartInfo startInfo = new ProcessStartInfo
