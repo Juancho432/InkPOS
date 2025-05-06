@@ -98,6 +98,7 @@
             // 
             // box_metodopago
             // 
+            box_metodopago.Anchor = AnchorStyles.None;
             box_metodopago.FormattingEnabled = true;
             box_metodopago.Location = new Point(655, 215);
             box_metodopago.Name = "box_metodopago";
