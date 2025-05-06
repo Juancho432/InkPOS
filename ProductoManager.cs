@@ -20,13 +20,13 @@ namespace InkPos
             }
 
             // !!! Bucar en la BBDD que el codigo del producto no existe
-            var productoExistente = productos.FirstOrDefault(p => p.Codigo == nuevoProducto.Codigo);
+            var productoExistente = producto.FirstOrDefault(p => p.Codigo == nuevoProducto.Codigo);
             if (productoExistente != null)
             {
                 return "Error: El producto ya está registrado en la base de datos.";
             }
 
-            productos.Add(nuevoProducto);  // !!! Añadir el producto a la BBDD
+            producto.Add(nuevoProducto);  // !!! Añadir el producto a la BBDD
             return "Producto registrado correctamente.";
         }
 
@@ -41,7 +41,7 @@ namespace InkPos
             }
 
             // !!! Buscar el codigo del producto en la BBDD
-            var productoExistente = productos.FirstOrDefault(p => p.Codigo == productoModificado.Codigo);
+            var productoExistente = producto.FirstOrDefault(p => p.Codigo == productoModificado.Codigo);
             if (productoExistente == null)
             {
                 return "Error: Producto no encontrado.";
@@ -57,7 +57,7 @@ namespace InkPos
         public List<Producto> ObtenerProductos()
         {
             // !!! Obtener los Productos desde la BBDD
-            return productos;
+            return producto;
         }
     }
 }

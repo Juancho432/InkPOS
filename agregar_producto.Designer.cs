@@ -190,7 +190,7 @@
             txtbox_codigoproducto.Name = "txtbox_codigoproducto";
             txtbox_codigoproducto.Size = new Size(183, 23);
             txtbox_codigoproducto.TabIndex = 3;
-            txtbox_codigoproducto.TextChanged += txtbox_codigoproducto_TextChanged;
+ 
             // 
             // txtbox_nombreproducto
             // 
