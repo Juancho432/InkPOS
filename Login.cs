@@ -57,7 +57,8 @@ namespace InkPos
             Empleado empleado = new Empleado();
 
             // Verificar credenciales
-            Empleado empleadoLogueado = empleado.VerificarCredenciales(usuario, contrasena);
+            LoginService loginService = new LoginService();
+            Empleado empleadoLogueado = loginService.IniciarSesion(usuario, contrasena);
 
             if (empleadoLogueado != null)
             {
@@ -87,6 +88,25 @@ namespace InkPos
         private void button_salir_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        public class LoginService
+        {
+            public Empleado IniciarSesion(string usuario, string contrasena)
+            {
+                if (string.IsNullOrWhiteSpace(usuario) || string.IsNullOrWhiteSpace(contrasena))
+                {
+                    throw new Exception("Campos vacíos. Por favor ingrese usuario y contraseña.");
+                }
+
+                Empleado empleado = new Empleado();
+                var empleadoLogueado = empleado.VerificarCredenciales(usuario, contrasena);
+
+                if (empleadoLogueado == null)
+                    throw new Exception("Usuario o contraseña incorrectos.");
+
+                return empleadoLogueado;
+            }
         }
     }
 }
