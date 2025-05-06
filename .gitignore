@@ -2,6 +2,7 @@
 ## Archivos de compilación
 bin/
 obj/
+Debug/
 
 ## Configuración de Visual Studio
 .vs/
