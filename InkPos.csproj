@@ -9,14 +9,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="ThirdPartyApp\pgsql\**\*">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Link>pgsql\%(RecursiveDir)%(Filename)%(Extension)</Link>
-    </Content>
+    <Compile Remove="ThirdPartyApp\**" />
+    <EmbeddedResource Remove="ThirdPartyApp\**" />
+    <None Remove="ThirdPartyApp\**" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="icon_inkpos.ico" />
+    <None Remove="InkPosDBTemplate.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="InkPosDBTemplate.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -27,7 +33,8 @@
 
   <ItemGroup>
     <PackageReference Include="Guna.UI2.WinForms" Version="2.0.4.7" />
-    <PackageReference Include="Npgsql" Version="9.0.3" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.4" />
+    <PackageReference Include="System.Drawing.Common" Version="9.0.4" />
   </ItemGroup>
 
   <ItemGroup>
