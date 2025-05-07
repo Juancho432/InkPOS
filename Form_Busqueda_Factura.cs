@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace InkPos
 {
-    public partial class busqueda_factura : Form
+    public partial class Form_Busqueda_Factura : Form
     {
-        public busqueda_factura()
+        public Form_Busqueda_Factura()
         {
             InitializeComponent();
         }

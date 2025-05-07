@@ -20,7 +20,7 @@ namespace InkPos
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            busqueda_productos busqueda_Productos = new busqueda_productos();
+            Form_BP_CS_AP busqueda_Productos = new Form_BP_CS_AP();
             busqueda_Productos.Show();
             this.Hide(); // Oculta Form1 en lugar de cerrarlo
             busqueda_Productos.FormClosed += (s, args) => this.Show();
@@ -28,7 +28,7 @@ namespace InkPos
 
         private void button_maestro_productos_Click(object sender, EventArgs e)
         {
-            seleccion_maestro_productos seleccion_Maestro_Productos = new seleccion_maestro_productos();
+            Form_home_maestro_productos seleccion_Maestro_Productos = new Form_home_maestro_productos();
             seleccion_Maestro_Productos.Show();
             this.Hide();
             seleccion_Maestro_Productos.FormClosed += (s, args) => this.Show();
@@ -36,7 +36,7 @@ namespace InkPos
 
         private void button_gestion_empleados_Click(object sender, EventArgs e)
         {
-            gestion_empleados gestion_Empleados = new gestion_empleados();
+            Form_Gestion_Empleados gestion_Empleados = new Form_Gestion_Empleados();
             gestion_Empleados.Show();
             this.Hide(); 
             gestion_Empleados.FormClosed += (s, args) => this.Show();
@@ -44,7 +44,7 @@ namespace InkPos
 
         private void button_facturas_Click(object sender, EventArgs e)
         {
-            busqueda_factura busqueda_Factura = new busqueda_factura();
+            Form_Busqueda_Factura busqueda_Factura = new Form_Busqueda_Factura();
             busqueda_Factura.Show();
             this.Hide(); 
             busqueda_Factura.FormClosed += (s, args) => this.Show();

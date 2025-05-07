@@ -1,6 +1,6 @@
 ﻿namespace InkPos
 {
-    partial class modificar_producto
+    partial class Form_modificar_producto
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(modificar_producto));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_modificar_producto));
             groupBox1 = new GroupBox();
             box_campomodificar = new ComboBox();
             txtbox_nuevovalor = new TextBox();

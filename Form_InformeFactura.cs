@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace InkPos
 {
-    public partial class InformeFactura : Form
+    public partial class Form_InformeFactura : Form
     {
-        public InformeFactura(List<DetalleVenta> detallesVenta)
+        public Form_InformeFactura(List<DetalleVenta> detallesVenta)
         {
             InitializeComponent();
             dgvDetalleVenta.AutoGenerateColumns = false;

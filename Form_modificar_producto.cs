@@ -5,12 +5,12 @@ using System.Windows.Forms;
 
 namespace InkPos
 {
-    public partial class modificar_producto : Form
+    public partial class Form_modificar_producto : Form
     {
         private ProductoManager productoManager;
         private Producto productoActual;
 
-        public modificar_producto(Producto producto)
+        public Form_modificar_producto(Producto producto)
         {
             InitializeComponent();
             productoManager = new ProductoManager();

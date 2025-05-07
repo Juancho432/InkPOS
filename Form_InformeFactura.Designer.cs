@@ -1,6 +1,6 @@
 ﻿namespace InkPos
 {
-    partial class InformeFactura
+    partial class Form_InformeFactura
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InformeFactura));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_InformeFactura));
             pictureBox1 = new PictureBox();
             button_imprimir = new Button();
             lbl_PapeleríaAJ = new Label();

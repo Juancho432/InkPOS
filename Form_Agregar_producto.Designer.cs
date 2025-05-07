@@ -1,6 +1,6 @@
 ﻿namespace InkPos
 {
-    partial class agregar_producto
+    partial class Form_Agregar_producto
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(agregar_producto));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Agregar_producto));
             groupBox1 = new GroupBox();
             txtbox_precio = new TextBox();
             txtbox_cantidad = new TextBox();

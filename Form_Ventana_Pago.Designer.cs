@@ -1,6 +1,6 @@
 ﻿namespace InkPos
 {
-    partial class Ventana_Pago
+    partial class Form_Ventana_Pago
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ventana_Pago));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Ventana_Pago));
             groupBox1 = new GroupBox();
             button_generarPDF = new Button();
             txtbox_cambio = new TextBox();
