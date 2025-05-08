@@ -9,7 +9,7 @@ namespace InkPos
     public class Factura
     {
         public string IdFactura { get; set; }
-        public List<ItemFactura> Items { get; set; }
+        public List<Detalle> Items { get; set; }
         public decimal Total { get; set; }
         public decimal ValorRecibido { get; set; }
         public decimal Cambio { get; set; }
