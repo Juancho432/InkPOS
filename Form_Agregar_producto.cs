@@ -16,7 +16,7 @@ namespace InkPos
         private void button_agregar_Click(object sender, EventArgs e)
         {
             //Obtener los valores de los textbox
-            
+
             string nombre_producto = txtbox_nombreproducto.Text.Trim();
             string codigo_producto = txtbox_codigoproducto.Text.Trim();
             string cantidad = txtbox_cantidad.Text.Trim();
@@ -28,7 +28,7 @@ namespace InkPos
             try
             {
                 if (string.IsNullOrEmpty(nombre_producto) || string.IsNullOrEmpty(codigo_producto)
-                   || string.IsNullOrEmpty(cantidad) || string.IsNullOrEmpty(precio)) 
+                   || string.IsNullOrEmpty(cantidad) || string.IsNullOrEmpty(precio))
 
                 {
                     // Lanzar la ventana de campos vacios
@@ -40,10 +40,23 @@ namespace InkPos
                 return;
             }
 
+            //BBDD
+
+            Producto productoNuevo;
+
+            if (productoNuevo != null)
+            {
+                //Creacion de producto exitosa
+                MessageBox.Show("El producto fue ingresado al sistema exitosamente");
 
 
 
-            Hide();
+
+                Hide();
+            }
+
+
+            
         }
 
         // Evento para el botón "Limpiar"
@@ -54,6 +67,11 @@ namespace InkPos
             txtbox_nombreproducto.Clear();
             txtbox_precio.Clear();
             txtbox_cantidad.Clear();
+        }
+
+        private void button_salir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

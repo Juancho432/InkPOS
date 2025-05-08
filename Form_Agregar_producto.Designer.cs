@@ -127,6 +127,7 @@
             button_salir.TabIndex = 8;
             button_salir.Text = "Salir";
             button_salir.UseVisualStyleBackColor = true;
+            button_salir.Click += button_salir_Click;
             // 
             // button_agregar
             // 
