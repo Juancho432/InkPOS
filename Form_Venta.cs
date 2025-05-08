@@ -13,7 +13,7 @@ namespace InkPos
     public partial class Form_Venta : Form
     {
 
-        private List<Productos> productosEnVenta = new List<Productos>();
+        private List<Producto> productosEnVenta = new List<Producto>();
         private decimal totalVenta = 0;
         public Form_Venta()
         {
@@ -57,7 +57,7 @@ namespace InkPos
             if (lstCoincidencias.SelectedItem == null)
                 return;
 
-            Productos producto = (Productos)lstCoincidencias.SelectedItem;
+            Producto producto = (Producto)lstCoincidencias.SelectedItem;
 
             int cantidad = 1;
 
@@ -148,7 +148,7 @@ namespace InkPos
                 int idProducto = Convert.ToInt32(fila.Cells[0].Value);
 
 
-                var producto = productosDatos.ObtenerProductoPorId(idProducto);
+                var producto = productoDatos.ObtenerProductoPorId(idProducto);
 
                 // Verificar si el producto no se encontró
                 if (producto == null)
@@ -234,7 +234,7 @@ namespace InkPos
             }
 
             // Buscar productos
-            List<Productos> productos = productosDatos.BuscarProductos(criterio);
+            List<Producto> productos = productoDatos.BuscarProductos(criterio);
 
             // Limpiar resultados anteriores
             lstCoincidencias.Items.Clear();

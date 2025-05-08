@@ -8,7 +8,7 @@ namespace InkPos
         {
             DataBaseHandler database = new();
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form_Login(database));
+            Application.Run(new Form_Ventana_Pago(database));
         }
     }
 }

@@ -16,5 +16,12 @@ namespace InkPos
         {
             InitializeComponent();
         }
+
+        private void button_venta_Click(object sender, EventArgs e)
+        {
+            // direcciona a venta
+            Form_Venta form_Venta = new();
+            form_Venta.Show();
+        }
     }
 }
