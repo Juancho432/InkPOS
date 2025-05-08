@@ -154,7 +154,6 @@
 
         private GroupBox groupBox1;
         private Label lbl_busqueda_factura;
-        private Guna.UI2.WinForms.Guna2TextBox txtbox_num_factura;
         private TextBox txtbox_resultado_factura;
         private LinkLabel linkLabel_ver;
         private Button button_imprimir;
