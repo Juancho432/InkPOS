@@ -42,18 +42,18 @@ namespace InkPos
 
             //BBDD
 
-            Producto productoNuevo;
+            //Producto productoNuevo;
 
-            if (productoNuevo != null)
-            {
-                //Creacion de producto exitosa
-                MessageBox.Show("El producto fue ingresado al sistema exitosamente");
-
-
+            ////if (productoNuevo != null)
+            //{
+            //    //Creacion de producto exitosa
+            //    MessageBox.Show("El producto fue ingresado al sistema exitosamente");
 
 
-                Hide();
-            }
+
+
+            //    Hide();
+            //}
 
 
             
