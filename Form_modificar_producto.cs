@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace InkPos
 {
-    public partial class modificar_producto : Form
+    public partial class Form_modificar_producto : Form
     {
 
         public modificar_producto()

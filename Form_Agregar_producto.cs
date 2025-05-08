@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace InkPos
 {
-    public partial class agregar_producto : Form
+    public partial class Form_Agregar_producto : Form
     {
         public agregar_producto()
         {

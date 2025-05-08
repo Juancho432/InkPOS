@@ -4,13 +4,13 @@ using System.Windows.Forms;
 
 namespace InkPos
 {
-    public partial class Ventana_Pago : Form
+    public partial class Form_Ventana_Pago : Form
     {
         private List<Productos> productosVendidos;
         private decimal totalVenta;
         private bool pagoConfirmado = false;
 
-        public Ventana_Pago(List<Productos> productos, decimal total)
+        public Form_Ventana_Pago(List<Productos> productos, decimal total)
         {
             InitializeComponent();
             productosVendidos = productos;
@@ -83,7 +83,7 @@ namespace InkPos
     };
 
             // Mostrar la factura
-            InformeFactura frm = new InformeFactura(detallesVenta);
+            Form_InformeFactura frm = new Form_InformeFactura(detallesVenta);
             frm.ShowDialog();  // o frm.Show() si no quieres bloquear
         }
     }

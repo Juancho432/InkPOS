@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace InkPos
 {
-    public partial class busqueda_productos : Form
+    public partial class Form_BP_CS_AP : Form
     {
 
         private List<Productos> productosEnVenta = new List<Productos>();
         private decimal totalVenta = 0;
-        public busqueda_productos()
+        public Form_BP_CS_AP()
         {
             InitializeComponent();
             // Asocia el evento DoubleClick al método que se encarga de agregar el producto al DataGridView
@@ -270,7 +270,7 @@ namespace InkPos
             txtValorTotal.Text = "";
 
 
-            Ventana_Pago pago = new Ventana_Pago(productosEnVenta, totalVenta);
+            Form_Ventana_Pago pago = new Form_Ventana_Pago(productosEnVenta, totalVenta);
             pago.ShowDialog();
         }
 

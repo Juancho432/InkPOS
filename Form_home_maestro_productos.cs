@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace InkPos
 {
-    public partial class seleccion_maestro_productos : Form
+    public partial class Form_home_maestro_productos : Form
     {
-        public seleccion_maestro_productos()
+        public Form_home_maestro_productos()
         {
             InitializeComponent();
         }
@@ -24,7 +24,7 @@ namespace InkPos
 
         private void button_add_Click(object sender, EventArgs e)
         {
-            agregar_producto agregar_Producto = new agregar_producto();
+            Form_Agregar_producto agregar_Producto = new Form_Agregar_producto();
             agregar_Producto.Show();
             this.Hide();
             agregar_Producto.FormClosed += (s, args) => this.Show();

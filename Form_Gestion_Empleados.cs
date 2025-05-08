@@ -3,10 +3,10 @@ using System.Windows.Forms;
 
 namespace InkPos
 {
-    public partial class gestion_empleados : Form
+    public partial class Form_Gestion_Empleados : Form
     {
 
-        public gestion_empleados()
+        public Form_Gestion_Empleados()
         {
             InitializeComponent();
         }
