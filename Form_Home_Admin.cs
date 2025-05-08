@@ -13,7 +13,7 @@
 
         private void Boton_Venta_Click(object sender, EventArgs e)
         {
-            Form_BP_CS_AP busqueda_Productos = new Form_BP_CS_AP();
+            Form_Venta busqueda_Productos = new Form_Venta();
             busqueda_Productos.Show();
             this.Hide(); // Oculta Form1 en lugar de cerrarlo
             busqueda_Productos.FormClosed += (s, args) => this.Show();

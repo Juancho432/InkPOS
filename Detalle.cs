@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace InkPos
 {
-    public class DetalleVenta
+    public class Detalle
     {
-        public string Codigo { get; set; }
-        public string Producto { get; set; }
+        public string NombreProducto { get; set; }
         public int Cantidad { get; set; }
-        public decimal Valor { get; set; }
+        public decimal Precio { get; set; }
     }
+
 }
