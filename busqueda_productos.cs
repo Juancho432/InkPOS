@@ -13,7 +13,6 @@ namespace InkPos
     public partial class busqueda_productos : Form
     {
 
-        private ProductosDatos productosDatos = new ProductosDatos();
         private List<Productos> productosEnVenta = new List<Productos>();
         private decimal totalVenta = 0;
         public busqueda_productos()

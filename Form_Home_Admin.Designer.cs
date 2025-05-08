@@ -178,9 +178,9 @@
             button_venta.TabIndex = 2;
             button_venta.Text = "Venta";
             button_venta.TextOffset = new Point(-22, 60);
-            button_venta.Click += guna2Button1_Click;
+            button_venta.Click += Boton_Venta_Click;
             // 
-            // menu_opciones_admin
+            // Form_Home_Admin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -188,9 +188,10 @@
             ClientSize = new Size(1527, 735);
             Controls.Add(groupBox1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "menu_opciones_admin";
+            Name = "Form_Home_Admin";
             Text = "InkPos - Menú de inicio";
             WindowState = FormWindowState.Maximized;
+            Load += Form_Home_Admin_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);

@@ -62,7 +62,7 @@
                 if (empleadoActual.Es_Admin == true)
                 {
                     // Formulario para administrador
-                    Form_Home_Admin homeAdmin = new();  
+                    Form_Home_Admin homeAdmin = new(Database);  
                     homeAdmin.Show();
                 }
                 else

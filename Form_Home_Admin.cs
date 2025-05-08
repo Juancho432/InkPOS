@@ -1,24 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.DataFormats;
-
-namespace InkPos
+﻿namespace InkPos
 {
     public partial class Form_Home_Admin : Form
     {
-        public Form_Home_Admin()
+        private readonly DataBaseHandler Database;
+        private readonly Empleado Admin;
+        public Form_Home_Admin(DataBaseHandler database, Empleado admin)
         {
+            Database = database;
+            Admin = admin;
             InitializeComponent();
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private void Boton_Venta_Click(object sender, EventArgs e)
         {
             busqueda_productos busqueda_Productos = new busqueda_productos();
             busqueda_Productos.Show();
@@ -38,7 +31,7 @@ namespace InkPos
         {
             gestion_empleados gestion_Empleados = new gestion_empleados();
             gestion_Empleados.Show();
-            this.Hide(); 
+            this.Hide();
             gestion_Empleados.FormClosed += (s, args) => this.Show();
         }
 
@@ -46,8 +39,13 @@ namespace InkPos
         {
             busqueda_factura busqueda_Factura = new busqueda_factura();
             busqueda_Factura.Show();
-            this.Hide(); 
+            this.Hide();
             busqueda_Factura.FormClosed += (s, args) => this.Show();
+        }
+
+        private void Form_Home_Admin_Load(object sender, EventArgs e)
+        {
+            lbl_nombre_empleado.Text = Admin.Nombre;
         }
     }
 }
