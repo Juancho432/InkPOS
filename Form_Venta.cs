@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace InkPos
 {
-    public partial class Form_BP_CS_AP : Form
+    public partial class Form_Venta : Form
     {
 
         private List<Productos> productosEnVenta = new List<Productos>();
         private decimal totalVenta = 0;
-        public Form_BP_CS_AP()
+        public Form_Venta()
         {
             InitializeComponent();
             // Asocia el evento DoubleClick al método que se encarga de agregar el producto al DataGridView

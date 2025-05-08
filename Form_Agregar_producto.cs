@@ -15,6 +15,35 @@ namespace InkPos
         // Evento para el botón "Agregar"
         private void button_agregar_Click(object sender, EventArgs e)
         {
+            //Obtener los valores de los textbox
+            
+            string nombre_producto = txtbox_nombreproducto.Text.Trim();
+            string codigo_producto = txtbox_codigoproducto.Text.Trim();
+            string cantidad = txtbox_cantidad.Text.Trim();
+            string precio = txtbox_precio.Text.Trim();
+
+            //Validacion de campos vacios 
+
+            // Validar campos vacíos
+            try
+            {
+                if (string.IsNullOrEmpty(nombre_producto) || string.IsNullOrEmpty(codigo_producto)
+                   || string.IsNullOrEmpty(cantidad) || string.IsNullOrEmpty(precio)) 
+
+                {
+                    // Lanzar la ventana de campos vacios
+                    throw new Excepciones.CamposVacios();
+                }
+            }
+            catch
+            {
+                return;
+            }
+
+
+
+
+            Hide();
         }
 
         // Evento para el botón "Limpiar"

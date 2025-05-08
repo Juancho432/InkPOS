@@ -1,6 +1,6 @@
 ﻿namespace InkPos
 {
-    partial class Form_BP_CS_AP
+    partial class Form_Venta
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_BP_CS_AP));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Venta));
             txtBusqueda = new TextBox();
             btnBuscar = new Button();
             lstCoincidencias = new ListBox();
