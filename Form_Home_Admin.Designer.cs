@@ -60,7 +60,7 @@
             panel_home_admin.Controls.Add(panel_button_GEmpleados);
             panel_home_admin.Controls.Add(lbl_nombreAdmin);
             panel_home_admin.Controls.Add(lbl_welcome);
-            panel_home_admin.Location = new Point(5, 2);
+            panel_home_admin.Location = new Point(5, -58);
             panel_home_admin.Name = "panel_home_admin";
             panel_home_admin.Size = new Size(1513, 1171);
             panel_home_admin.TabIndex = 0;
@@ -225,7 +225,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1522, 1175);
+            ClientSize = new Size(1522, 1055);
             Controls.Add(panel_home_admin);
             Name = "Form_Home_Admin";
             Text = "InkPOS - Home Admin";

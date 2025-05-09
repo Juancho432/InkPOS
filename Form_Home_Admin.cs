@@ -20,6 +20,15 @@ namespace InkPos
             EmpleadoActual = empleado;
             Database = database;
             InitializeComponent();
+
+        }
+
+        private void button_maestro_productos_Click(object sender, EventArgs e)
+        {
+            Form_home_maestro_productos maestro_productos = new Form_home_maestro_productos(EmpleadoActual, Database);
+            maestro_productos.Show();
+            this.Hide();
+            maestro_productos.FormClosed += (s, args) => this.Show();
         }
     }
 }
