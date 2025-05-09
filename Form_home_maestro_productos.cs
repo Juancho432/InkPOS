@@ -12,8 +12,13 @@ namespace InkPos
 {
     public partial class Form_home_maestro_productos : Form
     {
-        public Form_home_maestro_productos()
+
+        private Empleado EmpleadoActual;
+        private DataBaseHandler Database;
+        public Form_home_maestro_productos(Empleado empleado, DataBaseHandler database)
         {
+            EmpleadoActual = empleado;
+            Database = database;
             InitializeComponent();
         }
 
