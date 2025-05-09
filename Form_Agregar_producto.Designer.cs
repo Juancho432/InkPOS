@@ -1,6 +1,6 @@
 ﻿namespace InkPos
 {
-    partial class Form_Agregar_producto
+    partial class Form_Agregar_Producto
     {
         /// <summary>
         /// Required designer variable.
@@ -28,71 +28,53 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Agregar_producto));
-            groupBox1 = new GroupBox();
-            txtbox_precio = new TextBox();
-            txtbox_cantidad = new TextBox();
+            panel_agregar_producto = new Panel();
             lbl_precio = new Label();
             label3 = new Label();
             lbl_stock = new Label();
-            button_salir = new Button();
-            button_agregar = new Button();
-            button_limpiar = new Button();
             lbl_codigoproducto = new Label();
             lbl_nombreproducto = new Label();
-            txtbox_codigoproducto = new TextBox();
-            txtbox_nombreproducto = new TextBox();
             lbl_agregarproducto = new Label();
-            groupBox1.SuspendLayout();
+            txtbox_add_nombre_producto = new MaterialSkin.Controls.MaterialTextBox2();
+            txtbox_add_cantidad = new MaterialSkin.Controls.MaterialTextBox2();
+            txtbox_add_codigo_producto = new MaterialSkin.Controls.MaterialTextBox2();
+            txtbox_add_precio = new MaterialSkin.Controls.MaterialTextBox2();
+            button_agregar = new MaterialSkin.Controls.MaterialButton();
+            button_limpiar = new MaterialSkin.Controls.MaterialButton();
+            button_cancelar = new MaterialSkin.Controls.MaterialButton();
+            panel_agregar_producto.SuspendLayout();
             SuspendLayout();
             // 
-            // groupBox1
+            // panel_agregar_producto
             // 
-            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox1.Controls.Add(txtbox_precio);
-            groupBox1.Controls.Add(txtbox_cantidad);
-            groupBox1.Controls.Add(lbl_precio);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(lbl_stock);
-            groupBox1.Controls.Add(button_salir);
-            groupBox1.Controls.Add(button_agregar);
-            groupBox1.Controls.Add(button_limpiar);
-            groupBox1.Controls.Add(lbl_codigoproducto);
-            groupBox1.Controls.Add(lbl_nombreproducto);
-            groupBox1.Controls.Add(txtbox_codigoproducto);
-            groupBox1.Controls.Add(txtbox_nombreproducto);
-            groupBox1.Controls.Add(lbl_agregarproducto);
-            groupBox1.Location = new Point(24, 27);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1394, 671);
-            groupBox1.TabIndex = 1;
-            groupBox1.TabStop = false;
-            // 
-            // txtbox_precio
-            // 
-            txtbox_precio.Anchor = AnchorStyles.None;
-            txtbox_precio.Location = new Point(677, 411);
-            txtbox_precio.Name = "txtbox_precio";
-            txtbox_precio.Size = new Size(209, 27);
-            txtbox_precio.TabIndex = 13;
-            // 
-            // txtbox_cantidad
-            // 
-            txtbox_cantidad.Anchor = AnchorStyles.None;
-            txtbox_cantidad.Location = new Point(677, 347);
-            txtbox_cantidad.Name = "txtbox_cantidad";
-            txtbox_cantidad.Size = new Size(209, 27);
-            txtbox_cantidad.TabIndex = 12;
+            panel_agregar_producto.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel_agregar_producto.Controls.Add(button_cancelar);
+            panel_agregar_producto.Controls.Add(button_limpiar);
+            panel_agregar_producto.Controls.Add(button_agregar);
+            panel_agregar_producto.Controls.Add(txtbox_add_precio);
+            panel_agregar_producto.Controls.Add(txtbox_add_codigo_producto);
+            panel_agregar_producto.Controls.Add(txtbox_add_cantidad);
+            panel_agregar_producto.Controls.Add(txtbox_add_nombre_producto);
+            panel_agregar_producto.Controls.Add(lbl_precio);
+            panel_agregar_producto.Controls.Add(label3);
+            panel_agregar_producto.Controls.Add(lbl_stock);
+            panel_agregar_producto.Controls.Add(lbl_codigoproducto);
+            panel_agregar_producto.Controls.Add(lbl_nombreproducto);
+            panel_agregar_producto.Controls.Add(lbl_agregarproducto);
+            panel_agregar_producto.Location = new Point(5, 2);
+            panel_agregar_producto.Name = "panel_agregar_producto";
+            panel_agregar_producto.Size = new Size(1513, 1171);
+            panel_agregar_producto.TabIndex = 0;
             // 
             // lbl_precio
             // 
             lbl_precio.Anchor = AnchorStyles.None;
             lbl_precio.AutoSize = true;
             lbl_precio.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_precio.Location = new Point(583, 411);
+            lbl_precio.Location = new Point(673, 577);
             lbl_precio.Name = "lbl_precio";
             lbl_precio.Size = new Size(71, 23);
-            lbl_precio.TabIndex = 11;
+            lbl_precio.TabIndex = 21;
             lbl_precio.Text = "Precio:";
             // 
             // label3
@@ -100,10 +82,10 @@
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(561, 347);
+            label3.Location = new Point(652, 502);
             label3.Name = "label3";
             label3.Size = new Size(93, 23);
-            label3.TabIndex = 10;
+            label3.TabIndex = 20;
             label3.Text = "Cantidad:";
             // 
             // lbl_stock
@@ -111,57 +93,21 @@
             lbl_stock.Anchor = AnchorStyles.None;
             lbl_stock.AutoSize = true;
             lbl_stock.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_stock.Location = new Point(518, 300);
+            lbl_stock.Location = new Point(609, 455);
             lbl_stock.Name = "lbl_stock";
             lbl_stock.Size = new Size(72, 23);
-            lbl_stock.TabIndex = 9;
+            lbl_stock.TabIndex = 19;
             lbl_stock.Text = "(Stock)";
-            // 
-            // button_salir
-            // 
-            button_salir.Anchor = AnchorStyles.None;
-            button_salir.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button_salir.Location = new Point(554, 564);
-            button_salir.Name = "button_salir";
-            button_salir.Size = new Size(101, 37);
-            button_salir.TabIndex = 8;
-            button_salir.Text = "Salir";
-            button_salir.UseVisualStyleBackColor = true;
-            button_salir.Click += button_salir_Click;
-            // 
-            // button_agregar
-            // 
-            button_agregar.Anchor = AnchorStyles.None;
-            button_agregar.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button_agregar.Location = new Point(1003, 265);
-            button_agregar.Name = "button_agregar";
-            button_agregar.Size = new Size(161, 72);
-            button_agregar.TabIndex = 7;
-            button_agregar.Text = "Agregar";
-            button_agregar.UseVisualStyleBackColor = true;
-            button_agregar.Click += button_agregar_Click;
-            // 
-            // button_limpiar
-            // 
-            button_limpiar.Anchor = AnchorStyles.None;
-            button_limpiar.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button_limpiar.Location = new Point(738, 564);
-            button_limpiar.Name = "button_limpiar";
-            button_limpiar.Size = new Size(101, 37);
-            button_limpiar.TabIndex = 6;
-            button_limpiar.Text = "Limpiar";
-            button_limpiar.UseVisualStyleBackColor = true;
-            button_limpiar.Click += button_limpiar_Click;
             // 
             // lbl_codigoproducto
             // 
             lbl_codigoproducto.Anchor = AnchorStyles.None;
             lbl_codigoproducto.AutoSize = true;
             lbl_codigoproducto.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_codigoproducto.Location = new Point(469, 228);
+            lbl_codigoproducto.Location = new Point(560, 383);
             lbl_codigoproducto.Name = "lbl_codigoproducto";
             lbl_codigoproducto.Size = new Size(185, 23);
-            lbl_codigoproducto.TabIndex = 5;
+            lbl_codigoproducto.TabIndex = 18;
             lbl_codigoproducto.Text = "Código del producto:";
             // 
             // lbl_nombreproducto
@@ -169,71 +115,228 @@
             lbl_nombreproducto.Anchor = AnchorStyles.None;
             lbl_nombreproducto.AutoSize = true;
             lbl_nombreproducto.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_nombreproducto.Location = new Point(461, 179);
+            lbl_nombreproducto.Location = new Point(542, 309);
             lbl_nombreproducto.Name = "lbl_nombreproducto";
             lbl_nombreproducto.Size = new Size(193, 23);
-            lbl_nombreproducto.TabIndex = 4;
+            lbl_nombreproducto.TabIndex = 17;
             lbl_nombreproducto.Text = "Nombre del producto:";
-            // 
-            // txtbox_codigoproducto
-            // 
-            txtbox_codigoproducto.AcceptsReturn = true;
-            txtbox_codigoproducto.Anchor = AnchorStyles.None;
-            txtbox_codigoproducto.Location = new Point(677, 224);
-            txtbox_codigoproducto.Name = "txtbox_codigoproducto";
-            txtbox_codigoproducto.Size = new Size(209, 27);
-            txtbox_codigoproducto.TabIndex = 3;
-            // 
-            // txtbox_nombreproducto
-            // 
-            txtbox_nombreproducto.Anchor = AnchorStyles.None;
-            txtbox_nombreproducto.Location = new Point(677, 179);
-            txtbox_nombreproducto.Name = "txtbox_nombreproducto";
-            txtbox_nombreproducto.Size = new Size(209, 27);
-            txtbox_nombreproducto.TabIndex = 2;
             // 
             // lbl_agregarproducto
             // 
             lbl_agregarproducto.Anchor = AnchorStyles.None;
             lbl_agregarproducto.AutoSize = true;
             lbl_agregarproducto.Font = new Font("Times New Roman", 28.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_agregarproducto.Location = new Point(491, 45);
+            lbl_agregarproducto.Location = new Point(585, 138);
             lbl_agregarproducto.Name = "lbl_agregarproducto";
             lbl_agregarproducto.Size = new Size(385, 53);
-            lbl_agregarproducto.TabIndex = 1;
+            lbl_agregarproducto.TabIndex = 14;
             lbl_agregarproducto.Text = "Agregar producto";
             // 
-            // Form_Agregar_producto
+            // txtbox_add_nombre_producto
+            // 
+            txtbox_add_nombre_producto.Anchor = AnchorStyles.None;
+            txtbox_add_nombre_producto.AnimateReadOnly = false;
+            txtbox_add_nombre_producto.BackgroundImageLayout = ImageLayout.None;
+            txtbox_add_nombre_producto.CharacterCasing = CharacterCasing.Normal;
+            txtbox_add_nombre_producto.Depth = 0;
+            txtbox_add_nombre_producto.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtbox_add_nombre_producto.HideSelection = true;
+            txtbox_add_nombre_producto.LeadingIcon = null;
+            txtbox_add_nombre_producto.Location = new Point(750, 284);
+            txtbox_add_nombre_producto.MaxLength = 32767;
+            txtbox_add_nombre_producto.MouseState = MaterialSkin.MouseState.OUT;
+            txtbox_add_nombre_producto.Name = "txtbox_add_nombre_producto";
+            txtbox_add_nombre_producto.PasswordChar = '\0';
+            txtbox_add_nombre_producto.PrefixSuffixText = null;
+            txtbox_add_nombre_producto.ReadOnly = false;
+            txtbox_add_nombre_producto.RightToLeft = RightToLeft.No;
+            txtbox_add_nombre_producto.SelectedText = "";
+            txtbox_add_nombre_producto.SelectionLength = 0;
+            txtbox_add_nombre_producto.SelectionStart = 0;
+            txtbox_add_nombre_producto.ShortcutsEnabled = true;
+            txtbox_add_nombre_producto.Size = new Size(220, 48);
+            txtbox_add_nombre_producto.TabIndex = 29;
+            txtbox_add_nombre_producto.TabStop = false;
+            txtbox_add_nombre_producto.TextAlign = HorizontalAlignment.Left;
+            txtbox_add_nombre_producto.TrailingIcon = null;
+            txtbox_add_nombre_producto.UseSystemPasswordChar = false;
+            // 
+            // txtbox_add_cantidad
+            // 
+            txtbox_add_cantidad.Anchor = AnchorStyles.None;
+            txtbox_add_cantidad.AnimateReadOnly = false;
+            txtbox_add_cantidad.BackgroundImageLayout = ImageLayout.None;
+            txtbox_add_cantidad.CharacterCasing = CharacterCasing.Normal;
+            txtbox_add_cantidad.Depth = 0;
+            txtbox_add_cantidad.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtbox_add_cantidad.HideSelection = true;
+            txtbox_add_cantidad.LeadingIcon = null;
+            txtbox_add_cantidad.Location = new Point(750, 477);
+            txtbox_add_cantidad.MaxLength = 32767;
+            txtbox_add_cantidad.MouseState = MaterialSkin.MouseState.OUT;
+            txtbox_add_cantidad.Name = "txtbox_add_cantidad";
+            txtbox_add_cantidad.PasswordChar = '\0';
+            txtbox_add_cantidad.PrefixSuffixText = null;
+            txtbox_add_cantidad.ReadOnly = false;
+            txtbox_add_cantidad.RightToLeft = RightToLeft.No;
+            txtbox_add_cantidad.SelectedText = "";
+            txtbox_add_cantidad.SelectionLength = 0;
+            txtbox_add_cantidad.SelectionStart = 0;
+            txtbox_add_cantidad.ShortcutsEnabled = true;
+            txtbox_add_cantidad.Size = new Size(220, 48);
+            txtbox_add_cantidad.TabIndex = 30;
+            txtbox_add_cantidad.TabStop = false;
+            txtbox_add_cantidad.TextAlign = HorizontalAlignment.Left;
+            txtbox_add_cantidad.TrailingIcon = null;
+            txtbox_add_cantidad.UseSystemPasswordChar = false;
+            // 
+            // txtbox_add_codigo_producto
+            // 
+            txtbox_add_codigo_producto.Anchor = AnchorStyles.None;
+            txtbox_add_codigo_producto.AnimateReadOnly = false;
+            txtbox_add_codigo_producto.BackgroundImageLayout = ImageLayout.None;
+            txtbox_add_codigo_producto.CharacterCasing = CharacterCasing.Normal;
+            txtbox_add_codigo_producto.Depth = 0;
+            txtbox_add_codigo_producto.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtbox_add_codigo_producto.HideSelection = true;
+            txtbox_add_codigo_producto.LeadingIcon = null;
+            txtbox_add_codigo_producto.Location = new Point(750, 372);
+            txtbox_add_codigo_producto.MaxLength = 32767;
+            txtbox_add_codigo_producto.MouseState = MaterialSkin.MouseState.OUT;
+            txtbox_add_codigo_producto.Name = "txtbox_add_codigo_producto";
+            txtbox_add_codigo_producto.PasswordChar = '\0';
+            txtbox_add_codigo_producto.PrefixSuffixText = null;
+            txtbox_add_codigo_producto.ReadOnly = false;
+            txtbox_add_codigo_producto.RightToLeft = RightToLeft.No;
+            txtbox_add_codigo_producto.SelectedText = "";
+            txtbox_add_codigo_producto.SelectionLength = 0;
+            txtbox_add_codigo_producto.SelectionStart = 0;
+            txtbox_add_codigo_producto.ShortcutsEnabled = true;
+            txtbox_add_codigo_producto.Size = new Size(220, 48);
+            txtbox_add_codigo_producto.TabIndex = 31;
+            txtbox_add_codigo_producto.TabStop = false;
+            txtbox_add_codigo_producto.TextAlign = HorizontalAlignment.Left;
+            txtbox_add_codigo_producto.TrailingIcon = null;
+            txtbox_add_codigo_producto.UseSystemPasswordChar = false;
+            // 
+            // txtbox_add_precio
+            // 
+            txtbox_add_precio.Anchor = AnchorStyles.None;
+            txtbox_add_precio.AnimateReadOnly = false;
+            txtbox_add_precio.BackgroundImageLayout = ImageLayout.None;
+            txtbox_add_precio.CharacterCasing = CharacterCasing.Normal;
+            txtbox_add_precio.Depth = 0;
+            txtbox_add_precio.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtbox_add_precio.HideSelection = true;
+            txtbox_add_precio.LeadingIcon = null;
+            txtbox_add_precio.Location = new Point(750, 552);
+            txtbox_add_precio.MaxLength = 32767;
+            txtbox_add_precio.MouseState = MaterialSkin.MouseState.OUT;
+            txtbox_add_precio.Name = "txtbox_add_precio";
+            txtbox_add_precio.PasswordChar = '\0';
+            txtbox_add_precio.PrefixSuffixText = null;
+            txtbox_add_precio.ReadOnly = false;
+            txtbox_add_precio.RightToLeft = RightToLeft.No;
+            txtbox_add_precio.SelectedText = "";
+            txtbox_add_precio.SelectionLength = 0;
+            txtbox_add_precio.SelectionStart = 0;
+            txtbox_add_precio.ShortcutsEnabled = true;
+            txtbox_add_precio.Size = new Size(220, 48);
+            txtbox_add_precio.TabIndex = 32;
+            txtbox_add_precio.TabStop = false;
+            txtbox_add_precio.TextAlign = HorizontalAlignment.Left;
+            txtbox_add_precio.TrailingIcon = null;
+            txtbox_add_precio.UseSystemPasswordChar = false;
+            // 
+            // button_agregar
+            // 
+            button_agregar.Anchor = AnchorStyles.None;
+            button_agregar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button_agregar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            button_agregar.Depth = 0;
+            button_agregar.HighEmphasis = true;
+            button_agregar.Icon = null;
+            button_agregar.Location = new Point(560, 728);
+            button_agregar.Margin = new Padding(4, 6, 4, 6);
+            button_agregar.MouseState = MaterialSkin.MouseState.HOVER;
+            button_agregar.Name = "button_agregar";
+            button_agregar.NoAccentTextColor = Color.Empty;
+            button_agregar.Size = new Size(88, 36);
+            button_agregar.TabIndex = 33;
+            button_agregar.Text = "agregar";
+            button_agregar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            button_agregar.UseAccentColor = false;
+            button_agregar.UseVisualStyleBackColor = true;
+            // 
+            // button_limpiar
+            // 
+            button_limpiar.Anchor = AnchorStyles.None;
+            button_limpiar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button_limpiar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            button_limpiar.Depth = 0;
+            button_limpiar.HighEmphasis = true;
+            button_limpiar.Icon = null;
+            button_limpiar.Location = new Point(750, 728);
+            button_limpiar.Margin = new Padding(4, 6, 4, 6);
+            button_limpiar.MouseState = MaterialSkin.MouseState.HOVER;
+            button_limpiar.Name = "button_limpiar";
+            button_limpiar.NoAccentTextColor = Color.Empty;
+            button_limpiar.Size = new Size(79, 36);
+            button_limpiar.TabIndex = 34;
+            button_limpiar.Text = "limpiar";
+            button_limpiar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            button_limpiar.UseAccentColor = false;
+            button_limpiar.UseVisualStyleBackColor = true;
+            // 
+            // button_cancelar
+            // 
+            button_cancelar.Anchor = AnchorStyles.None;
+            button_cancelar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button_cancelar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            button_cancelar.Depth = 0;
+            button_cancelar.HighEmphasis = true;
+            button_cancelar.Icon = null;
+            button_cancelar.Location = new Point(920, 728);
+            button_cancelar.Margin = new Padding(4, 6, 4, 6);
+            button_cancelar.MouseState = MaterialSkin.MouseState.HOVER;
+            button_cancelar.Name = "button_cancelar";
+            button_cancelar.NoAccentTextColor = Color.Empty;
+            button_cancelar.Size = new Size(94, 36);
+            button_cancelar.TabIndex = 35;
+            button_cancelar.Text = "cancelar";
+            button_cancelar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            button_cancelar.UseAccentColor = false;
+            button_cancelar.UseVisualStyleBackColor = true;
+            // 
+            // Form_Agregar_Producto
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Thistle;
-            ClientSize = new Size(1448, 721);
-            Controls.Add(groupBox1);
-            Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "Form_Agregar_producto";
-            Text = "g";
+            ClientSize = new Size(1522, 1175);
+            Controls.Add(panel_agregar_producto);
+            Name = "Form_Agregar_Producto";
+            Text = "InkPOS _ Agregar Producto";
             WindowState = FormWindowState.Maximized;
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            panel_agregar_producto.ResumeLayout(false);
+            panel_agregar_producto.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private GroupBox groupBox1;
-        private Button button_salir;
-        private Button button_agregar;
-        private Button button_limpiar;
-        private Label lbl_codigoproducto;
-        private Label lbl_nombreproducto;
-        private TextBox txtbox_codigoproducto;
-        private TextBox txtbox_nombreproducto;
-        private Label lbl_agregarproducto;
-        private TextBox txtbox_precio;
-        private TextBox txtbox_cantidad;
+        private Panel panel_agregar_producto;
         private Label lbl_precio;
         private Label label3;
         private Label lbl_stock;
+        private Label lbl_codigoproducto;
+        private Label lbl_nombreproducto;
+        private Label lbl_agregarproducto;
+        private MaterialSkin.Controls.MaterialTextBox2 txtbox_add_precio;
+        private MaterialSkin.Controls.MaterialTextBox2 txtbox_add_codigo_producto;
+        private MaterialSkin.Controls.MaterialTextBox2 txtbox_add_cantidad;
+        private MaterialSkin.Controls.MaterialTextBox2 txtbox_add_nombre_producto;
+        private MaterialSkin.Controls.MaterialButton button_agregar;
+        private MaterialSkin.Controls.MaterialButton button_cancelar;
+        private MaterialSkin.Controls.MaterialButton button_limpiar;
     }
 }

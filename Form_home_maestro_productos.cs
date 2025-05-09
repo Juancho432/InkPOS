@@ -24,7 +24,7 @@ namespace InkPos
 
         private void button_add_Click(object sender, EventArgs e)
         {
-            Form_Agregar_producto agregar_Producto = new Form_Agregar_producto();
+            Form_Add_Producto agregar_Producto = new Form_Add_Producto();
             agregar_Producto.Show();
             this.Hide();
             agregar_Producto.FormClosed += (s, args) => this.Show();
