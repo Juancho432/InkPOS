@@ -44,7 +44,7 @@
             label7 = new Label();
             label3 = new Label();
             label5 = new Label();
-            lbl_señor_es = new Label();
+            lbl_señor = new Label();
             label14 = new Label();
             tbl_fecha_metodo = new TableLayoutPanel();
             lbl_metodo_pago = new Label();
@@ -124,7 +124,7 @@
             tlb_info_cliente.Controls.Add(label7, 4, 1);
             tlb_info_cliente.Controls.Add(label3, 2, 0);
             tlb_info_cliente.Controls.Add(label5, 2, 1);
-            tlb_info_cliente.Controls.Add(lbl_señor_es, 1, 0);
+            tlb_info_cliente.Controls.Add(lbl_señor, 1, 0);
             tlb_info_cliente.Location = new Point(575, 105);
             tlb_info_cliente.Name = "tlb_info_cliente";
             tlb_info_cliente.RowCount = 2;
@@ -254,16 +254,16 @@
             label5.Text = "Ciudad:";
             label5.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lbl_señor_es
+            // lbl_señor
             // 
-            lbl_señor_es.Anchor = AnchorStyles.Left;
-            lbl_señor_es.AutoSize = true;
-            lbl_señor_es.Location = new Point(109, 11);
-            lbl_señor_es.Name = "lbl_señor_es";
-            lbl_señor_es.Size = new Size(73, 20);
-            lbl_señor_es.TabIndex = 6;
-            lbl_señor_es.Text = "__________ ";
-            lbl_señor_es.TextAlign = ContentAlignment.MiddleLeft;
+            lbl_señor.Anchor = AnchorStyles.Left;
+            lbl_señor.AutoSize = true;
+            lbl_señor.Location = new Point(109, 11);
+            lbl_señor.Name = "lbl_señor";
+            lbl_señor.Size = new Size(73, 20);
+            lbl_señor.TabIndex = 6;
+            lbl_señor.Text = "__________ ";
+            lbl_señor.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label14
             // 
@@ -495,7 +495,7 @@
             button_salir.Text = "Salir";
             button_salir.UseVisualStyleBackColor = true;
             // 
-            // InformeFactura
+            // Form_InformeFactura
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -516,7 +516,7 @@
             Controls.Add(button_imprimir);
             Controls.Add(pictureBox1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "InformeFactura";
+            Name = "Form_InformeFactura";
             RightToLeft = RightToLeft.No;
             Text = "InformeFactura";
             WindowState = FormWindowState.Maximized;
@@ -549,7 +549,7 @@
         private Label lbl_telefono;
         private Label lbl_ciudad;
         private Label lbl_nit;
-        private Label lbl_señor_es;
+        private Label lbl_señor;
         private Label label14;
         private TableLayoutPanel tbl_fecha_metodo;
         private Label lbl_metodo_pago;
