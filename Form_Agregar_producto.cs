@@ -12,8 +12,13 @@ namespace InkPos
 {
     public partial class Form_Agregar_Producto : Form
     {
-        public Form_Agregar_Producto()
+        private Empleado EmpleadoActual;
+        private DataBaseHandler Database;
+
+        public Form_Agregar_Producto(Empleado empleado, DataBaseHandler database)
         {
+            EmpleadoActual = empleado;
+            Database = database;
             InitializeComponent();
         }
     }

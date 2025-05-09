@@ -12,8 +12,13 @@ namespace InkPos
 {
     public partial class Form_Busqueda_factura : Form
     {
-        public Form_Busqueda_factura()
+        private Empleado EmpleadoActual;
+        private DataBaseHandler Database;
+
+        public Form_Busqueda_factura(Empleado empleado, DataBaseHandler database)
         {
+            EmpleadoActual = empleado;
+            Database = database;
             InitializeComponent();
         }
     }

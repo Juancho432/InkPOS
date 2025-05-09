@@ -2,6 +2,16 @@
 {
     public partial class Form_InformeFactura : Form
     {
+
+        private Empleado EmpleadoActual;
+        private DataBaseHandler Database;
+
+        public Form_InformeFactura(Empleado empleado, DataBaseHandler database)
+        {
+            EmpleadoActual = empleado;
+            Database = database;
+            InitializeComponent();
+        }
         public Form_InformeFactura(List<DetalleVenta> detallesVenta)
         {
             InitializeComponent();
