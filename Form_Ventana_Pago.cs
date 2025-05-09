@@ -60,8 +60,7 @@ namespace InkPos
         private void button_cancelar_Click(object sender, EventArgs e)
         {
             // volver al inicio
-            Form_Home_Empleado homeEmpleado = new();
-            homeEmpleado.Show();
+         
         }
 
 
@@ -76,6 +75,11 @@ namespace InkPos
         }
 
         private void txtbox_cambio_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

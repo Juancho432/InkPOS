@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace InkPos
 {
-    public class Producto(int IdProd, string NameItem, int stock)
+    public class Producto(string IdProd, string NameItem, int stock)
     {
-        public int IdProducto { get; set; } = IdProd;
+        public string IdProducto { get; set; } = IdProd;
         public string NombreItem { get; set; } = NameItem;
         public int Stock { get; set; } = stock;
      
