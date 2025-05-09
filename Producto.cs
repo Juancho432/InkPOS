@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace InkPos
 {
-    public class Producto(int IdProd, string NameItem, int stock, decimal pvp, decimal iva)
+    public class Producto(string IdProd, string NameItem, int stock)
     {
-        public int IdProducto { get; set; } = IdProd;
+        public string IdProducto { get; set; } = IdProd;
         public string NombreItem { get; set; } = NameItem;
         public int Stock { get; set; } = stock;
-        public decimal Pvp { get; set; } = pvp;
-        public decimal Iva { get; set; } = iva;
-
+     
 
     }
 }
