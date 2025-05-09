@@ -12,9 +12,21 @@ namespace InkPos
 {
     public partial class Form_Home_Empleado : Form
     {
-        public Form_Home_Empleado()
+        private Empleado EmpleadoActual;
+        private DataBaseHandler Database;
+
+        public Form_Home_Empleado(Empleado empleado, DataBaseHandler database)
         {
+            EmpleadoActual = empleado;
+            Database = database;
             InitializeComponent();
+        }
+
+        private void button_venta_Click(object sender, EventArgs e)
+        {
+            // direcciona a venta
+            Form_Venta form_Venta = new();
+            form_Venta.Show();
         }
     }
 }

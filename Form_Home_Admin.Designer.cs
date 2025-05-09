@@ -28,183 +28,236 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Home_Admin));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            panel_home_admin = new Panel();
+            panel_button_GEmpleados = new Panel();
+            lbl_nombreAdmin = new Label();
             lbl_welcome = new Label();
-            lbl_nombre_empleado = new Label();
-            groupBox1 = new GroupBox();
-            button_facturas = new Guna.UI2.WinForms.Guna2Button();
-            button_gestion_empleados = new Guna.UI2.WinForms.Guna2Button();
-            button_maestro_productos = new Guna.UI2.WinForms.Guna2Button();
-            button_venta = new Guna.UI2.WinForms.Guna2Button();
-            groupBox1.SuspendLayout();
+            PB_GEmpleados = new PictureBox();
+            button_GEmpleados = new MaterialSkin.Controls.MaterialButton();
+            panel_facturas = new Panel();
+            button_facturas = new MaterialSkin.Controls.MaterialButton();
+            PB_facturas = new PictureBox();
+            panel_MProductos = new Panel();
+            materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            PB_MProductos = new PictureBox();
+            button_salir = new MaterialSkin.Controls.MaterialButton();
+            panel_home_admin.SuspendLayout();
+            panel_button_GEmpleados.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PB_GEmpleados).BeginInit();
+            panel_facturas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PB_facturas).BeginInit();
+            panel_MProductos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PB_MProductos).BeginInit();
             SuspendLayout();
+            // 
+            // panel_home_admin
+            // 
+            panel_home_admin.Anchor = AnchorStyles.None;
+            panel_home_admin.Controls.Add(button_salir);
+            panel_home_admin.Controls.Add(panel_MProductos);
+            panel_home_admin.Controls.Add(panel_facturas);
+            panel_home_admin.Controls.Add(panel_button_GEmpleados);
+            panel_home_admin.Controls.Add(lbl_nombreAdmin);
+            panel_home_admin.Controls.Add(lbl_welcome);
+            panel_home_admin.Location = new Point(5, 2);
+            panel_home_admin.Name = "panel_home_admin";
+            panel_home_admin.Size = new Size(1513, 1171);
+            panel_home_admin.TabIndex = 0;
+            // 
+            // panel_button_GEmpleados
+            // 
+            panel_button_GEmpleados.Anchor = AnchorStyles.None;
+            panel_button_GEmpleados.Controls.Add(button_GEmpleados);
+            panel_button_GEmpleados.Controls.Add(PB_GEmpleados);
+            panel_button_GEmpleados.Location = new Point(376, 420);
+            panel_button_GEmpleados.Name = "panel_button_GEmpleados";
+            panel_button_GEmpleados.Size = new Size(205, 191);
+            panel_button_GEmpleados.TabIndex = 2;
+            // 
+            // lbl_nombreAdmin
+            // 
+            lbl_nombreAdmin.Anchor = AnchorStyles.None;
+            lbl_nombreAdmin.AutoSize = true;
+            lbl_nombreAdmin.Font = new Font("Segoe UI", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_nombreAdmin.Location = new Point(748, 149);
+            lbl_nombreAdmin.Name = "lbl_nombreAdmin";
+            lbl_nombreAdmin.Size = new Size(227, 62);
+            lbl_nombreAdmin.TabIndex = 1;
+            lbl_nombreAdmin.Text = "__________";
             // 
             // lbl_welcome
             // 
             lbl_welcome.Anchor = AnchorStyles.None;
             lbl_welcome.AutoSize = true;
-            lbl_welcome.Font = new Font("Tahoma", 28.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            lbl_welcome.Location = new Point(432, 98);
+            lbl_welcome.Font = new Font("Segoe UI", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_welcome.Location = new Point(468, 149);
             lbl_welcome.Name = "lbl_welcome";
-            lbl_welcome.Size = new Size(287, 57);
+            lbl_welcome.Size = new Size(259, 62);
             lbl_welcome.TabIndex = 0;
             lbl_welcome.Text = "Bienvenido";
             // 
-            // lbl_nombre_empleado
+            // PB_GEmpleados
             // 
-            lbl_nombre_empleado.Anchor = AnchorStyles.None;
-            lbl_nombre_empleado.AutoSize = true;
-            lbl_nombre_empleado.Font = new Font("Tahoma", 28.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            lbl_nombre_empleado.Location = new Point(725, 98);
-            lbl_nombre_empleado.Name = "lbl_nombre_empleado";
-            lbl_nombre_empleado.Size = new Size(325, 57);
-            lbl_nombre_empleado.TabIndex = 1;
-            lbl_nombre_empleado.Text = "__________";
+            PB_GEmpleados.Image = (Image)resources.GetObject("PB_GEmpleados.Image");
+            PB_GEmpleados.Location = new Point(40, 3);
+            PB_GEmpleados.Name = "PB_GEmpleados";
+            PB_GEmpleados.Size = new Size(126, 134);
+            PB_GEmpleados.TabIndex = 0;
+            PB_GEmpleados.TabStop = false;
             // 
-            // groupBox1
+            // button_GEmpleados
             // 
-            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox1.Controls.Add(button_facturas);
-            groupBox1.Controls.Add(button_gestion_empleados);
-            groupBox1.Controls.Add(button_maestro_productos);
-            groupBox1.Controls.Add(button_venta);
-            groupBox1.Controls.Add(lbl_nombre_empleado);
-            groupBox1.Controls.Add(lbl_welcome);
-            groupBox1.Location = new Point(8, 12);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1608, 740);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
+            button_GEmpleados.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button_GEmpleados.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            button_GEmpleados.Depth = 0;
+            button_GEmpleados.HighEmphasis = true;
+            button_GEmpleados.Icon = null;
+            button_GEmpleados.Location = new Point(4, 146);
+            button_GEmpleados.Margin = new Padding(4, 6, 4, 6);
+            button_GEmpleados.MouseState = MaterialSkin.MouseState.HOVER;
+            button_GEmpleados.Name = "button_GEmpleados";
+            button_GEmpleados.NoAccentTextColor = Color.Empty;
+            button_GEmpleados.Size = new Size(194, 36);
+            button_GEmpleados.TabIndex = 1;
+            button_GEmpleados.Text = "Gestión de empleados";
+            button_GEmpleados.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            button_GEmpleados.UseAccentColor = false;
+            button_GEmpleados.UseVisualStyleBackColor = true;
+            // 
+            // panel_facturas
+            // 
+            panel_facturas.Anchor = AnchorStyles.None;
+            panel_facturas.Controls.Add(button_facturas);
+            panel_facturas.Controls.Add(PB_facturas);
+            panel_facturas.Location = new Point(989, 414);
+            panel_facturas.Name = "panel_facturas";
+            panel_facturas.Size = new Size(205, 191);
+            panel_facturas.TabIndex = 3;
             // 
             // button_facturas
             // 
-            button_facturas.Anchor = AnchorStyles.None;
-            button_facturas.BorderRadius = 90;
-            button_facturas.CustomizableEdges = customizableEdges1;
-            button_facturas.DisabledState.BorderColor = Color.DarkGray;
-            button_facturas.DisabledState.CustomBorderColor = Color.DarkGray;
-            button_facturas.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            button_facturas.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            button_facturas.FillColor = Color.Purple;
-            button_facturas.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button_facturas.ForeColor = Color.White;
-            button_facturas.Image = (Image)resources.GetObject("button_facturas.Image");
-            button_facturas.ImageOffset = new Point(20, -10);
-            button_facturas.ImageSize = new Size(90, 90);
-            button_facturas.Location = new Point(808, 442);
+            button_facturas.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button_facturas.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            button_facturas.Depth = 0;
+            button_facturas.HighEmphasis = true;
+            button_facturas.Icon = null;
+            button_facturas.Location = new Point(57, 146);
+            button_facturas.Margin = new Padding(4, 6, 4, 6);
+            button_facturas.MouseState = MaterialSkin.MouseState.HOVER;
             button_facturas.Name = "button_facturas";
-            button_facturas.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            button_facturas.Size = new Size(180, 180);
-            button_facturas.TabIndex = 5;
+            button_facturas.NoAccentTextColor = Color.Empty;
+            button_facturas.Size = new Size(95, 36);
+            button_facturas.TabIndex = 1;
             button_facturas.Text = "Facturas";
-            button_facturas.TextOffset = new Point(-22, 60);
-            button_facturas.Click += button_facturas_Click;
+            button_facturas.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            button_facturas.UseAccentColor = false;
+            button_facturas.UseVisualStyleBackColor = true;
             // 
-            // button_gestion_empleados
+            // PB_facturas
             // 
-            button_gestion_empleados.Anchor = AnchorStyles.None;
-            button_gestion_empleados.BorderRadius = 90;
-            button_gestion_empleados.CustomizableEdges = customizableEdges3;
-            button_gestion_empleados.DisabledState.BorderColor = Color.DarkGray;
-            button_gestion_empleados.DisabledState.CustomBorderColor = Color.DarkGray;
-            button_gestion_empleados.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            button_gestion_empleados.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            button_gestion_empleados.FillColor = Color.Purple;
-            button_gestion_empleados.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button_gestion_empleados.ForeColor = Color.White;
-            button_gestion_empleados.Image = (Image)resources.GetObject("button_gestion_empleados.Image");
-            button_gestion_empleados.ImageOffset = new Point(43, -10);
-            button_gestion_empleados.ImageSize = new Size(90, 90);
-            button_gestion_empleados.Location = new Point(498, 442);
-            button_gestion_empleados.Name = "button_gestion_empleados";
-            button_gestion_empleados.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            button_gestion_empleados.Size = new Size(180, 180);
-            button_gestion_empleados.TabIndex = 4;
-            button_gestion_empleados.Text = "Gestión de empleados";
-            button_gestion_empleados.TextOffset = new Point(-24, 60);
-            button_gestion_empleados.Click += button_gestion_empleados_Click;
+            PB_facturas.Image = (Image)resources.GetObject("PB_facturas.Image");
+            PB_facturas.Location = new Point(40, 3);
+            PB_facturas.Name = "PB_facturas";
+            PB_facturas.Size = new Size(126, 134);
+            PB_facturas.TabIndex = 0;
+            PB_facturas.TabStop = false;
             // 
-            // button_maestro_productos
+            // panel_MProductos
             // 
-            button_maestro_productos.Anchor = AnchorStyles.None;
-            button_maestro_productos.BorderRadius = 90;
-            button_maestro_productos.CustomizableEdges = customizableEdges5;
-            button_maestro_productos.DisabledState.BorderColor = Color.DarkGray;
-            button_maestro_productos.DisabledState.CustomBorderColor = Color.DarkGray;
-            button_maestro_productos.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            button_maestro_productos.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            button_maestro_productos.FillColor = Color.Purple;
-            button_maestro_productos.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button_maestro_productos.ForeColor = Color.White;
-            button_maestro_productos.Image = (Image)resources.GetObject("button_maestro_productos.Image");
-            button_maestro_productos.ImageOffset = new Point(43, -10);
-            button_maestro_productos.ImageSize = new Size(90, 90);
-            button_maestro_productos.Location = new Point(808, 213);
-            button_maestro_productos.Name = "button_maestro_productos";
-            button_maestro_productos.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            button_maestro_productos.Size = new Size(180, 180);
-            button_maestro_productos.TabIndex = 3;
-            button_maestro_productos.Text = "Maestro de productos";
-            button_maestro_productos.TextOffset = new Point(-23, 60);
-            button_maestro_productos.Click += button_maestro_productos_Click;
+            panel_MProductos.Anchor = AnchorStyles.None;
+            panel_MProductos.Controls.Add(materialButton1);
+            panel_MProductos.Controls.Add(PB_MProductos);
+            panel_MProductos.Location = new Point(674, 423);
+            panel_MProductos.Name = "panel_MProductos";
+            panel_MProductos.Size = new Size(205, 191);
+            panel_MProductos.TabIndex = 4;
             // 
-            // button_venta
+            // materialButton1
             // 
-            button_venta.Anchor = AnchorStyles.None;
-            button_venta.BorderRadius = 90;
-            button_venta.CustomizableEdges = customizableEdges7;
-            button_venta.DisabledState.BorderColor = Color.DarkGray;
-            button_venta.DisabledState.CustomBorderColor = Color.DarkGray;
-            button_venta.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            button_venta.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            button_venta.FillColor = Color.Purple;
-            button_venta.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button_venta.ForeColor = Color.White;
-            button_venta.Image = (Image)resources.GetObject("button_venta.Image");
-            button_venta.ImageOffset = new Point(13, -10);
-            button_venta.ImageSize = new Size(90, 90);
-            button_venta.Location = new Point(498, 213);
-            button_venta.Name = "button_venta";
-            button_venta.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            button_venta.Size = new Size(180, 180);
-            button_venta.TabIndex = 2;
-            button_venta.Text = "Venta";
-            button_venta.TextOffset = new Point(-22, 60);
-            button_venta.Click += Boton_Venta_Click;
+            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton1.Depth = 0;
+            materialButton1.HighEmphasis = true;
+            materialButton1.Icon = null;
+            materialButton1.Location = new Point(4, 146);
+            materialButton1.Margin = new Padding(4, 6, 4, 6);
+            materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton1.Name = "materialButton1";
+            materialButton1.NoAccentTextColor = Color.Empty;
+            materialButton1.Size = new Size(200, 36);
+            materialButton1.TabIndex = 1;
+            materialButton1.Text = "Maestro de productos";
+            materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton1.UseAccentColor = false;
+            materialButton1.UseVisualStyleBackColor = true;
+            // 
+            // PB_MProductos
+            // 
+            PB_MProductos.Image = (Image)resources.GetObject("PB_MProductos.Image");
+            PB_MProductos.Location = new Point(40, 3);
+            PB_MProductos.Name = "PB_MProductos";
+            PB_MProductos.Size = new Size(126, 134);
+            PB_MProductos.TabIndex = 0;
+            PB_MProductos.TabStop = false;
+            // 
+            // button_salir
+            // 
+            button_salir.Anchor = AnchorStyles.None;
+            button_salir.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button_salir.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            button_salir.Depth = 0;
+            button_salir.HighEmphasis = true;
+            button_salir.Icon = null;
+            button_salir.Location = new Point(734, 869);
+            button_salir.Margin = new Padding(4, 6, 4, 6);
+            button_salir.MouseState = MaterialSkin.MouseState.HOVER;
+            button_salir.Name = "button_salir";
+            button_salir.NoAccentTextColor = Color.Empty;
+            button_salir.Size = new Size(64, 36);
+            button_salir.TabIndex = 9;
+            button_salir.Text = "SALIR";
+            button_salir.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            button_salir.UseAccentColor = false;
+            button_salir.UseVisualStyleBackColor = true;
             // 
             // Form_Home_Admin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Thistle;
-            ClientSize = new Size(1527, 735);
-            Controls.Add(groupBox1);
-            Icon = (Icon)resources.GetObject("$this.Icon");
+            ClientSize = new Size(1522, 1175);
+            Controls.Add(panel_home_admin);
             Name = "Form_Home_Admin";
-            Text = "InkPos - Menú de inicio";
+            Text = "InkPOS - Home Admin";
             WindowState = FormWindowState.Maximized;
-            Load += Form_Home_Admin_Load;
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            panel_home_admin.ResumeLayout(false);
+            panel_home_admin.PerformLayout();
+            panel_button_GEmpleados.ResumeLayout(false);
+            panel_button_GEmpleados.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PB_GEmpleados).EndInit();
+            panel_facturas.ResumeLayout(false);
+            panel_facturas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PB_facturas).EndInit();
+            panel_MProductos.ResumeLayout(false);
+            panel_MProductos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PB_MProductos).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
+        private Panel panel_home_admin;
+        private Label lbl_nombreAdmin;
         private Label lbl_welcome;
-        private Label lbl_nombre_empleado;
-        private GroupBox groupBox1;
-        private Guna.UI2.WinForms.Guna2Button button_venta;
-        private Guna.UI2.WinForms.Guna2Button button_gestion_empleados;
-        private Guna.UI2.WinForms.Guna2Button button_maestro_productos;
-        private Guna.UI2.WinForms.Guna2Button button_facturas;
+        private Panel panel_button_GEmpleados;
+        private MaterialSkin.Controls.MaterialButton button_GEmpleados;
+        private PictureBox PB_GEmpleados;
+        private Panel panel_facturas;
+        private MaterialSkin.Controls.MaterialButton button_facturas;
+        private PictureBox PB_facturas;
+        private Panel panel_MProductos;
+        private MaterialSkin.Controls.MaterialButton materialButton1;
+        private PictureBox PB_MProductos;
+        private MaterialSkin.Controls.MaterialButton button_salir;
     }
 }

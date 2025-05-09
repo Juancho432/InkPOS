@@ -7,22 +7,19 @@
     <Compile Update="Form_Busqueda_Factura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form_Venta.cs">
+    <Compile Update="Form_Home_Admin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form_Gestion_Empleados.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Form_InformeFactura.cs">
+    <Compile Update="Form_Home_Empleado.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Form_Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form_Home_Admin.cs">
+    <Compile Update="Form_Venta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form_Home_Empleado.cs">
+    <Compile Update="Form_InformeFactura.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Form_modificar_producto.cs">
@@ -34,10 +31,5 @@
     <Compile Update="Form_Ventana_Pago.cs">
       <SubType>Form</SubType>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Update="Form_Venta.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
   </ItemGroup>
 </Project>
