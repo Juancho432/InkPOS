@@ -7,6 +7,9 @@
     <Compile Update="Form_Busqueda_factura.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Form_Gestión_Empleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Form_Home_Admin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -26,6 +29,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Form_InformeFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form_Ventana_Pago.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

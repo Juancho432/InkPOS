@@ -6,14 +6,10 @@
         private Empleado EmpleadoActual;
         private DataBaseHandler Database;
 
-        public Form_InformeFactura(Empleado empleado, DataBaseHandler database)
+        public Form_InformeFactura(Empleado empleado, DataBaseHandler database, List<DetalleVenta> detallesVenta)
         {
             EmpleadoActual = empleado;
             Database = database;
-            InitializeComponent();
-        }
-        public Form_InformeFactura(List<DetalleVenta> detallesVenta)
-        {
             InitializeComponent();
             dgvDetalleVenta.AutoGenerateColumns = false;
             dgvDetalleVenta.DataSource = detallesVenta;
