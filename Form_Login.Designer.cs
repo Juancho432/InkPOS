@@ -32,8 +32,8 @@
             button_salir = new MaterialSkin.Controls.MaterialButton();
             button_limpiar = new MaterialSkin.Controls.MaterialButton();
             button_ingresar = new MaterialSkin.Controls.MaterialButton();
-            materialTextBox21 = new MaterialSkin.Controls.MaterialTextBox2();
-            label1 = new Label();
+            txtbox_contraseña = new MaterialSkin.Controls.MaterialTextBox2();
+            lbl_password = new Label();
             txtbox_ID_usuario = new MaterialSkin.Controls.MaterialTextBox2();
             lbl_ID_usuario = new Label();
             lbl_login = new Label();
@@ -47,8 +47,8 @@
             panel_login.Controls.Add(button_salir);
             panel_login.Controls.Add(button_limpiar);
             panel_login.Controls.Add(button_ingresar);
-            panel_login.Controls.Add(materialTextBox21);
-            panel_login.Controls.Add(label1);
+            panel_login.Controls.Add(txtbox_contraseña);
+            panel_login.Controls.Add(lbl_password);
             panel_login.Controls.Add(txtbox_ID_usuario);
             panel_login.Controls.Add(lbl_ID_usuario);
             panel_login.Controls.Add(lbl_login);
@@ -118,46 +118,47 @@
             button_ingresar.UseAccentColor = false;
             button_ingresar.UseVisualStyleBackColor = true;
             // 
-            // materialTextBox21
+            // txtbox_contraseña
             // 
-            materialTextBox21.Anchor = AnchorStyles.None;
-            materialTextBox21.AnimateReadOnly = false;
-            materialTextBox21.BackgroundImageLayout = ImageLayout.None;
-            materialTextBox21.CharacterCasing = CharacterCasing.Normal;
-            materialTextBox21.Depth = 0;
-            materialTextBox21.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialTextBox21.HideSelection = true;
-            materialTextBox21.LeadingIcon = null;
-            materialTextBox21.Location = new Point(641, 624);
-            materialTextBox21.MaxLength = 32767;
-            materialTextBox21.MouseState = MaterialSkin.MouseState.OUT;
-            materialTextBox21.Name = "materialTextBox21";
-            materialTextBox21.PasswordChar = '\0';
-            materialTextBox21.PrefixSuffixText = null;
-            materialTextBox21.ReadOnly = false;
-            materialTextBox21.RightToLeft = RightToLeft.No;
-            materialTextBox21.SelectedText = "";
-            materialTextBox21.SelectionLength = 0;
-            materialTextBox21.SelectionStart = 0;
-            materialTextBox21.ShortcutsEnabled = true;
-            materialTextBox21.Size = new Size(312, 48);
-            materialTextBox21.TabIndex = 5;
-            materialTextBox21.TabStop = false;
-            materialTextBox21.TextAlign = HorizontalAlignment.Left;
-            materialTextBox21.TrailingIcon = null;
-            materialTextBox21.UseSystemPasswordChar = false;
+            txtbox_contraseña.Anchor = AnchorStyles.None;
+            txtbox_contraseña.AnimateReadOnly = false;
+            txtbox_contraseña.BackgroundImageLayout = ImageLayout.None;
+            txtbox_contraseña.CharacterCasing = CharacterCasing.Normal;
+            txtbox_contraseña.Depth = 0;
+            txtbox_contraseña.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtbox_contraseña.HideSelection = true;
+            txtbox_contraseña.LeadingIcon = null;
+            txtbox_contraseña.Location = new Point(641, 633);
+            txtbox_contraseña.MaxLength = 32767;
+            txtbox_contraseña.MouseState = MaterialSkin.MouseState.OUT;
+            txtbox_contraseña.Name = "txtbox_contraseña";
+            txtbox_contraseña.PasswordChar = '*';
+            txtbox_contraseña.PrefixSuffixText = null;
+            txtbox_contraseña.ReadOnly = false;
+            txtbox_contraseña.RightToLeft = RightToLeft.No;
+            txtbox_contraseña.SelectedText = "";
+            txtbox_contraseña.SelectionLength = 0;
+            txtbox_contraseña.SelectionStart = 0;
+            txtbox_contraseña.ShortcutsEnabled = true;
+            txtbox_contraseña.Size = new Size(312, 48);
+            txtbox_contraseña.TabIndex = 5;
+            txtbox_contraseña.TabStop = false;
+            txtbox_contraseña.TextAlign = HorizontalAlignment.Left;
+            txtbox_contraseña.TrailingIcon = null;
+            txtbox_contraseña.UseSystemPasswordChar = false;
             // 
-            // label1
+            // lbl_password
             // 
-            label1.Anchor = AnchorStyles.None;
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ControlText;
-            label1.Location = new Point(641, 577);
-            label1.Name = "label1";
-            label1.Size = new Size(104, 28);
-            label1.TabIndex = 4;
-            label1.Text = "ID usuario:";
+            lbl_password.Anchor = AnchorStyles.None;
+            lbl_password.AutoSize = true;
+            lbl_password.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_password.ForeColor = SystemColors.ControlText;
+            lbl_password.Location = new Point(641, 565);
+            lbl_password.Name = "lbl_password";
+            lbl_password.Size = new Size(114, 28);
+            lbl_password.TabIndex = 4;
+            lbl_password.Tag = "";
+            lbl_password.Text = "Contraseña:";
             // 
             // txtbox_ID_usuario
             // 
@@ -242,8 +243,8 @@
         private Label lbl_InkPOS;
         private Label lbl_login;
         private MaterialSkin.Controls.MaterialButton button_ingresar;
-        private MaterialSkin.Controls.MaterialTextBox2 materialTextBox21;
-        private Label label1;
+        private MaterialSkin.Controls.MaterialTextBox2 txtbox_contraseña;
+        private Label lbl_password;
         private MaterialSkin.Controls.MaterialTextBox2 txtbox_ID_usuario;
         private Label lbl_ID_usuario;
         private MaterialSkin.Controls.MaterialButton button_limpiar;

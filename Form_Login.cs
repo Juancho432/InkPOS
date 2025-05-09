@@ -12,9 +12,13 @@ namespace InkPos
 {
     public partial class Form_Login : Form
     {
-        public Form_Login()
+        private DataBaseHandler Database;
+
+        public Form_Login(DataBaseHandler database)
         {
+            Database = database;
             InitializeComponent();
         }
+
     }
 }

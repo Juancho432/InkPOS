@@ -12,10 +12,14 @@ namespace InkPos
 {
     public partial class Form_Home_Admin : Form
     {
-        public Form_Home_Admin()
+        private Empleado EmpleadoActual;
+        private DataBaseHandler Database;
+
+        public Form_Home_Admin(Empleado empleado, DataBaseHandler database)
         {
+            EmpleadoActual = empleado;
+            Database = database;
             InitializeComponent();
         }
-
     }
 }
