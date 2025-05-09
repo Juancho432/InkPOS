@@ -7,9 +7,12 @@ namespace InkPos
 {
     public partial class Form_modificar_producto : Form
     {
-
-        public modificar_producto()
+        private Empleado EmpleadoActual;
+        private DataBaseHandler Database;
+        public Form_modificar_producto(Empleado empleado, DataBaseHandler database)
         {
+            EmpleadoActual = empleado;
+            Database = database;
             InitializeComponent();
         }
 

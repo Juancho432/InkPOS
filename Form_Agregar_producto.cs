@@ -41,8 +41,7 @@ namespace InkPos
             }
 
             // Parsear los valores numéricos
-            if (!int.TryParse(codigo_producto, out int codigo) ||
-                !int.TryParse(cantidad, out int stock) ||
+            if (!int.TryParse(cantidad, out int stock) ||
                 !decimal.TryParse(precio, out decimal pvp))
             {
                 MessageBox.Show("Verifica que el código, cantidad y precio sean valores numéricos válidos.");
