@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Busqueda_factura));
             panel1 = new Panel();
-            txtbox_ = new MaterialSkin.Controls.MaterialTextBox2();
-            lbl_ID_usuario = new Label();
-            lbl_login = new Label();
+            button_cancelar = new MaterialSkin.Controls.MaterialButton();
+            button_imprimir = new Button();
+            link_label_Ver = new LinkLabel();
+            txtbox_mostrar_N_factura = new MaterialSkin.Controls.MaterialTextBox2();
+            txtbox_ingresar_N_factura = new MaterialSkin.Controls.MaterialTextBox2();
             lbl_busquda_facturas = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -39,73 +42,122 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.Controls.Add(txtbox_);
-            panel1.Controls.Add(lbl_ID_usuario);
-            panel1.Controls.Add(lbl_login);
+            panel1.Controls.Add(button_cancelar);
+            panel1.Controls.Add(button_imprimir);
+            panel1.Controls.Add(link_label_Ver);
+            panel1.Controls.Add(txtbox_mostrar_N_factura);
+            panel1.Controls.Add(txtbox_ingresar_N_factura);
             panel1.Controls.Add(lbl_busquda_facturas);
             panel1.Location = new Point(5, 2);
             panel1.Name = "panel1";
             panel1.Size = new Size(1513, 1171);
             panel1.TabIndex = 0;
             // 
-            // txtbox_
+            // button_cancelar
             // 
-            txtbox_.Anchor = AnchorStyles.None;
-            txtbox_.AnimateReadOnly = false;
-            txtbox_.BackgroundImageLayout = ImageLayout.None;
-            txtbox_.CharacterCasing = CharacterCasing.Normal;
-            txtbox_.Depth = 0;
-            txtbox_.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtbox_.HideSelection = true;
-            txtbox_.LeadingIcon = null;
-            txtbox_.Location = new Point(617, 480);
-            txtbox_.MaxLength = 32767;
-            txtbox_.MouseState = MaterialSkin.MouseState.OUT;
-            txtbox_.Name = "txtbox_";
-            txtbox_.PasswordChar = '\0';
-            txtbox_.PrefixSuffixText = null;
-            txtbox_.ReadOnly = false;
-            txtbox_.RightToLeft = RightToLeft.No;
-            txtbox_.SelectedText = "";
-            txtbox_.SelectionLength = 0;
-            txtbox_.SelectionStart = 0;
-            txtbox_.ShortcutsEnabled = true;
-            txtbox_.Size = new Size(312, 48);
-            txtbox_.TabIndex = 7;
-            txtbox_.TabStop = false;
-            txtbox_.TextAlign = HorizontalAlignment.Left;
-            txtbox_.TrailingIcon = null;
-            txtbox_.UseSystemPasswordChar = false;
+            button_cancelar.Anchor = AnchorStyles.None;
+            button_cancelar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button_cancelar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            button_cancelar.Depth = 0;
+            button_cancelar.HighEmphasis = true;
+            button_cancelar.Icon = null;
+            button_cancelar.Location = new Point(706, 618);
+            button_cancelar.Margin = new Padding(4, 6, 4, 6);
+            button_cancelar.MouseState = MaterialSkin.MouseState.HOVER;
+            button_cancelar.Name = "button_cancelar";
+            button_cancelar.NoAccentTextColor = Color.Empty;
+            button_cancelar.Size = new Size(96, 36);
+            button_cancelar.TabIndex = 27;
+            button_cancelar.Text = "cancelar";
+            button_cancelar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            button_cancelar.UseAccentColor = false;
+            button_cancelar.UseVisualStyleBackColor = true;
             // 
-            // lbl_ID_usuario
+            // button_imprimir
             // 
-            lbl_ID_usuario.Anchor = AnchorStyles.None;
-            lbl_ID_usuario.AutoSize = true;
-            lbl_ID_usuario.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_ID_usuario.ForeColor = SystemColors.ControlText;
-            lbl_ID_usuario.Location = new Point(617, 433);
-            lbl_ID_usuario.Name = "lbl_ID_usuario";
-            lbl_ID_usuario.Size = new Size(104, 28);
-            lbl_ID_usuario.TabIndex = 6;
-            lbl_ID_usuario.Text = "ID usuario:";
+            button_imprimir.Image = (Image)resources.GetObject("button_imprimir.Image");
+            button_imprimir.Location = new Point(869, 409);
+            button_imprimir.Name = "button_imprimir";
+            button_imprimir.Size = new Size(69, 48);
+            button_imprimir.TabIndex = 10;
+            button_imprimir.UseVisualStyleBackColor = true;
             // 
-            // lbl_login
+            // link_label_Ver
             // 
-            lbl_login.Anchor = AnchorStyles.None;
-            lbl_login.AutoSize = true;
-            lbl_login.Font = new Font("Segoe UI", 22.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_login.Location = new Point(690, 316);
-            lbl_login.Name = "lbl_login";
-            lbl_login.Size = new Size(121, 50);
-            lbl_login.TabIndex = 5;
-            lbl_login.Text = "Login:";
+            link_label_Ver.AutoSize = true;
+            link_label_Ver.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            link_label_Ver.Location = new Point(745, 419);
+            link_label_Ver.Name = "link_label_Ver";
+            link_label_Ver.Size = new Size(57, 38);
+            link_label_Ver.TabIndex = 9;
+            link_label_Ver.TabStop = true;
+            link_label_Ver.Text = "Ver";
+            // 
+            // txtbox_mostrar_N_factura
+            // 
+            txtbox_mostrar_N_factura.Anchor = AnchorStyles.None;
+            txtbox_mostrar_N_factura.AnimateReadOnly = false;
+            txtbox_mostrar_N_factura.BackgroundImageLayout = ImageLayout.None;
+            txtbox_mostrar_N_factura.CharacterCasing = CharacterCasing.Normal;
+            txtbox_mostrar_N_factura.Depth = 0;
+            txtbox_mostrar_N_factura.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtbox_mostrar_N_factura.HideSelection = true;
+            txtbox_mostrar_N_factura.LeadingIcon = null;
+            txtbox_mostrar_N_factura.Location = new Point(412, 409);
+            txtbox_mostrar_N_factura.MaxLength = 32767;
+            txtbox_mostrar_N_factura.MouseState = MaterialSkin.MouseState.OUT;
+            txtbox_mostrar_N_factura.Name = "txtbox_mostrar_N_factura";
+            txtbox_mostrar_N_factura.PasswordChar = '\0';
+            txtbox_mostrar_N_factura.PrefixSuffixText = null;
+            txtbox_mostrar_N_factura.ReadOnly = true;
+            txtbox_mostrar_N_factura.RightToLeft = RightToLeft.No;
+            txtbox_mostrar_N_factura.SelectedText = "";
+            txtbox_mostrar_N_factura.SelectionLength = 0;
+            txtbox_mostrar_N_factura.SelectionStart = 0;
+            txtbox_mostrar_N_factura.ShortcutsEnabled = true;
+            txtbox_mostrar_N_factura.Size = new Size(270, 48);
+            txtbox_mostrar_N_factura.TabIndex = 8;
+            txtbox_mostrar_N_factura.TabStop = false;
+            txtbox_mostrar_N_factura.TextAlign = HorizontalAlignment.Center;
+            txtbox_mostrar_N_factura.TrailingIcon = null;
+            txtbox_mostrar_N_factura.UseSystemPasswordChar = false;
+            // 
+            // txtbox_ingresar_N_factura
+            // 
+            txtbox_ingresar_N_factura.Anchor = AnchorStyles.None;
+            txtbox_ingresar_N_factura.AnimateReadOnly = false;
+            txtbox_ingresar_N_factura.BackgroundImageLayout = ImageLayout.None;
+            txtbox_ingresar_N_factura.CharacterCasing = CharacterCasing.Normal;
+            txtbox_ingresar_N_factura.Depth = 0;
+            txtbox_ingresar_N_factura.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtbox_ingresar_N_factura.HideSelection = true;
+            txtbox_ingresar_N_factura.Hint = "Ingrese el N° de factura";
+            txtbox_ingresar_N_factura.LeadingIcon = null;
+            txtbox_ingresar_N_factura.Location = new Point(618, 253);
+            txtbox_ingresar_N_factura.MaxLength = 32767;
+            txtbox_ingresar_N_factura.MouseState = MaterialSkin.MouseState.OUT;
+            txtbox_ingresar_N_factura.Name = "txtbox_ingresar_N_factura";
+            txtbox_ingresar_N_factura.PasswordChar = '\0';
+            txtbox_ingresar_N_factura.PrefixSuffixText = null;
+            txtbox_ingresar_N_factura.ReadOnly = false;
+            txtbox_ingresar_N_factura.RightToLeft = RightToLeft.No;
+            txtbox_ingresar_N_factura.SelectedText = "";
+            txtbox_ingresar_N_factura.SelectionLength = 0;
+            txtbox_ingresar_N_factura.SelectionStart = 0;
+            txtbox_ingresar_N_factura.ShortcutsEnabled = true;
+            txtbox_ingresar_N_factura.Size = new Size(270, 48);
+            txtbox_ingresar_N_factura.TabIndex = 7;
+            txtbox_ingresar_N_factura.TabStop = false;
+            txtbox_ingresar_N_factura.TextAlign = HorizontalAlignment.Center;
+            txtbox_ingresar_N_factura.TrailingIcon = null;
+            txtbox_ingresar_N_factura.UseSystemPasswordChar = false;
             // 
             // lbl_busquda_facturas
             // 
             lbl_busquda_facturas.Anchor = AnchorStyles.None;
             lbl_busquda_facturas.AutoSize = true;
             lbl_busquda_facturas.Font = new Font("Segoe UI", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_busquda_facturas.Location = new Point(547, 171);
+            lbl_busquda_facturas.Location = new Point(514, 94);
             lbl_busquda_facturas.Name = "lbl_busquda_facturas";
             lbl_busquda_facturas.Size = new Size(476, 62);
             lbl_busquda_facturas.TabIndex = 4;
@@ -128,9 +180,11 @@
         #endregion
 
         private Panel panel1;
-        private MaterialSkin.Controls.MaterialTextBox2 txtbox_;
-        private Label lbl_ID_usuario;
-        private Label lbl_login;
+        private MaterialSkin.Controls.MaterialTextBox2 txtbox_ingresar_N_factura;
         private Label lbl_busquda_facturas;
+        private MaterialSkin.Controls.MaterialTextBox2 txtbox_mostrar_N_factura;
+        private LinkLabel link_label_Ver;
+        private Button button_imprimir;
+        private MaterialSkin.Controls.MaterialButton button_cancelar;
     }
 }

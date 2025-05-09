@@ -2,8 +2,14 @@
 {
     public partial class Form_InformeFactura : Form
     {
-        public Form_InformeFactura(List<DetalleVenta> detallesVenta)
+
+        private Empleado EmpleadoActual;
+        private DataBaseHandler Database;
+
+        public Form_InformeFactura(Empleado empleado, DataBaseHandler database, List<DetalleVenta> detallesVenta)
         {
+            EmpleadoActual = empleado;
+            Database = database;
             InitializeComponent();
             dgvDetalleVenta.AutoGenerateColumns = false;
             dgvDetalleVenta.DataSource = detallesVenta;

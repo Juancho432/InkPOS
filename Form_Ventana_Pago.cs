@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace InkPos
 {
-    public partial class Form_Agregar_Producto : Form
+    public partial class Form_Ventana_Pago : Form
     {
         private Empleado EmpleadoActual;
         private DataBaseHandler Database;
 
-        public Form_Agregar_Producto(Empleado empleado, DataBaseHandler database)
+        public Form_Ventana_Pago(Empleado empleado, DataBaseHandler database)
         {
             EmpleadoActual = empleado;
             Database = database;
