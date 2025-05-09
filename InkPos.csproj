@@ -17,10 +17,14 @@
   <ItemGroup>
     <None Remove="icon_inkpos.ico" />
     <None Remove="InkPosDBTemplate.sql" />
+    <None Remove="InkPosDBTestData.sql" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="InkPosDBTemplate.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="InkPosDBTestData.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

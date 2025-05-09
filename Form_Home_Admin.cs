@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace InkPos
+﻿namespace InkPos
 {
     public partial class Form_Home_Admin : Form
     {
@@ -23,11 +13,11 @@ namespace InkPos
 
         }
 
-        private void button_maestro_productos_Click(object sender, EventArgs e)
+        private void Boton_Maestro_Productos_CLick(object sender, EventArgs e)
         {
-            Form_home_maestro_productos maestro_productos = new Form_home_maestro_productos(EmpleadoActual, Database);
+            Form_Maestro_Productos maestro_productos = new(EmpleadoActual, Database);
             maestro_productos.Show();
-            this.Hide();
+            Hide();
             maestro_productos.FormClosed += (s, args) => this.Show();
         }
     }

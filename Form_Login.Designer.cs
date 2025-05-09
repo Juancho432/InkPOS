@@ -55,7 +55,7 @@
             panel_login.Controls.Add(lbl_InkPOS);
             panel_login.Location = new Point(5, 2);
             panel_login.Name = "panel_login";
-            panel_login.Size = new Size(1513, 1171);
+            panel_login.Size = new Size(1513, 1051);
             panel_login.TabIndex = 0;
             // 
             // button_salir
@@ -66,7 +66,7 @@
             button_salir.Depth = 0;
             button_salir.HighEmphasis = true;
             button_salir.Icon = null;
-            button_salir.Location = new Point(781, 942);
+            button_salir.Location = new Point(781, 882);
             button_salir.Margin = new Padding(4, 6, 4, 6);
             button_salir.MouseState = MaterialSkin.MouseState.HOVER;
             button_salir.Name = "button_salir";
@@ -77,6 +77,7 @@
             button_salir.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_salir.UseAccentColor = false;
             button_salir.UseVisualStyleBackColor = true;
+            button_salir.Click += Boton_Salir_click;
             // 
             // button_limpiar
             // 
@@ -86,7 +87,7 @@
             button_limpiar.Depth = 0;
             button_limpiar.HighEmphasis = true;
             button_limpiar.Icon = null;
-            button_limpiar.Location = new Point(874, 851);
+            button_limpiar.Location = new Point(874, 791);
             button_limpiar.Margin = new Padding(4, 6, 4, 6);
             button_limpiar.MouseState = MaterialSkin.MouseState.HOVER;
             button_limpiar.Name = "button_limpiar";
@@ -97,6 +98,7 @@
             button_limpiar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_limpiar.UseAccentColor = false;
             button_limpiar.UseVisualStyleBackColor = true;
+            button_limpiar.Click += Boton_Limpiar_Click;
             // 
             // button_ingresar
             // 
@@ -106,7 +108,7 @@
             button_ingresar.Depth = 0;
             button_ingresar.HighEmphasis = true;
             button_ingresar.Icon = null;
-            button_ingresar.Location = new Point(641, 851);
+            button_ingresar.Location = new Point(641, 791);
             button_ingresar.Margin = new Padding(4, 6, 4, 6);
             button_ingresar.MouseState = MaterialSkin.MouseState.HOVER;
             button_ingresar.Name = "button_ingresar";
@@ -117,6 +119,7 @@
             button_ingresar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_ingresar.UseAccentColor = false;
             button_ingresar.UseVisualStyleBackColor = true;
+            button_ingresar.Click += Boton_Ingresar_Click;
             // 
             // txtbox_contraseña
             // 
@@ -128,7 +131,7 @@
             txtbox_contraseña.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_contraseña.HideSelection = true;
             txtbox_contraseña.LeadingIcon = null;
-            txtbox_contraseña.Location = new Point(641, 633);
+            txtbox_contraseña.Location = new Point(641, 573);
             txtbox_contraseña.MaxLength = 32767;
             txtbox_contraseña.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_contraseña.Name = "txtbox_contraseña";
@@ -153,7 +156,7 @@
             lbl_password.AutoSize = true;
             lbl_password.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_password.ForeColor = SystemColors.ControlText;
-            lbl_password.Location = new Point(641, 565);
+            lbl_password.Location = new Point(641, 505);
             lbl_password.Name = "lbl_password";
             lbl_password.Size = new Size(114, 28);
             lbl_password.TabIndex = 4;
@@ -170,7 +173,7 @@
             txtbox_ID_usuario.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_ID_usuario.HideSelection = true;
             txtbox_ID_usuario.LeadingIcon = null;
-            txtbox_ID_usuario.Location = new Point(641, 460);
+            txtbox_ID_usuario.Location = new Point(641, 400);
             txtbox_ID_usuario.MaxLength = 32767;
             txtbox_ID_usuario.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_ID_usuario.Name = "txtbox_ID_usuario";
@@ -195,7 +198,7 @@
             lbl_ID_usuario.AutoSize = true;
             lbl_ID_usuario.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_ID_usuario.ForeColor = SystemColors.ControlText;
-            lbl_ID_usuario.Location = new Point(641, 413);
+            lbl_ID_usuario.Location = new Point(641, 353);
             lbl_ID_usuario.Name = "lbl_ID_usuario";
             lbl_ID_usuario.Size = new Size(104, 28);
             lbl_ID_usuario.TabIndex = 2;
@@ -206,7 +209,7 @@
             lbl_login.Anchor = AnchorStyles.None;
             lbl_login.AutoSize = true;
             lbl_login.Font = new Font("Segoe UI", 22.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_login.Location = new Point(714, 296);
+            lbl_login.Location = new Point(714, 236);
             lbl_login.Name = "lbl_login";
             lbl_login.Size = new Size(121, 50);
             lbl_login.TabIndex = 1;
@@ -217,7 +220,7 @@
             lbl_InkPOS.Anchor = AnchorStyles.None;
             lbl_InkPOS.AutoSize = true;
             lbl_InkPOS.Font = new Font("Segoe UI", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_InkPOS.Location = new Point(689, 154);
+            lbl_InkPOS.Location = new Point(689, 94);
             lbl_InkPOS.Name = "lbl_InkPOS";
             lbl_InkPOS.Size = new Size(176, 62);
             lbl_InkPOS.TabIndex = 0;
@@ -227,11 +230,12 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1522, 1175);
+            ClientSize = new Size(1522, 1055);
             Controls.Add(panel_login);
             Name = "Form_Login";
             Text = "InkPOS - Login";
             WindowState = FormWindowState.Maximized;
+            FormClosed += Form_Login_FormClosed;
             panel_login.ResumeLayout(false);
             panel_login.PerformLayout();
             ResumeLayout(false);
