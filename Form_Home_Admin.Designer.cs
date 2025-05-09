@@ -40,7 +40,7 @@
             panel_button_GEmpleados = new Panel();
             button_GEmpleados = new MaterialSkin.Controls.MaterialButton();
             PB_GEmpleados = new PictureBox();
-            lbl_nombreAdmin = new Label();
+            lbl_nombreUsuario = new Label();
             lbl_welcome = new Label();
             panel_home_admin.SuspendLayout();
             panel_MProductos.SuspendLayout();
@@ -58,7 +58,7 @@
             panel_home_admin.Controls.Add(panel_MProductos);
             panel_home_admin.Controls.Add(panel_facturas);
             panel_home_admin.Controls.Add(panel_button_GEmpleados);
-            panel_home_admin.Controls.Add(lbl_nombreAdmin);
+            panel_home_admin.Controls.Add(lbl_nombreUsuario);
             panel_home_admin.Controls.Add(lbl_welcome);
             panel_home_admin.Location = new Point(5, 2);
             panel_home_admin.Name = "panel_home_admin";
@@ -199,16 +199,16 @@
             PB_GEmpleados.TabIndex = 0;
             PB_GEmpleados.TabStop = false;
             // 
-            // lbl_nombreAdmin
+            // lbl_nombreUsuario
             // 
-            lbl_nombreAdmin.Anchor = AnchorStyles.None;
-            lbl_nombreAdmin.AutoSize = true;
-            lbl_nombreAdmin.Font = new Font("Segoe UI", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_nombreAdmin.Location = new Point(748, 149);
-            lbl_nombreAdmin.Name = "lbl_nombreAdmin";
-            lbl_nombreAdmin.Size = new Size(227, 62);
-            lbl_nombreAdmin.TabIndex = 1;
-            lbl_nombreAdmin.Text = "__________";
+            lbl_nombreUsuario.Anchor = AnchorStyles.None;
+            lbl_nombreUsuario.AutoSize = true;
+            lbl_nombreUsuario.Font = new Font("Segoe UI", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_nombreUsuario.Location = new Point(748, 149);
+            lbl_nombreUsuario.Name = "lbl_nombreUsuario";
+            lbl_nombreUsuario.Size = new Size(227, 62);
+            lbl_nombreUsuario.TabIndex = 1;
+            lbl_nombreUsuario.Text = "__________";
             // 
             // lbl_welcome
             // 
@@ -247,7 +247,7 @@
         #endregion
 
         private Panel panel_home_admin;
-        private Label lbl_nombreAdmin;
+        private Label lbl_nombreUsuario;
         private Label lbl_welcome;
         private Panel panel_button_GEmpleados;
         private MaterialSkin.Controls.MaterialButton button_GEmpleados;
