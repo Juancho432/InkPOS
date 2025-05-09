@@ -7,7 +7,6 @@ namespace InkPos
 {
     public class DataBaseHandler
     {
-        private readonly SqliteConnection conn;
         private readonly string dbPath = "InkPos.db";
         private readonly string templatePath = "InkPosDBTemplate.sql";
 
@@ -17,6 +16,8 @@ namespace InkPos
             {
                 if (!HasValidStructure())
                 {
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
                     File.Delete(dbPath);
                 }
             }
@@ -25,28 +26,36 @@ namespace InkPos
             {
                 CreateDatabaseFromTemplate();
             }
-
-            conn = new SqliteConnection($"Data Source={dbPath}");
         }
 
         private bool HasValidStructure()
         {
-            try
+            using (var checkConn = new SqliteConnection($"Data Source={dbPath}"))
             {
-                using var checkConn = new SqliteConnection($"Data Source={dbPath}");
                 checkConn.Open();
 
-                // Aquí puedes verificar que existan todas las tablas mínimas necesarias.
-                // Por ejemplo, suponiendo que al menos debe existir la tabla 'Productos'.
-                using var cmd = checkConn.CreateCommand();
-                cmd.CommandText = "SELECT name FROM sqlite_master WHERE type='table' AND name='Productos';";
+                // Verificamos que existan todas las tablas requeridas
+                string[] tablasRequeridas = ["CLIENTE", "EMPLEADO", "PRODUCTO", "FACTURA", "DETALLE", "DEVOLUCION"];
 
-                using var reader = cmd.ExecuteReader();
-                return reader.HasRows;
-            }
-            catch
-            {
-                return false;
+                foreach (string tabla in tablasRequeridas)
+                {
+                    using var cmd = checkConn.CreateCommand();
+                    cmd.CommandText = $"SELECT name FROM sqlite_master WHERE type='table' AND name='{tabla}';";
+
+                    using var reader = cmd.ExecuteReader();
+                    if (!reader.Read())
+                    {
+                        SqliteConnection.ClearAllPools();
+                        checkConn.Close();
+                        checkConn.Dispose();
+                        return false; // Faltó una tabla, la estructura no es válida
+                    }
+                }
+
+                SqliteConnection.ClearAllPools();
+                checkConn.Close();
+                checkConn.Dispose();
+                return true;
             }
         }
 
@@ -67,6 +76,7 @@ namespace InkPos
     
         public Empleado LoginEmpleado(string usuario, string contrasena)
         {
+            SqliteConnection conn = new();
             conn.Open();
             using var cmd = conn.CreateCommand();
             cmd.CommandText = @"

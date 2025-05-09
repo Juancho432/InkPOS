@@ -113,7 +113,6 @@
             button_maestro_productos.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_maestro_productos.UseAccentColor = false;
             button_maestro_productos.UseVisualStyleBackColor = true;
-            button_maestro_productos.Click += button_maestro_productos_Click;
             // 
             // PB_MProductos
             // 
