@@ -19,8 +19,5 @@
     <Compile Update="Form_InformeFactura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form_Ventana_Pago.cs">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
 </Project>
