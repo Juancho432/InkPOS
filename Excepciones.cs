@@ -13,25 +13,6 @@
             }
         }
 
-        public class EmpleadoInexistente : Exception
-        {
-            public EmpleadoInexistente()
-            {
-                MessageBox.Show("No existe un empleado con el Usuario dado.", "Usuario Inexistente",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        public class ContraseñaEmpleadoIncorrecta : Exception
-        {
-            public ContraseñaEmpleadoIncorrecta() 
-            {
-                MessageBox.Show("La contraseña proporcinada es incorrecta para el usuario", 
-                    "Usuario o Contraseña incorrecta",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-    
         public class ProductoInexistente : Exception 
         {
             public ProductoInexistente()
@@ -51,5 +32,45 @@
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+    
+        public class EmpleadoInexistente : Exception
+        {
+            public EmpleadoInexistente()
+            {
+                MessageBox.Show("No existe un empleado con el Usuario dado.", "Usuario Inexistente",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        public class EmpleadoExistente : Exception
+        {
+            public EmpleadoExistente()
+            {
+                MessageBox.Show("El Empleado ya existe en la base de datos", 
+                    "Empleado Ya Existente",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        public class UsuarioEmpleadoExistente : Exception
+        {
+            public UsuarioEmpleadoExistente()
+            {
+                MessageBox.Show("Ya existe un empleado con ese Usuario", 
+                    "Usuario Existente",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        public class ContraseñaEmpleadoIncorrecta : Exception
+        {
+            public ContraseñaEmpleadoIncorrecta() 
+            {
+                MessageBox.Show("La contraseña proporcinada es incorrecta para el usuario", 
+                    "Usuario o Contraseña incorrecta",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+    
     }
 }

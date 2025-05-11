@@ -2,7 +2,6 @@
 using System.Text;
 using System.Security.Cryptography;
 using static InkPos.Excepciones;
-using System.Data;
 
 namespace InkPos
 {
@@ -30,6 +29,8 @@ namespace InkPos
                 CreateDatabaseData();
             }
         }
+
+        //      #### Helpers
 
         private bool HasValidStructure()
         {
@@ -112,49 +113,7 @@ namespace InkPos
             return sb.ToString();
         }
 
-        public Empleado LoginEmpleado(string usuario, string contrasena)
-        {
-            SqliteConnection conn = new($"Data Source={dbPath}");
-            conn.Open();
-            using SqliteCommand cmd = conn.CreateCommand();
-            cmd.CommandText = @"
-                SELECT ID_Empleado, Nombre, Telefono, Contrasena, Es_Admin, Salario 
-                FROM EMPLEADO 
-                WHERE Usuario = $usuario";
-            cmd.Parameters.AddWithValue("$usuario", usuario);
-
-            using var reader = cmd.ExecuteReader();
-
-            if (!reader.Read())
-            {
-                SqliteConnection.ClearAllPools();
-                conn.Close();
-                conn.Dispose();
-                throw new EmpleadoInexistente();
-            }
-
-            string id = reader.GetString(0);
-            string nombre = reader.GetString(1);
-            string telefono = reader.GetString(2);
-            string hashAlmacenado = reader.GetString(3);
-            bool esAdmin = reader.GetInt32(4) != 0;
-            double salario = reader.GetDouble(5);
-
-            string hashIngresado = ToSHA256(contrasena);
-
-            if (!hashIngresado.Equals(hashAlmacenado, StringComparison.OrdinalIgnoreCase))
-            {
-                SqliteConnection.ClearAllPools();
-                conn.Close();
-                conn.Dispose();
-                throw new ContraseñaEmpleadoIncorrecta();
-            }
-
-            SqliteConnection.ClearAllPools();
-            conn.Close();
-            conn.Dispose();
-            return new Empleado(id, nombre, telefono, esAdmin, salario);
-        }
+        //      #### CRUD Producto
 
         public bool CreateProducto(Producto producto)
         {
@@ -188,7 +147,7 @@ namespace InkPos
             }
         }
 
-        public Producto ReadProducto(string codigo)
+        public Producto ReadProductoByID(string id)
         {
             SqliteConnection conn = new($"Data Source={dbPath}");
             conn.Open();
@@ -197,7 +156,39 @@ namespace InkPos
                 SELECT ID_Producto, Nombre, Precio, Stock
                 FROM PRODUCTO
                 WHERE ID_Producto = $codigo AND Stock > -1"; // Los productos con stock -1 estan "Borrados"
-            cmd.Parameters.AddWithValue("$codigo", codigo);
+            cmd.Parameters.AddWithValue("$codigo", id);
+
+            using var reader = cmd.ExecuteReader();
+
+            if (!reader.Read())
+            {
+                SqliteConnection.ClearAllPools();
+                conn.Close();
+                conn.Dispose();
+                throw new ProductoInexistente();
+            }
+
+            string ID_Producto = reader.GetString(0);
+            string Nombre = reader.GetString(1);
+            double Precio = reader.GetDouble(2);
+            int Stock = reader.GetInt32(3);
+
+            SqliteConnection.ClearAllPools();
+            conn.Close();
+            conn.Dispose();
+            return new Producto(ID_Producto, Nombre, /*Precio,*/ Stock);
+        }
+
+        public Producto ReadProductoByName(string nombre)
+        {
+            SqliteConnection conn = new($"Data Source={dbPath}");
+            conn.Open();
+            using SqliteCommand cmd = conn.CreateCommand();
+            cmd.CommandText = @"
+                SELECT ID_Producto, Nombre, Precio, Stock
+                FROM PRODUCTO
+                WHERE Nombre = $nombre AND Stock > -1"; // Los productos con stock -1 estan "Borrados"
+            cmd.Parameters.AddWithValue("$nombre", nombre);
 
             using var reader = cmd.ExecuteReader();
 
@@ -280,6 +271,261 @@ namespace InkPos
                 SqliteConnection.ClearAllPools();
             }
         }
-        
+
+        //      #### CRUD Empleado
+        public bool CreateEmpleado(Empleado empleado, string usuario, string contrasena)
+        {
+            SqliteConnection conn = new($"Data Source={dbPath}");
+            contrasena = ToSHA256(contrasena);
+            try
+            {
+                conn.Open();
+                using var cmd = conn.CreateCommand();
+                cmd.CommandText = @"
+                    INSERT INTO EMPLEADO 
+                    (ID_Empleado, Nombre, Telefono, Usuario, Contrasena, Es_Admin, Salario, Es_Activo)
+                    VALUES 
+                    ($id, $nombre, $telefono, $usuario, $contrasena, $esAdmin, $salario, 1);";
+                cmd.Parameters.AddWithValue("$id", empleado.Id_Empleado);
+                cmd.Parameters.AddWithValue("$nombre", empleado.Nombre);
+                cmd.Parameters.AddWithValue("$telefono", empleado.Telefono);
+                cmd.Parameters.AddWithValue("$usuario", usuario);
+                cmd.Parameters.AddWithValue("$contrasena", contrasena); // hasheada
+                cmd.Parameters.AddWithValue("$esAdmin", empleado.Es_Admin ? 1 : 0);
+                cmd.Parameters.AddWithValue("$salario", empleado.Salario);
+
+                int filasAfectadas = cmd.ExecuteNonQuery();
+                return filasAfectadas > 0;
+            }
+            catch (SqliteException ex)
+            {
+                if (ex.SqliteErrorCode == 19) // constraint violation
+                {
+                    if (ex.Message.Contains("EMPLEADO.ID_Empleado"))
+                        throw new EmpleadoExistente();
+                    else if (ex.Message.Contains("EMPLEADO.Usuario"))
+                        throw new UsuarioEmpleadoExistente();
+                }
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+                SqliteConnection.ClearAllPools();
+            }
+        }
+    
+        public Empleado ReadEmpleadoByID(string id)
+        {
+            SqliteConnection conn = new($"Data Source={dbPath}");
+            conn.Open();
+            using SqliteCommand cmd = conn.CreateCommand();
+            cmd.CommandText = @"
+                SELECT ID_Empleado, Nombre, Telefono, Es_Admin, Salario
+                FROM Empleado
+                WHERE ID_Empleado = $id AND Es_Activo = 1";
+            cmd.Parameters.AddWithValue("$id", id);
+
+            using var reader = cmd.ExecuteReader();
+
+            if (!reader.Read())
+            {
+                SqliteConnection.ClearAllPools();
+                conn.Close();
+                conn.Dispose();
+                throw new EmpleadoInexistente();
+            }
+
+            string ID_Empleado = reader.GetString(0);
+            string Nombre = reader.GetString(1);
+            string Telefono = reader.GetString(2);
+            bool Es_Admin = reader.GetInt32(3) == 1;
+            double Salario = reader.GetDouble(4);
+
+            SqliteConnection.ClearAllPools();
+            conn.Close();
+            conn.Dispose();
+            return new Empleado(ID_Empleado, Nombre, Telefono, Es_Admin, Salario);
+        }
+
+        public Empleado ReadEmpleadoByUsername(string usuario)
+        {
+            SqliteConnection conn = new($"Data Source={dbPath}");
+            conn.Open();
+            using SqliteCommand cmd = conn.CreateCommand();
+            cmd.CommandText = @"
+                SELECT ID_Empleado, Nombre, Telefono, Es_Admin, Salario
+                FROM Empleado
+                WHERE Usuario = $usuario AND Es_Activo = 1";
+            cmd.Parameters.AddWithValue("$usuario", usuario);
+
+            using var reader = cmd.ExecuteReader();
+
+            if (!reader.Read())
+            {
+                SqliteConnection.ClearAllPools();
+                conn.Close();
+                conn.Dispose();
+                throw new EmpleadoInexistente();
+            }
+
+            string ID_Empleado = reader.GetString(0);
+            string Nombre = reader.GetString(1);
+            string Telefono = reader.GetString(2);
+            bool Es_Admin = reader.GetInt32(3) == 1;
+            double Salario = reader.GetDouble(4);
+
+            SqliteConnection.ClearAllPools();
+            conn.Close();
+            conn.Dispose();
+            return new Empleado(ID_Empleado, Nombre, Telefono, Es_Admin, Salario);
+        }
+
+        public bool UpdateEmpleadoData(Empleado empleado)
+        {
+            SqliteConnection conn = new($"Data Source={dbPath}");
+            try
+            {
+                conn.Open();
+                using var cmd = conn.CreateCommand();
+                cmd.CommandText = @"
+                    UPDATE Empleado
+                    SET Nombre = $nombre,
+                        Telefono = $telefono,
+                        Es_Admin = $admin,
+                        Salario = $salario
+                    WHERE ID_Empleado = $id;";
+                cmd.Parameters.AddWithValue("$id", empleado.Id_Empleado);
+                cmd.Parameters.AddWithValue("$nombre", empleado.Nombre);
+                cmd.Parameters.AddWithValue("$telefono", empleado.Telefono);
+                cmd.Parameters.AddWithValue("$admin", empleado.Es_Admin ? 1 : 0);
+                cmd.Parameters.AddWithValue("$salario", empleado.Salario);
+
+                int filasAfectadas = cmd.ExecuteNonQuery();
+                return filasAfectadas > 0;
+            }
+            catch
+            {
+                throw new EmpleadoInexistente();
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+                SqliteConnection.ClearAllPools();
+            }
+        }
+
+        public bool UpdateEmpleadoLogin(Empleado empleado, string usuario, string contrasena)
+        {
+            SqliteConnection conn = new($"Data Source={dbPath}");
+            try
+            {
+                conn.Open();
+                using var cmd = conn.CreateCommand();
+                cmd.CommandText = @"
+                    UPDATE Empleado
+                    SET Usuario = $user,
+                        Contraseña = $contra
+                    WHERE ID_Empleado = $id;";
+                cmd.Parameters.AddWithValue("$id", empleado.Id_Empleado);
+                cmd.Parameters.AddWithValue("$user", usuario);
+                cmd.Parameters.AddWithValue("$contra", ToSHA256(contrasena));
+
+                int filasAfectadas = cmd.ExecuteNonQuery();
+                return filasAfectadas > 0;
+            }
+            catch (SqliteException ex)
+            {
+               if (ex.SqliteErrorCode == 19) // constraint violation
+                {
+                    if (ex.Message.Contains("EMPLEADO.ID_Empleado"))
+                        throw new EmpleadoExistente();
+                    else if (ex.Message.Contains("EMPLEADO.Usuario"))
+                        throw new UsuarioEmpleadoExistente();
+                }
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+                SqliteConnection.ClearAllPools();
+            }
+        }
+
+        public bool DeleteEmpleado(Empleado empleado)
+        {
+            SqliteConnection conn = new($"Data Source={dbPath}");
+            try
+            {
+                conn.Open();
+                using var cmd = conn.CreateCommand();
+                cmd.CommandText = @"
+                    UPDATE EMPLEADO
+                    SET Es_Activo = 0
+                    WHERE ID_Empleado = $id";
+                cmd.Parameters.AddWithValue("$id", empleado.Id_Empleado);
+
+                int filasAfectadas = cmd.ExecuteNonQuery();
+                return filasAfectadas > 0;
+            }
+            catch
+            {
+                throw new EmpleadoInexistente();
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+                SqliteConnection.ClearAllPools();
+            }
+        }
+
+        public Empleado LoginEmpleado(string usuario, string contrasena)
+        {
+            SqliteConnection conn = new($"Data Source={dbPath}");
+            conn.Open();
+            using SqliteCommand cmd = conn.CreateCommand();
+            cmd.CommandText = @"
+                SELECT ID_Empleado, Nombre, Telefono, Contrasena, Es_Admin, Salario 
+                FROM EMPLEADO 
+                WHERE Usuario = $usuario";
+            cmd.Parameters.AddWithValue("$usuario", usuario);
+
+            using var reader = cmd.ExecuteReader();
+
+            if (!reader.Read())
+            {
+                SqliteConnection.ClearAllPools();
+                conn.Close();
+                conn.Dispose();
+                throw new EmpleadoInexistente();
+            }
+
+            string id = reader.GetString(0);
+            string nombre = reader.GetString(1);
+            string telefono = reader.GetString(2);
+            string hashAlmacenado = reader.GetString(3);
+            bool esAdmin = reader.GetInt32(4) != 0;
+            double salario = reader.GetDouble(5);
+
+            string hashIngresado = ToSHA256(contrasena);
+
+            if (!hashIngresado.Equals(hashAlmacenado, StringComparison.OrdinalIgnoreCase))
+            {
+                SqliteConnection.ClearAllPools();
+                conn.Close();
+                conn.Dispose();
+                throw new ContraseñaEmpleadoIncorrecta();
+            }
+
+            SqliteConnection.ClearAllPools();
+            conn.Close();
+            conn.Dispose();
+            return new Empleado(id, nombre, telefono, esAdmin, salario);
+        }
+    
     }
 }

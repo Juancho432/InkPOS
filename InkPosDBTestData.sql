@@ -34,7 +34,8 @@ INSERT INTO EMPLEADO (ID_Empleado,Nombre,Telefono,Usuario,Contrasena,Es_Admin,Sa
   'Patron123',
   '0654e893cc3007912095cf9e957defc8f49dc5b868c320ce13dc7a7a1aec2715', -- QueMira?
   '1',
-  '1000000000'
+  '1000000000',
+  '1'
 );
 -- Empleado
 INSERT INTO EMPLEADO (ID_Empleado,Nombre,Telefono,Usuario,Contrasena,Es_Admin,Salario) VALUES (
@@ -44,7 +45,8 @@ INSERT INTO EMPLEADO (ID_Empleado,Nombre,Telefono,Usuario,Contrasena,Es_Admin,Sa
   'ElNegro23',
   '5f5b92ff292c5659a8fe79239ff5b82b5a658f2d8c80162bcded09c584ebe09f', -- SoyPobre
   '0',
-  '10'
+  '10',
+  '1'
 );
 -- Factura en Efectivo y un producto 2 veces
 INSERT INTO FACTURA (ID_Factura,ID_Cliente,ID_Empleado,Fecha,Hora,ID_Transaccion,Total) VALUES (
