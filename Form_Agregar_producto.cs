@@ -48,16 +48,15 @@ namespace InkPos
             }
 
             // Parsear los valores numéricos
-            if (!int.TryParse(codigo_producto, out int codigo) ||
-                !int.TryParse(cantidad, out int stock) ||
+            if ( !int.TryParse(cantidad, out int stock) ||
                 !decimal.TryParse(precio, out decimal pvp))
             {
-                MessageBox.Show("Verifica que el código, cantidad y precio sean valores numéricos válidos.");
+                MessageBox.Show("Verifica que la cantidad y el precio sean valores numéricos válidos.");
                 return;
             }
 
             // Crear objeto producto
-            Producto productoNuevo = new Producto(codigo, nombre_producto, stock, pvp);
+            Producto productoNuevo = new Producto(codigo_producto, nombre_producto, pvp, stock);
 
 
             //BBDD
