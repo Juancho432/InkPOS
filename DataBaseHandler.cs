@@ -2,6 +2,8 @@
 using System.Text;
 using System.Security.Cryptography;
 using static InkPos.Excepciones;
+using System.Drawing.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace InkPos
 {
@@ -34,33 +36,31 @@ namespace InkPos
 
         private bool HasValidStructure()
         {
-            using (var checkConn = new SqliteConnection($"Data Source={dbPath}"))
+            using var checkConn = new SqliteConnection($"Data Source={dbPath}");
+            checkConn.Open();
+
+            // Verificamos que existan todas las tablas requeridas
+            string[] tablasRequeridas = ["CLIENTE", "EMPLEADO", "PRODUCTO", "FACTURA", "DETALLE", "DEVOLUCION"];
+
+            foreach (string tabla in tablasRequeridas)
             {
-                checkConn.Open();
+                using var cmd = checkConn.CreateCommand();
+                cmd.CommandText = $"SELECT name FROM sqlite_master WHERE type='table' AND name='{tabla}';";
 
-                // Verificamos que existan todas las tablas requeridas
-                string[] tablasRequeridas = ["CLIENTE", "EMPLEADO", "PRODUCTO", "FACTURA", "DETALLE", "DEVOLUCION"];
-
-                foreach (string tabla in tablasRequeridas)
+                using var reader = cmd.ExecuteReader();
+                if (!reader.Read())
                 {
-                    using var cmd = checkConn.CreateCommand();
-                    cmd.CommandText = $"SELECT name FROM sqlite_master WHERE type='table' AND name='{tabla}';";
-
-                    using var reader = cmd.ExecuteReader();
-                    if (!reader.Read())
-                    {
-                        SqliteConnection.ClearAllPools();
-                        checkConn.Close();
-                        checkConn.Dispose();
-                        return false; // Faltó una tabla, la estructura no es válida
-                    }
+                    SqliteConnection.ClearAllPools();
+                    checkConn.Close();
+                    checkConn.Dispose();
+                    return false; // Faltó una tabla, la estructura no es válida
                 }
-
-                SqliteConnection.ClearAllPools();
-                checkConn.Close();
-                checkConn.Dispose();
-                return true;
             }
+
+            SqliteConnection.ClearAllPools();
+            checkConn.Close();
+            checkConn.Dispose();
+            return true;
         }
 
         private void CreateDatabaseFromTemplate()
@@ -123,12 +123,12 @@ namespace InkPos
                 conn.Open();
                 using var cmd = conn.CreateCommand();
                 cmd.CommandText = @"
-                    INSERT INTO PRODUCTO (ID_Producto, Nombre, /*Precio,*/ Stock)
-                    VALUES ($id, $nombre, /*$precio,*/ $stock);";
+                    INSERT INTO PRODUCTO (ID_Producto, Nombre, Precio, Stock)
+                    VALUES ($id, $nombre, $precio, $stock);";
 
                 cmd.Parameters.AddWithValue("$id", producto.IdProducto);
                 cmd.Parameters.AddWithValue("$nombre", producto.NombreItem);
-                /*cmd.Parameters.AddWithValue("$precio", producto.Precio);*/
+                cmd.Parameters.AddWithValue("$precio", producto.Precio);
                 cmd.Parameters.AddWithValue("$stock", producto.Stock);
 
                 int filasAfectadas = cmd.ExecuteNonQuery();
@@ -259,12 +259,12 @@ namespace InkPos
                 cmd.CommandText = @"
                     UPDATE PRODUCTO
                     SET Nombre = $nombre,
-                        /*Precio = $precio,*/
+                        Precio = $precio,
                         Stock = $stock
                     WHERE ID_Producto = $id;";
                 cmd.Parameters.AddWithValue("$id", producto.IdProducto);
                 cmd.Parameters.AddWithValue("$nombre", producto.NombreItem);
-                /*cmd.Parameters.AddWithValue("$precio", producto.Precio);*/
+                cmd.Parameters.AddWithValue("$precio", producto.Precio);
                 cmd.Parameters.AddWithValue("$stock", producto.Stock);
 
                 int filasAfectadas = cmd.ExecuteNonQuery();
@@ -625,7 +625,7 @@ namespace InkPos
                 cmd.Parameters.AddWithValue("$id_fact", id_fact);
                 cmd.Parameters.AddWithValue("$id_prod", id_prod);
                 DateTime datetimeActual = DateTime.Now;
-                cmd.Parameters.AddWithValue("$fecha", datetimeActual.Date.ToString("yyyy-MM-DD"));
+                cmd.Parameters.AddWithValue("$fecha", datetimeActual.Date.ToString("yyyy-MM-dd"));
                 cmd.Parameters.AddWithValue("$hora", datetimeActual.Hour.ToString("HH:mm:ss"));
 
                 int filasAfectadas = cmd.ExecuteNonQuery();
@@ -651,7 +651,7 @@ namespace InkPos
             using SqliteCommand cmd = conn.CreateCommand();
             cmd.CommandText = @"
                 SELECT ID_Factura, ID_Producto, Fecha, Hora
-                FROM Devolucion
+                FROM DEVOLUCION
                 WHERE ID_Factura = $id";
             cmd.Parameters.AddWithValue("$id", id);
 
@@ -662,7 +662,7 @@ namespace InkPos
                 SqliteConnection.ClearAllPools();
                 conn.Close();
                 conn.Dispose();
-                throw new EmpleadoInexistente();
+                throw new DevolucionInexistente();
             }
 
             string ID_Factura = reader.GetString(0);
@@ -683,7 +683,7 @@ namespace InkPos
             using SqliteCommand cmd = conn.CreateCommand();
             cmd.CommandText = @"
                 SELECT ID_Factura, ID_Producto, Fecha, Hora
-                FROM Devolucion
+                FROM DEVOLUCION
                 WHERE ID_Producto = $id";
             cmd.Parameters.AddWithValue("$id", id);
 
@@ -694,7 +694,7 @@ namespace InkPos
                 SqliteConnection.ClearAllPools();
                 conn.Close();
                 conn.Dispose();
-                throw new EmpleadoInexistente();
+                throw new DevolucionInexistente();
             }
 
             string ID_Factura = reader.GetString(0);
@@ -736,7 +736,8 @@ namespace InkPos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al listar productos:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al listar productos:\n" + ex.Message, "Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -748,7 +749,7 @@ namespace InkPos
             return devoluciones;
         }
 
-        public List<Devolucion> ReadRefundsByDate(DateTime startDatetime, DateTime endDateTime)
+        public List<Devolucion> ReadRefundsByDate(DateTime startDatetime, DateTime endDT)
         {
             using SqliteConnection conn = new($"Data Source={dbPath}");
             List<Devolucion> devoluciones = [];
@@ -761,8 +762,8 @@ namespace InkPos
                     SELECT ID_Factura, ID_Produto, Fecha, Hora
                     FROM DEVOLUCION
                     WHERE datetime(Fecha || ' ' || Hora) BETWEEN datetime($start) AND datetime($end);";
-                cmd.Parameters.AddWithValue("$start", startDatetime.ToString("yyyy-MM-DD HH:mm:ss"));
-                cmd.Parameters.AddWithValue("$end", endDateTime.ToString("yyyy-MM-DD HH:mm:ss"));
+                cmd.Parameters.AddWithValue("$start", startDatetime.ToString("yyyy-MM-dd HH:mm:ss"));
+                cmd.Parameters.AddWithValue("$end", endDT.ToString("yyyy-MM-dd HH:mm:ss"));
 
                 using var reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -779,7 +780,8 @@ namespace InkPos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al listar productos:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al listar productos:\n" + ex.Message, "Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -791,6 +793,85 @@ namespace InkPos
             return devoluciones;
         }
     
+        //      #### CRUD Detalle
+
+        public bool CreateDetail(DetalleVenta detalle)
+        {
+            using SqliteConnection conn = new($"Data Source={dbPath}");
+            try
+            {
+                conn.Open();
+                using var cmd = conn.CreateCommand();
+                cmd.CommandText = @"
+                    INSERT INTO DETALLE
+                        (ID_Factura, ID_Producto, Cantidad, Valor)
+                    VALUES 
+                        ($id_fac, $id_prod, $cant, $val);";
+
+                cmd.Parameters.AddWithValue("$id_fac", detalle.IdFactura);
+                cmd.Parameters.AddWithValue("$id_prod", detalle.IdProducto);
+                cmd.Parameters.AddWithValue("$cant", detalle.Cantidad);
+                cmd.Parameters.AddWithValue("$val", detalle.Valor);
+
+                int filasAfectadas = cmd.ExecuteNonQuery();
+                return filasAfectadas > 0;
+            }
+            catch
+            {
+                throw new DetalleExistente();
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+                SqliteConnection.ClearAllPools();
+            }
+        }
+
+        public List<DetalleVenta> ReadDetailsByInvoice(string id)
+        {
+            SqliteConnection conn = new($"Data Source={dbPath}");
+            conn.Open();
+            List<DetalleVenta> detalles = [];
+
+            try
+            {
+                using SqliteCommand cmd = conn.CreateCommand();
+                cmd.CommandText = @"
+                    SELECT ID_Factura, ID_Producto, Cantidad, Valor
+                    FROM DETALLE
+                    WHERE ID_Factura = $id";
+                cmd.Parameters.AddWithValue("$id", id);
+    
+                using var reader = cmd.ExecuteReader();
+    
+                while(reader.Read())
+                {
+                    DetalleVenta detalle = new
+                    (
+                        IdFac: reader.GetString(0),
+                        IdProd: reader.GetString(1),
+                        Canti: reader.GetInt32(2),
+                        valor: reader.GetDecimal(3)
+                    );
+
+                    detalles.Add(detalle);
+                }
+            }
+            catch 
+            {
+
+            }
+            finally
+            {
+                SqliteConnection.ClearAllPools();
+                conn.Close();
+                conn.Dispose();
+            }
+
+            return detalles;
+        }
+
         //      #### CRUD Factura
 
         public bool CreateInvoice(Factura factura)
@@ -804,35 +885,117 @@ namespace InkPos
                 using (SqliteCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                    INSERT INTO DEVOLUCION (ID_Factura, ID_Producto, Fecha, Hora)
-                    VALUES ($id_fact, $id_prod, $fecha, $hora);";
+                    INSERT INTO FACTURA 
+                        (ID_Factura, ID_Cliente, ID_Empleado, Fecha, Hora, ID_Transaccion, Total)
+                    VALUES 
+                        ($id_fact, $id_cli, $id_emp, $fecha, $hora, $trans, $total);";
+                    cmd.Parameters.AddWithValue("$id_fac", factura.IdFactura);
+                    cmd.Parameters.AddWithValue("$id_cli", factura.IdCliente);
+                    cmd.Parameters.AddWithValue("$id_emp", factura.IdEmpleado);
+                    DateTime hoy = DateTime.Now;
+                    cmd.Parameters.AddWithValue("$fecha", hoy.Date.ToString("yyyy-MM-dd"));
+                    cmd.Parameters.AddWithValue("$hora", hoy.Hour.ToString("HH:mm:ss"));
+                    cmd.Parameters.AddWithValue("$trans", factura.IdTransaccion);
+                    cmd.Parameters.AddWithValue("$total", factura.Total);
 
                     filasAfectadas = cmd.ExecuteNonQuery();
+                    return filasAfectadas > 0;
                 };
             }
-            catch (SqliteException ex)
+            catch
             {
-                
+                throw new FacturaExistente();
             }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+                SqliteConnection.ClearAllPools();
+            }   
+        }
+    
+        public Factura ReadInvoiceByID(string id)
+        {
+            SqliteConnection conn = new($"Data Source={dbPath}");
+            conn.Open();
+            using SqliteCommand cmd = conn.CreateCommand();
+            cmd.CommandText = @"
+                SELECT ID_Factura, ID_Cliente, ID_Empleado, Fecha, Hora, ID_Transaccion, Total
+                FROM FACTURA
+                WHERE ID_Factura = $id";
+            cmd.Parameters.AddWithValue("$id", id);
+
+            using var reader = cmd.ExecuteReader();
+
+            if (!reader.Read())
+            {
+                SqliteConnection.ClearAllPools();
+                conn.Close();
+                conn.Dispose();
+                throw new FacturaInexistente();
+            }
+
+            string ID_Factura = reader.GetString(0);
+            string ID_Cliente = reader.GetString(1);
+            string ID_Empleado = reader.GetString(2);
+            string Fecha = reader.GetString(3);
+            string Hora = reader.GetString(4);
+            string? ID_Transaccion = reader.GetString(5);
+            decimal Total = reader.GetDecimal(6);
+            List<DetalleVenta> detalles = ReadDetailsByInvoice(ID_Factura);
+
+            SqliteConnection.ClearAllPools();
+            conn.Close();
+            conn.Dispose();
+            return new Factura(ID_Factura, ID_Cliente, ID_Empleado, Fecha, Hora, ID_Transaccion, Total) {Detalles = detalles};
+        }
+    
+        public List<Factura> ReadInvoiceByDates(DateTime startDT, DateTime endDT)
+        {
+            using SqliteConnection conn = new($"Data Source={dbPath}");
+            List<Factura> facturas = [];
 
             try
             {
-                using SqliteCommand cmd = conn.CreateCommand();
+                conn.Open();
+                using var cmd = conn.CreateCommand();
                 cmd.CommandText = @"
-                    INSERT INTO DEVOLUCION (ID_Factura, ID_Producto, Fecha, Hora)
-                    VALUES ($id_fact, $id_prod, $fecha, $hora);";
+                    SELECT ID_Factura, ID_Cliente, ID_Empleado, Fecha, Hora, ID_Transaccion, Total
+                    FROM FACTURA
+                    WHERE datetime(Fecha || ' ' || Hora) BETWEEN datetime($start) AND datetime($end)";
+                cmd.Parameters.AddWithValue("$start", startDT.ToString("yyyy-MM-dd HH:mm:ss"));
+                cmd.Parameters.AddWithValue("$end", endDT.ToString("yyyy-MM-dd HH:mm:ss"));
 
-                filasAfectadas = cmd.ExecuteNonQuery();
+                using var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Factura factura = new
+                    (
+                        IdFac: reader.GetString(0),
+                        IdCl: reader.GetString(1),
+                        idEmp: reader.GetString(2),
+                        fecha: reader.GetString(3),
+                        hora: reader.GetString(4),
+                        idTrans: reader.GetString(5),
+                        Total: reader.GetDecimal(6)
+                    );
+                    factura.Detalles = ReadDetailsByInvoice(factura.IdFactura);
+                    facturas.Add(factura);
+                }
             }
-            catch (SqliteException ex)
+            catch (Exception ex)
             {
-
+                MessageBox.Show("Error al listar productos:\n" + ex.Message, "Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+                SqliteConnection.ClearAllPools();
             }
 
-            conn.Close();
-            conn.Dispose();
-            SqliteConnection.ClearAllPools();
-            return filasAfectadas > 0;
+            return facturas;
         }
     }
 }

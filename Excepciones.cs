@@ -120,7 +120,7 @@
         }
     
         //      #### Detalle
-        public class DetalleExistente
+        public class DetalleExistente : Exception
         {
             public DetalleExistente()
             {
