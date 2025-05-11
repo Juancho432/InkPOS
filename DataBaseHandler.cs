@@ -115,9 +115,9 @@ namespace InkPos
 
         //      #### CRUD Producto
 
-        public bool CreateProducto(Producto producto)
+        public bool CreateProduct(Producto producto)
         {
-            SqliteConnection conn = new($"Data Source={dbPath}");
+            using SqliteConnection conn = new($"Data Source={dbPath}");
             try
             {
                 conn.Open();
@@ -147,9 +147,9 @@ namespace InkPos
             }
         }
 
-        public Producto ReadProductoByID(string id)
+        public Producto ReadProductByID(string id)
         {
-            SqliteConnection conn = new($"Data Source={dbPath}");
+            using SqliteConnection conn = new($"Data Source={dbPath}");
             conn.Open();
             using SqliteCommand cmd = conn.CreateCommand();
             cmd.CommandText = @"
@@ -179,9 +179,9 @@ namespace InkPos
             return new Producto(ID_Producto, Nombre, /*Precio,*/ Stock);
         }
 
-        public Producto ReadProductoByName(string nombre)
+        public Producto ReadProductByName(string nombre)
         {
-            SqliteConnection conn = new($"Data Source={dbPath}");
+            using SqliteConnection conn = new($"Data Source={dbPath}");
             conn.Open();
             using SqliteCommand cmd = conn.CreateCommand();
             cmd.CommandText = @"
@@ -211,9 +211,47 @@ namespace InkPos
             return new Producto(ID_Producto, Nombre, /*Precio,*/ Stock);
         }
 
+        public List<Producto> ReadAllProducts()
+        {
+            using SqliteConnection conn = new($"Data Source={dbPath}");
+            List<Producto> productos = [];
+
+            try
+            {
+                conn.Open();
+                using SqliteCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT ID_Producto, Nombre, Precio, Stock FROM PRODUCTO;";
+
+                using var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Producto producto = new
+                    (
+                        IdProd: reader.GetString(0),
+                        NameItem: reader.GetString(1),
+                        //Precio: reader.GetDouble(2),
+                        stock: reader.GetInt32(3)
+                    );
+                    productos.Add(producto);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al listar productos:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+                SqliteConnection.ClearAllPools();
+            }
+
+            return productos;
+        }
+
         public bool UpdateProducto(Producto producto)
         {
-            SqliteConnection conn = new($"Data Source={dbPath}");
+            using SqliteConnection conn = new($"Data Source={dbPath}");
             try
             {
                 conn.Open();
@@ -246,7 +284,7 @@ namespace InkPos
 
         public bool DeleteProducto(Producto producto)
         {
-            SqliteConnection conn = new($"Data Source={dbPath}");
+            using SqliteConnection conn = new($"Data Source={dbPath}");
             try
             {
                 conn.Open();
@@ -273,7 +311,7 @@ namespace InkPos
         }
 
         //      #### CRUD Empleado
-        public bool CreateEmpleado(Empleado empleado, string usuario, string contrasena)
+        public bool CreateEmployed(Empleado empleado, string usuario, string contrasena)
         {
             SqliteConnection conn = new($"Data Source={dbPath}");
             contrasena = ToSHA256(contrasena);
@@ -315,8 +353,8 @@ namespace InkPos
                 SqliteConnection.ClearAllPools();
             }
         }
-    
-        public Empleado ReadEmpleadoByID(string id)
+
+        public Empleado ReadEmployedByID(string id)
         {
             SqliteConnection conn = new($"Data Source={dbPath}");
             conn.Open();
@@ -349,7 +387,7 @@ namespace InkPos
             return new Empleado(ID_Empleado, Nombre, Telefono, Es_Admin, Salario);
         }
 
-        public Empleado ReadEmpleadoByUsername(string usuario)
+        public Empleado ReadEmployedByUsername(string usuario)
         {
             SqliteConnection conn = new($"Data Source={dbPath}");
             conn.Open();
@@ -382,7 +420,51 @@ namespace InkPos
             return new Empleado(ID_Empleado, Nombre, Telefono, Es_Admin, Salario);
         }
 
-        public bool UpdateEmpleadoData(Empleado empleado)
+        public List<Empleado> ReadAllEmployees()
+        {
+            using SqliteConnection conn = new($"Data Source={dbPath}");
+            var empleados = new List<Empleado>();
+
+            try
+            {
+                conn.Open();
+                using var cmd = conn.CreateCommand();
+                cmd.CommandText = @"
+                    SELECT ID_Empleado, Nombre, Telefono, Es_Admin, Salario
+                    FROM EMPLEADO
+                    WHERE Es_Activo = 1;";
+
+                using var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Empleado empleado = new
+                    (
+                        id: reader.GetString(0),
+                        nombre: reader.GetString(1),
+                        telefono: reader.GetString(2),
+                        es_admin: reader.GetInt32(3) == 1,
+                        salario: reader.GetDouble(4)
+                    );
+                    empleados.Add(empleado);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al listar empleados:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+                SqliteConnection.ClearAllPools();
+            }
+
+            return empleados;
+
+
+        }
+
+        public bool UpdateEmployedData(Empleado empleado)
         {
             SqliteConnection conn = new($"Data Source={dbPath}");
             try
@@ -417,7 +499,7 @@ namespace InkPos
             }
         }
 
-        public bool UpdateEmpleadoLogin(Empleado empleado, string usuario, string contrasena)
+        public bool UpdateEmployedLogin(Empleado empleado, string usuario, string contrasena)
         {
             SqliteConnection conn = new($"Data Source={dbPath}");
             try
@@ -438,7 +520,7 @@ namespace InkPos
             }
             catch (SqliteException ex)
             {
-               if (ex.SqliteErrorCode == 19) // constraint violation
+                if (ex.SqliteErrorCode == 19) // constraint violation
                 {
                     if (ex.Message.Contains("EMPLEADO.ID_Empleado"))
                         throw new EmpleadoExistente();
@@ -455,7 +537,7 @@ namespace InkPos
             }
         }
 
-        public bool DeleteEmpleado(Empleado empleado)
+        public bool DeleteEmployed(Empleado empleado)
         {
             SqliteConnection conn = new($"Data Source={dbPath}");
             try
@@ -483,7 +565,7 @@ namespace InkPos
             }
         }
 
-        public Empleado LoginEmpleado(string usuario, string contrasena)
+        public Empleado LoginEmployed(string usuario, string contrasena)
         {
             SqliteConnection conn = new($"Data Source={dbPath}");
             conn.Open();
@@ -491,7 +573,7 @@ namespace InkPos
             cmd.CommandText = @"
                 SELECT ID_Empleado, Nombre, Telefono, Contrasena, Es_Admin, Salario 
                 FROM EMPLEADO 
-                WHERE Usuario = $usuario";
+                WHERE Usuario = $usuario AND Es_Activo = 1";
             cmd.Parameters.AddWithValue("$usuario", usuario);
 
             using var reader = cmd.ExecuteReader();
@@ -526,11 +608,10 @@ namespace InkPos
             conn.Dispose();
             return new Empleado(id, nombre, telefono, esAdmin, salario);
         }
-    
-    
+
         //      #### CRUD Devolucion
 
-        public bool CreateDevolucion(string id_fact, string id_prod)
+        public bool CreateRefund(string id_fact, string id_prod)
         {
             SqliteConnection conn = new($"Data Source={dbPath}");
             try
@@ -544,8 +625,8 @@ namespace InkPos
                 cmd.Parameters.AddWithValue("$id_fact", id_fact);
                 cmd.Parameters.AddWithValue("$id_prod", id_prod);
                 DateTime datetimeActual = DateTime.Now;
-                cmd.Parameters.AddWithValue("$fecha", datetimeActual.Date.ToString("yyyy/MM/DD"));
-                cmd.Parameters.AddWithValue("$hora", datetimeActual.Hour.ToString("HH:MM.SS"));
+                cmd.Parameters.AddWithValue("$fecha", datetimeActual.Date.ToString("yyyy-MM-DD"));
+                cmd.Parameters.AddWithValue("$hora", datetimeActual.Hour.ToString("HH:mm:ss"));
 
                 int filasAfectadas = cmd.ExecuteNonQuery();
                 return filasAfectadas > 0;
@@ -562,8 +643,8 @@ namespace InkPos
                 SqliteConnection.ClearAllPools();
             }
         }
-    
-        public Devolucion ReadDevolucionByFactura(string id)
+
+        public Devolucion ReadRefundByInvoice(string id)
         {
             SqliteConnection conn = new($"Data Source={dbPath}");
             conn.Open();
@@ -592,10 +673,10 @@ namespace InkPos
             SqliteConnection.ClearAllPools();
             conn.Close();
             conn.Dispose();
-            return new Devolucion(ID_Factura, ID_Producto, /*Fecha, Hora*/0,0);
+            return new Devolucion(ID_Factura, ID_Producto, /*Fecha, Hora*/0, 0);
         }
-    
-        public Devolucion ReadDevolucionByProducto(string id)
+
+        public Devolucion ReadRefundByProduct(string id)
         {
             SqliteConnection conn = new($"Data Source={dbPath}");
             conn.Open();
@@ -624,8 +705,91 @@ namespace InkPos
             SqliteConnection.ClearAllPools();
             conn.Close();
             conn.Dispose();
-            return new Devolucion(ID_Factura, ID_Producto, /*Fecha, Hora*/0,0);
+            return new Devolucion(ID_Factura, ID_Producto, /*Fecha, Hora*/0, 0);
         }
 
+        public List<Devolucion> ReadAllRefunds()
+        {
+            using SqliteConnection conn = new($"Data Source={dbPath}");
+            List<Devolucion> devoluciones = [];
+
+            try
+            {
+                conn.Open();
+                using var cmd = conn.CreateCommand();
+                cmd.CommandText = @"
+                    SELECT ID_Factura, ID_Produto, Fecha, Hora
+                    FROM DEVOLUCION;";
+
+                using var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Devolucion devolucion = new
+                    (
+                        IdFac: reader.GetString(0),
+                        IdProd: reader.GetString(1),
+                        /*fecha: reader.GetString(2),*/0,
+                        /*hora: reader.GetString(3)*/0
+                    );
+                    devoluciones.Add(devolucion);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al listar productos:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+                SqliteConnection.ClearAllPools();
+            }
+
+            return devoluciones;
+        }
+
+        public List<Devolucion> ReadRefundsByDate(DateTime startDatetime, DateTime endDateTime)
+        {
+            using SqliteConnection conn = new($"Data Source={dbPath}");
+            List<Devolucion> devoluciones = [];
+
+            try
+            {
+                conn.Open();
+                using var cmd = conn.CreateCommand();
+                cmd.CommandText = @"
+                    SELECT ID_Factura, ID_Produto, Fecha, Hora
+                    FROM DEVOLUCION
+                    WHERE datetime(Fecha || ' ' || Hora) BETWEEN datetime($start) AND datetime($end);";
+                cmd.Parameters.AddWithValue("$start", startDatetime.ToString("yyyy-MM-DD HH:mm:ss"));
+                cmd.Parameters.AddWithValue("$end", endDateTime.ToString("yyyy-MM-DD HH:mm:ss"));
+
+                using var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Devolucion devolucion = new
+                    (
+                        IdFac: reader.GetString(0),
+                        IdProd: reader.GetString(1),
+                        /*fecha: reader.GetString(2),*/0,
+                        /*hora: reader.GetString(3)*/0
+                    );
+                    devoluciones.Add(devolucion);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al listar productos:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+                SqliteConnection.ClearAllPools();
+            }
+
+            return devoluciones;
+        }
+    
     }
 }

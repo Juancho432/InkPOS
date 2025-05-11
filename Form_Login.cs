@@ -36,7 +36,7 @@
             Empleado EmpleadoActual;
             try
             {
-                EmpleadoActual = Database.LoginEmpleado(usuario, contraseña);
+                EmpleadoActual = Database.LoginEmployed(usuario, contraseña);
             }
             catch
             {
