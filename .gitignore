@@ -27,3 +27,6 @@ publish/
 ## Archivos de log o backups
 *.log
 *.bak
+
+## Sesiones de Base de Datos
+*.session.sql

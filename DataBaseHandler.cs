@@ -2,6 +2,7 @@
 using System.Text;
 using System.Security.Cryptography;
 using static InkPos.Excepciones;
+using System.Data;
 
 namespace InkPos
 {
@@ -79,7 +80,7 @@ namespace InkPos
             tmpConn.Close();
             tmpConn.Dispose();
         }
-    
+
         private void CreateDatabaseData()
         {
             string templatePath = "InkPosDBTestData.sql";
@@ -98,6 +99,17 @@ namespace InkPos
             SqliteConnection.ClearAllPools();
             tmpConn.Close();
             tmpConn.Dispose();
+        }
+
+        private static string ToSHA256(string input)
+        {
+            byte[] bytes = SHA256.HashData(Encoding.UTF8.GetBytes(input));
+            StringBuilder sb = new();
+            foreach (byte b in bytes)
+            {
+                sb.Append(b.ToString("x2"));
+            }
+            return sb.ToString();
         }
 
         public Empleado LoginEmpleado(string usuario, string contrasena)
@@ -144,15 +156,130 @@ namespace InkPos
             return new Empleado(id, nombre, telefono, esAdmin, salario);
         }
 
-        private static string ToSHA256(string input)
+        public bool CreateProducto(Producto producto)
         {
-            byte[] bytes = SHA256.HashData(Encoding.UTF8.GetBytes(input));
-            StringBuilder sb = new();
-            foreach (byte b in bytes)
+            SqliteConnection conn = new($"Data Source={dbPath}");
+            try
             {
-                sb.Append(b.ToString("x2"));
+                conn.Open();
+                using var cmd = conn.CreateCommand();
+                cmd.CommandText = @"
+                    INSERT INTO PRODUCTO (ID_Producto, Nombre, /*Precio,*/ Stock)
+                    VALUES ($id, $nombre, /*$precio,*/ $stock);";
+
+                cmd.Parameters.AddWithValue("$id", producto.IdProducto);
+                cmd.Parameters.AddWithValue("$nombre", producto.NombreItem);
+                /*cmd.Parameters.AddWithValue("$precio", producto.Precio);*/
+                cmd.Parameters.AddWithValue("$stock", producto.Stock);
+
+                int filasAfectadas = cmd.ExecuteNonQuery();
+                return filasAfectadas > 0;
             }
-            return sb.ToString();
+            catch
+            {
+                // Si el ID de el producto ya existe
+                throw new ProductoExistente();
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+                SqliteConnection.ClearAllPools();
+            }
         }
+
+        public Producto ReadProducto(string codigo)
+        {
+            SqliteConnection conn = new($"Data Source={dbPath}");
+            conn.Open();
+            using SqliteCommand cmd = conn.CreateCommand();
+            cmd.CommandText = @"
+                SELECT ID_Producto, Nombre, Precio, Stock
+                FROM PRODUCTO
+                WHERE ID_Producto = $codigo AND Stock > -1"; // Los productos con stock -1 estan "Borrados"
+            cmd.Parameters.AddWithValue("$codigo", codigo);
+
+            using var reader = cmd.ExecuteReader();
+
+            if (!reader.Read())
+            {
+                SqliteConnection.ClearAllPools();
+                conn.Close();
+                conn.Dispose();
+                throw new ProductoInexistente();
+            }
+
+            string ID_Producto = reader.GetString(0);
+            string Nombre = reader.GetString(1);
+            double Precio = reader.GetDouble(2);
+            int Stock = reader.GetInt32(3);
+
+            SqliteConnection.ClearAllPools();
+            conn.Close();
+            conn.Dispose();
+            return new Producto(ID_Producto, Nombre, /*Precio,*/ Stock);
+        }
+
+        public bool UpdateProducto(Producto producto)
+        {
+            SqliteConnection conn = new($"Data Source={dbPath}");
+            try
+            {
+                conn.Open();
+                using var cmd = conn.CreateCommand();
+                cmd.CommandText = @"
+                    UPDATE PRODUCTO
+                    SET Nombre = $nombre,
+                        /*Precio = $precio,*/
+                        Stock = $stock
+                    WHERE ID_Producto = $id;";
+                cmd.Parameters.AddWithValue("$id", producto.IdProducto);
+                cmd.Parameters.AddWithValue("$nombre", producto.NombreItem);
+                /*cmd.Parameters.AddWithValue("$precio", producto.Precio);*/
+                cmd.Parameters.AddWithValue("$stock", producto.Stock);
+
+                int filasAfectadas = cmd.ExecuteNonQuery();
+                return filasAfectadas > 0;
+            }
+            catch
+            {
+                throw new ProductoInexistente();
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+                SqliteConnection.ClearAllPools();
+            }
+        }
+
+        public bool DeleteProducto(Producto producto)
+        {
+            SqliteConnection conn = new($"Data Source={dbPath}");
+            try
+            {
+                conn.Open();
+                using var cmd = conn.CreateCommand();
+                cmd.CommandText = @"
+                    UPDATE PRODUCTO
+                    SET Stock = -1
+                    WHERE ID_Producto = $id;";
+                cmd.Parameters.AddWithValue("$id", producto.IdProducto);
+
+                int filasAfectadas = cmd.ExecuteNonQuery();
+                return filasAfectadas > 0;
+            }
+            catch
+            {
+                throw new ProductoInexistente();
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+                SqliteConnection.ClearAllPools();
+            }
+        }
+        
     }
 }
