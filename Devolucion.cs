@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace InkPos
 {
-    public class Devolucion(string IdFac, string IdProd, int fecha, int hora)
+    public class Devolucion(string IdFac, string IdProd, string fecha, string hora)
     {
         public string IdFactura { get; } = IdFac;
         public string IdProducto { get; } = IdProd;
-        public int Fecha { get; set; } = fecha;
-        public int Hora { get; set; } = hora;
+        public string Fecha { get; set; } = fecha;
+        public string Hora { get; set; } = hora;
     }
 }
