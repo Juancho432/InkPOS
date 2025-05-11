@@ -145,6 +145,7 @@
             button_modificar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_modificar.UseAccentColor = false;
             button_modificar.UseVisualStyleBackColor = true;
+            button_modificar.Click += button_modificar_Click;
             // 
             // PB_mod
             // 

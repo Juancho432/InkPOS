@@ -34,5 +34,13 @@ namespace InkPos
         {
             this.Close();
         }
+
+        private void button_modificar_Click(object sender, EventArgs e)
+        {
+            Form_Modificar_Producto modificar_Producto = new(EmpleadoActual, Database);
+            modificar_Producto.Show();
+            Hide();
+            modificar_Producto.FormClosed += (s, args) => this.Show();
+        }
     }
 }
