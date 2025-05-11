@@ -13,12 +13,17 @@
 
         }
 
-        private void Boton_Maestro_Productos_CLick(object sender, EventArgs e)
+        private void button_maestro_productos_Click(object sender, EventArgs e)
         {
             Form_Maestro_Productos maestro_productos = new(EmpleadoActual, Database);
             maestro_productos.Show();
             Hide();
             maestro_productos.FormClosed += (s, args) => this.Show();
+        }
+
+        private void button_salir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

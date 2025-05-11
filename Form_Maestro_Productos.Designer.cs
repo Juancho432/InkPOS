@@ -76,6 +76,7 @@
             button_salir.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_salir.UseAccentColor = false;
             button_salir.UseVisualStyleBackColor = true;
+            button_salir.Click += button_salir_Click;
             // 
             // panel_add
             // 
