@@ -97,5 +97,47 @@
             }
         }
     
+        //      #### Factura
+
+        public class FacturaInexistente : Exception
+        {
+            public FacturaInexistente()
+            {
+                MessageBox.Show("La factura solicitada no existe en la Base de Datos", 
+                    "Factura Inexistente",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+    
+        public class FacturaExistente : Exception
+        {
+            public FacturaExistente()
+            {
+                MessageBox.Show("La factura ya esta registrada en la base de datos", 
+                    "Factura Existente",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+    
+        //      #### Detalle
+        public class DetalleExistente
+        {
+            public DetalleExistente()
+            {
+                MessageBox.Show("La factura ya tiene un producto agregado del mismo tipo", 
+                    "Detalle Existente",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+    
+        public class DetalleInexistente
+        {
+            public DetalleInexistente()
+            {
+                MessageBox.Show("El producto no se encuentra registrado en la factura", 
+                    "Detalle Inexistente",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

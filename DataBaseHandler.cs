@@ -170,13 +170,13 @@ namespace InkPos
 
             string ID_Producto = reader.GetString(0);
             string Nombre = reader.GetString(1);
-            double Precio = reader.GetDouble(2);
+            decimal Precio = reader.GetDecimal(2);
             int Stock = reader.GetInt32(3);
 
             SqliteConnection.ClearAllPools();
             conn.Close();
             conn.Dispose();
-            return new Producto(ID_Producto, Nombre, /*Precio,*/ Stock);
+            return new Producto(ID_Producto, Nombre, Precio, Stock);
         }
 
         public Producto ReadProductByName(string nombre)
@@ -202,13 +202,13 @@ namespace InkPos
 
             string ID_Producto = reader.GetString(0);
             string Nombre = reader.GetString(1);
-            double Precio = reader.GetDouble(2);
+            decimal Precio = reader.GetDecimal(2);
             int Stock = reader.GetInt32(3);
 
             SqliteConnection.ClearAllPools();
             conn.Close();
             conn.Dispose();
-            return new Producto(ID_Producto, Nombre, /*Precio,*/ Stock);
+            return new Producto(ID_Producto, Nombre, Precio, Stock);
         }
 
         public List<Producto> ReadAllProducts()
@@ -229,7 +229,7 @@ namespace InkPos
                     (
                         IdProd: reader.GetString(0),
                         NameItem: reader.GetString(1),
-                        //Precio: reader.GetDouble(2),
+                        Precio: reader.GetDecimal(2),
                         stock: reader.GetInt32(3)
                     );
                     productos.Add(producto);
@@ -673,7 +673,7 @@ namespace InkPos
             SqliteConnection.ClearAllPools();
             conn.Close();
             conn.Dispose();
-            return new Devolucion(ID_Factura, ID_Producto, /*Fecha, Hora*/0, 0);
+            return new Devolucion(ID_Factura, ID_Producto, Fecha, Hora);
         }
 
         public Devolucion ReadRefundByProduct(string id)
@@ -705,7 +705,7 @@ namespace InkPos
             SqliteConnection.ClearAllPools();
             conn.Close();
             conn.Dispose();
-            return new Devolucion(ID_Factura, ID_Producto, /*Fecha, Hora*/0, 0);
+            return new Devolucion(ID_Factura, ID_Producto, Fecha, Hora);
         }
 
         public List<Devolucion> ReadAllRefunds()
@@ -728,8 +728,8 @@ namespace InkPos
                     (
                         IdFac: reader.GetString(0),
                         IdProd: reader.GetString(1),
-                        /*fecha: reader.GetString(2),*/0,
-                        /*hora: reader.GetString(3)*/0
+                        fecha: reader.GetString(2),
+                        hora: reader.GetString(3)
                     );
                     devoluciones.Add(devolucion);
                 }
@@ -771,8 +771,8 @@ namespace InkPos
                     (
                         IdFac: reader.GetString(0),
                         IdProd: reader.GetString(1),
-                        /*fecha: reader.GetString(2),*/0,
-                        /*hora: reader.GetString(3)*/0
+                        fecha: reader.GetString(2),
+                        hora: reader.GetString(3)
                     );
                     devoluciones.Add(devolucion);
                 }
@@ -791,5 +791,48 @@ namespace InkPos
             return devoluciones;
         }
     
+        //      #### CRUD Factura
+
+        public bool CreateInvoice(Factura factura)
+        {
+            using SqliteConnection conn = new($"Data Source={dbPath}");
+            int filasAfectadas = 0;
+            conn.Open();
+            
+            try
+            {
+                using (SqliteCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                    INSERT INTO DEVOLUCION (ID_Factura, ID_Producto, Fecha, Hora)
+                    VALUES ($id_fact, $id_prod, $fecha, $hora);";
+
+                    filasAfectadas = cmd.ExecuteNonQuery();
+                };
+            }
+            catch (SqliteException ex)
+            {
+                
+            }
+
+            try
+            {
+                using SqliteCommand cmd = conn.CreateCommand();
+                cmd.CommandText = @"
+                    INSERT INTO DEVOLUCION (ID_Factura, ID_Producto, Fecha, Hora)
+                    VALUES ($id_fact, $id_prod, $fecha, $hora);";
+
+                filasAfectadas = cmd.ExecuteNonQuery();
+            }
+            catch (SqliteException ex)
+            {
+
+            }
+
+            conn.Close();
+            conn.Dispose();
+            SqliteConnection.ClearAllPools();
+            return filasAfectadas > 0;
+        }
     }
 }
