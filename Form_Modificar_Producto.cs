@@ -35,7 +35,7 @@ namespace InkPos
                     throw new Excepciones.CamposVacios();
                 }
             }
-            catch 
+            catch
             {
                 return;
             }
@@ -88,6 +88,16 @@ namespace InkPos
             //{
             //    MessageBox.Show("No se pudo modificar el producto.");
             //}
+        }
+
+        private void button_limpiar_Click(object sender, EventArgs e)
+        {
+            txtbox_nuevo_valor.Clear();
+        }
+
+        private void button_cancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
