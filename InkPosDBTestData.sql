@@ -27,7 +27,7 @@ INSERT INTO PRODUCTO (ID_Producto,Nombre,Precio,Stock) VALUES (
   '-1'
 );
 -- Admin
-INSERT INTO EMPLEADO (ID_Empleado,Nombre,Telefono,Usuario,Contrasena,Es_Admin,Salario) VALUES (
+INSERT INTO EMPLEADO (ID_Empleado, Nombre, Telefono, Usuario, Contrasena, Es_Admin, Salario, Es_activo) VALUES (
   '1',
   'Patron',
   '456',
@@ -38,7 +38,7 @@ INSERT INTO EMPLEADO (ID_Empleado,Nombre,Telefono,Usuario,Contrasena,Es_Admin,Sa
   '1'
 );
 -- Empleado
-INSERT INTO EMPLEADO (ID_Empleado,Nombre,Telefono,Usuario,Contrasena,Es_Admin,Salario) VALUES (
+INSERT INTO EMPLEADO (ID_Empleado, Nombre, Telefono, Usuario, Contrasena, Es_Admin, Salario, Es_Activo) VALUES (
   '2',
   'Sebastian',
   '789',
