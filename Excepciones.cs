@@ -4,6 +4,7 @@
     internal class Excepciones
     {
 
+        //      #### General
         public class CamposVacios : Exception
         {
             public CamposVacios()
@@ -12,6 +13,8 @@
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        //      #### Producto
 
         public class ProductoInexistente : Exception 
         {
@@ -33,6 +36,7 @@
             }
         }
     
+        //      #### Empleado
         public class EmpleadoInexistente : Exception
         {
             public EmpleadoInexistente()
@@ -68,6 +72,27 @@
             {
                 MessageBox.Show("La contraseña proporcinada es incorrecta para el usuario", 
                     "Usuario o Contraseña incorrecta",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+    
+        //      #### Devolucion
+        public class DevolucionExistente : Exception
+        {
+            public DevolucionExistente()
+            {
+                MessageBox.Show("La devolucion ya esta registrada en la Base de Datos", 
+                    "Devolucion Existente",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        public class DevolucionInexistente : Exception
+        {
+            public DevolucionInexistente()
+            {
+                MessageBox.Show("La devolucion no se encuantra en la Base de Datos", 
+                    "Devolucion Inexistente",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }

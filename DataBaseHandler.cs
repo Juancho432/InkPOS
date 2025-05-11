@@ -527,5 +527,105 @@ namespace InkPos
             return new Empleado(id, nombre, telefono, esAdmin, salario);
         }
     
+    
+        //      #### CRUD Devolucion
+
+        public bool CreateDevolucion(string id_fact, string id_prod)
+        {
+            SqliteConnection conn = new($"Data Source={dbPath}");
+            try
+            {
+                conn.Open();
+                using var cmd = conn.CreateCommand();
+                cmd.CommandText = @"
+                    INSERT INTO DEVOLUCION (ID_Factura, ID_Producto, Fecha, Hora)
+                    VALUES ($id_fact, $id_prod, $fecha, $hora);";
+
+                cmd.Parameters.AddWithValue("$id_fact", id_fact);
+                cmd.Parameters.AddWithValue("$id_prod", id_prod);
+                DateTime datetimeActual = DateTime.Now;
+                cmd.Parameters.AddWithValue("$fecha", datetimeActual.Date.ToString("yyyy/MM/DD"));
+                cmd.Parameters.AddWithValue("$hora", datetimeActual.Hour.ToString("HH:MM.SS"));
+
+                int filasAfectadas = cmd.ExecuteNonQuery();
+                return filasAfectadas > 0;
+            }
+            catch
+            {
+                // Si la devolucion ya existe
+                throw new DevolucionExistente();
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+                SqliteConnection.ClearAllPools();
+            }
+        }
+    
+        public Devolucion ReadDevolucionByFactura(string id)
+        {
+            SqliteConnection conn = new($"Data Source={dbPath}");
+            conn.Open();
+            using SqliteCommand cmd = conn.CreateCommand();
+            cmd.CommandText = @"
+                SELECT ID_Factura, ID_Producto, Fecha, Hora
+                FROM Devolucion
+                WHERE ID_Factura = $id";
+            cmd.Parameters.AddWithValue("$id", id);
+
+            using var reader = cmd.ExecuteReader();
+
+            if (!reader.Read())
+            {
+                SqliteConnection.ClearAllPools();
+                conn.Close();
+                conn.Dispose();
+                throw new EmpleadoInexistente();
+            }
+
+            string ID_Factura = reader.GetString(0);
+            string ID_Producto = reader.GetString(1);
+            string Fecha = reader.GetString(2);
+            string Hora = reader.GetString(3);
+
+            SqliteConnection.ClearAllPools();
+            conn.Close();
+            conn.Dispose();
+            return new Devolucion(ID_Factura, ID_Producto, /*Fecha, Hora*/0,0);
+        }
+    
+        public Devolucion ReadDevolucionByProducto(string id)
+        {
+            SqliteConnection conn = new($"Data Source={dbPath}");
+            conn.Open();
+            using SqliteCommand cmd = conn.CreateCommand();
+            cmd.CommandText = @"
+                SELECT ID_Factura, ID_Producto, Fecha, Hora
+                FROM Devolucion
+                WHERE ID_Producto = $id";
+            cmd.Parameters.AddWithValue("$id", id);
+
+            using var reader = cmd.ExecuteReader();
+
+            if (!reader.Read())
+            {
+                SqliteConnection.ClearAllPools();
+                conn.Close();
+                conn.Dispose();
+                throw new EmpleadoInexistente();
+            }
+
+            string ID_Factura = reader.GetString(0);
+            string ID_Producto = reader.GetString(1);
+            string Fecha = reader.GetString(2);
+            string Hora = reader.GetString(3);
+
+            SqliteConnection.ClearAllPools();
+            conn.Close();
+            conn.Dispose();
+            return new Devolucion(ID_Factura, ID_Producto, /*Fecha, Hora*/0,0);
+        }
+
     }
 }
