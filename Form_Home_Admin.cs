@@ -25,5 +25,13 @@
         {
             this.Close();
         }
+
+        private void button_GEmpleados_Click(object sender, EventArgs e)
+        {
+            Form_Gestión_Empleados gestion_empleados = new(EmpleadoActual, Database);
+            gestion_empleados.Show();
+            Hide();
+            gestion_empleados.FormClosed += (s, args) => this.Show();
+        }
     }
 }

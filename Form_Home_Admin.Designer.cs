@@ -191,6 +191,7 @@
             button_GEmpleados.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_GEmpleados.UseAccentColor = false;
             button_GEmpleados.UseVisualStyleBackColor = true;
+            button_GEmpleados.Click += button_GEmpleados_Click;
             // 
             // PB_GEmpleados
             // 

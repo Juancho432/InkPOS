@@ -21,5 +21,10 @@ namespace InkPos
             Database = database;
             InitializeComponent();
         }
+
+        private void button_salir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
