@@ -8,7 +8,7 @@ namespace InkPos
 {
     public class Factura(string IdFac, string IdCl, string idEmp, string fecha, string hora, string idTrans, decimal Total)
     {
-        public string IdFactura { get; } = IdFac;
+        public string IdFactura { get; set; } = IdFac;
         public string IdCliente { get; } = IdCl;
         public string IdEmpleado { get; } = idEmp;
         public string Fecha { get; set; } = fecha;
