@@ -29,6 +29,15 @@
         private void InitializeComponent()
         {
             panel_gestion_empleados = new Panel();
+            lbl_salario = new Label();
+            lbl_cargo = new Label();
+            lbl_telefono = new Label();
+            button_agregar_empleado = new MaterialSkin.Controls.MaterialButton();
+            txtbox_IDempleado = new MaterialSkin.Controls.MaterialTextBox2();
+            txtbox_cedula = new MaterialSkin.Controls.MaterialTextBox2();
+            txtbox_telefono = new MaterialSkin.Controls.MaterialTextBox2();
+            txtbox_salario = new MaterialSkin.Controls.MaterialTextBox2();
+            txtbox_cargo = new MaterialSkin.Controls.MaterialTextBox2();
             button_salir = new MaterialSkin.Controls.MaterialButton();
             button_limpiar = new MaterialSkin.Controls.MaterialButton();
             button_confirmar = new MaterialSkin.Controls.MaterialButton();
@@ -36,15 +45,6 @@
             txtbox_nombre_empleado = new MaterialSkin.Controls.MaterialTextBox2();
             lbl_nombre = new Label();
             lbl_GestionEmpleados = new Label();
-            txtbox_cargo = new MaterialSkin.Controls.MaterialTextBox2();
-            txtbox_salario = new MaterialSkin.Controls.MaterialTextBox2();
-            txtbox_telefono = new MaterialSkin.Controls.MaterialTextBox2();
-            txtbox_cedula = new MaterialSkin.Controls.MaterialTextBox2();
-            txtbox_IDempleado = new MaterialSkin.Controls.MaterialTextBox2();
-            button_agregar_empleado = new MaterialSkin.Controls.MaterialButton();
-            lbl_telefono = new Label();
-            lbl_cargo = new Label();
-            lbl_salario = new Label();
             panel_gestion_empleados.SuspendLayout();
             SuspendLayout();
             // 
@@ -69,8 +69,210 @@
             panel_gestion_empleados.Controls.Add(lbl_GestionEmpleados);
             panel_gestion_empleados.Location = new Point(5, 2);
             panel_gestion_empleados.Name = "panel_gestion_empleados";
-            panel_gestion_empleados.Size = new Size(1513, 1171);
+            panel_gestion_empleados.Size = new Size(1513, 1051);
             panel_gestion_empleados.TabIndex = 0;
+            // 
+            // lbl_salario
+            // 
+            lbl_salario.Anchor = AnchorStyles.None;
+            lbl_salario.AutoSize = true;
+            lbl_salario.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_salario.ForeColor = SystemColors.ControlText;
+            lbl_salario.Location = new Point(483, 575);
+            lbl_salario.Name = "lbl_salario";
+            lbl_salario.Size = new Size(76, 28);
+            lbl_salario.TabIndex = 26;
+            lbl_salario.Text = "Salario:";
+            // 
+            // lbl_cargo
+            // 
+            lbl_cargo.Anchor = AnchorStyles.None;
+            lbl_cargo.AutoSize = true;
+            lbl_cargo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_cargo.ForeColor = SystemColors.ControlText;
+            lbl_cargo.Location = new Point(490, 504);
+            lbl_cargo.Name = "lbl_cargo";
+            lbl_cargo.Size = new Size(69, 28);
+            lbl_cargo.TabIndex = 25;
+            lbl_cargo.Text = "Cargo:";
+            // 
+            // lbl_telefono
+            // 
+            lbl_telefono.Anchor = AnchorStyles.None;
+            lbl_telefono.AutoSize = true;
+            lbl_telefono.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_telefono.ForeColor = SystemColors.ControlText;
+            lbl_telefono.Location = new Point(469, 431);
+            lbl_telefono.Name = "lbl_telefono";
+            lbl_telefono.Size = new Size(90, 28);
+            lbl_telefono.TabIndex = 24;
+            lbl_telefono.Text = "Teléfono:";
+            // 
+            // button_agregar_empleado
+            // 
+            button_agregar_empleado.Anchor = AnchorStyles.None;
+            button_agregar_empleado.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button_agregar_empleado.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            button_agregar_empleado.Depth = 0;
+            button_agregar_empleado.HighEmphasis = true;
+            button_agregar_empleado.Icon = null;
+            button_agregar_empleado.Location = new Point(863, 146);
+            button_agregar_empleado.Margin = new Padding(4, 6, 4, 6);
+            button_agregar_empleado.MouseState = MaterialSkin.MouseState.HOVER;
+            button_agregar_empleado.Name = "button_agregar_empleado";
+            button_agregar_empleado.NoAccentTextColor = Color.Empty;
+            button_agregar_empleado.Size = new Size(220, 36);
+            button_agregar_empleado.TabIndex = 23;
+            button_agregar_empleado.Text = "AGREGAR NUEVO EMPLEADO";
+            button_agregar_empleado.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            button_agregar_empleado.UseAccentColor = false;
+            button_agregar_empleado.UseVisualStyleBackColor = true;
+            // 
+            // txtbox_IDempleado
+            // 
+            txtbox_IDempleado.Anchor = AnchorStyles.None;
+            txtbox_IDempleado.AnimateReadOnly = false;
+            txtbox_IDempleado.BackgroundImageLayout = ImageLayout.None;
+            txtbox_IDempleado.CharacterCasing = CharacterCasing.Normal;
+            txtbox_IDempleado.Depth = 0;
+            txtbox_IDempleado.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtbox_IDempleado.HideSelection = true;
+            txtbox_IDempleado.Hint = "Ingrese la cédula del empleado";
+            txtbox_IDempleado.LeadingIcon = null;
+            txtbox_IDempleado.Location = new Point(370, 146);
+            txtbox_IDempleado.MaxLength = 32767;
+            txtbox_IDempleado.MouseState = MaterialSkin.MouseState.OUT;
+            txtbox_IDempleado.Name = "txtbox_IDempleado";
+            txtbox_IDempleado.PasswordChar = '\0';
+            txtbox_IDempleado.PrefixSuffixText = null;
+            txtbox_IDempleado.ReadOnly = false;
+            txtbox_IDempleado.RightToLeft = RightToLeft.No;
+            txtbox_IDempleado.SelectedText = "";
+            txtbox_IDempleado.SelectionLength = 0;
+            txtbox_IDempleado.SelectionStart = 0;
+            txtbox_IDempleado.ShortcutsEnabled = true;
+            txtbox_IDempleado.Size = new Size(312, 48);
+            txtbox_IDempleado.TabIndex = 22;
+            txtbox_IDempleado.TabStop = false;
+            txtbox_IDempleado.TextAlign = HorizontalAlignment.Left;
+            txtbox_IDempleado.TrailingIcon = null;
+            txtbox_IDempleado.UseSystemPasswordChar = false;
+            // 
+            // txtbox_cedula
+            // 
+            txtbox_cedula.Anchor = AnchorStyles.None;
+            txtbox_cedula.AnimateReadOnly = false;
+            txtbox_cedula.BackgroundImageLayout = ImageLayout.None;
+            txtbox_cedula.CharacterCasing = CharacterCasing.Normal;
+            txtbox_cedula.Depth = 0;
+            txtbox_cedula.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtbox_cedula.HideSelection = true;
+            txtbox_cedula.LeadingIcon = null;
+            txtbox_cedula.Location = new Point(600, 334);
+            txtbox_cedula.MaxLength = 32767;
+            txtbox_cedula.MouseState = MaterialSkin.MouseState.OUT;
+            txtbox_cedula.Name = "txtbox_cedula";
+            txtbox_cedula.PasswordChar = '\0';
+            txtbox_cedula.PrefixSuffixText = null;
+            txtbox_cedula.ReadOnly = false;
+            txtbox_cedula.RightToLeft = RightToLeft.No;
+            txtbox_cedula.SelectedText = "";
+            txtbox_cedula.SelectionLength = 0;
+            txtbox_cedula.SelectionStart = 0;
+            txtbox_cedula.ShortcutsEnabled = true;
+            txtbox_cedula.Size = new Size(312, 48);
+            txtbox_cedula.TabIndex = 21;
+            txtbox_cedula.TabStop = false;
+            txtbox_cedula.TextAlign = HorizontalAlignment.Left;
+            txtbox_cedula.TrailingIcon = null;
+            txtbox_cedula.UseSystemPasswordChar = false;
+            // 
+            // txtbox_telefono
+            // 
+            txtbox_telefono.Anchor = AnchorStyles.None;
+            txtbox_telefono.AnimateReadOnly = false;
+            txtbox_telefono.BackgroundImageLayout = ImageLayout.None;
+            txtbox_telefono.CharacterCasing = CharacterCasing.Normal;
+            txtbox_telefono.Depth = 0;
+            txtbox_telefono.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtbox_telefono.HideSelection = true;
+            txtbox_telefono.LeadingIcon = null;
+            txtbox_telefono.Location = new Point(600, 411);
+            txtbox_telefono.MaxLength = 32767;
+            txtbox_telefono.MouseState = MaterialSkin.MouseState.OUT;
+            txtbox_telefono.Name = "txtbox_telefono";
+            txtbox_telefono.PasswordChar = '\0';
+            txtbox_telefono.PrefixSuffixText = null;
+            txtbox_telefono.ReadOnly = false;
+            txtbox_telefono.RightToLeft = RightToLeft.No;
+            txtbox_telefono.SelectedText = "";
+            txtbox_telefono.SelectionLength = 0;
+            txtbox_telefono.SelectionStart = 0;
+            txtbox_telefono.ShortcutsEnabled = true;
+            txtbox_telefono.Size = new Size(312, 48);
+            txtbox_telefono.TabIndex = 20;
+            txtbox_telefono.TabStop = false;
+            txtbox_telefono.TextAlign = HorizontalAlignment.Left;
+            txtbox_telefono.TrailingIcon = null;
+            txtbox_telefono.UseSystemPasswordChar = false;
+            // 
+            // txtbox_salario
+            // 
+            txtbox_salario.Anchor = AnchorStyles.None;
+            txtbox_salario.AnimateReadOnly = false;
+            txtbox_salario.BackgroundImageLayout = ImageLayout.None;
+            txtbox_salario.CharacterCasing = CharacterCasing.Normal;
+            txtbox_salario.Depth = 0;
+            txtbox_salario.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtbox_salario.HideSelection = true;
+            txtbox_salario.LeadingIcon = null;
+            txtbox_salario.Location = new Point(600, 555);
+            txtbox_salario.MaxLength = 32767;
+            txtbox_salario.MouseState = MaterialSkin.MouseState.OUT;
+            txtbox_salario.Name = "txtbox_salario";
+            txtbox_salario.PasswordChar = '\0';
+            txtbox_salario.PrefixSuffixText = null;
+            txtbox_salario.ReadOnly = false;
+            txtbox_salario.RightToLeft = RightToLeft.No;
+            txtbox_salario.SelectedText = "";
+            txtbox_salario.SelectionLength = 0;
+            txtbox_salario.SelectionStart = 0;
+            txtbox_salario.ShortcutsEnabled = true;
+            txtbox_salario.Size = new Size(312, 48);
+            txtbox_salario.TabIndex = 19;
+            txtbox_salario.TabStop = false;
+            txtbox_salario.TextAlign = HorizontalAlignment.Left;
+            txtbox_salario.TrailingIcon = null;
+            txtbox_salario.UseSystemPasswordChar = false;
+            // 
+            // txtbox_cargo
+            // 
+            txtbox_cargo.Anchor = AnchorStyles.None;
+            txtbox_cargo.AnimateReadOnly = false;
+            txtbox_cargo.BackgroundImageLayout = ImageLayout.None;
+            txtbox_cargo.CharacterCasing = CharacterCasing.Normal;
+            txtbox_cargo.Depth = 0;
+            txtbox_cargo.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtbox_cargo.HideSelection = true;
+            txtbox_cargo.LeadingIcon = null;
+            txtbox_cargo.Location = new Point(600, 484);
+            txtbox_cargo.MaxLength = 32767;
+            txtbox_cargo.MouseState = MaterialSkin.MouseState.OUT;
+            txtbox_cargo.Name = "txtbox_cargo";
+            txtbox_cargo.PasswordChar = '\0';
+            txtbox_cargo.PrefixSuffixText = null;
+            txtbox_cargo.ReadOnly = false;
+            txtbox_cargo.RightToLeft = RightToLeft.No;
+            txtbox_cargo.SelectedText = "";
+            txtbox_cargo.SelectionLength = 0;
+            txtbox_cargo.SelectionStart = 0;
+            txtbox_cargo.ShortcutsEnabled = true;
+            txtbox_cargo.Size = new Size(312, 48);
+            txtbox_cargo.TabIndex = 18;
+            txtbox_cargo.TabStop = false;
+            txtbox_cargo.TextAlign = HorizontalAlignment.Left;
+            txtbox_cargo.TrailingIcon = null;
+            txtbox_cargo.UseSystemPasswordChar = false;
             // 
             // button_salir
             // 
@@ -80,7 +282,7 @@
             button_salir.Depth = 0;
             button_salir.HighEmphasis = true;
             button_salir.Icon = null;
-            button_salir.Location = new Point(901, 801);
+            button_salir.Location = new Point(901, 741);
             button_salir.Margin = new Padding(4, 6, 4, 6);
             button_salir.MouseState = MaterialSkin.MouseState.HOVER;
             button_salir.Name = "button_salir";
@@ -91,6 +293,7 @@
             button_salir.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_salir.UseAccentColor = false;
             button_salir.UseVisualStyleBackColor = true;
+            button_salir.Click += button_salir_Click;
             // 
             // button_limpiar
             // 
@@ -100,7 +303,7 @@
             button_limpiar.Depth = 0;
             button_limpiar.HighEmphasis = true;
             button_limpiar.Icon = null;
-            button_limpiar.Location = new Point(733, 801);
+            button_limpiar.Location = new Point(733, 741);
             button_limpiar.Margin = new Padding(4, 6, 4, 6);
             button_limpiar.MouseState = MaterialSkin.MouseState.HOVER;
             button_limpiar.Name = "button_limpiar";
@@ -120,7 +323,7 @@
             button_confirmar.Depth = 0;
             button_confirmar.HighEmphasis = true;
             button_confirmar.Icon = null;
-            button_confirmar.Location = new Point(527, 801);
+            button_confirmar.Location = new Point(527, 741);
             button_confirmar.Margin = new Padding(4, 6, 4, 6);
             button_confirmar.MouseState = MaterialSkin.MouseState.HOVER;
             button_confirmar.Name = "button_confirmar";
@@ -138,7 +341,7 @@
             lbl_cedula.AutoSize = true;
             lbl_cedula.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_cedula.ForeColor = SystemColors.ControlText;
-            lbl_cedula.Location = new Point(483, 414);
+            lbl_cedula.Location = new Point(483, 354);
             lbl_cedula.Name = "lbl_cedula";
             lbl_cedula.Size = new Size(76, 28);
             lbl_cedula.TabIndex = 13;
@@ -155,7 +358,7 @@
             txtbox_nombre_empleado.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_nombre_empleado.HideSelection = true;
             txtbox_nombre_empleado.LeadingIcon = null;
-            txtbox_nombre_empleado.Location = new Point(600, 320);
+            txtbox_nombre_empleado.Location = new Point(600, 260);
             txtbox_nombre_empleado.MaxLength = 32767;
             txtbox_nombre_empleado.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_nombre_empleado.Name = "txtbox_nombre_empleado";
@@ -180,7 +383,7 @@
             lbl_nombre.AutoSize = true;
             lbl_nombre.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_nombre.ForeColor = SystemColors.ControlText;
-            lbl_nombre.Location = new Point(470, 340);
+            lbl_nombre.Location = new Point(470, 280);
             lbl_nombre.Name = "lbl_nombre";
             lbl_nombre.Size = new Size(89, 28);
             lbl_nombre.TabIndex = 11;
@@ -191,219 +394,17 @@
             lbl_GestionEmpleados.Anchor = AnchorStyles.None;
             lbl_GestionEmpleados.AutoSize = true;
             lbl_GestionEmpleados.Font = new Font("Segoe UI", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_GestionEmpleados.Location = new Point(527, 85);
+            lbl_GestionEmpleados.Location = new Point(527, 25);
             lbl_GestionEmpleados.Name = "lbl_GestionEmpleados";
             lbl_GestionEmpleados.Size = new Size(428, 62);
             lbl_GestionEmpleados.TabIndex = 9;
             lbl_GestionEmpleados.Text = "Gestión empleados";
             // 
-            // txtbox_cargo
-            // 
-            txtbox_cargo.Anchor = AnchorStyles.None;
-            txtbox_cargo.AnimateReadOnly = false;
-            txtbox_cargo.BackgroundImageLayout = ImageLayout.None;
-            txtbox_cargo.CharacterCasing = CharacterCasing.Normal;
-            txtbox_cargo.Depth = 0;
-            txtbox_cargo.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtbox_cargo.HideSelection = true;
-            txtbox_cargo.LeadingIcon = null;
-            txtbox_cargo.Location = new Point(600, 544);
-            txtbox_cargo.MaxLength = 32767;
-            txtbox_cargo.MouseState = MaterialSkin.MouseState.OUT;
-            txtbox_cargo.Name = "txtbox_cargo";
-            txtbox_cargo.PasswordChar = '\0';
-            txtbox_cargo.PrefixSuffixText = null;
-            txtbox_cargo.ReadOnly = false;
-            txtbox_cargo.RightToLeft = RightToLeft.No;
-            txtbox_cargo.SelectedText = "";
-            txtbox_cargo.SelectionLength = 0;
-            txtbox_cargo.SelectionStart = 0;
-            txtbox_cargo.ShortcutsEnabled = true;
-            txtbox_cargo.Size = new Size(312, 48);
-            txtbox_cargo.TabIndex = 18;
-            txtbox_cargo.TabStop = false;
-            txtbox_cargo.TextAlign = HorizontalAlignment.Left;
-            txtbox_cargo.TrailingIcon = null;
-            txtbox_cargo.UseSystemPasswordChar = false;
-            // 
-            // txtbox_salario
-            // 
-            txtbox_salario.Anchor = AnchorStyles.None;
-            txtbox_salario.AnimateReadOnly = false;
-            txtbox_salario.BackgroundImageLayout = ImageLayout.None;
-            txtbox_salario.CharacterCasing = CharacterCasing.Normal;
-            txtbox_salario.Depth = 0;
-            txtbox_salario.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtbox_salario.HideSelection = true;
-            txtbox_salario.LeadingIcon = null;
-            txtbox_salario.Location = new Point(600, 615);
-            txtbox_salario.MaxLength = 32767;
-            txtbox_salario.MouseState = MaterialSkin.MouseState.OUT;
-            txtbox_salario.Name = "txtbox_salario";
-            txtbox_salario.PasswordChar = '\0';
-            txtbox_salario.PrefixSuffixText = null;
-            txtbox_salario.ReadOnly = false;
-            txtbox_salario.RightToLeft = RightToLeft.No;
-            txtbox_salario.SelectedText = "";
-            txtbox_salario.SelectionLength = 0;
-            txtbox_salario.SelectionStart = 0;
-            txtbox_salario.ShortcutsEnabled = true;
-            txtbox_salario.Size = new Size(312, 48);
-            txtbox_salario.TabIndex = 19;
-            txtbox_salario.TabStop = false;
-            txtbox_salario.TextAlign = HorizontalAlignment.Left;
-            txtbox_salario.TrailingIcon = null;
-            txtbox_salario.UseSystemPasswordChar = false;
-            // 
-            // txtbox_telefono
-            // 
-            txtbox_telefono.Anchor = AnchorStyles.None;
-            txtbox_telefono.AnimateReadOnly = false;
-            txtbox_telefono.BackgroundImageLayout = ImageLayout.None;
-            txtbox_telefono.CharacterCasing = CharacterCasing.Normal;
-            txtbox_telefono.Depth = 0;
-            txtbox_telefono.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtbox_telefono.HideSelection = true;
-            txtbox_telefono.LeadingIcon = null;
-            txtbox_telefono.Location = new Point(600, 471);
-            txtbox_telefono.MaxLength = 32767;
-            txtbox_telefono.MouseState = MaterialSkin.MouseState.OUT;
-            txtbox_telefono.Name = "txtbox_telefono";
-            txtbox_telefono.PasswordChar = '\0';
-            txtbox_telefono.PrefixSuffixText = null;
-            txtbox_telefono.ReadOnly = false;
-            txtbox_telefono.RightToLeft = RightToLeft.No;
-            txtbox_telefono.SelectedText = "";
-            txtbox_telefono.SelectionLength = 0;
-            txtbox_telefono.SelectionStart = 0;
-            txtbox_telefono.ShortcutsEnabled = true;
-            txtbox_telefono.Size = new Size(312, 48);
-            txtbox_telefono.TabIndex = 20;
-            txtbox_telefono.TabStop = false;
-            txtbox_telefono.TextAlign = HorizontalAlignment.Left;
-            txtbox_telefono.TrailingIcon = null;
-            txtbox_telefono.UseSystemPasswordChar = false;
-            // 
-            // txtbox_cedula
-            // 
-            txtbox_cedula.Anchor = AnchorStyles.None;
-            txtbox_cedula.AnimateReadOnly = false;
-            txtbox_cedula.BackgroundImageLayout = ImageLayout.None;
-            txtbox_cedula.CharacterCasing = CharacterCasing.Normal;
-            txtbox_cedula.Depth = 0;
-            txtbox_cedula.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtbox_cedula.HideSelection = true;
-            txtbox_cedula.LeadingIcon = null;
-            txtbox_cedula.Location = new Point(600, 394);
-            txtbox_cedula.MaxLength = 32767;
-            txtbox_cedula.MouseState = MaterialSkin.MouseState.OUT;
-            txtbox_cedula.Name = "txtbox_cedula";
-            txtbox_cedula.PasswordChar = '\0';
-            txtbox_cedula.PrefixSuffixText = null;
-            txtbox_cedula.ReadOnly = false;
-            txtbox_cedula.RightToLeft = RightToLeft.No;
-            txtbox_cedula.SelectedText = "";
-            txtbox_cedula.SelectionLength = 0;
-            txtbox_cedula.SelectionStart = 0;
-            txtbox_cedula.ShortcutsEnabled = true;
-            txtbox_cedula.Size = new Size(312, 48);
-            txtbox_cedula.TabIndex = 21;
-            txtbox_cedula.TabStop = false;
-            txtbox_cedula.TextAlign = HorizontalAlignment.Left;
-            txtbox_cedula.TrailingIcon = null;
-            txtbox_cedula.UseSystemPasswordChar = false;
-            // 
-            // txtbox_IDempleado
-            // 
-            txtbox_IDempleado.Anchor = AnchorStyles.None;
-            txtbox_IDempleado.AnimateReadOnly = false;
-            txtbox_IDempleado.BackgroundImageLayout = ImageLayout.None;
-            txtbox_IDempleado.CharacterCasing = CharacterCasing.Normal;
-            txtbox_IDempleado.Depth = 0;
-            txtbox_IDempleado.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtbox_IDempleado.HideSelection = true;
-            txtbox_IDempleado.Hint = "Ingrese la cédula del empleado";
-            txtbox_IDempleado.LeadingIcon = null;
-            txtbox_IDempleado.Location = new Point(370, 206);
-            txtbox_IDempleado.MaxLength = 32767;
-            txtbox_IDempleado.MouseState = MaterialSkin.MouseState.OUT;
-            txtbox_IDempleado.Name = "txtbox_IDempleado";
-            txtbox_IDempleado.PasswordChar = '\0';
-            txtbox_IDempleado.PrefixSuffixText = null;
-            txtbox_IDempleado.ReadOnly = false;
-            txtbox_IDempleado.RightToLeft = RightToLeft.No;
-            txtbox_IDempleado.SelectedText = "";
-            txtbox_IDempleado.SelectionLength = 0;
-            txtbox_IDempleado.SelectionStart = 0;
-            txtbox_IDempleado.ShortcutsEnabled = true;
-            txtbox_IDempleado.Size = new Size(312, 48);
-            txtbox_IDempleado.TabIndex = 22;
-            txtbox_IDempleado.TabStop = false;
-            txtbox_IDempleado.TextAlign = HorizontalAlignment.Left;
-            txtbox_IDempleado.TrailingIcon = null;
-            txtbox_IDempleado.UseSystemPasswordChar = false;
-            // 
-            // button_agregar_empleado
-            // 
-            button_agregar_empleado.Anchor = AnchorStyles.None;
-            button_agregar_empleado.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button_agregar_empleado.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            button_agregar_empleado.Depth = 0;
-            button_agregar_empleado.HighEmphasis = true;
-            button_agregar_empleado.Icon = null;
-            button_agregar_empleado.Location = new Point(863, 206);
-            button_agregar_empleado.Margin = new Padding(4, 6, 4, 6);
-            button_agregar_empleado.MouseState = MaterialSkin.MouseState.HOVER;
-            button_agregar_empleado.Name = "button_agregar_empleado";
-            button_agregar_empleado.NoAccentTextColor = Color.Empty;
-            button_agregar_empleado.Size = new Size(220, 36);
-            button_agregar_empleado.TabIndex = 23;
-            button_agregar_empleado.Text = "AGREGAR NUEVO EMPLEADO";
-            button_agregar_empleado.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            button_agregar_empleado.UseAccentColor = false;
-            button_agregar_empleado.UseVisualStyleBackColor = true;
-            // 
-            // lbl_telefono
-            // 
-            lbl_telefono.Anchor = AnchorStyles.None;
-            lbl_telefono.AutoSize = true;
-            lbl_telefono.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_telefono.ForeColor = SystemColors.ControlText;
-            lbl_telefono.Location = new Point(469, 491);
-            lbl_telefono.Name = "lbl_telefono";
-            lbl_telefono.Size = new Size(90, 28);
-            lbl_telefono.TabIndex = 24;
-            lbl_telefono.Text = "Teléfono:";
-            // 
-            // lbl_cargo
-            // 
-            lbl_cargo.Anchor = AnchorStyles.None;
-            lbl_cargo.AutoSize = true;
-            lbl_cargo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_cargo.ForeColor = SystemColors.ControlText;
-            lbl_cargo.Location = new Point(490, 564);
-            lbl_cargo.Name = "lbl_cargo";
-            lbl_cargo.Size = new Size(69, 28);
-            lbl_cargo.TabIndex = 25;
-            lbl_cargo.Text = "Cargo:";
-            // 
-            // lbl_salario
-            // 
-            lbl_salario.Anchor = AnchorStyles.None;
-            lbl_salario.AutoSize = true;
-            lbl_salario.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_salario.ForeColor = SystemColors.ControlText;
-            lbl_salario.Location = new Point(483, 635);
-            lbl_salario.Name = "lbl_salario";
-            lbl_salario.Size = new Size(76, 28);
-            lbl_salario.TabIndex = 26;
-            lbl_salario.Text = "Salario:";
-            // 
             // Form_Gestión_Empleados
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1522, 1175);
+            ClientSize = new Size(1522, 1055);
             Controls.Add(panel_gestion_empleados);
             Name = "Form_Gestión_Empleados";
             Text = "InkPOS - Gestión de empleados";

@@ -84,6 +84,7 @@
             button_salir.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_salir.UseAccentColor = false;
             button_salir.UseVisualStyleBackColor = true;
+            button_salir.Click += button_salir_Click;
             // 
             // panel_MProductos
             // 
@@ -113,6 +114,7 @@
             button_maestro_productos.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_maestro_productos.UseAccentColor = false;
             button_maestro_productos.UseVisualStyleBackColor = true;
+            button_maestro_productos.Click += button_maestro_productos_Click;
             // 
             // PB_MProductos
             // 
@@ -189,6 +191,7 @@
             button_GEmpleados.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_GEmpleados.UseAccentColor = false;
             button_GEmpleados.UseVisualStyleBackColor = true;
+            button_GEmpleados.Click += button_GEmpleados_Click;
             // 
             // PB_GEmpleados
             // 

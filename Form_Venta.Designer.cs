@@ -66,9 +66,10 @@
             panel_venta.Controls.Add(lbl_cantidad_productos);
             panel_venta.Controls.Add(lbl_detalleVenta);
             panel_venta.Controls.Add(tabla_Productos);
-            panel_venta.Location = new Point(5, 2);
+            panel_venta.Location = new Point(4, 2);
+            panel_venta.Margin = new Padding(3, 2, 3, 2);
             panel_venta.Name = "panel_venta";
-            panel_venta.Size = new Size(1513, 1171);
+            panel_venta.Size = new Size(1324, 878);
             panel_venta.TabIndex = 0;
             // 
             // txtbox_nombre_cliente
@@ -81,7 +82,8 @@
             txtbox_nombre_cliente.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_nombre_cliente.HideSelection = true;
             txtbox_nombre_cliente.LeadingIcon = null;
-            txtbox_nombre_cliente.Location = new Point(744, 107);
+            txtbox_nombre_cliente.Location = new Point(651, 80);
+            txtbox_nombre_cliente.Margin = new Padding(3, 2, 3, 2);
             txtbox_nombre_cliente.MaxLength = 32767;
             txtbox_nombre_cliente.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_nombre_cliente.Name = "txtbox_nombre_cliente";
@@ -93,7 +95,7 @@
             txtbox_nombre_cliente.SelectionLength = 0;
             txtbox_nombre_cliente.SelectionStart = 0;
             txtbox_nombre_cliente.ShortcutsEnabled = true;
-            txtbox_nombre_cliente.Size = new Size(467, 48);
+            txtbox_nombre_cliente.Size = new Size(409, 48);
             txtbox_nombre_cliente.TabIndex = 32;
             txtbox_nombre_cliente.TabStop = false;
             txtbox_nombre_cliente.TextAlign = HorizontalAlignment.Left;
@@ -104,9 +106,9 @@
             // 
             lbl_name_cliente.AutoSize = true;
             lbl_name_cliente.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_name_cliente.Location = new Point(620, 117);
+            lbl_name_cliente.Location = new Point(542, 88);
             lbl_name_cliente.Name = "lbl_name_cliente";
-            lbl_name_cliente.Size = new Size(109, 38);
+            lbl_name_cliente.Size = new Size(85, 30);
             lbl_name_cliente.TabIndex = 30;
             lbl_name_cliente.Text = "Cliente:";
             // 
@@ -121,7 +123,8 @@
             txtbox_buscar_cliente.HideSelection = true;
             txtbox_buscar_cliente.Hint = "Ingrese el nombre o ID del cliente";
             txtbox_buscar_cliente.LeadingIcon = null;
-            txtbox_buscar_cliente.Location = new Point(147, 107);
+            txtbox_buscar_cliente.Location = new Point(129, 80);
+            txtbox_buscar_cliente.Margin = new Padding(3, 2, 3, 2);
             txtbox_buscar_cliente.MaxLength = 32767;
             txtbox_buscar_cliente.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_buscar_cliente.Name = "txtbox_buscar_cliente";
@@ -133,7 +136,7 @@
             txtbox_buscar_cliente.SelectionLength = 0;
             txtbox_buscar_cliente.SelectionStart = 0;
             txtbox_buscar_cliente.ShortcutsEnabled = true;
-            txtbox_buscar_cliente.Size = new Size(261, 48);
+            txtbox_buscar_cliente.Size = new Size(228, 48);
             txtbox_buscar_cliente.TabIndex = 29;
             txtbox_buscar_cliente.TabStop = false;
             txtbox_buscar_cliente.TextAlign = HorizontalAlignment.Left;
@@ -150,7 +153,8 @@
             txtbox_Valor_total.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_Valor_total.HideSelection = true;
             txtbox_Valor_total.LeadingIcon = null;
-            txtbox_Valor_total.Location = new Point(962, 771);
+            txtbox_Valor_total.Location = new Point(842, 578);
+            txtbox_Valor_total.Margin = new Padding(3, 2, 3, 2);
             txtbox_Valor_total.MaxLength = 32767;
             txtbox_Valor_total.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_Valor_total.Name = "txtbox_Valor_total";
@@ -162,7 +166,7 @@
             txtbox_Valor_total.SelectionLength = 0;
             txtbox_Valor_total.SelectionStart = 0;
             txtbox_Valor_total.ShortcutsEnabled = true;
-            txtbox_Valor_total.Size = new Size(220, 48);
+            txtbox_Valor_total.Size = new Size(192, 48);
             txtbox_Valor_total.TabIndex = 28;
             txtbox_Valor_total.TabStop = false;
             txtbox_Valor_total.TextAlign = HorizontalAlignment.Left;
@@ -179,7 +183,8 @@
             txtbox_Cantidad_productos.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_Cantidad_productos.HideSelection = true;
             txtbox_Cantidad_productos.LeadingIcon = null;
-            txtbox_Cantidad_productos.Location = new Point(735, 771);
+            txtbox_Cantidad_productos.Location = new Point(643, 578);
+            txtbox_Cantidad_productos.Margin = new Padding(3, 2, 3, 2);
             txtbox_Cantidad_productos.MaxLength = 32767;
             txtbox_Cantidad_productos.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_Cantidad_productos.Name = "txtbox_Cantidad_productos";
@@ -191,7 +196,7 @@
             txtbox_Cantidad_productos.SelectionLength = 0;
             txtbox_Cantidad_productos.SelectionStart = 0;
             txtbox_Cantidad_productos.ShortcutsEnabled = true;
-            txtbox_Cantidad_productos.Size = new Size(164, 48);
+            txtbox_Cantidad_productos.Size = new Size(144, 48);
             txtbox_Cantidad_productos.TabIndex = 27;
             txtbox_Cantidad_productos.TabStop = false;
             txtbox_Cantidad_productos.TextAlign = HorizontalAlignment.Left;
@@ -206,8 +211,8 @@
             button_cancelar.Depth = 0;
             button_cancelar.HighEmphasis = true;
             button_cancelar.Icon = null;
-            button_cancelar.Location = new Point(981, 880);
-            button_cancelar.Margin = new Padding(4, 6, 4, 6);
+            button_cancelar.Location = new Point(858, 660);
+            button_cancelar.Margin = new Padding(4);
             button_cancelar.MouseState = MaterialSkin.MouseState.HOVER;
             button_cancelar.Name = "button_cancelar";
             button_cancelar.NoAccentTextColor = Color.Empty;
@@ -226,8 +231,8 @@
             button_finalizar.Depth = 0;
             button_finalizar.HighEmphasis = true;
             button_finalizar.Icon = null;
-            button_finalizar.Location = new Point(805, 880);
-            button_finalizar.Margin = new Padding(4, 6, 4, 6);
+            button_finalizar.Location = new Point(704, 660);
+            button_finalizar.Margin = new Padding(4);
             button_finalizar.MouseState = MaterialSkin.MouseState.HOVER;
             button_finalizar.Name = "button_finalizar";
             button_finalizar.NoAccentTextColor = Color.Empty;
@@ -249,7 +254,8 @@
             txtbox_busqueda_producto.HideSelection = true;
             txtbox_busqueda_producto.Hint = "(F4) Código/nombre del producto";
             txtbox_busqueda_producto.LeadingIcon = null;
-            txtbox_busqueda_producto.Location = new Point(120, 328);
+            txtbox_busqueda_producto.Location = new Point(105, 246);
+            txtbox_busqueda_producto.Margin = new Padding(3, 2, 3, 2);
             txtbox_busqueda_producto.MaxLength = 32767;
             txtbox_busqueda_producto.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_busqueda_producto.Name = "txtbox_busqueda_producto";
@@ -261,29 +267,32 @@
             txtbox_busqueda_producto.SelectionLength = 0;
             txtbox_busqueda_producto.SelectionStart = 0;
             txtbox_busqueda_producto.ShortcutsEnabled = true;
-            txtbox_busqueda_producto.Size = new Size(312, 48);
+            txtbox_busqueda_producto.Size = new Size(273, 48);
             txtbox_busqueda_producto.TabIndex = 24;
             txtbox_busqueda_producto.TabStop = false;
             txtbox_busqueda_producto.TextAlign = HorizontalAlignment.Left;
             txtbox_busqueda_producto.TrailingIcon = null;
             txtbox_busqueda_producto.UseSystemPasswordChar = false;
+            txtbox_busqueda_producto.KeyPress += txtbox_busqueda_producto_KeyPress;
             // 
             // lista_Coincidencias
             // 
             lista_Coincidencias.Anchor = AnchorStyles.None;
             lista_Coincidencias.FormattingEnabled = true;
-            lista_Coincidencias.Location = new Point(120, 436);
+            lista_Coincidencias.ItemHeight = 15;
+            lista_Coincidencias.Location = new Point(105, 327);
+            lista_Coincidencias.Margin = new Padding(3, 2, 3, 2);
             lista_Coincidencias.Name = "lista_Coincidencias";
-            lista_Coincidencias.Size = new Size(312, 284);
+            lista_Coincidencias.Size = new Size(274, 214);
             lista_Coincidencias.TabIndex = 16;
             // 
             // lbl_valorTotal
             // 
             lbl_valorTotal.Anchor = AnchorStyles.None;
             lbl_valorTotal.AutoSize = true;
-            lbl_valorTotal.Location = new Point(962, 748);
+            lbl_valorTotal.Location = new Point(842, 561);
             lbl_valorTotal.Name = "lbl_valorTotal";
-            lbl_valorTotal.Size = new Size(81, 20);
+            lbl_valorTotal.Size = new Size(63, 15);
             lbl_valorTotal.TabIndex = 22;
             lbl_valorTotal.Text = "Valor total:";
             // 
@@ -291,9 +300,9 @@
             // 
             lbl_cantidad_productos.Anchor = AnchorStyles.None;
             lbl_cantidad_productos.AutoSize = true;
-            lbl_cantidad_productos.Location = new Point(735, 748);
+            lbl_cantidad_productos.Location = new Point(643, 561);
             lbl_cantidad_productos.Name = "lbl_cantidad_productos";
-            lbl_cantidad_productos.Size = new Size(164, 20);
+            lbl_cantidad_productos.Size = new Size(131, 15);
             lbl_cantidad_productos.TabIndex = 21;
             lbl_cantidad_productos.Text = "Cantidad de productos:";
             // 
@@ -301,9 +310,9 @@
             // 
             lbl_detalleVenta.Anchor = AnchorStyles.None;
             lbl_detalleVenta.AutoSize = true;
-            lbl_detalleVenta.Location = new Point(522, 305);
+            lbl_detalleVenta.Location = new Point(457, 229);
             lbl_detalleVenta.Name = "lbl_detalleVenta";
-            lbl_detalleVenta.Size = new Size(118, 20);
+            lbl_detalleVenta.Size = new Size(91, 15);
             lbl_detalleVenta.TabIndex = 18;
             lbl_detalleVenta.Text = "Detalle de venta";
             // 
@@ -313,10 +322,11 @@
             tabla_Productos.BackgroundColor = SystemColors.ControlLight;
             tabla_Productos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             tabla_Productos.Columns.AddRange(new DataGridViewColumn[] { column_codigo, column_NombreP, column_cantidad, column_valor });
-            tabla_Productos.Location = new Point(522, 328);
+            tabla_Productos.Location = new Point(457, 246);
+            tabla_Productos.Margin = new Padding(3, 2, 3, 2);
             tabla_Productos.Name = "tabla_Productos";
             tabla_Productos.RowHeadersWidth = 51;
-            tabla_Productos.Size = new Size(853, 396);
+            tabla_Productos.Size = new Size(746, 297);
             tabla_Productos.TabIndex = 17;
             // 
             // column_codigo
@@ -349,10 +359,11 @@
             // 
             // Form_Venta
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1522, 1175);
+            ClientSize = new Size(1332, 796);
             Controls.Add(panel_venta);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form_Venta";
             Text = "InkPOS - Venta";
             WindowState = FormWindowState.Maximized;
