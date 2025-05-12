@@ -24,13 +24,14 @@ namespace InkPos
 
         private void button_confirmar_Click(object sender, EventArgs e)
         {
+            string codigoProducto = txtbox_producto_a_modificar.Text.Trim();
             string campoSeleccionado = CB_valor_a_modificar.SelectedItem?.ToString();
             string nuevoValorTexto = txtbox_nuevo_valor.Text.Trim();
 
             //Validar campos vacios
             try
             {
-                if (CB_valor_a_modificar.SelectedItem == null || string.IsNullOrWhiteSpace(txtbox_nuevo_valor.Text))
+                if (string.IsNullOrWhiteSpace(codigoProducto) || CB_valor_a_modificar.SelectedItem == null || string.IsNullOrWhiteSpace(txtbox_nuevo_valor.Text))
                 {
                     throw new Excepciones.CamposVacios();
                 }
@@ -42,7 +43,7 @@ namespace InkPos
 
 
             // Preparar valor convertido según el campo seleccionado
-            object nuevoValor = null;
+            object nuevoValor;
 
             try
             {
@@ -90,14 +91,16 @@ namespace InkPos
             //}
         }
 
-        private void button_limpiar_Click(object sender, EventArgs e)
-        {
-            txtbox_nuevo_valor.Clear();
-        }
 
-        private void button_cancelar_Click(object sender, EventArgs e)
+        private void button_cancelar_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button_limpiar_Click_1(object sender, EventArgs e)
+        {
+            txtbox_nuevo_valor.Clear();
+            txtbox_producto_a_modificar.Clear();
         }
     }
 }

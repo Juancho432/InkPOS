@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel_mod = new Panel();
+            txtbox_producto_a_modificar = new MaterialSkin.Controls.MaterialTextBox2();
             button_cancelar = new MaterialSkin.Controls.MaterialButton();
             button_limpiar = new MaterialSkin.Controls.MaterialButton();
             button_confirmar = new MaterialSkin.Controls.MaterialButton();
@@ -36,7 +37,6 @@
             CB_valor_a_modificar = new MaterialSkin.Controls.MaterialComboBox();
             lbl_mod = new Label();
             txtbox_nuevo_valor = new MaterialSkin.Controls.MaterialTextBox2();
-            txtbox_producto_a_modificar = new MaterialSkin.Controls.MaterialTextBox2();
             panel_mod.SuspendLayout();
             SuspendLayout();
             // 
@@ -53,8 +53,38 @@
             panel_mod.Controls.Add(txtbox_nuevo_valor);
             panel_mod.Location = new Point(5, 2);
             panel_mod.Name = "panel_mod";
-            panel_mod.Size = new Size(1513, 1171);
+            panel_mod.Size = new Size(1513, 1051);
             panel_mod.TabIndex = 0;
+            // 
+            // txtbox_producto_a_modificar
+            // 
+            txtbox_producto_a_modificar.Anchor = AnchorStyles.None;
+            txtbox_producto_a_modificar.AnimateReadOnly = false;
+            txtbox_producto_a_modificar.BackgroundImageLayout = ImageLayout.None;
+            txtbox_producto_a_modificar.CharacterCasing = CharacterCasing.Normal;
+            txtbox_producto_a_modificar.Depth = 0;
+            txtbox_producto_a_modificar.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtbox_producto_a_modificar.HideSelection = true;
+            txtbox_producto_a_modificar.Hint = "Ingrese el código del producto que desea modificar";
+            txtbox_producto_a_modificar.LeadingIcon = null;
+            txtbox_producto_a_modificar.Location = new Point(562, 119);
+            txtbox_producto_a_modificar.MaxLength = 32767;
+            txtbox_producto_a_modificar.MouseState = MaterialSkin.MouseState.OUT;
+            txtbox_producto_a_modificar.Name = "txtbox_producto_a_modificar";
+            txtbox_producto_a_modificar.PasswordChar = '\0';
+            txtbox_producto_a_modificar.PrefixSuffixText = null;
+            txtbox_producto_a_modificar.ReadOnly = false;
+            txtbox_producto_a_modificar.RightToLeft = RightToLeft.No;
+            txtbox_producto_a_modificar.SelectedText = "";
+            txtbox_producto_a_modificar.SelectionLength = 0;
+            txtbox_producto_a_modificar.SelectionStart = 0;
+            txtbox_producto_a_modificar.ShortcutsEnabled = true;
+            txtbox_producto_a_modificar.Size = new Size(387, 48);
+            txtbox_producto_a_modificar.TabIndex = 7;
+            txtbox_producto_a_modificar.TabStop = false;
+            txtbox_producto_a_modificar.TextAlign = HorizontalAlignment.Center;
+            txtbox_producto_a_modificar.TrailingIcon = null;
+            txtbox_producto_a_modificar.UseSystemPasswordChar = false;
             // 
             // button_cancelar
             // 
@@ -64,7 +94,7 @@
             button_cancelar.Depth = 0;
             button_cancelar.HighEmphasis = true;
             button_cancelar.Icon = null;
-            button_cancelar.Location = new Point(909, 580);
+            button_cancelar.Location = new Point(909, 520);
             button_cancelar.Margin = new Padding(4, 6, 4, 6);
             button_cancelar.MouseState = MaterialSkin.MouseState.HOVER;
             button_cancelar.Name = "button_cancelar";
@@ -75,6 +105,7 @@
             button_cancelar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_cancelar.UseAccentColor = false;
             button_cancelar.UseVisualStyleBackColor = true;
+            button_cancelar.Click += button_cancelar_Click_1;
             // 
             // button_limpiar
             // 
@@ -84,7 +115,7 @@
             button_limpiar.Depth = 0;
             button_limpiar.HighEmphasis = true;
             button_limpiar.Icon = null;
-            button_limpiar.Location = new Point(727, 571);
+            button_limpiar.Location = new Point(727, 511);
             button_limpiar.Margin = new Padding(4, 6, 4, 6);
             button_limpiar.MouseState = MaterialSkin.MouseState.HOVER;
             button_limpiar.Name = "button_limpiar";
@@ -95,6 +126,7 @@
             button_limpiar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_limpiar.UseAccentColor = false;
             button_limpiar.UseVisualStyleBackColor = true;
+            button_limpiar.Click += button_limpiar_Click_1;
             // 
             // button_confirmar
             // 
@@ -104,7 +136,7 @@
             button_confirmar.Depth = 0;
             button_confirmar.HighEmphasis = true;
             button_confirmar.Icon = null;
-            button_confirmar.Location = new Point(529, 571);
+            button_confirmar.Location = new Point(529, 511);
             button_confirmar.Margin = new Padding(4, 6, 4, 6);
             button_confirmar.MouseState = MaterialSkin.MouseState.HOVER;
             button_confirmar.Name = "button_confirmar";
@@ -120,7 +152,7 @@
             // 
             lbl_ingresevalor.Anchor = AnchorStyles.None;
             lbl_ingresevalor.AutoSize = true;
-            lbl_ingresevalor.Location = new Point(539, 405);
+            lbl_ingresevalor.Location = new Point(539, 345);
             lbl_ingresevalor.Name = "lbl_ingresevalor";
             lbl_ingresevalor.Size = new Size(157, 20);
             lbl_ingresevalor.TabIndex = 3;
@@ -143,7 +175,7 @@
             CB_valor_a_modificar.IntegralHeight = false;
             CB_valor_a_modificar.ItemHeight = 43;
             CB_valor_a_modificar.Items.AddRange(new object[] { "Nombre", "Precio", "Stock" });
-            CB_valor_a_modificar.Location = new Point(627, 273);
+            CB_valor_a_modificar.Location = new Point(627, 213);
             CB_valor_a_modificar.MaxDropDownItems = 4;
             CB_valor_a_modificar.MouseState = MaterialSkin.MouseState.OUT;
             CB_valor_a_modificar.Name = "CB_valor_a_modificar";
@@ -156,7 +188,7 @@
             lbl_mod.Anchor = AnchorStyles.None;
             lbl_mod.AutoSize = true;
             lbl_mod.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_mod.Location = new Point(562, 69);
+            lbl_mod.Location = new Point(562, 9);
             lbl_mod.Name = "lbl_mod";
             lbl_mod.Size = new Size(400, 60);
             lbl_mod.TabIndex = 1;
@@ -172,7 +204,7 @@
             txtbox_nuevo_valor.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_nuevo_valor.HideSelection = true;
             txtbox_nuevo_valor.LeadingIcon = null;
-            txtbox_nuevo_valor.Location = new Point(745, 387);
+            txtbox_nuevo_valor.Location = new Point(745, 327);
             txtbox_nuevo_valor.MaxLength = 32767;
             txtbox_nuevo_valor.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_nuevo_valor.Name = "txtbox_nuevo_valor";
@@ -191,41 +223,11 @@
             txtbox_nuevo_valor.TrailingIcon = null;
             txtbox_nuevo_valor.UseSystemPasswordChar = false;
             // 
-            // txtbox_producto_a_modificar
-            // 
-            txtbox_producto_a_modificar.Anchor = AnchorStyles.None;
-            txtbox_producto_a_modificar.AnimateReadOnly = false;
-            txtbox_producto_a_modificar.BackgroundImageLayout = ImageLayout.None;
-            txtbox_producto_a_modificar.CharacterCasing = CharacterCasing.Normal;
-            txtbox_producto_a_modificar.Depth = 0;
-            txtbox_producto_a_modificar.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtbox_producto_a_modificar.HideSelection = true;
-            txtbox_producto_a_modificar.Hint = "Ingrese el código del producto que desea modificar";
-            txtbox_producto_a_modificar.LeadingIcon = null;
-            txtbox_producto_a_modificar.Location = new Point(562, 179);
-            txtbox_producto_a_modificar.MaxLength = 32767;
-            txtbox_producto_a_modificar.MouseState = MaterialSkin.MouseState.OUT;
-            txtbox_producto_a_modificar.Name = "txtbox_producto_a_modificar";
-            txtbox_producto_a_modificar.PasswordChar = '\0';
-            txtbox_producto_a_modificar.PrefixSuffixText = null;
-            txtbox_producto_a_modificar.ReadOnly = false;
-            txtbox_producto_a_modificar.RightToLeft = RightToLeft.No;
-            txtbox_producto_a_modificar.SelectedText = "";
-            txtbox_producto_a_modificar.SelectionLength = 0;
-            txtbox_producto_a_modificar.SelectionStart = 0;
-            txtbox_producto_a_modificar.ShortcutsEnabled = true;
-            txtbox_producto_a_modificar.Size = new Size(387, 48);
-            txtbox_producto_a_modificar.TabIndex = 7;
-            txtbox_producto_a_modificar.TabStop = false;
-            txtbox_producto_a_modificar.TextAlign = HorizontalAlignment.Center;
-            txtbox_producto_a_modificar.TrailingIcon = null;
-            txtbox_producto_a_modificar.UseSystemPasswordChar = false;
-            // 
             // Form_Modificar_Producto
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1522, 1175);
+            ClientSize = new Size(1522, 1055);
             Controls.Add(panel_mod);
             Name = "Form_Modificar_Producto";
             Text = "InkPOS - Modificar producto";
