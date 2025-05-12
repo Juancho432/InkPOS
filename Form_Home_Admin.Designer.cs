@@ -64,6 +64,7 @@
             panel_home_admin.Name = "panel_home_admin";
             panel_home_admin.Size = new Size(1513, 1171);
             panel_home_admin.TabIndex = 0;
+            panel_home_admin.Paint += panel_home_admin_Paint;
             // 
             // button_salir
             // 
@@ -233,6 +234,7 @@
             Name = "Form_Home_Admin";
             Text = "InkPOS - Home Admin";
             WindowState = FormWindowState.Maximized;
+            Load += Form_Home_Admin_Load;
             panel_home_admin.ResumeLayout(false);
             panel_home_admin.PerformLayout();
             panel_MProductos.ResumeLayout(false);

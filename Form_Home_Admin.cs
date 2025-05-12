@@ -33,5 +33,16 @@
             Hide();
             gestion_empleados.FormClosed += (s, args) => this.Show();
         }
+
+        private void panel_home_admin_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Form_Home_Admin_Load(object sender, EventArgs e)
+        {
+
+            lbl_nombreUsuario.Text = EmpleadoActual.Nombre;
+        }
     }
 }
