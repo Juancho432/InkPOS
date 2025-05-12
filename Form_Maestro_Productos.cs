@@ -24,10 +24,23 @@ namespace InkPos
 
         private void button_añadir_Click(object sender, EventArgs e)
         {
-            Form_Agregar_Producto agregar_Producto = new (EmpleadoActual, Database);
+            Form_Agregar_Producto agregar_Producto = new(EmpleadoActual, Database);
             agregar_Producto.Show();
             Hide();
             agregar_Producto.FormClosed += (s, args) => this.Show();
+        }
+
+        private void button_salir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button_modificar_Click(object sender, EventArgs e)
+        {
+            Form_Modificar_Producto modificar_Producto = new(EmpleadoActual, Database);
+            modificar_Producto.Show();
+            Hide();
+            modificar_Producto.FormClosed += (s, args) => this.Show();
         }
     }
 }

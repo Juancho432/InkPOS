@@ -41,9 +41,8 @@ namespace InkPos
                     throw new Excepciones.CamposVacios();
                 }
             }
-            catch (Exception ex)
+            catch 
             {
-                MessageBox.Show("Debe completar todos los campos.");
                 return;
             }
 
