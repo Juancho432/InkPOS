@@ -1,6 +1,6 @@
 ﻿namespace InkPos
 {
-    partial class Form_Gestión_Empleados
+    partial class Form_Modificar_Empleado
     {
         /// <summary>
         /// Required designer variable.
@@ -32,8 +32,6 @@
             lbl_salario = new Label();
             lbl_cargo = new Label();
             lbl_telefono = new Label();
-            button_agregar_empleado = new MaterialSkin.Controls.MaterialButton();
-            txtbox_IDempleado = new MaterialSkin.Controls.MaterialTextBox2();
             txtbox_cedula = new MaterialSkin.Controls.MaterialTextBox2();
             txtbox_telefono = new MaterialSkin.Controls.MaterialTextBox2();
             txtbox_salario = new MaterialSkin.Controls.MaterialTextBox2();
@@ -41,7 +39,6 @@
             button_salir = new MaterialSkin.Controls.MaterialButton();
             button_limpiar = new MaterialSkin.Controls.MaterialButton();
             button_confirmar = new MaterialSkin.Controls.MaterialButton();
-            lbl_cedula = new Label();
             txtbox_nombre_empleado = new MaterialSkin.Controls.MaterialTextBox2();
             lbl_nombre = new Label();
             lbl_GestionEmpleados = new Label();
@@ -54,8 +51,6 @@
             panel_gestion_empleados.Controls.Add(lbl_salario);
             panel_gestion_empleados.Controls.Add(lbl_cargo);
             panel_gestion_empleados.Controls.Add(lbl_telefono);
-            panel_gestion_empleados.Controls.Add(button_agregar_empleado);
-            panel_gestion_empleados.Controls.Add(txtbox_IDempleado);
             panel_gestion_empleados.Controls.Add(txtbox_cedula);
             panel_gestion_empleados.Controls.Add(txtbox_telefono);
             panel_gestion_empleados.Controls.Add(txtbox_salario);
@@ -63,7 +58,6 @@
             panel_gestion_empleados.Controls.Add(button_salir);
             panel_gestion_empleados.Controls.Add(button_limpiar);
             panel_gestion_empleados.Controls.Add(button_confirmar);
-            panel_gestion_empleados.Controls.Add(lbl_cedula);
             panel_gestion_empleados.Controls.Add(txtbox_nombre_empleado);
             panel_gestion_empleados.Controls.Add(lbl_nombre);
             panel_gestion_empleados.Controls.Add(lbl_GestionEmpleados);
@@ -78,7 +72,7 @@
             lbl_salario.AutoSize = true;
             lbl_salario.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_salario.ForeColor = SystemColors.ControlText;
-            lbl_salario.Location = new Point(483, 575);
+            lbl_salario.Location = new Point(483, 544);
             lbl_salario.Name = "lbl_salario";
             lbl_salario.Size = new Size(76, 28);
             lbl_salario.TabIndex = 26;
@@ -90,7 +84,7 @@
             lbl_cargo.AutoSize = true;
             lbl_cargo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_cargo.ForeColor = SystemColors.ControlText;
-            lbl_cargo.Location = new Point(490, 504);
+            lbl_cargo.Location = new Point(490, 451);
             lbl_cargo.Name = "lbl_cargo";
             lbl_cargo.Size = new Size(69, 28);
             lbl_cargo.TabIndex = 25;
@@ -102,61 +96,11 @@
             lbl_telefono.AutoSize = true;
             lbl_telefono.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_telefono.ForeColor = SystemColors.ControlText;
-            lbl_telefono.Location = new Point(469, 431);
+            lbl_telefono.Location = new Point(469, 367);
             lbl_telefono.Name = "lbl_telefono";
             lbl_telefono.Size = new Size(90, 28);
             lbl_telefono.TabIndex = 24;
             lbl_telefono.Text = "Teléfono:";
-            // 
-            // button_agregar_empleado
-            // 
-            button_agregar_empleado.Anchor = AnchorStyles.None;
-            button_agregar_empleado.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button_agregar_empleado.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            button_agregar_empleado.Depth = 0;
-            button_agregar_empleado.HighEmphasis = true;
-            button_agregar_empleado.Icon = null;
-            button_agregar_empleado.Location = new Point(863, 146);
-            button_agregar_empleado.Margin = new Padding(4, 6, 4, 6);
-            button_agregar_empleado.MouseState = MaterialSkin.MouseState.HOVER;
-            button_agregar_empleado.Name = "button_agregar_empleado";
-            button_agregar_empleado.NoAccentTextColor = Color.Empty;
-            button_agregar_empleado.Size = new Size(220, 36);
-            button_agregar_empleado.TabIndex = 23;
-            button_agregar_empleado.Text = "AGREGAR NUEVO EMPLEADO";
-            button_agregar_empleado.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            button_agregar_empleado.UseAccentColor = false;
-            button_agregar_empleado.UseVisualStyleBackColor = true;
-            // 
-            // txtbox_IDempleado
-            // 
-            txtbox_IDempleado.Anchor = AnchorStyles.None;
-            txtbox_IDempleado.AnimateReadOnly = false;
-            txtbox_IDempleado.BackgroundImageLayout = ImageLayout.None;
-            txtbox_IDempleado.CharacterCasing = CharacterCasing.Normal;
-            txtbox_IDempleado.Depth = 0;
-            txtbox_IDempleado.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtbox_IDempleado.HideSelection = true;
-            txtbox_IDempleado.Hint = "Ingrese la cédula del empleado";
-            txtbox_IDempleado.LeadingIcon = null;
-            txtbox_IDempleado.Location = new Point(370, 146);
-            txtbox_IDempleado.MaxLength = 32767;
-            txtbox_IDempleado.MouseState = MaterialSkin.MouseState.OUT;
-            txtbox_IDempleado.Name = "txtbox_IDempleado";
-            txtbox_IDempleado.PasswordChar = '\0';
-            txtbox_IDempleado.PrefixSuffixText = null;
-            txtbox_IDempleado.ReadOnly = false;
-            txtbox_IDempleado.RightToLeft = RightToLeft.No;
-            txtbox_IDempleado.SelectedText = "";
-            txtbox_IDempleado.SelectionLength = 0;
-            txtbox_IDempleado.SelectionStart = 0;
-            txtbox_IDempleado.ShortcutsEnabled = true;
-            txtbox_IDempleado.Size = new Size(312, 48);
-            txtbox_IDempleado.TabIndex = 22;
-            txtbox_IDempleado.TabStop = false;
-            txtbox_IDempleado.TextAlign = HorizontalAlignment.Left;
-            txtbox_IDempleado.TrailingIcon = null;
-            txtbox_IDempleado.UseSystemPasswordChar = false;
             // 
             // txtbox_cedula
             // 
@@ -167,8 +111,9 @@
             txtbox_cedula.Depth = 0;
             txtbox_cedula.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_cedula.HideSelection = true;
+            txtbox_cedula.Hint = "Ingrese la cédula del empleado";
             txtbox_cedula.LeadingIcon = null;
-            txtbox_cedula.Location = new Point(600, 334);
+            txtbox_cedula.Location = new Point(600, 141);
             txtbox_cedula.MaxLength = 32767;
             txtbox_cedula.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_cedula.Name = "txtbox_cedula";
@@ -181,7 +126,7 @@
             txtbox_cedula.SelectionStart = 0;
             txtbox_cedula.ShortcutsEnabled = true;
             txtbox_cedula.Size = new Size(312, 48);
-            txtbox_cedula.TabIndex = 21;
+            txtbox_cedula.TabIndex = 22;
             txtbox_cedula.TabStop = false;
             txtbox_cedula.TextAlign = HorizontalAlignment.Left;
             txtbox_cedula.TrailingIcon = null;
@@ -197,7 +142,7 @@
             txtbox_telefono.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_telefono.HideSelection = true;
             txtbox_telefono.LeadingIcon = null;
-            txtbox_telefono.Location = new Point(600, 411);
+            txtbox_telefono.Location = new Point(600, 347);
             txtbox_telefono.MaxLength = 32767;
             txtbox_telefono.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_telefono.Name = "txtbox_telefono";
@@ -226,7 +171,7 @@
             txtbox_salario.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_salario.HideSelection = true;
             txtbox_salario.LeadingIcon = null;
-            txtbox_salario.Location = new Point(600, 555);
+            txtbox_salario.Location = new Point(600, 524);
             txtbox_salario.MaxLength = 32767;
             txtbox_salario.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_salario.Name = "txtbox_salario";
@@ -255,7 +200,7 @@
             txtbox_cargo.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_cargo.HideSelection = true;
             txtbox_cargo.LeadingIcon = null;
-            txtbox_cargo.Location = new Point(600, 484);
+            txtbox_cargo.Location = new Point(600, 431);
             txtbox_cargo.MaxLength = 32767;
             txtbox_cargo.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_cargo.Name = "txtbox_cargo";
@@ -282,7 +227,7 @@
             button_salir.Depth = 0;
             button_salir.HighEmphasis = true;
             button_salir.Icon = null;
-            button_salir.Location = new Point(901, 741);
+            button_salir.Location = new Point(905, 683);
             button_salir.Margin = new Padding(4, 6, 4, 6);
             button_salir.MouseState = MaterialSkin.MouseState.HOVER;
             button_salir.Name = "button_salir";
@@ -303,7 +248,7 @@
             button_limpiar.Depth = 0;
             button_limpiar.HighEmphasis = true;
             button_limpiar.Icon = null;
-            button_limpiar.Location = new Point(733, 741);
+            button_limpiar.Location = new Point(735, 683);
             button_limpiar.Margin = new Padding(4, 6, 4, 6);
             button_limpiar.MouseState = MaterialSkin.MouseState.HOVER;
             button_limpiar.Name = "button_limpiar";
@@ -323,7 +268,7 @@
             button_confirmar.Depth = 0;
             button_confirmar.HighEmphasis = true;
             button_confirmar.Icon = null;
-            button_confirmar.Location = new Point(527, 741);
+            button_confirmar.Location = new Point(527, 683);
             button_confirmar.Margin = new Padding(4, 6, 4, 6);
             button_confirmar.MouseState = MaterialSkin.MouseState.HOVER;
             button_confirmar.Name = "button_confirmar";
@@ -334,19 +279,6 @@
             button_confirmar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_confirmar.UseAccentColor = false;
             button_confirmar.UseVisualStyleBackColor = true;
-            // 
-            // lbl_cedula
-            // 
-            lbl_cedula.Anchor = AnchorStyles.None;
-            lbl_cedula.AutoSize = true;
-            lbl_cedula.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_cedula.ForeColor = SystemColors.ControlText;
-            lbl_cedula.Location = new Point(483, 354);
-            lbl_cedula.Name = "lbl_cedula";
-            lbl_cedula.Size = new Size(76, 28);
-            lbl_cedula.TabIndex = 13;
-            lbl_cedula.Tag = "";
-            lbl_cedula.Text = "Cédula:";
             // 
             // txtbox_nombre_empleado
             // 
@@ -400,13 +332,13 @@
             lbl_GestionEmpleados.TabIndex = 9;
             lbl_GestionEmpleados.Text = "Gestión empleados";
             // 
-            // Form_Gestión_Empleados
+            // Form_Modificar_Empleado
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1522, 1055);
             Controls.Add(panel_gestion_empleados);
-            Name = "Form_Gestión_Empleados";
+            Name = "Form_Modificar_Empleado";
             Text = "InkPOS - Gestión de empleados";
             WindowState = FormWindowState.Maximized;
             panel_gestion_empleados.ResumeLayout(false);
@@ -420,12 +352,9 @@
         private MaterialSkin.Controls.MaterialButton button_salir;
         private MaterialSkin.Controls.MaterialButton button_limpiar;
         private MaterialSkin.Controls.MaterialButton button_confirmar;
-        private Label lbl_cedula;
         private MaterialSkin.Controls.MaterialTextBox2 txtbox_nombre_empleado;
         private Label lbl_nombre;
         private Label lbl_GestionEmpleados;
-        private MaterialSkin.Controls.MaterialButton button_agregar_empleado;
-        private MaterialSkin.Controls.MaterialTextBox2 txtbox_IDempleado;
         private MaterialSkin.Controls.MaterialTextBox2 txtbox_cedula;
         private MaterialSkin.Controls.MaterialTextBox2 txtbox_telefono;
         private MaterialSkin.Controls.MaterialTextBox2 txtbox_salario;

@@ -10,21 +10,16 @@ using System.Windows.Forms;
 
 namespace InkPos
 {
-    public partial class Form_Gestión_Empleados : Form
+    public partial class Form_Home_Gestion_Empleados : Form
     {
         private Empleado EmpleadoActual;
         private DataBaseHandler Database;
 
-        public Form_Gestión_Empleados(Empleado empleado, DataBaseHandler database)
+        public Form_Home_Gestion_Empleados(Empleado empleado, DataBaseHandler database)
         {
             EmpleadoActual = empleado;
             Database = database;
             InitializeComponent();
-        }
-
-        private void button_salir_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
