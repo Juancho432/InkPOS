@@ -55,32 +55,23 @@ namespace InkPos
             }
 
             // Crear objeto producto
-            Producto productoNuevo = new Producto(codigo_producto, nombre_producto, pvp, stock);
+            Producto productoNuevo = new(codigo_producto, nombre_producto, pvp, stock);
 
 
             //BBDD
 
             // Verificar si el producto ya existe por su código
-            //if (db.ExisteProductoPorCodigo(codigo))
-            //{
-            //    MessageBox.Show("Ya existe un producto con ese código.");
-            //    return;
-            //}
+            try
+            {
+                Database.CreateProduct(productoNuevo);
+            }
+            catch
+            {
+                return;
+            }
 
-            //// Insertar producto en la base de datos
-            //bool exito = db.InsertarProducto(productoNuevo);
-
-            //if (exito)
-            //{
-            //    MessageBox.Show("Producto ingresado correctamente.");
-            //    this.Hide(); // Oculta el formulario
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Error al ingresar el producto.");
-            //}
-
-
+            MessageBox.Show("Producto ingresado correctamente.");
+            Hide(); // Oculta el formulario
         }
 
         private void button_limpiar_Click(object sender, EventArgs e)
