@@ -31,7 +31,7 @@ namespace InkPos
             //Validar campos vacios
             try
             {
-                if (string.IsNullOrWhiteSpace(codigoProducto) || CB_valor_a_modificar.SelectedItem == null || string.IsNullOrWhiteSpace(txtbox_nuevo_valor.Text))
+                if (string.IsNullOrWhiteSpace(txtbox_producto_a_modificar.Text) || CB_valor_a_modificar.SelectedItem == null || string.IsNullOrWhiteSpace(txtbox_nuevo_valor.Text))
                 {
                     throw new Excepciones.CamposVacios();
                 }
