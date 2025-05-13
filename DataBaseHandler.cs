@@ -2,8 +2,6 @@
 using System.Text;
 using System.Security.Cryptography;
 using static InkPos.Excepciones;
-using System.Drawing.Text;
-using System.ComponentModel.DataAnnotations;
 
 namespace InkPos
 {

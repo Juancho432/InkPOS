@@ -9,12 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="ThirdPartyApp\**" />
-    <EmbeddedResource Remove="ThirdPartyApp\**" />
-    <None Remove="ThirdPartyApp\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="icon_inkpos.ico" />
     <None Remove="InkPosDBTemplate.sql" />
     <None Remove="InkPosDBTestData.sql" />
@@ -30,6 +24,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="LaTeX\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>LaTeX\%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Content>
+  </ItemGroup>
+
+
+  <ItemGroup>
     <EmbeddedResource Include="icon_inkpos.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -37,8 +39,8 @@
 
   <ItemGroup>
     <PackageReference Include="MaterialSkin.2" Version="2.3.1" />
-    <PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.4" />
-    <PackageReference Include="System.Drawing.Common" Version="9.0.4" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.5" />
+    <PackageReference Include="System.Drawing.Common" Version="9.0.5" />
   </ItemGroup>
 
   <ItemGroup>

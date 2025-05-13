@@ -1,0 +1,85 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\newcommand\C[1]\null
+
+\begin{document}
+
+% ----------- ENCABEZADO ---------------
+\noindent
+% --- % ---- Izquierda
+\noindent
+\begin{minipage}{0.5\textwidth}
+  \begin{tabular}{@{}c l@{}}
+    \multirow{3}{*}{\includegraphics[width=3cm]{logo.png}} & \textbf{PAPELERÍA AJ} \\
+    & 311 339 1198 \\
+    & CL 54 \#42-31,\\ & Medellín - Antioquia \\
+  \end{tabular}
+
+  \vspace{2.5em}
+
+  \textbf{NOTA DE ENTREGA Nº:} \C{invoice_id} \\
+  Fecha: \C{date} \\
+  F. Pago: \C{pay_form} \C{trans_id} \\
+\end{minipage}
+%
+% --- % ---- Derecha
+%
+\begin{minipage}{0.5\textwidth}
+\raggedleft
+Nit: \C{cust_id} \\
+Teléfono: \C{cust_tel} \\
+Nombre: \textbf{\C{cust_name}} \\
+Dirección: \C{cust_add} \\
+Vendedor: \C{emp_name}
+\end{minipage}
+
+\vspace{0.3em}
+\hrule
+\vspace{0.3em}
+
+% ----------- TABLA DE PRODUCTOS ---------------
+\rowcolors{2}{gray!10}{white}
+\renewcommand{\arraystretch}{1.2}
+
+\begin{center}
+\begin{tabularx}{\textwidth}
+{>{\centering\arraybackslash}p{1cm}
+ >{\centering\arraybackslash}p{2cm}
+ X
+ >{\centering\arraybackslash}p{1.5cm}
+ >{\centering\arraybackslash}p{2cm}
+ >{\centering\arraybackslash}p{2cm}}
+\rowcolor{gray!30}
+\textbf{Item} & \textbf{Producto} & \textbf{Descripción} & \textbf{Cant.} & \textbf{Vr Unitario} & \textbf{Total} \\
+\C{details}
+\end{tabularx}
+\end{center}
+
+% ----------- PIE DE PÁGINA ---------------
+\hrule
+\vspace{0.5em}
+
+\noindent
+\begin{tabularx}{\textwidth}{Xr}
+\textbf{Total Ítems:} & \C{total_items} \\
+\textbf{Total Productos:} & \C{total_products} \\
+\textbf{NETO:} & \textbf{\$\C{total}} \\
+\end{tabularx}
+
+\vspace{0.5em}
+
+\vspace{2em}
+\textbf{FIRMA:} \hrulefill
+\end{document}

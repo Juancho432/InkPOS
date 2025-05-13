@@ -13,7 +13,7 @@ namespace InkPos
         public string IdEmpleado { get; } = idEmp;
         public string Fecha { get; set; } = fecha;
         public string Hora { get; set; } = hora;
-        public string IdTransaccion { get; } = idTrans;
+        public string? IdTransaccion { get; } = idTrans;
         public decimal Total { get; set; } = Total;
 
         // Lista de detalles de venta asociados a esta factura
