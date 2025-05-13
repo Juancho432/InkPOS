@@ -259,6 +259,7 @@
             button_limpiar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_limpiar.UseAccentColor = false;
             button_limpiar.UseVisualStyleBackColor = true;
+            button_limpiar.Click += button_limpiar_Click;
             // 
             // button_confirmar
             // 
@@ -279,6 +280,7 @@
             button_confirmar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_confirmar.UseAccentColor = false;
             button_confirmar.UseVisualStyleBackColor = true;
+            button_confirmar.Click += button_confirmar_Click;
             // 
             // txtbox_nombre_empleado
             // 
