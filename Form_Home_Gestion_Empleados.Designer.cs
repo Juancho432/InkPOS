@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Home_Gestion_Empleados));
             panel_home_GE = new Panel();
+            button_salir = new MaterialSkin.Controls.MaterialButton();
             panel_add = new Panel();
             button_añadir = new MaterialSkin.Controls.MaterialButton();
             PB_add = new PictureBox();
@@ -37,7 +38,6 @@
             button_modificar = new MaterialSkin.Controls.MaterialButton();
             PB_mod = new PictureBox();
             lbl_QRealizar = new Label();
-            button_salir = new MaterialSkin.Controls.MaterialButton();
             panel_home_GE.SuspendLayout();
             panel_add.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PB_add).BeginInit();
@@ -55,6 +55,27 @@
             panel_home_GE.Name = "panel_home_GE";
             panel_home_GE.Size = new Size(1513, 1171);
             panel_home_GE.TabIndex = 0;
+            // 
+            // button_salir
+            // 
+            button_salir.Anchor = AnchorStyles.None;
+            button_salir.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button_salir.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            button_salir.Depth = 0;
+            button_salir.HighEmphasis = true;
+            button_salir.Icon = null;
+            button_salir.Location = new Point(737, 709);
+            button_salir.Margin = new Padding(4, 6, 4, 6);
+            button_salir.MouseState = MaterialSkin.MouseState.HOVER;
+            button_salir.Name = "button_salir";
+            button_salir.NoAccentTextColor = Color.Empty;
+            button_salir.Size = new Size(64, 36);
+            button_salir.TabIndex = 15;
+            button_salir.Text = "SALIR";
+            button_salir.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            button_salir.UseAccentColor = false;
+            button_salir.UseVisualStyleBackColor = true;
+            button_salir.Click += button_salir_Click;
             // 
             // panel_add
             // 
@@ -84,6 +105,7 @@
             button_añadir.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_añadir.UseAccentColor = false;
             button_añadir.UseVisualStyleBackColor = true;
+            button_añadir.Click += button_añadir_Click;
             // 
             // PB_add
             // 
@@ -122,6 +144,7 @@
             button_modificar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_modificar.UseAccentColor = false;
             button_modificar.UseVisualStyleBackColor = true;
+            button_modificar.Click += button_modificar_Click;
             // 
             // PB_mod
             // 
@@ -143,31 +166,11 @@
             lbl_QRealizar.TabIndex = 12;
             lbl_QRealizar.Text = "¿Qué desea realizar?";
             // 
-            // button_salir
-            // 
-            button_salir.Anchor = AnchorStyles.None;
-            button_salir.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button_salir.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            button_salir.Depth = 0;
-            button_salir.HighEmphasis = true;
-            button_salir.Icon = null;
-            button_salir.Location = new Point(737, 709);
-            button_salir.Margin = new Padding(4, 6, 4, 6);
-            button_salir.MouseState = MaterialSkin.MouseState.HOVER;
-            button_salir.Name = "button_salir";
-            button_salir.NoAccentTextColor = Color.Empty;
-            button_salir.Size = new Size(64, 36);
-            button_salir.TabIndex = 15;
-            button_salir.Text = "SALIR";
-            button_salir.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            button_salir.UseAccentColor = false;
-            button_salir.UseVisualStyleBackColor = true;
-            // 
             // Form_Home_Gestion_Empleados
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1522, 1175);
+            ClientSize = new Size(1522, 1055);
             Controls.Add(panel_home_GE);
             Name = "Form_Home_Gestion_Empleados";
             Text = "InkPOS - Gestión de empleados";
