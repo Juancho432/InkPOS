@@ -105,7 +105,7 @@
             button_cancelar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_cancelar.UseAccentColor = false;
             button_cancelar.UseVisualStyleBackColor = true;
-            button_cancelar.Click += button_cancelar_Click_1;
+            button_cancelar.Click += Boton_Cancelar_Click;
             // 
             // button_limpiar
             // 
@@ -126,7 +126,7 @@
             button_limpiar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_limpiar.UseAccentColor = false;
             button_limpiar.UseVisualStyleBackColor = true;
-            button_limpiar.Click += button_limpiar_Click_1;
+            button_limpiar.Click += Boton_Limpiar_Click;
             // 
             // button_confirmar
             // 
@@ -147,6 +147,7 @@
             button_confirmar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_confirmar.UseAccentColor = false;
             button_confirmar.UseVisualStyleBackColor = true;
+            button_confirmar.Click += Boton_Confirmar_Click;
             // 
             // lbl_ingresevalor
             // 

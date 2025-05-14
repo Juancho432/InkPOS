@@ -247,7 +247,7 @@ namespace InkPos
             return productos;
         }
 
-        public bool UpdateProducto(Producto producto)
+        public bool UpdateProduct(Producto producto)
         {
             using SqliteConnection conn = new($"Data Source={dbPath}");
             try
@@ -280,7 +280,7 @@ namespace InkPos
             }
         }
 
-        public bool DeleteProducto(Producto producto)
+        public bool DeleteProduct(Producto producto)
         {
             using SqliteConnection conn = new($"Data Source={dbPath}");
             try

@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace InkPos
+﻿namespace InkPos
 {
     public partial class Form_Modificar_Producto : Form
     {
@@ -22,47 +12,46 @@ namespace InkPos
             InitializeComponent();
         }
 
-        private void button_confirmar_Click(object sender, EventArgs e)
+        private void Boton_Confirmar_Click(object sender, EventArgs e)
         {
             string codigoProducto = txtbox_producto_a_modificar.Text.Trim();
-            string campoSeleccionado = CB_valor_a_modificar.SelectedItem?.ToString();
+            string campoSeleccionado = CB_valor_a_modificar.SelectedItem?.ToString()!;
             string nuevoValorTexto = txtbox_nuevo_valor.Text.Trim();
+            Producto productoModificado;
 
-            //Validar campos vacios
+            //Validar campos vacios y existencia de producto
             try
             {
-                if (string.IsNullOrWhiteSpace(txtbox_producto_a_modificar.Text) || CB_valor_a_modificar.SelectedItem == null || string.IsNullOrWhiteSpace(txtbox_nuevo_valor.Text))
+                if (string.IsNullOrWhiteSpace(txtbox_producto_a_modificar.Text) || CB_valor_a_modificar.SelectedItem == null
+                    || string.IsNullOrWhiteSpace(txtbox_nuevo_valor.Text))
                 {
                     throw new Excepciones.CamposVacios();
                 }
+                productoModificado = Database.ReadProductByID(codigoProducto);
             }
             catch
             {
                 return;
             }
-
-
-            // Preparar valor convertido según el campo seleccionado
-            object nuevoValor;
-
+            
             try
             {
                 switch (campoSeleccionado)
                 {
                     case "Nombre":
-                        nuevoValor = nuevoValorTexto;
+                        productoModificado.NombreItem = nuevoValorTexto;
                         break;
 
                     case "Precio":
                         if (!decimal.TryParse(nuevoValorTexto, out decimal precio))
                             throw new FormatException("El precio debe ser un número decimal válido.");
-                        nuevoValor = precio;
+                        productoModificado.Precio = precio;
                         break;
 
                     case "Stock":
                         if (!int.TryParse(nuevoValorTexto, out int stock))
                             throw new FormatException("El stock debe ser un número entero válido.");
-                        nuevoValor = stock;
+                        productoModificado.Stock = stock;
                         break;
 
                     default:
@@ -76,28 +65,27 @@ namespace InkPos
                 return;
             }
 
+            
+            bool exito = Database.UpdateProduct(productoModificado);
 
-            //// Llamar método en base de datos
-            //bool exito = Database.ModificarProducto(codigoProducto, campoSeleccionado, nuevoValor);
-
-            //if (exito)
-            //{
-            //    MessageBox.Show("Producto modificado exitosamente.");
-            //    this.Close();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("No se pudo modificar el producto.");
-            //}
+            if (exito)
+            {
+                MessageBox.Show("Producto modificado exitosamente.");
+               Close();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo modificar el producto.");
+            }
         }
 
 
-        private void button_cancelar_Click_1(object sender, EventArgs e)
+        private void Boton_Cancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
-        private void button_limpiar_Click_1(object sender, EventArgs e)
+        private void Boton_Limpiar_Click(object sender, EventArgs e)
         {
             txtbox_nuevo_valor.Clear();
             txtbox_producto_a_modificar.Clear();
