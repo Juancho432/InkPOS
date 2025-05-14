@@ -21,5 +21,26 @@ namespace InkPos
             Database = database;
             InitializeComponent();
         }
+
+        private void button_venta_Click(object sender, EventArgs e)
+        {
+            Form_Venta FormVenta = new(EmpleadoActual, Database);
+            FormVenta.Show();
+            Hide();
+            FormVenta.FormClosed += (s, args) => Show();
+        }
+
+        private void button_salir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button_facturas_Click(object sender, EventArgs e)
+        {
+            Form_Busqueda_factura FromFactura = new(EmpleadoActual, Database);
+            FromFactura.Show();
+            Hide();
+            FromFactura.FormClosed += (s, args) => Show();
+        }
     }
 }

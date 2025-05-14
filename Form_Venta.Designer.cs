@@ -222,6 +222,7 @@
             button_cancelar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_cancelar.UseAccentColor = false;
             button_cancelar.UseVisualStyleBackColor = true;
+            button_cancelar.Click += button_cancelar_Click;
             // 
             // button_finalizar
             // 
@@ -242,6 +243,7 @@
             button_finalizar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_finalizar.UseAccentColor = false;
             button_finalizar.UseVisualStyleBackColor = true;
+            button_finalizar.Click += button_finalizar_Click;
             // 
             // txtbox_busqueda_producto
             // 
@@ -273,7 +275,8 @@
             txtbox_busqueda_producto.TextAlign = HorizontalAlignment.Left;
             txtbox_busqueda_producto.TrailingIcon = null;
             txtbox_busqueda_producto.UseSystemPasswordChar = false;
-            txtbox_busqueda_producto.KeyPress += txtbox_busqueda_producto_KeyPress;
+            txtbox_busqueda_producto.KeyDown += txtbox_busqueda_producto_KeyDown;
+            txtbox_busqueda_producto.TextChanged += txtbox_busqueda_producto_TextChanged;
             // 
             // lista_Coincidencias
             // 
@@ -328,6 +331,7 @@
             tabla_Productos.RowHeadersWidth = 51;
             tabla_Productos.Size = new Size(746, 297);
             tabla_Productos.TabIndex = 17;
+            tabla_Productos.CellValueChanged += tabla_Productos_CellValueChanged;
             // 
             // column_codigo
             // 
