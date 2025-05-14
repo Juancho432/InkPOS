@@ -71,7 +71,7 @@ namespace InkPos
             }
 
             MessageBox.Show("Producto ingresado correctamente.");
-            Hide(); // Oculta el formulario
+            this.Close(); // Oculta el formulario
         }
 
         private void button_limpiar_Click(object sender, EventArgs e)

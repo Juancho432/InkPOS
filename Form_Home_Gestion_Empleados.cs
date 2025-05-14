@@ -21,5 +21,26 @@ namespace InkPos
             Database = database;
             InitializeComponent();
         }
+
+        private void button_añadir_Click(object sender, EventArgs e)
+        {
+            Form_Agregar_Empleado agregar_empleado = new(EmpleadoActual, Database);
+            agregar_empleado.Show();
+            Hide();
+            agregar_empleado.FormClosed += (s, args) => this.Show();
+        }
+
+        private void button_modificar_Click(object sender, EventArgs e)
+        {
+            Form_Modificar_Empleado modificar_empleado = new(EmpleadoActual, Database);
+            modificar_empleado.Show();
+            Hide();
+            modificar_empleado.FormClosed += (s, args) => this.Show();
+        }
+
+        private void button_salir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

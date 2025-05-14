@@ -28,10 +28,21 @@
 
         private void button_GEmpleados_Click(object sender, EventArgs e)
         {
-            Form_Modificar_Empleado gestion_empleados = new(EmpleadoActual, Database);
+            Form_Home_Gestion_Empleados gestion_empleados = new(EmpleadoActual, Database);
             gestion_empleados.Show();
             Hide();
             gestion_empleados.FormClosed += (s, args) => this.Show();
+        }
+
+        private void panel_home_admin_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Form_Home_Admin_Load(object sender, EventArgs e)
+        {
+
+            lbl_nombreUsuario.Text = EmpleadoActual.Nombre;
         }
     }
 }
