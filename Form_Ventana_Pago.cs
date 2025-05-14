@@ -14,12 +14,18 @@ namespace InkPos
     {
         private Empleado EmpleadoActual;
         private DataBaseHandler Database;
+        private int Valor;
+        private List<Producto> Productos;
 
-        public Form_Ventana_Pago(Empleado empleado, DataBaseHandler database)
+
+        public Form_Ventana_Pago(Empleado empleado, DataBaseHandler database, List<Producto> productos, int valor )
         {
             EmpleadoActual = empleado;
             Database = database;
+            Productos = productos ?? new List<Producto>();
+            Valor = valor;
             InitializeComponent();
+           
         }
     }
 }
