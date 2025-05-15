@@ -35,26 +35,26 @@
             txtbox_cedula = new MaterialSkin.Controls.MaterialTextBox2();
             txtbox_telefono = new MaterialSkin.Controls.MaterialTextBox2();
             txtbox_salario = new MaterialSkin.Controls.MaterialTextBox2();
-            txtbox_cargo = new MaterialSkin.Controls.MaterialTextBox2();
             button_salir = new MaterialSkin.Controls.MaterialButton();
             button_limpiar = new MaterialSkin.Controls.MaterialButton();
             button_confirmar = new MaterialSkin.Controls.MaterialButton();
             txtbox_nombre_empleado = new MaterialSkin.Controls.MaterialTextBox2();
             lbl_nombre = new Label();
             lbl_GestionEmpleados = new Label();
+            CB_cargo = new MaterialSkin.Controls.MaterialComboBox();
             panel_gestion_empleados.SuspendLayout();
             SuspendLayout();
             // 
             // panel_gestion_empleados
             // 
             panel_gestion_empleados.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel_gestion_empleados.Controls.Add(CB_cargo);
             panel_gestion_empleados.Controls.Add(lbl_salario);
             panel_gestion_empleados.Controls.Add(lbl_cargo);
             panel_gestion_empleados.Controls.Add(lbl_telefono);
             panel_gestion_empleados.Controls.Add(txtbox_cedula);
             panel_gestion_empleados.Controls.Add(txtbox_telefono);
             panel_gestion_empleados.Controls.Add(txtbox_salario);
-            panel_gestion_empleados.Controls.Add(txtbox_cargo);
             panel_gestion_empleados.Controls.Add(button_salir);
             panel_gestion_empleados.Controls.Add(button_limpiar);
             panel_gestion_empleados.Controls.Add(button_confirmar);
@@ -190,35 +190,6 @@
             txtbox_salario.TrailingIcon = null;
             txtbox_salario.UseSystemPasswordChar = false;
             // 
-            // txtbox_cargo
-            // 
-            txtbox_cargo.Anchor = AnchorStyles.None;
-            txtbox_cargo.AnimateReadOnly = false;
-            txtbox_cargo.BackgroundImageLayout = ImageLayout.None;
-            txtbox_cargo.CharacterCasing = CharacterCasing.Normal;
-            txtbox_cargo.Depth = 0;
-            txtbox_cargo.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtbox_cargo.HideSelection = true;
-            txtbox_cargo.LeadingIcon = null;
-            txtbox_cargo.Location = new Point(600, 431);
-            txtbox_cargo.MaxLength = 32767;
-            txtbox_cargo.MouseState = MaterialSkin.MouseState.OUT;
-            txtbox_cargo.Name = "txtbox_cargo";
-            txtbox_cargo.PasswordChar = '\0';
-            txtbox_cargo.PrefixSuffixText = null;
-            txtbox_cargo.ReadOnly = false;
-            txtbox_cargo.RightToLeft = RightToLeft.No;
-            txtbox_cargo.SelectedText = "";
-            txtbox_cargo.SelectionLength = 0;
-            txtbox_cargo.SelectionStart = 0;
-            txtbox_cargo.ShortcutsEnabled = true;
-            txtbox_cargo.Size = new Size(312, 48);
-            txtbox_cargo.TabIndex = 18;
-            txtbox_cargo.TabStop = false;
-            txtbox_cargo.TextAlign = HorizontalAlignment.Left;
-            txtbox_cargo.TrailingIcon = null;
-            txtbox_cargo.UseSystemPasswordChar = false;
-            // 
             // button_salir
             // 
             button_salir.Anchor = AnchorStyles.None;
@@ -334,6 +305,31 @@
             lbl_GestionEmpleados.TabIndex = 9;
             lbl_GestionEmpleados.Text = "Gestión empleados";
             // 
+            // CB_cargo
+            // 
+            CB_cargo.Anchor = AnchorStyles.None;
+            CB_cargo.AutoResize = false;
+            CB_cargo.BackColor = Color.FromArgb(255, 255, 255);
+            CB_cargo.Depth = 0;
+            CB_cargo.DrawMode = DrawMode.OwnerDrawVariable;
+            CB_cargo.DropDownHeight = 174;
+            CB_cargo.DropDownStyle = ComboBoxStyle.DropDownList;
+            CB_cargo.DropDownWidth = 121;
+            CB_cargo.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            CB_cargo.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            CB_cargo.FormattingEnabled = true;
+            CB_cargo.Hint = "Escoja una opción";
+            CB_cargo.IntegralHeight = false;
+            CB_cargo.ItemHeight = 43;
+            CB_cargo.Items.AddRange(new object[] { "Empleado", "Admin" });
+            CB_cargo.Location = new Point(600, 430);
+            CB_cargo.MaxDropDownItems = 4;
+            CB_cargo.MouseState = MaterialSkin.MouseState.OUT;
+            CB_cargo.Name = "CB_cargo";
+            CB_cargo.Size = new Size(312, 49);
+            CB_cargo.StartIndex = 0;
+            CB_cargo.TabIndex = 44;
+            // 
             // Form_Modificar_Empleado
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -360,9 +356,9 @@
         private MaterialSkin.Controls.MaterialTextBox2 txtbox_cedula;
         private MaterialSkin.Controls.MaterialTextBox2 txtbox_telefono;
         private MaterialSkin.Controls.MaterialTextBox2 txtbox_salario;
-        private MaterialSkin.Controls.MaterialTextBox2 txtbox_cargo;
         private Label lbl_salario;
         private Label lbl_cargo;
         private Label lbl_telefono;
+        private MaterialSkin.Controls.MaterialComboBox CB_cargo;
     }
 }
