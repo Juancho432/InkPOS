@@ -4,10 +4,10 @@
     {
 
         public string Id_Empleado { get; } = id;
-        public string Nombre { get; } = nombre;
-        public string Telefono { get; } = telefono;
-        public bool Es_Admin { get; } = es_admin;
-        public double Salario { get; } = salario;
+        public string Nombre { get; set; } = nombre;
+        public string Telefono { get; set; } = telefono;
+        public bool Es_Admin { get; set; } = es_admin;
+        public double Salario { get; set; } = salario;
 
     }
 }
