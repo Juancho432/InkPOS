@@ -53,7 +53,7 @@ namespace InkPos
             }
 
             // Convertir el cargo a minúsculas para una comparación segura
-            bool esAdmin = cargo_empleado.Trim().ToLower() == "administrador";
+            bool esAdmin = cargo_empleado.ToLower() == "administrador";
 
             if (!double.TryParse(salario_empleado, out double salario))
             {
