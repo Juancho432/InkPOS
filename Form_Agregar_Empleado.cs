@@ -32,7 +32,7 @@ namespace InkPos
             string nombre_empleado = txtbox_nombre_empleado.Text.Trim();
             string cedula_empleado = txtbox_cedula.Text.Trim();
             string telefono_empleado = txtbox_telefono.Text.Trim();
-            string cargo_empleado = txtbox_cargo.Text.Trim();
+            string cargo_empleado = CB_cargo.SelectedItem?.ToString();
             string salario_empleado = txtbox_salario.Text.Trim();
 
             // Validar campos vacíos
@@ -86,7 +86,7 @@ namespace InkPos
             txtbox_nombre_empleado.Clear();
             txtbox_cedula.Clear();
             txtbox_telefono.Clear();
-            txtbox_cargo.Clear();
+            CB_cargo.SelectedIndex = -1;
             txtbox_salario.Clear();
         }
     }
