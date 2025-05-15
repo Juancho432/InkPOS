@@ -122,7 +122,7 @@
             button_agregar_empleado.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_agregar_empleado.UseAccentColor = false;
             button_agregar_empleado.UseVisualStyleBackColor = true;
-            button_agregar_empleado.Click += button_agregar_empleado_Click;
+            button_agregar_empleado.Click += Boton_Agregar_Empleado_Click;
             // 
             // txtbox_cedula
             // 
@@ -230,7 +230,7 @@
             button_salir.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_salir.UseAccentColor = false;
             button_salir.UseVisualStyleBackColor = true;
-            button_salir.Click += button_salir_Click;
+            button_salir.Click += Boton_Salir_Click;
             // 
             // button_limpiar
             // 
@@ -251,7 +251,7 @@
             button_limpiar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_limpiar.UseAccentColor = false;
             button_limpiar.UseVisualStyleBackColor = true;
-            button_limpiar.Click += button_limpiar_Click;
+            button_limpiar.Click += Boton_Limpiar_Click;
             // 
             // lbl_cedula
             // 
