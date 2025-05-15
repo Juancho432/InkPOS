@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             panel_ventana_pago = new Panel();
+            lbl_cambio = new Label();
+            txtbox_valor_recibido = new MaterialSkin.Controls.MaterialTextBox2();
+            txtbox_cambio = new MaterialSkin.Controls.MaterialTextBox2();
             button_GenerarPDF = new MaterialSkin.Controls.MaterialButton();
             button_cancelar = new MaterialSkin.Controls.MaterialButton();
             button_confirmar = new MaterialSkin.Controls.MaterialButton();
@@ -36,9 +39,6 @@
             lbl_valor_recibido = new Label();
             CB_transaccion = new MaterialSkin.Controls.MaterialComboBox();
             lbl_Valor = new Label();
-            txtbox_cambio = new MaterialSkin.Controls.MaterialTextBox2();
-            txtbox_valor_recibido = new MaterialSkin.Controls.MaterialTextBox2();
-            lbl_cambio = new Label();
             panel_ventana_pago.SuspendLayout();
             SuspendLayout();
             // 
@@ -54,10 +54,83 @@
             panel_ventana_pago.Controls.Add(lbl_valor_recibido);
             panel_ventana_pago.Controls.Add(CB_transaccion);
             panel_ventana_pago.Controls.Add(lbl_Valor);
-            panel_ventana_pago.Location = new Point(5, 2);
+            panel_ventana_pago.Location = new Point(4, 2);
+            panel_ventana_pago.Margin = new Padding(3, 2, 3, 2);
             panel_ventana_pago.Name = "panel_ventana_pago";
-            panel_ventana_pago.Size = new Size(1513, 1171);
+            panel_ventana_pago.Size = new Size(1324, 878);
             panel_ventana_pago.TabIndex = 0;
+            // 
+            // lbl_cambio
+            // 
+            lbl_cambio.Anchor = AnchorStyles.None;
+            lbl_cambio.AutoSize = true;
+            lbl_cambio.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_cambio.Location = new Point(493, 382);
+            lbl_cambio.Name = "lbl_cambio";
+            lbl_cambio.Size = new Size(93, 30);
+            lbl_cambio.TabIndex = 16;
+            lbl_cambio.Text = "Cambio:";
+            // 
+            // txtbox_valor_recibido
+            // 
+            txtbox_valor_recibido.Anchor = AnchorStyles.None;
+            txtbox_valor_recibido.AnimateReadOnly = false;
+            txtbox_valor_recibido.BackgroundImageLayout = ImageLayout.None;
+            txtbox_valor_recibido.CharacterCasing = CharacterCasing.Normal;
+            txtbox_valor_recibido.Depth = 0;
+            txtbox_valor_recibido.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtbox_valor_recibido.HideSelection = true;
+            txtbox_valor_recibido.LeadingIcon = null;
+            txtbox_valor_recibido.Location = new Point(653, 316);
+            txtbox_valor_recibido.Margin = new Padding(3, 2, 3, 2);
+            txtbox_valor_recibido.MaxLength = 32767;
+            txtbox_valor_recibido.MouseState = MaterialSkin.MouseState.OUT;
+            txtbox_valor_recibido.Name = "txtbox_valor_recibido";
+            txtbox_valor_recibido.PasswordChar = '\0';
+            txtbox_valor_recibido.PrefixSuffixText = null;
+            txtbox_valor_recibido.ReadOnly = false;
+            txtbox_valor_recibido.RightToLeft = RightToLeft.No;
+            txtbox_valor_recibido.SelectedText = "";
+            txtbox_valor_recibido.SelectionLength = 0;
+            txtbox_valor_recibido.SelectionStart = 0;
+            txtbox_valor_recibido.ShortcutsEnabled = true;
+            txtbox_valor_recibido.Size = new Size(273, 48);
+            txtbox_valor_recibido.TabIndex = 15;
+            txtbox_valor_recibido.TabStop = false;
+            txtbox_valor_recibido.TextAlign = HorizontalAlignment.Left;
+            txtbox_valor_recibido.TrailingIcon = null;
+            txtbox_valor_recibido.UseSystemPasswordChar = false;
+            txtbox_valor_recibido.KeyDown += txtbox_valor_recibido_KeyDown_1;
+            // 
+            // txtbox_cambio
+            // 
+            txtbox_cambio.Anchor = AnchorStyles.None;
+            txtbox_cambio.AnimateReadOnly = false;
+            txtbox_cambio.BackgroundImageLayout = ImageLayout.None;
+            txtbox_cambio.CharacterCasing = CharacterCasing.Normal;
+            txtbox_cambio.Depth = 0;
+            txtbox_cambio.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtbox_cambio.HideSelection = true;
+            txtbox_cambio.LeadingIcon = null;
+            txtbox_cambio.Location = new Point(653, 382);
+            txtbox_cambio.Margin = new Padding(3, 2, 3, 2);
+            txtbox_cambio.MaxLength = 32767;
+            txtbox_cambio.MouseState = MaterialSkin.MouseState.OUT;
+            txtbox_cambio.Name = "txtbox_cambio";
+            txtbox_cambio.PasswordChar = '\0';
+            txtbox_cambio.PrefixSuffixText = null;
+            txtbox_cambio.ReadOnly = true;
+            txtbox_cambio.RightToLeft = RightToLeft.No;
+            txtbox_cambio.SelectedText = "";
+            txtbox_cambio.SelectionLength = 0;
+            txtbox_cambio.SelectionStart = 0;
+            txtbox_cambio.ShortcutsEnabled = true;
+            txtbox_cambio.Size = new Size(273, 48);
+            txtbox_cambio.TabIndex = 14;
+            txtbox_cambio.TabStop = false;
+            txtbox_cambio.TextAlign = HorizontalAlignment.Left;
+            txtbox_cambio.TrailingIcon = null;
+            txtbox_cambio.UseSystemPasswordChar = false;
             // 
             // button_GenerarPDF
             // 
@@ -67,8 +140,8 @@
             button_GenerarPDF.Depth = 0;
             button_GenerarPDF.HighEmphasis = true;
             button_GenerarPDF.Icon = null;
-            button_GenerarPDF.Location = new Point(704, 712);
-            button_GenerarPDF.Margin = new Padding(4, 6, 4, 6);
+            button_GenerarPDF.Location = new Point(616, 534);
+            button_GenerarPDF.Margin = new Padding(4);
             button_GenerarPDF.MouseState = MaterialSkin.MouseState.HOVER;
             button_GenerarPDF.Name = "button_GenerarPDF";
             button_GenerarPDF.NoAccentTextColor = Color.Empty;
@@ -87,8 +160,8 @@
             button_cancelar.Depth = 0;
             button_cancelar.HighEmphasis = true;
             button_cancelar.Icon = null;
-            button_cancelar.Location = new Point(897, 712);
-            button_cancelar.Margin = new Padding(4, 6, 4, 6);
+            button_cancelar.Location = new Point(785, 534);
+            button_cancelar.Margin = new Padding(4);
             button_cancelar.MouseState = MaterialSkin.MouseState.HOVER;
             button_cancelar.Name = "button_cancelar";
             button_cancelar.NoAccentTextColor = Color.Empty;
@@ -98,6 +171,7 @@
             button_cancelar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_cancelar.UseAccentColor = false;
             button_cancelar.UseVisualStyleBackColor = true;
+            button_cancelar.Click += button_cancelar_Click;
             // 
             // button_confirmar
             // 
@@ -107,8 +181,8 @@
             button_confirmar.Depth = 0;
             button_confirmar.HighEmphasis = true;
             button_confirmar.Icon = null;
-            button_confirmar.Location = new Point(509, 712);
-            button_confirmar.Margin = new Padding(4, 6, 4, 6);
+            button_confirmar.Location = new Point(445, 534);
+            button_confirmar.Margin = new Padding(4);
             button_confirmar.MouseState = MaterialSkin.MouseState.HOVER;
             button_confirmar.Name = "button_confirmar";
             button_confirmar.NoAccentTextColor = Color.Empty;
@@ -118,6 +192,7 @@
             button_confirmar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_confirmar.UseAccentColor = false;
             button_confirmar.UseVisualStyleBackColor = true;
+            button_confirmar.Click += button_confirmar_Click;
             // 
             // txtbox_valor
             // 
@@ -129,7 +204,8 @@
             txtbox_valor.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_valor.HideSelection = true;
             txtbox_valor.LeadingIcon = null;
-            txtbox_valor.Location = new Point(658, 142);
+            txtbox_valor.Location = new Point(576, 106);
+            txtbox_valor.Margin = new Padding(3, 2, 3, 2);
             txtbox_valor.MaxLength = 32767;
             txtbox_valor.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_valor.Name = "txtbox_valor";
@@ -141,7 +217,7 @@
             txtbox_valor.SelectionLength = 0;
             txtbox_valor.SelectionStart = 0;
             txtbox_valor.ShortcutsEnabled = true;
-            txtbox_valor.Size = new Size(312, 48);
+            txtbox_valor.Size = new Size(273, 48);
             txtbox_valor.TabIndex = 10;
             txtbox_valor.TabStop = false;
             txtbox_valor.TextAlign = HorizontalAlignment.Left;
@@ -153,9 +229,9 @@
             lbl_valor_recibido.Anchor = AnchorStyles.None;
             lbl_valor_recibido.AutoSize = true;
             lbl_valor_recibido.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_valor_recibido.Location = new Point(487, 431);
+            lbl_valor_recibido.Location = new Point(426, 323);
             lbl_valor_recibido.Name = "lbl_valor_recibido";
-            lbl_valor_recibido.Size = new Size(193, 38);
+            lbl_valor_recibido.Size = new Size(152, 30);
             lbl_valor_recibido.TabIndex = 9;
             lbl_valor_recibido.Text = "Valor recibido:";
             // 
@@ -176,11 +252,12 @@
             CB_transaccion.IntegralHeight = false;
             CB_transaccion.ItemHeight = 43;
             CB_transaccion.Items.AddRange(new object[] { "Efectivo", "Transferencia" });
-            CB_transaccion.Location = new Point(621, 269);
+            CB_transaccion.Location = new Point(543, 202);
+            CB_transaccion.Margin = new Padding(3, 2, 3, 2);
             CB_transaccion.MaxDropDownItems = 4;
             CB_transaccion.MouseState = MaterialSkin.MouseState.OUT;
             CB_transaccion.Name = "CB_transaccion";
-            CB_transaccion.Size = new Size(266, 49);
+            CB_transaccion.Size = new Size(233, 49);
             CB_transaccion.StartIndex = 0;
             CB_transaccion.TabIndex = 8;
             // 
@@ -189,87 +266,19 @@
             lbl_Valor.Anchor = AnchorStyles.None;
             lbl_Valor.AutoSize = true;
             lbl_Valor.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_Valor.Location = new Point(522, 149);
+            lbl_Valor.Location = new Point(457, 112);
             lbl_Valor.Name = "lbl_Valor";
-            lbl_Valor.Size = new Size(92, 41);
+            lbl_Valor.Size = new Size(72, 32);
             lbl_Valor.TabIndex = 7;
             lbl_Valor.Text = "Valor:";
             // 
-            // txtbox_cambio
-            // 
-            txtbox_cambio.Anchor = AnchorStyles.None;
-            txtbox_cambio.AnimateReadOnly = false;
-            txtbox_cambio.BackgroundImageLayout = ImageLayout.None;
-            txtbox_cambio.CharacterCasing = CharacterCasing.Normal;
-            txtbox_cambio.Depth = 0;
-            txtbox_cambio.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtbox_cambio.HideSelection = true;
-            txtbox_cambio.LeadingIcon = null;
-            txtbox_cambio.Location = new Point(746, 509);
-            txtbox_cambio.MaxLength = 32767;
-            txtbox_cambio.MouseState = MaterialSkin.MouseState.OUT;
-            txtbox_cambio.Name = "txtbox_cambio";
-            txtbox_cambio.PasswordChar = '\0';
-            txtbox_cambio.PrefixSuffixText = null;
-            txtbox_cambio.ReadOnly = true;
-            txtbox_cambio.RightToLeft = RightToLeft.No;
-            txtbox_cambio.SelectedText = "";
-            txtbox_cambio.SelectionLength = 0;
-            txtbox_cambio.SelectionStart = 0;
-            txtbox_cambio.ShortcutsEnabled = true;
-            txtbox_cambio.Size = new Size(312, 48);
-            txtbox_cambio.TabIndex = 14;
-            txtbox_cambio.TabStop = false;
-            txtbox_cambio.TextAlign = HorizontalAlignment.Left;
-            txtbox_cambio.TrailingIcon = null;
-            txtbox_cambio.UseSystemPasswordChar = false;
-            // 
-            // txtbox_valor_recibido
-            // 
-            txtbox_valor_recibido.Anchor = AnchorStyles.None;
-            txtbox_valor_recibido.AnimateReadOnly = false;
-            txtbox_valor_recibido.BackgroundImageLayout = ImageLayout.None;
-            txtbox_valor_recibido.CharacterCasing = CharacterCasing.Normal;
-            txtbox_valor_recibido.Depth = 0;
-            txtbox_valor_recibido.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtbox_valor_recibido.HideSelection = true;
-            txtbox_valor_recibido.LeadingIcon = null;
-            txtbox_valor_recibido.Location = new Point(746, 421);
-            txtbox_valor_recibido.MaxLength = 32767;
-            txtbox_valor_recibido.MouseState = MaterialSkin.MouseState.OUT;
-            txtbox_valor_recibido.Name = "txtbox_valor_recibido";
-            txtbox_valor_recibido.PasswordChar = '\0';
-            txtbox_valor_recibido.PrefixSuffixText = null;
-            txtbox_valor_recibido.ReadOnly = false;
-            txtbox_valor_recibido.RightToLeft = RightToLeft.No;
-            txtbox_valor_recibido.SelectedText = "";
-            txtbox_valor_recibido.SelectionLength = 0;
-            txtbox_valor_recibido.SelectionStart = 0;
-            txtbox_valor_recibido.ShortcutsEnabled = true;
-            txtbox_valor_recibido.Size = new Size(312, 48);
-            txtbox_valor_recibido.TabIndex = 15;
-            txtbox_valor_recibido.TabStop = false;
-            txtbox_valor_recibido.TextAlign = HorizontalAlignment.Left;
-            txtbox_valor_recibido.TrailingIcon = null;
-            txtbox_valor_recibido.UseSystemPasswordChar = false;
-            // 
-            // lbl_cambio
-            // 
-            lbl_cambio.Anchor = AnchorStyles.None;
-            lbl_cambio.AutoSize = true;
-            lbl_cambio.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_cambio.Location = new Point(563, 509);
-            lbl_cambio.Name = "lbl_cambio";
-            lbl_cambio.Size = new Size(117, 38);
-            lbl_cambio.TabIndex = 16;
-            lbl_cambio.Text = "Cambio:";
-            // 
             // Form_Ventana_Pago
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1522, 1175);
+            ClientSize = new Size(1332, 796);
             Controls.Add(panel_ventana_pago);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form_Ventana_Pago";
             Text = "InkPOS - Pago";
             WindowState = FormWindowState.Maximized;

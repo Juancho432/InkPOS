@@ -17,6 +17,8 @@ namespace InkPos
         private List<Producto> ProductosBaseDatos;
         private int valor;
 
+        public int ValorTotal { get; private set; }
+
         public Form_Venta(Empleado empleado, DataBaseHandler database)
         {
             EmpleadoActual = empleado;
@@ -30,47 +32,41 @@ namespace InkPos
         }
 
         private void button_finalizar_Click(object sender, EventArgs e)
-        { // Crear una lista de productos a partir de la tabla
-            List<Producto> productos = new List<Producto>();
-
-            foreach (DataGridViewRow fila in tabla_Productos.Rows)
-            {
-                if (!fila.IsNewRow) // Ignorar la fila nueva vacía
-                {
-                    Producto producto = new Producto(
-                        fila.Cells["column_codigo"].Value?.ToString(),
-                        fila.Cells["column_NombreP"].Value?.ToString(),
-                        Convert.ToDecimal(fila.Cells["column_valor"].Value),
-                        Convert.ToInt32(fila.Cells["column_cantidad"].Value)
-                    );
-
-                    productos.Add(producto);
-                }
-            }
-
-            // Validar que la lista no esté vacía
-            if (productos.Count == 0)
-            {
-                MessageBox.Show("No hay productos en la tabla para finalizar la venta.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            // Crear una nueva instancia de Form_Ventana_Pago con la lista de productos
-            Form_Ventana_Pago ventanaPago = new Form_Ventana_Pago(EmpleadoActual, Database, productos, valor);//este valor es el precio final de todos los productos, no tiene ningun valor y hay que asignarlo
-
-            // Mostrar el formulario
-            ventanaPago.ShowDialog();
-
-            // Cerrar este formulario
-            this.Close();
-        }
-
-        private void txtbox_busqueda_producto_KeyPress(object sender, KeyPressEventArgs e)
         {
-
-
-
+    List<Producto> productos = new List<Producto>();
+    foreach (DataGridViewRow fila in tabla_Productos.Rows)
+    {
+        if (!fila.IsNewRow)
+        {
+            Producto producto = new Producto(
+                fila.Cells["column_codigo"].Value?.ToString(),
+                fila.Cells["column_NombreP"].Value?.ToString(),
+                Convert.ToDecimal(fila.Cells["column_valor"].Value),
+                Convert.ToInt32(fila.Cells["column_cantidad"].Value)
+            );
+            productos.Add(producto);
         }
+    }
+
+    if (productos.Count == 0)
+    {
+        MessageBox.Show("No hay productos en la tabla para finalizar la venta.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        return;
+    }
+
+    // Obtener el valor total desde el textbox
+    decimal valorTotal = 0;
+    if (!decimal.TryParse(txtbox_Valor_total.Text, out valorTotal))
+    {
+        MessageBox.Show("Ingrese un valor total válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        return;
+    }
+
+            Form_Ventana_Pago ventanaPago = new Form_Ventana_Pago(EmpleadoActual, Database, productos, (int)valorTotal);
+    ventanaPago.ShowDialog();
+    this.Close();
+}
+
 
         private void button_cancelar_Click(object sender, EventArgs e)
         {
@@ -79,38 +75,18 @@ namespace InkPos
 
         private void txtbox_busqueda_producto_TextChanged(object sender, EventArgs e)
         {
+            string textoBusqueda = txtbox_busqueda_producto.Text.ToLower();
+            var coincidencias = ProductosBaseDatos
+                .Where(p => p.NombreItem.ToLower().Contains(textoBusqueda) || p.IdProducto.ToLower().Contains(textoBusqueda))
+                .OrderByDescending(p => ObtenerSimilitud(p.NombreItem.ToLower(), textoBusqueda))
+                .ThenByDescending(p => ObtenerSimilitud(p.IdProducto.ToLower(), textoBusqueda))
+                .ToList();
+
+            lista_Coincidencias.Items.Clear();
+            foreach (var producto in coincidencias)
             {
-                // Obtener el texto ingresado en el txtbox de búsqueda
-                string textoBusqueda = txtbox_busqueda_producto.Text.ToLower();
-
-                // Obtener la lista de productos con la base de datos
-                List<Producto> listaProductos = ProductosBaseDatos;
-
-                // Filtrar y ordenar los productos según la similitud con el texto de búsqueda
-                var coincidencias = listaProductos
-                    .Where(p => p.NombreItem.ToLower().Contains(textoBusqueda) || p.IdProducto.ToLower().Contains(textoBusqueda))
-                    .OrderByDescending(p => ObtenerSimilitud(p.NombreItem.ToLower(), textoBusqueda))
-                    .ThenByDescending(p => ObtenerSimilitud(p.IdProducto.ToLower(), textoBusqueda))
-                    .ToList();
-
-                // Limpiar la lista de coincidencias
-                lista_Coincidencias.Items.Clear();
-
-                // Agregar las coincidencias a la lista
-                foreach (var producto in coincidencias)
-                {
-                    // Crear un elemento para la lista
-                    ListViewItem item = new ListViewItem($"ID: {producto.IdProducto} | Nombre: {producto.NombreItem}");
-
-                    // Si hay una coincidencia exacta, marcar en verde
-                    if (producto.NombreItem.ToLower() == textoBusqueda || producto.IdProducto.ToLower() == textoBusqueda)
-                    {
-                        item.ForeColor = Color.Green;
-                    }
-
-                    // Agregar el elemento a la lista
-                    lista_Coincidencias.Items.Add(item);
-                }
+                string item = $"ID: {producto.IdProducto} | Nombre: {producto.NombreItem}";
+                lista_Coincidencias.Items.Add(item);
             }
         }
 
@@ -118,15 +94,11 @@ namespace InkPos
         {
             int coincidencias = 0;
             int longitud = Math.Min(texto1.Length, texto2.Length);
-
             for (int i = 0; i < longitud; i++)
             {
                 if (texto1[i] == texto2[i])
-                {
                     coincidencias++;
-                }
             }
-
             return coincidencias;
         }
 
@@ -139,53 +111,27 @@ namespace InkPos
 
         private void txtbox_busqueda_producto_KeyDown(object sender, KeyEventArgs e)
         {
-            // Verificar si se presionó la tecla Enter
             if (e.KeyCode == Keys.Enter)
             {
-                // Obtener el texto ingresado en el cuadro de búsqueda
-                string textoBusqueda = txtbox_busqueda_producto.Text.ToLower();
-                bool encontrado = false;
-                // Recorrer los elementos de lista_Coincidencias para verificar coincidencias exactas
-                foreach (ListViewItem item in lista_Coincidencias.Items)
+                string textoBusqueda = txtbox_busqueda_producto.Text.ToLower().Trim();
+                Producto productoEncontrado = ProductosBaseDatos
+                    .FirstOrDefault(p => p.NombreItem.ToLower() == textoBusqueda || p.IdProducto.ToLower() == textoBusqueda);
+
+                if (productoEncontrado != null)
                 {
-                    // Extraer el texto del elemento (formato: "Nombre (ID)")
-                    string textoElemento = item.Text.ToLower();
-
-                    // Separar el nombre y el ID del elemento
-                    int indiceParentesis = textoElemento.LastIndexOf(" (");
-                    if (indiceParentesis != -1)
-                    {
-                        string nombre = textoElemento.Substring(0, indiceParentesis).Trim();
-                        string id = textoElemento.Substring(indiceParentesis + 2, textoElemento.Length - indiceParentesis - 3).Trim();
-
-                        // Verificar si el texto ingresado coincide exactamente con el nombre o el ID
-                        if (textoBusqueda == nombre || textoBusqueda == id)
-                        {
-                            encontrado = true;
-                            // Si hay coincidencia exacta, ejecutar la lógica deseada
-                            //Producto producto = LLenar producto con la base de datos en base a textoBusqueda.
-                            //AgregarProductoATabla(producto)
-
-                            int stock = 0;//ObtenerStockProducto(fila.Cells["column_codigo"].Value?.ToString());
-                            MessageBox.Show($"Producto encontrado: {item.Text}", $"cantidad disponible en stock: {stock}", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            break;
-                        }
-
-                    }
-
+                    AgregarProductoATabla(productoEncontrado);
                 }
-                if (!encontrado)
+                else
                 {
-                    // Si no se encuentra coincidencia exacta, mostrar un mensaje opcional
                     MessageBox.Show("No se encontró el producto buscado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
                 }
-
             }
         }
+
+
+
         private void AgregarProductoATabla(Producto producto)
         {
-            // Verificar si el producto ya está en la tabla
             foreach (DataGridViewRow fila in tabla_Productos.Rows)
             {
                 if (fila.Cells["column_codigo"].Value?.ToString() == producto.IdProducto)
@@ -194,73 +140,155 @@ namespace InkPos
                     return;
                 }
             }
-
-            // Agregar una nueva fila con los valores del producto
             tabla_Productos.Rows.Add(
-                producto.IdProducto,  // Columna Código
-                producto.NombreItem,  // Columna Producto
-                1,                    // Columna Cantidad (por defecto 1)
-                producto.Precio       // Columna Valor (Precio * Cantidad)
+                producto.IdProducto,
+                producto.NombreItem,
+                1,
+                producto.Precio
             );
-        } //funcion que agreaga en base a la consulta, llamar en txtbox_busqueda_producto_KeyDown
+            ActualizarValorTotal();
+        }
 
         private void tabla_Productos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            // Verificar si la celda modificada pertenece a la columna "Cantidad"
-            if (tabla_Productos.Columns["column_cantidad"] != null && e.ColumnIndex == tabla_Productos.Columns["column_cantidad"].Index && e.RowIndex >= 0)
-
-                {
-                    // Obtener la fila modificada
-                    DataGridViewRow fila = tabla_Productos.Rows[e.RowIndex];
-
-                // Validar y obtener el valor de la cantidad
+            if (tabla_Productos.Columns["column_cantidad"] != null &&
+                e.ColumnIndex == tabla_Productos.Columns["column_cantidad"].Index &&
+                e.RowIndex >= 0)
+            {
+                DataGridViewRow fila = tabla_Productos.Rows[e.RowIndex];
                 if (int.TryParse(fila.Cells["column_cantidad"].Value?.ToString(), out int cantidad))
                 {
                     if (cantidad == 0)
                     {
-                        // Eliminar la fila si la cantidad es 0
                         tabla_Productos.Rows.RemoveAt(e.RowIndex);
                         MessageBox.Show("El producto ha sido eliminado de la tabla porque la cantidad es 0.", "Producto Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
 
                     // Obtener el stock del producto con la base de datos
-                    int stock = 0;//ObtenerStockProducto(fila.Cells["column_codigo"].Value?.ToString());
+                    string id = fila.Cells["column_codigo"].Value?.ToString();
+                    Producto producto = ProductosBaseDatos.FirstOrDefault(p => p.IdProducto == id);
+                    int stock = producto?.Stock ?? 0;
 
-                    // Verificar si la cantidad excede el stock
                     if (cantidad > stock)
                     {
                         MessageBox.Show($"La cantidad no puede ser mayor al stock disponible ({stock}).", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        fila.Cells["column_cantidad"].Value = stock; // Restablecer la cantidad al stock máximo
-                        cantidad = stock; // Actualizar la cantidad para el cálculo del total
+                        fila.Cells["column_cantidad"].Value = stock;
+                        cantidad = stock;
                         if (stock == 0)
                         {
-                            // Eliminar la fila si la cantidad es 0
                             tabla_Productos.Rows.RemoveAt(e.RowIndex);
                             MessageBox.Show("El producto ha sido eliminado de la tabla porque no hay stock de este producto.", "Producto Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return;
                         }
                     }
 
-                    // Obtener el precio del producto
-                    decimal precio = Convert.ToDecimal(fila.Cells["column_valor"].Value) / (cantidad == 0 ? 1 : cantidad);
-
                     // Calcular el nuevo total
-                    fila.Cells["column_valor"].Value = precio * cantidad;
+                    decimal precioUnitario = producto?.Precio ?? 0;
+                    fila.Cells["column_valor"].Value = precioUnitario * cantidad;
                     valor = Convert.ToInt32(fila.Cells["column_valor"].Value);
                 }
                 else
                 {
-                    // Si el valor no es válido, restablecer la cantidad a 1
                     MessageBox.Show("La cantidad debe ser un número entero mayor a 0.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     fila.Cells["column_cantidad"].Value = 1;
-
-                    // Recalcular el total
-                    decimal precio = Convert.ToDecimal(fila.Cells["column_valor"].Value);
-                    fila.Cells["column_valor"].Value = precio;
+                    string id = fila.Cells["column_codigo"].Value?.ToString();
+                    Producto producto = ProductosBaseDatos.FirstOrDefault(p => p.IdProducto == id);
+                    decimal precioUnitario = producto?.Precio ?? 0;
+                    fila.Cells["column_valor"].Value = precioUnitario;
                 }
             }
+            ActualizarValorTotal();
         }
+
+        private void lista_Coincidencias_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // KeyPressEventArgs does not have a KeyCode property. Use KeyDown or KeyUp event instead.
+            // Replace this method with the KeyDown event handler to properly handle the Enter key.
+
+            if (e.KeyChar == (char)Keys.Enter) // Check if the pressed key is Enter
+            {
+                string textoBusqueda = txtbox_busqueda_producto.Text.ToLower();
+                Producto productoEncontrado = null;
+
+                foreach (var producto in ProductosBaseDatos)
+                {
+                    if (producto.NombreItem.ToLower() == textoBusqueda || producto.IdProducto.ToLower() == textoBusqueda)
+                    {
+                        productoEncontrado = producto;
+                        break;
+                    }
+                }
+
+                if (productoEncontrado != null)
+                {
+                    AgregarProductoATabla(productoEncontrado);
+                    MessageBox.Show($"Producto agregado: {productoEncontrado.NombreItem}", "Producto Agregado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró el producto buscado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                // Prevent the 'ding' sound when pressing Enter
+                e.Handled = true;
+            }
+        }
+
+        private void txtbox_Cantidad_productos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (int.TryParse(txtbox_Cantidad_productos.Text, out int nuevaCantidad) && nuevaCantidad > 0)
+                {
+                    DataGridViewRow fila = null;
+
+                    // Prioriza la fila seleccionada, si no, usa la fila de la celda activa
+                    if (tabla_Productos.SelectedRows.Count > 0)
+                    {
+                        fila = tabla_Productos.SelectedRows[0];
+                    }
+                    else if (tabla_Productos.CurrentCell != null)
+                    {
+                        fila = tabla_Productos.Rows[tabla_Productos.CurrentCell.RowIndex];
+                    }
+
+                    if (fila != null && !fila.IsNewRow)
+                    {
+                        fila.Cells["column_cantidad"].Value = nuevaCantidad;
+                        // Forzar commit para disparar CellValueChanged
+                        tabla_Productos.CommitEdit(DataGridViewDataErrorContexts.Commit);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Seleccione un producto válido en la tabla.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese una cantidad válida mayor a 0.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                txtbox_Cantidad_productos.SelectAll();
+                e.Handled = true;
+            }
+        }
+        private void ActualizarValorTotal()
+        {
+            decimal total = 0;
+            foreach (DataGridViewRow fila in tabla_Productos.Rows)
+            {
+                if (!fila.IsNewRow && fila.Cells["column_valor"].Value != null)
+                {
+                    if (decimal.TryParse(fila.Cells["column_valor"].Value.ToString(), out decimal valorFila))
+                    {
+                        total += valorFila;
+                    }
+                }
+            }
+            txtbox_Valor_total.Text = total.ToString("N2");
+        }
+
     }
 }
+
 
