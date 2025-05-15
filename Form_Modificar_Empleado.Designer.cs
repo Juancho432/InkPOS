@@ -59,7 +59,6 @@
             panel_gestion_empleados.Name = "panel_gestion_empleados";
             panel_gestion_empleados.Size = new Size(1513, 1051);
             panel_gestion_empleados.TabIndex = 0;
-            panel_gestion_empleados.Paint += panel_gestion_empleados_Paint;
             // 
             // lbl_cargo
             // 
@@ -129,6 +128,7 @@
             CB_valor_a_modificar.Size = new Size(264, 49);
             CB_valor_a_modificar.StartIndex = 0;
             CB_valor_a_modificar.TabIndex = 24;
+            CB_valor_a_modificar.SelectedIndexChanged += CB_valor_a_modificar_SelectedIndexChanged;
             // 
             // txtbox_nuevo_valor
             // 
@@ -272,6 +272,7 @@
             Name = "Form_Modificar_Empleado";
             Text = "InkPOS - Gestión de empleados";
             WindowState = FormWindowState.Maximized;
+            Load += Form_Modificar_Empleado_Load;
             panel_gestion_empleados.ResumeLayout(false);
             panel_gestion_empleados.PerformLayout();
             ResumeLayout(false);

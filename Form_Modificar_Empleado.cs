@@ -26,24 +26,20 @@ namespace InkPos
 
         private void button_salir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void button_confirmar_Click(object sender, EventArgs e)
         {
             string cedulaEmpleado = txtbox_cedula.Text.Trim();
-            string campoSeleccionado = CB_valor_a_modificar.SelectedItem?.ToString();
+            int campoSeleccionado = CB_valor_a_modificar.SelectedIndex;
             string nuevoValor = txtbox_nuevo_valor.Text.Trim();
-            string nuevoCargo = CB_cargo.SelectedItem?.ToString();
-
 
             // Validar campos vacíos
             try
             {
-                if (string.IsNullOrWhiteSpace(cedulaEmpleado) ||
-                    string.IsNullOrWhiteSpace(campoSeleccionado) ||
-                    string.IsNullOrWhiteSpace(nuevoValor) ||
-                    string.IsNullOrWhiteSpace(nuevoCargo))
+                if ((string.IsNullOrWhiteSpace(cedulaEmpleado) ||
+                    string.IsNullOrWhiteSpace(nuevoValor)) && CB_valor_a_modificar.SelectedIndex != 2)
                 {
                     throw new Excepciones.CamposVacios();
                 }
@@ -55,81 +51,69 @@ namespace InkPos
 
 
             // Buscar empleado
-            //Empleado empleadoExistente;
-            //try
-            //{
-            //    empleadoExistente = Database.ReadEmployeeByID(cedulaEmpleado); 
-            //}
-            //catch
-            //{
-            //    MessageBox.Show("Empleado no encontrado.");
-            //    return;
-            //}
+            Empleado empleadoExistente;
+            try
+            {
+                empleadoExistente = Database.ReadEmployedByID(cedulaEmpleado);
+            }
+            catch
+            {
+                MessageBox.Show("Empleado no encontrado.");
+                return;
+            }
 
 
             // Actualizar campo seleccionado
-            //try
-            //{
-            //    switch (campoSeleccionado)
-            //    {
-            //        case "Nombre":
-            //            empleadoExistente = new Empleado(
-            //                empleadoExistente.Id_Empleado,
-            //            nuevoValor,
-            //                empleadoExistente.Telefono,
-            //                nuevoCargo.ToLower() == "administrador",
-            //                empleadoExistente.Salario);
-            //            break;
+            try
+            {
+                switch (campoSeleccionado)
+                {
+                    // Nombre
+                    case 0:
+                        empleadoExistente.Nombre = nuevoValor;
+                        break;
 
-            //        case "Télefono":
-            //            empleadoExistente = new Empleado(
-            //                empleadoExistente.Id_Empleado,
-            //                empleadoExistente.Nombre,
-            //                nuevoValor,
-            //                nuevoCargo.ToLower() == "administrador",
-            //                empleadoExistente.Salario);
-            //            break;
+                    // Telefono
+                    case 1:
+                        empleadoExistente.Telefono = nuevoValor;
+                        break;
 
-            //        case "Salario":
-            //            if (!double.TryParse(nuevoValor, out double nuevoSalario))
-            //                throw new FormatException("El salario debe ser un número válido.");
+                    // Cargo
+                    case 2:
+                        empleadoExistente.Es_Admin = CB_cargo.SelectedIndex == 1;
+                        break;
 
-            //            empleadoExistente = new Empleado(
-            //                empleadoExistente.Id_Empleado,
-            //            empleadoExistente.Nombre,
-            //                empleadoExistente.Telefono,
-            //                nuevoCargo.ToLower() == "administrador",
-            //                nuevoSalario);
-            //            break;
-
-            //        default:
-            //            MessageBox.Show("El campo seleccionado no es válido.");
-            //            return;
-            //    }
-            //}
-            //catch (FormatException ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //    return;
-
-            //}
+                    // Salario
+                    case 3:
+                        if (!double.TryParse(nuevoValor, out double nuevoSalario))
+                        {
+                            throw new FormatException("El salario debe ser un número válido.");
+                        }
+                        else
+                        {
+                            empleadoExistente.Salario = nuevoSalario;
+                        }
+                        break;
+                }
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
 
             // Actualizar en base de datos
-            //bool exito = Database.ActualizarEmpleado(empleadoExistente); // Asegúrate de tener este método
+            bool exito = Database.UpdateEmployedData(empleadoExistente);
 
-            //if (exito)
-            //{
-            //    MessageBox.Show("Empleado modificado exitosamente.");
-            //    Close();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("No se pudo modificar el empleado.");
-            //}
-
-
-
-
+            if (exito)
+            {
+                MessageBox.Show("Empleado modificado exitosamente.");
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo modificar el empleado.");
+            }
         }
 
         private void button_limpiar_Click(object sender, EventArgs e)
@@ -140,9 +124,30 @@ namespace InkPos
             CB_cargo.SelectedIndex = -1;
         }
 
-        private void panel_gestion_empleados_Paint(object sender, PaintEventArgs e)
+        private void CB_valor_a_modificar_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (CB_valor_a_modificar.SelectedIndex == 2)
+            {
+                lbl_cargo.Visible = true;
+                CB_cargo.Visible = true;
 
+                lbl_ingresevalor.Visible = false;
+                txtbox_nuevo_valor.Visible = false;
+            }
+            else
+            {
+                lbl_cargo.Visible = false;
+                CB_cargo.Visible = false;
+
+                lbl_ingresevalor.Visible = true;
+                txtbox_nuevo_valor.Visible = true;
+            }
+        }
+
+        private void Form_Modificar_Empleado_Load(object sender, EventArgs e)
+        {
+            lbl_cargo.Visible = false;
+            CB_cargo.Visible = false;
         }
     }
 }
