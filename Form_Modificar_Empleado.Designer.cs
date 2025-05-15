@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             panel_gestion_empleados = new Panel();
+            lbl_cargo = new Label();
+            CB_cargo = new MaterialSkin.Controls.MaterialComboBox();
+            lbl_ingresevalor = new Label();
+            CB_valor_a_modificar = new MaterialSkin.Controls.MaterialComboBox();
+            txtbox_nuevo_valor = new MaterialSkin.Controls.MaterialTextBox2();
             txtbox_cedula = new MaterialSkin.Controls.MaterialTextBox2();
             button_salir = new MaterialSkin.Controls.MaterialButton();
             button_limpiar = new MaterialSkin.Controls.MaterialButton();
             button_confirmar = new MaterialSkin.Controls.MaterialButton();
             lbl_GestionEmpleados = new Label();
-            lbl_ingresevalor = new Label();
-            CB_valor_a_modificar = new MaterialSkin.Controls.MaterialComboBox();
-            txtbox_nuevo_valor = new MaterialSkin.Controls.MaterialTextBox2();
-            CB_cargo = new MaterialSkin.Controls.MaterialComboBox();
-            lbl_cargo = new Label();
             panel_gestion_empleados.SuspendLayout();
             SuspendLayout();
             // 
@@ -59,6 +59,105 @@
             panel_gestion_empleados.Name = "panel_gestion_empleados";
             panel_gestion_empleados.Size = new Size(1513, 1051);
             panel_gestion_empleados.TabIndex = 0;
+            panel_gestion_empleados.Paint += panel_gestion_empleados_Paint;
+            // 
+            // lbl_cargo
+            // 
+            lbl_cargo.Anchor = AnchorStyles.None;
+            lbl_cargo.AutoSize = true;
+            lbl_cargo.Location = new Point(642, 378);
+            lbl_cargo.Name = "lbl_cargo";
+            lbl_cargo.Size = new Size(52, 20);
+            lbl_cargo.TabIndex = 27;
+            lbl_cargo.Text = "Cargo:";
+            // 
+            // CB_cargo
+            // 
+            CB_cargo.Anchor = AnchorStyles.None;
+            CB_cargo.AutoResize = false;
+            CB_cargo.BackColor = Color.FromArgb(255, 255, 255);
+            CB_cargo.Depth = 0;
+            CB_cargo.DrawMode = DrawMode.OwnerDrawVariable;
+            CB_cargo.DropDownHeight = 174;
+            CB_cargo.DropDownStyle = ComboBoxStyle.DropDownList;
+            CB_cargo.DropDownWidth = 121;
+            CB_cargo.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            CB_cargo.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            CB_cargo.FormattingEnabled = true;
+            CB_cargo.IntegralHeight = false;
+            CB_cargo.ItemHeight = 43;
+            CB_cargo.Items.AddRange(new object[] { "Empleado", "Administrador" });
+            CB_cargo.Location = new Point(726, 363);
+            CB_cargo.MaxDropDownItems = 4;
+            CB_cargo.MouseState = MaterialSkin.MouseState.OUT;
+            CB_cargo.Name = "CB_cargo";
+            CB_cargo.Size = new Size(243, 49);
+            CB_cargo.StartIndex = 0;
+            CB_cargo.TabIndex = 26;
+            // 
+            // lbl_ingresevalor
+            // 
+            lbl_ingresevalor.Anchor = AnchorStyles.None;
+            lbl_ingresevalor.AutoSize = true;
+            lbl_ingresevalor.Location = new Point(537, 378);
+            lbl_ingresevalor.Name = "lbl_ingresevalor";
+            lbl_ingresevalor.Size = new Size(157, 20);
+            lbl_ingresevalor.TabIndex = 25;
+            lbl_ingresevalor.Text = "Ingrese el nuevo valor:";
+            // 
+            // CB_valor_a_modificar
+            // 
+            CB_valor_a_modificar.Anchor = AnchorStyles.None;
+            CB_valor_a_modificar.AutoResize = false;
+            CB_valor_a_modificar.BackColor = Color.FromArgb(255, 255, 255);
+            CB_valor_a_modificar.Depth = 0;
+            CB_valor_a_modificar.DrawMode = DrawMode.OwnerDrawVariable;
+            CB_valor_a_modificar.DropDownHeight = 174;
+            CB_valor_a_modificar.DropDownStyle = ComboBoxStyle.DropDownList;
+            CB_valor_a_modificar.DropDownWidth = 121;
+            CB_valor_a_modificar.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            CB_valor_a_modificar.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            CB_valor_a_modificar.FormattingEnabled = true;
+            CB_valor_a_modificar.Hint = "¿Qué campo desea modificar?";
+            CB_valor_a_modificar.IntegralHeight = false;
+            CB_valor_a_modificar.ItemHeight = 43;
+            CB_valor_a_modificar.Items.AddRange(new object[] { "Nombre", "Télefono", "Cargo", "Salario" });
+            CB_valor_a_modificar.Location = new Point(621, 264);
+            CB_valor_a_modificar.MaxDropDownItems = 4;
+            CB_valor_a_modificar.MouseState = MaterialSkin.MouseState.OUT;
+            CB_valor_a_modificar.Name = "CB_valor_a_modificar";
+            CB_valor_a_modificar.Size = new Size(264, 49);
+            CB_valor_a_modificar.StartIndex = 0;
+            CB_valor_a_modificar.TabIndex = 24;
+            // 
+            // txtbox_nuevo_valor
+            // 
+            txtbox_nuevo_valor.Anchor = AnchorStyles.None;
+            txtbox_nuevo_valor.AnimateReadOnly = false;
+            txtbox_nuevo_valor.BackgroundImageLayout = ImageLayout.None;
+            txtbox_nuevo_valor.CharacterCasing = CharacterCasing.Normal;
+            txtbox_nuevo_valor.Depth = 0;
+            txtbox_nuevo_valor.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtbox_nuevo_valor.HideSelection = true;
+            txtbox_nuevo_valor.LeadingIcon = null;
+            txtbox_nuevo_valor.Location = new Point(726, 364);
+            txtbox_nuevo_valor.MaxLength = 32767;
+            txtbox_nuevo_valor.MouseState = MaterialSkin.MouseState.OUT;
+            txtbox_nuevo_valor.Name = "txtbox_nuevo_valor";
+            txtbox_nuevo_valor.PasswordChar = '\0';
+            txtbox_nuevo_valor.PrefixSuffixText = null;
+            txtbox_nuevo_valor.ReadOnly = false;
+            txtbox_nuevo_valor.RightToLeft = RightToLeft.No;
+            txtbox_nuevo_valor.SelectedText = "";
+            txtbox_nuevo_valor.SelectionLength = 0;
+            txtbox_nuevo_valor.SelectionStart = 0;
+            txtbox_nuevo_valor.ShortcutsEnabled = true;
+            txtbox_nuevo_valor.Size = new Size(243, 48);
+            txtbox_nuevo_valor.TabIndex = 23;
+            txtbox_nuevo_valor.TabStop = false;
+            txtbox_nuevo_valor.TextAlign = HorizontalAlignment.Left;
+            txtbox_nuevo_valor.TrailingIcon = null;
+            txtbox_nuevo_valor.UseSystemPasswordChar = false;
             // 
             // txtbox_cedula
             // 
@@ -163,104 +262,6 @@
             lbl_GestionEmpleados.Size = new Size(428, 62);
             lbl_GestionEmpleados.TabIndex = 9;
             lbl_GestionEmpleados.Text = "Gestión empleados";
-            // 
-            // lbl_ingresevalor
-            // 
-            lbl_ingresevalor.Anchor = AnchorStyles.None;
-            lbl_ingresevalor.AutoSize = true;
-            lbl_ingresevalor.Location = new Point(537, 378);
-            lbl_ingresevalor.Name = "lbl_ingresevalor";
-            lbl_ingresevalor.Size = new Size(157, 20);
-            lbl_ingresevalor.TabIndex = 25;
-            lbl_ingresevalor.Text = "Ingrese el nuevo valor:";
-            // 
-            // CB_valor_a_modificar
-            // 
-            CB_valor_a_modificar.Anchor = AnchorStyles.None;
-            CB_valor_a_modificar.AutoResize = false;
-            CB_valor_a_modificar.BackColor = Color.FromArgb(255, 255, 255);
-            CB_valor_a_modificar.Depth = 0;
-            CB_valor_a_modificar.DrawMode = DrawMode.OwnerDrawVariable;
-            CB_valor_a_modificar.DropDownHeight = 174;
-            CB_valor_a_modificar.DropDownStyle = ComboBoxStyle.DropDownList;
-            CB_valor_a_modificar.DropDownWidth = 121;
-            CB_valor_a_modificar.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            CB_valor_a_modificar.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            CB_valor_a_modificar.FormattingEnabled = true;
-            CB_valor_a_modificar.Hint = "¿Qué campo desea modificar?";
-            CB_valor_a_modificar.IntegralHeight = false;
-            CB_valor_a_modificar.ItemHeight = 43;
-            CB_valor_a_modificar.Items.AddRange(new object[] { "Nombre", "Télefono", "Salario" });
-            CB_valor_a_modificar.Location = new Point(621, 264);
-            CB_valor_a_modificar.MaxDropDownItems = 4;
-            CB_valor_a_modificar.MouseState = MaterialSkin.MouseState.OUT;
-            CB_valor_a_modificar.Name = "CB_valor_a_modificar";
-            CB_valor_a_modificar.Size = new Size(264, 49);
-            CB_valor_a_modificar.StartIndex = 0;
-            CB_valor_a_modificar.TabIndex = 24;
-            // 
-            // txtbox_nuevo_valor
-            // 
-            txtbox_nuevo_valor.Anchor = AnchorStyles.None;
-            txtbox_nuevo_valor.AnimateReadOnly = false;
-            txtbox_nuevo_valor.BackgroundImageLayout = ImageLayout.None;
-            txtbox_nuevo_valor.CharacterCasing = CharacterCasing.Normal;
-            txtbox_nuevo_valor.Depth = 0;
-            txtbox_nuevo_valor.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtbox_nuevo_valor.HideSelection = true;
-            txtbox_nuevo_valor.LeadingIcon = null;
-            txtbox_nuevo_valor.Location = new Point(726, 364);
-            txtbox_nuevo_valor.MaxLength = 32767;
-            txtbox_nuevo_valor.MouseState = MaterialSkin.MouseState.OUT;
-            txtbox_nuevo_valor.Name = "txtbox_nuevo_valor";
-            txtbox_nuevo_valor.PasswordChar = '\0';
-            txtbox_nuevo_valor.PrefixSuffixText = null;
-            txtbox_nuevo_valor.ReadOnly = false;
-            txtbox_nuevo_valor.RightToLeft = RightToLeft.No;
-            txtbox_nuevo_valor.SelectedText = "";
-            txtbox_nuevo_valor.SelectionLength = 0;
-            txtbox_nuevo_valor.SelectionStart = 0;
-            txtbox_nuevo_valor.ShortcutsEnabled = true;
-            txtbox_nuevo_valor.Size = new Size(243, 48);
-            txtbox_nuevo_valor.TabIndex = 23;
-            txtbox_nuevo_valor.TabStop = false;
-            txtbox_nuevo_valor.TextAlign = HorizontalAlignment.Left;
-            txtbox_nuevo_valor.TrailingIcon = null;
-            txtbox_nuevo_valor.UseSystemPasswordChar = false;
-            // 
-            // CB_cargo
-            // 
-            CB_cargo.Anchor = AnchorStyles.None;
-            CB_cargo.AutoResize = false;
-            CB_cargo.BackColor = Color.FromArgb(255, 255, 255);
-            CB_cargo.Depth = 0;
-            CB_cargo.DrawMode = DrawMode.OwnerDrawVariable;
-            CB_cargo.DropDownHeight = 174;
-            CB_cargo.DropDownStyle = ComboBoxStyle.DropDownList;
-            CB_cargo.DropDownWidth = 121;
-            CB_cargo.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            CB_cargo.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            CB_cargo.FormattingEnabled = true;
-            CB_cargo.IntegralHeight = false;
-            CB_cargo.ItemHeight = 43;
-            CB_cargo.Items.AddRange(new object[] { "Empleado", "Administrador" });
-            CB_cargo.Location = new Point(726, 467);
-            CB_cargo.MaxDropDownItems = 4;
-            CB_cargo.MouseState = MaterialSkin.MouseState.OUT;
-            CB_cargo.Name = "CB_cargo";
-            CB_cargo.Size = new Size(243, 49);
-            CB_cargo.StartIndex = 0;
-            CB_cargo.TabIndex = 26;
-            // 
-            // lbl_cargo
-            // 
-            lbl_cargo.Anchor = AnchorStyles.None;
-            lbl_cargo.AutoSize = true;
-            lbl_cargo.Location = new Point(642, 487);
-            lbl_cargo.Name = "lbl_cargo";
-            lbl_cargo.Size = new Size(52, 20);
-            lbl_cargo.TabIndex = 27;
-            lbl_cargo.Text = "Cargo:";
             // 
             // Form_Modificar_Empleado
             // 
