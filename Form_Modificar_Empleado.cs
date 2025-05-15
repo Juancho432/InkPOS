@@ -98,5 +98,10 @@ namespace InkPos
             txtbox_cargo.Clear();
             txtbox_salario.Clear();
         }
+
+        private void panel_gestion_empleados_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
