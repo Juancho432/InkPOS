@@ -145,6 +145,8 @@
             // 
             // txtbox_Valor_total
             // 
+            txtbox_Valor_total.ReadOnly = false;
+            txtbox_Valor_total.Enabled = true;
             txtbox_Valor_total.Anchor = AnchorStyles.None;
             txtbox_Valor_total.AnimateReadOnly = false;
             txtbox_Valor_total.BackgroundImageLayout = ImageLayout.None;
@@ -190,7 +192,7 @@
             txtbox_Cantidad_productos.Name = "txtbox_Cantidad_productos";
             txtbox_Cantidad_productos.PasswordChar = '\0';
             txtbox_Cantidad_productos.PrefixSuffixText = null;
-            txtbox_Cantidad_productos.ReadOnly = true;
+            txtbox_Cantidad_productos.ReadOnly = false;
             txtbox_Cantidad_productos.RightToLeft = RightToLeft.No;
             txtbox_Cantidad_productos.SelectedText = "";
             txtbox_Cantidad_productos.SelectionLength = 0;
@@ -202,6 +204,7 @@
             txtbox_Cantidad_productos.TextAlign = HorizontalAlignment.Left;
             txtbox_Cantidad_productos.TrailingIcon = null;
             txtbox_Cantidad_productos.UseSystemPasswordChar = false;
+            txtbox_Cantidad_productos.KeyDown += txtbox_Cantidad_productos_KeyDown;
             // 
             // button_cancelar
             // 
@@ -275,7 +278,6 @@
             txtbox_busqueda_producto.TextAlign = HorizontalAlignment.Left;
             txtbox_busqueda_producto.TrailingIcon = null;
             txtbox_busqueda_producto.UseSystemPasswordChar = false;
-            txtbox_busqueda_producto.KeyDown += txtbox_busqueda_producto_KeyDown;
             txtbox_busqueda_producto.TextChanged += txtbox_busqueda_producto_TextChanged;
             // 
             // lista_Coincidencias
@@ -288,6 +290,7 @@
             lista_Coincidencias.Name = "lista_Coincidencias";
             lista_Coincidencias.Size = new Size(274, 214);
             lista_Coincidencias.TabIndex = 16;
+            lista_Coincidencias.KeyPress += lista_Coincidencias_KeyPress;
             // 
             // lbl_valorTotal
             // 

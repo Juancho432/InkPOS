@@ -48,9 +48,10 @@
             panel1.Controls.Add(txtbox_mostrar_N_factura);
             panel1.Controls.Add(txtbox_ingresar_N_factura);
             panel1.Controls.Add(lbl_busquda_facturas);
-            panel1.Location = new Point(5, 2);
+            panel1.Location = new Point(4, 2);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1513, 1171);
+            panel1.Size = new Size(1324, 878);
             panel1.TabIndex = 0;
             // 
             // button_cancelar
@@ -61,8 +62,8 @@
             button_cancelar.Depth = 0;
             button_cancelar.HighEmphasis = true;
             button_cancelar.Icon = null;
-            button_cancelar.Location = new Point(706, 618);
-            button_cancelar.Margin = new Padding(4, 6, 4, 6);
+            button_cancelar.Location = new Point(618, 464);
+            button_cancelar.Margin = new Padding(4, 4, 4, 4);
             button_cancelar.MouseState = MaterialSkin.MouseState.HOVER;
             button_cancelar.Name = "button_cancelar";
             button_cancelar.NoAccentTextColor = Color.Empty;
@@ -72,13 +73,15 @@
             button_cancelar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_cancelar.UseAccentColor = false;
             button_cancelar.UseVisualStyleBackColor = true;
+            button_cancelar.Click += button_cancelar_Click;
             // 
             // button_imprimir
             // 
             button_imprimir.Image = (Image)resources.GetObject("button_imprimir.Image");
-            button_imprimir.Location = new Point(869, 409);
+            button_imprimir.Location = new Point(760, 307);
+            button_imprimir.Margin = new Padding(3, 2, 3, 2);
             button_imprimir.Name = "button_imprimir";
-            button_imprimir.Size = new Size(69, 48);
+            button_imprimir.Size = new Size(60, 36);
             button_imprimir.TabIndex = 10;
             button_imprimir.UseVisualStyleBackColor = true;
             // 
@@ -86,9 +89,9 @@
             // 
             link_label_Ver.AutoSize = true;
             link_label_Ver.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            link_label_Ver.Location = new Point(745, 419);
+            link_label_Ver.Location = new Point(652, 314);
             link_label_Ver.Name = "link_label_Ver";
-            link_label_Ver.Size = new Size(57, 38);
+            link_label_Ver.Size = new Size(46, 30);
             link_label_Ver.TabIndex = 9;
             link_label_Ver.TabStop = true;
             link_label_Ver.Text = "Ver";
@@ -103,7 +106,8 @@
             txtbox_mostrar_N_factura.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_mostrar_N_factura.HideSelection = true;
             txtbox_mostrar_N_factura.LeadingIcon = null;
-            txtbox_mostrar_N_factura.Location = new Point(412, 409);
+            txtbox_mostrar_N_factura.Location = new Point(360, 307);
+            txtbox_mostrar_N_factura.Margin = new Padding(3, 2, 3, 2);
             txtbox_mostrar_N_factura.MaxLength = 32767;
             txtbox_mostrar_N_factura.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_mostrar_N_factura.Name = "txtbox_mostrar_N_factura";
@@ -115,7 +119,7 @@
             txtbox_mostrar_N_factura.SelectionLength = 0;
             txtbox_mostrar_N_factura.SelectionStart = 0;
             txtbox_mostrar_N_factura.ShortcutsEnabled = true;
-            txtbox_mostrar_N_factura.Size = new Size(270, 48);
+            txtbox_mostrar_N_factura.Size = new Size(236, 48);
             txtbox_mostrar_N_factura.TabIndex = 8;
             txtbox_mostrar_N_factura.TabStop = false;
             txtbox_mostrar_N_factura.TextAlign = HorizontalAlignment.Center;
@@ -133,7 +137,8 @@
             txtbox_ingresar_N_factura.HideSelection = true;
             txtbox_ingresar_N_factura.Hint = "Ingrese el N° de factura";
             txtbox_ingresar_N_factura.LeadingIcon = null;
-            txtbox_ingresar_N_factura.Location = new Point(618, 253);
+            txtbox_ingresar_N_factura.Location = new Point(541, 190);
+            txtbox_ingresar_N_factura.Margin = new Padding(3, 2, 3, 2);
             txtbox_ingresar_N_factura.MaxLength = 32767;
             txtbox_ingresar_N_factura.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_ingresar_N_factura.Name = "txtbox_ingresar_N_factura";
@@ -145,7 +150,7 @@
             txtbox_ingresar_N_factura.SelectionLength = 0;
             txtbox_ingresar_N_factura.SelectionStart = 0;
             txtbox_ingresar_N_factura.ShortcutsEnabled = true;
-            txtbox_ingresar_N_factura.Size = new Size(270, 48);
+            txtbox_ingresar_N_factura.Size = new Size(236, 48);
             txtbox_ingresar_N_factura.TabIndex = 7;
             txtbox_ingresar_N_factura.TabStop = false;
             txtbox_ingresar_N_factura.TextAlign = HorizontalAlignment.Center;
@@ -157,18 +162,19 @@
             lbl_busquda_facturas.Anchor = AnchorStyles.None;
             lbl_busquda_facturas.AutoSize = true;
             lbl_busquda_facturas.Font = new Font("Segoe UI", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_busquda_facturas.Location = new Point(514, 94);
+            lbl_busquda_facturas.Location = new Point(450, 70);
             lbl_busquda_facturas.Name = "lbl_busquda_facturas";
-            lbl_busquda_facturas.Size = new Size(476, 62);
+            lbl_busquda_facturas.Size = new Size(381, 51);
             lbl_busquda_facturas.TabIndex = 4;
             lbl_busquda_facturas.Text = "Búsqueda de facturas";
             // 
             // Form_Busqueda_factura
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1522, 1175);
+            ClientSize = new Size(1332, 796);
             Controls.Add(panel1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form_Busqueda_factura";
             Text = "InkPOS - Búsqueda facturas";
             WindowState = FormWindowState.Maximized;
