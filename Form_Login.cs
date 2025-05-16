@@ -3,14 +3,20 @@
     public partial class Form_Login : Form
     {
         private DataBaseHandler Database;
-        private bool mostrarContraseña = false;
 
         public Form_Login(DataBaseHandler database)
         {
             Database = database;
             InitializeComponent();
+            InicializarControles();
         }
+        private void InicializarControles()
+        {
+            txtbox_contraseña.PasswordChar = '●'; 
+            PB_ver.Visible = true;
+            PB_ocultar.Visible = false;
 
+        }
         private void Boton_Ingresar_Click(object sender, EventArgs e)
         {
             // Obtener los datos
@@ -81,20 +87,20 @@
             Application.Exit();
         }
 
+        private void PB_ver_Click(object sender, EventArgs e)
+        {
+            txtbox_contraseña.UseSystemPasswordChar = false;
+            txtbox_contraseña.PasswordChar = '\0'; // Mostrar contraseña
+            PB_ver.Visible = false;
+            PB_ocultar.Visible = true;
+        }
+
         private void PB_ocultar_Click(object sender, EventArgs e)
         {
-            mostrarContraseña = !mostrarContraseña;
-            txtbox_contraseña.UseSystemPasswordChar = false; // Asegura que esté desactivado
-
-            if (mostrarContraseña)
-            {
-                txtbox_contraseña.PasswordChar = '\0';
-            }
-            else
-            {
-                txtbox_contraseña.PasswordChar = '●';
-            }
-
+            txtbox_contraseña.UseSystemPasswordChar = false;
+            txtbox_contraseña.PasswordChar = '●'; // Ocultar contraseña
+            PB_ver.Visible = true;
+            PB_ocultar.Visible = false;
         }
     }
 }

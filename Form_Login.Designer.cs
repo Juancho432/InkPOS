@@ -87,6 +87,7 @@
             PB_ver.Size = new Size(51, 48);
             PB_ver.TabIndex = 9;
             PB_ver.TabStop = false;
+            PB_ver.Click += PB_ver_Click;
             // 
             // button_salir
             // 
@@ -266,6 +267,7 @@
             Text = "InkPOS - Login";
             WindowState = FormWindowState.Maximized;
             FormClosed += Form_Login_FormClosed;
+            Click += PB_ver_Click;
             panel_login.ResumeLayout(false);
             panel_login.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PB_ocultar).EndInit();
