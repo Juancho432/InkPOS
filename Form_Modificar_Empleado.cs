@@ -139,5 +139,10 @@ namespace InkPos
             CB_valor_a_modificar.SelectedIndex = -1;
             CB_cargo.SelectedIndex = -1;
         }
+
+        private void panel_gestion_empleados_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
