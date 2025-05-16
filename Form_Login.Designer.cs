@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Login));
             panel_login = new Panel();
+            PB_ocultar = new PictureBox();
+            PB_ver = new PictureBox();
             button_salir = new MaterialSkin.Controls.MaterialButton();
             button_limpiar = new MaterialSkin.Controls.MaterialButton();
             button_ingresar = new MaterialSkin.Controls.MaterialButton();
@@ -39,11 +42,15 @@
             lbl_login = new Label();
             lbl_InkPOS = new Label();
             panel_login.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PB_ocultar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PB_ver).BeginInit();
             SuspendLayout();
             // 
             // panel_login
             // 
             panel_login.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel_login.Controls.Add(PB_ocultar);
+            panel_login.Controls.Add(PB_ver);
             panel_login.Controls.Add(button_salir);
             panel_login.Controls.Add(button_limpiar);
             panel_login.Controls.Add(button_ingresar);
@@ -57,6 +64,28 @@
             panel_login.Name = "panel_login";
             panel_login.Size = new Size(1513, 1051);
             panel_login.TabIndex = 0;
+            // 
+            // PB_ocultar
+            // 
+            PB_ocultar.Anchor = AnchorStyles.None;
+            PB_ocultar.Cursor = Cursors.Hand;
+            PB_ocultar.Image = (Image)resources.GetObject("PB_ocultar.Image");
+            PB_ocultar.Location = new Point(959, 573);
+            PB_ocultar.Name = "PB_ocultar";
+            PB_ocultar.Size = new Size(51, 48);
+            PB_ocultar.TabIndex = 10;
+            PB_ocultar.TabStop = false;
+            // 
+            // PB_ver
+            // 
+            PB_ver.Anchor = AnchorStyles.None;
+            PB_ver.Cursor = Cursors.Hand;
+            PB_ver.Image = (Image)resources.GetObject("PB_ver.Image");
+            PB_ver.Location = new Point(959, 573);
+            PB_ver.Name = "PB_ver";
+            PB_ver.Size = new Size(51, 48);
+            PB_ver.TabIndex = 9;
+            PB_ver.TabStop = false;
             // 
             // button_salir
             // 
@@ -238,6 +267,8 @@
             FormClosed += Form_Login_FormClosed;
             panel_login.ResumeLayout(false);
             panel_login.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PB_ocultar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PB_ver).EndInit();
             ResumeLayout(false);
         }
 
@@ -253,5 +284,7 @@
         private Label lbl_ID_usuario;
         private MaterialSkin.Controls.MaterialButton button_limpiar;
         private MaterialSkin.Controls.MaterialButton button_salir;
+        private PictureBox PB_ocultar;
+        private PictureBox PB_ver;
     }
 }
