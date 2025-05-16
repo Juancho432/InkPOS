@@ -75,6 +75,7 @@
             PB_ocultar.Size = new Size(51, 48);
             PB_ocultar.TabIndex = 10;
             PB_ocultar.TabStop = false;
+            PB_ocultar.Click += PB_ocultar_Click;
             // 
             // PB_ver
             // 
@@ -164,7 +165,7 @@
             txtbox_contraseña.MaxLength = 32767;
             txtbox_contraseña.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_contraseña.Name = "txtbox_contraseña";
-            txtbox_contraseña.PasswordChar = '*';
+            txtbox_contraseña.PasswordChar = '●';
             txtbox_contraseña.PrefixSuffixText = null;
             txtbox_contraseña.ReadOnly = false;
             txtbox_contraseña.RightToLeft = RightToLeft.No;
@@ -177,7 +178,7 @@
             txtbox_contraseña.TabStop = false;
             txtbox_contraseña.TextAlign = HorizontalAlignment.Left;
             txtbox_contraseña.TrailingIcon = null;
-            txtbox_contraseña.UseSystemPasswordChar = false;
+            txtbox_contraseña.UseSystemPasswordChar = true;
             // 
             // lbl_password
             // 

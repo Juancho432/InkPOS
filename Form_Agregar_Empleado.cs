@@ -34,6 +34,8 @@ namespace InkPos
             string telefono_empleado = txtbox_telefono.Text.Trim();
             int cargo_empleado = CB_cargo.SelectedIndex;
             string salario_empleado = txtbox_salario.Text.Trim();
+            string usuario_empleado = txtbox_usuario.Text.Trim();
+            string contrasena_empleado = txtbox_contraseña.Text.Trim();
 
             // Validar campos vacíos
             try
@@ -41,7 +43,9 @@ namespace InkPos
                 if (string.IsNullOrEmpty(nombre_empleado) ||
                     string.IsNullOrEmpty(cedula_empleado) ||
                     string.IsNullOrEmpty(telefono_empleado) ||
-                    string.IsNullOrEmpty(salario_empleado))
+                    string.IsNullOrEmpty(salario_empleado) ||
+                    string.IsNullOrEmpty(usuario_empleado) ||
+                    string.IsNullOrEmpty(contrasena_empleado))
                 {
                     throw new Excepciones.CamposVacios();
                 }
@@ -65,7 +69,7 @@ namespace InkPos
             //// Guardar en la base de datos
             try
             {
-                Database.CreateEmployed(nuevoEmpleado, "a", "a");
+                Database.CreateEmployed(nuevoEmpleado, usuario_empleado, contrasena_empleado);
             }
             catch
             {

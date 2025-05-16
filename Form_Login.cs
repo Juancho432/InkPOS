@@ -3,6 +3,7 @@
     public partial class Form_Login : Form
     {
         private DataBaseHandler Database;
+        private bool mostrarContraseña = false;
 
         public Form_Login(DataBaseHandler database)
         {
@@ -78,6 +79,22 @@
         private void Form_Login_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void PB_ocultar_Click(object sender, EventArgs e)
+        {
+            mostrarContraseña = !mostrarContraseña;
+            txtbox_contraseña.UseSystemPasswordChar = false; // Asegura que esté desactivado
+
+            if (mostrarContraseña)
+            {
+                txtbox_contraseña.PasswordChar = '\0';
+            }
+            else
+            {
+                txtbox_contraseña.PasswordChar = '●';
+            }
+
         }
     }
 }
