@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel_agregar_empleado = new Panel();
+            CB_cargo = new MaterialSkin.Controls.MaterialComboBox();
             lbl_salario = new Label();
             lbl_cargo = new Label();
             lbl_telefono = new Label();
@@ -42,12 +43,19 @@
             txtbox_nombre_empleado = new MaterialSkin.Controls.MaterialTextBox2();
             lbl_nombre = new Label();
             lbl_GestionEmpleados = new Label();
-            CB_cargo = new MaterialSkin.Controls.MaterialComboBox();
+            lbl_contraseña = new Label();
+            lbl_usuario = new Label();
+            txtbox_usuario = new MaterialSkin.Controls.MaterialTextBox2();
+            txtbox_contraseña = new MaterialSkin.Controls.MaterialTextBox2();
             panel_agregar_empleado.SuspendLayout();
             SuspendLayout();
             // 
             // panel_agregar_empleado
             // 
+            panel_agregar_empleado.Controls.Add(txtbox_contraseña);
+            panel_agregar_empleado.Controls.Add(txtbox_usuario);
+            panel_agregar_empleado.Controls.Add(lbl_usuario);
+            panel_agregar_empleado.Controls.Add(lbl_contraseña);
             panel_agregar_empleado.Controls.Add(CB_cargo);
             panel_agregar_empleado.Controls.Add(lbl_salario);
             panel_agregar_empleado.Controls.Add(lbl_cargo);
@@ -66,6 +74,31 @@
             panel_agregar_empleado.Name = "panel_agregar_empleado";
             panel_agregar_empleado.Size = new Size(1513, 1171);
             panel_agregar_empleado.TabIndex = 0;
+            // 
+            // CB_cargo
+            // 
+            CB_cargo.Anchor = AnchorStyles.None;
+            CB_cargo.AutoResize = false;
+            CB_cargo.BackColor = Color.FromArgb(255, 255, 255);
+            CB_cargo.Depth = 0;
+            CB_cargo.DrawMode = DrawMode.OwnerDrawVariable;
+            CB_cargo.DropDownHeight = 174;
+            CB_cargo.DropDownStyle = ComboBoxStyle.DropDownList;
+            CB_cargo.DropDownWidth = 121;
+            CB_cargo.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            CB_cargo.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            CB_cargo.FormattingEnabled = true;
+            CB_cargo.Hint = "Escoja una opción";
+            CB_cargo.IntegralHeight = false;
+            CB_cargo.ItemHeight = 43;
+            CB_cargo.Items.AddRange(new object[] { "Empleado", "Admin" });
+            CB_cargo.Location = new Point(648, 497);
+            CB_cargo.MaxDropDownItems = 4;
+            CB_cargo.MouseState = MaterialSkin.MouseState.OUT;
+            CB_cargo.Name = "CB_cargo";
+            CB_cargo.Size = new Size(312, 49);
+            CB_cargo.StartIndex = 0;
+            CB_cargo.TabIndex = 43;
             // 
             // lbl_salario
             // 
@@ -111,7 +144,7 @@
             button_agregar_empleado.Depth = 0;
             button_agregar_empleado.HighEmphasis = true;
             button_agregar_empleado.Icon = null;
-            button_agregar_empleado.Location = new Point(692, 712);
+            button_agregar_empleado.Location = new Point(693, 848);
             button_agregar_empleado.Margin = new Padding(4, 6, 4, 6);
             button_agregar_empleado.MouseState = MaterialSkin.MouseState.HOVER;
             button_agregar_empleado.Name = "button_agregar_empleado";
@@ -219,7 +252,7 @@
             button_salir.Depth = 0;
             button_salir.HighEmphasis = true;
             button_salir.Icon = null;
-            button_salir.Location = new Point(896, 847);
+            button_salir.Location = new Point(928, 954);
             button_salir.Margin = new Padding(4, 6, 4, 6);
             button_salir.MouseState = MaterialSkin.MouseState.HOVER;
             button_salir.Name = "button_salir";
@@ -240,7 +273,7 @@
             button_limpiar.Depth = 0;
             button_limpiar.HighEmphasis = true;
             button_limpiar.Icon = null;
-            button_limpiar.Location = new Point(632, 847);
+            button_limpiar.Location = new Point(615, 954);
             button_limpiar.Margin = new Padding(4, 6, 4, 6);
             button_limpiar.MouseState = MaterialSkin.MouseState.HOVER;
             button_limpiar.Name = "button_limpiar";
@@ -318,30 +351,87 @@
             lbl_GestionEmpleados.TabIndex = 27;
             lbl_GestionEmpleados.Text = "Gestión empleados";
             // 
-            // CB_cargo
+            // lbl_contraseña
             // 
-            CB_cargo.Anchor = AnchorStyles.None;
-            CB_cargo.AutoResize = false;
-            CB_cargo.BackColor = Color.FromArgb(255, 255, 255);
-            CB_cargo.Depth = 0;
-            CB_cargo.DrawMode = DrawMode.OwnerDrawVariable;
-            CB_cargo.DropDownHeight = 174;
-            CB_cargo.DropDownStyle = ComboBoxStyle.DropDownList;
-            CB_cargo.DropDownWidth = 121;
-            CB_cargo.Font = new Font("Roboto Medium", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            CB_cargo.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            CB_cargo.FormattingEnabled = true;
-            CB_cargo.Hint = "Escoja una opción";
-            CB_cargo.IntegralHeight = false;
-            CB_cargo.ItemHeight = 43;
-            CB_cargo.Items.AddRange(new object[] { "Empleado", "Admin" });
-            CB_cargo.Location = new Point(648, 497);
-            CB_cargo.MaxDropDownItems = 4;
-            CB_cargo.MouseState = MaterialSkin.MouseState.OUT;
-            CB_cargo.Name = "CB_cargo";
-            CB_cargo.Size = new Size(312, 49);
-            CB_cargo.StartIndex = 0;
-            CB_cargo.TabIndex = 43;
+            lbl_contraseña.Anchor = AnchorStyles.None;
+            lbl_contraseña.AutoSize = true;
+            lbl_contraseña.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_contraseña.ForeColor = SystemColors.ControlText;
+            lbl_contraseña.Location = new Point(507, 749);
+            lbl_contraseña.Name = "lbl_contraseña";
+            lbl_contraseña.Size = new Size(114, 28);
+            lbl_contraseña.TabIndex = 44;
+            lbl_contraseña.Text = "Contraseña:";
+            // 
+            // lbl_usuario
+            // 
+            lbl_usuario.Anchor = AnchorStyles.None;
+            lbl_usuario.AutoSize = true;
+            lbl_usuario.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_usuario.ForeColor = SystemColors.ControlText;
+            lbl_usuario.Location = new Point(518, 672);
+            lbl_usuario.Name = "lbl_usuario";
+            lbl_usuario.Size = new Size(83, 28);
+            lbl_usuario.TabIndex = 45;
+            lbl_usuario.Text = "Usuario:";
+            // 
+            // txtbox_usuario
+            // 
+            txtbox_usuario.Anchor = AnchorStyles.None;
+            txtbox_usuario.AnimateReadOnly = false;
+            txtbox_usuario.BackgroundImageLayout = ImageLayout.None;
+            txtbox_usuario.CharacterCasing = CharacterCasing.Normal;
+            txtbox_usuario.Depth = 0;
+            txtbox_usuario.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtbox_usuario.HideSelection = true;
+            txtbox_usuario.LeadingIcon = null;
+            txtbox_usuario.Location = new Point(648, 652);
+            txtbox_usuario.MaxLength = 32767;
+            txtbox_usuario.MouseState = MaterialSkin.MouseState.OUT;
+            txtbox_usuario.Name = "txtbox_usuario";
+            txtbox_usuario.PasswordChar = '\0';
+            txtbox_usuario.PrefixSuffixText = null;
+            txtbox_usuario.ReadOnly = false;
+            txtbox_usuario.RightToLeft = RightToLeft.No;
+            txtbox_usuario.SelectedText = "";
+            txtbox_usuario.SelectionLength = 0;
+            txtbox_usuario.SelectionStart = 0;
+            txtbox_usuario.ShortcutsEnabled = true;
+            txtbox_usuario.Size = new Size(312, 48);
+            txtbox_usuario.TabIndex = 46;
+            txtbox_usuario.TabStop = false;
+            txtbox_usuario.TextAlign = HorizontalAlignment.Left;
+            txtbox_usuario.TrailingIcon = null;
+            txtbox_usuario.UseSystemPasswordChar = false;
+            // 
+            // txtbox_contraseña
+            // 
+            txtbox_contraseña.Anchor = AnchorStyles.None;
+            txtbox_contraseña.AnimateReadOnly = false;
+            txtbox_contraseña.BackgroundImageLayout = ImageLayout.None;
+            txtbox_contraseña.CharacterCasing = CharacterCasing.Normal;
+            txtbox_contraseña.Depth = 0;
+            txtbox_contraseña.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtbox_contraseña.HideSelection = true;
+            txtbox_contraseña.LeadingIcon = null;
+            txtbox_contraseña.Location = new Point(648, 729);
+            txtbox_contraseña.MaxLength = 32767;
+            txtbox_contraseña.MouseState = MaterialSkin.MouseState.OUT;
+            txtbox_contraseña.Name = "txtbox_contraseña";
+            txtbox_contraseña.PasswordChar = '\0';
+            txtbox_contraseña.PrefixSuffixText = null;
+            txtbox_contraseña.ReadOnly = false;
+            txtbox_contraseña.RightToLeft = RightToLeft.No;
+            txtbox_contraseña.SelectedText = "";
+            txtbox_contraseña.SelectionLength = 0;
+            txtbox_contraseña.SelectionStart = 0;
+            txtbox_contraseña.ShortcutsEnabled = true;
+            txtbox_contraseña.Size = new Size(312, 48);
+            txtbox_contraseña.TabIndex = 47;
+            txtbox_contraseña.TabStop = false;
+            txtbox_contraseña.TextAlign = HorizontalAlignment.Left;
+            txtbox_contraseña.TrailingIcon = null;
+            txtbox_contraseña.UseSystemPasswordChar = false;
             // 
             // Form_Agregar_Empleado
             // 
@@ -374,5 +464,9 @@
         private Label lbl_nombre;
         private Label lbl_GestionEmpleados;
         private MaterialSkin.Controls.MaterialComboBox CB_cargo;
+        private Label lbl_usuario;
+        private Label lbl_contraseña;
+        private MaterialSkin.Controls.MaterialTextBox2 txtbox_contraseña;
+        private MaterialSkin.Controls.MaterialTextBox2 txtbox_usuario;
     }
 }
