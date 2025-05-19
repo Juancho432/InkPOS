@@ -50,7 +50,7 @@ INSERT INTO EMPLEADO (ID_Empleado, Nombre, Telefono, Usuario, Contrasena, Es_Adm
 );
 -- Factura en Efectivo y un producto 2 veces
 INSERT INTO FACTURA (ID_Factura,ID_Cliente,ID_Empleado,Fecha,Hora,ID_Transaccion,Total) VALUES (
-  '1',
+  NULL,
   '1',
   '2',
   '2025-05-09',
@@ -60,7 +60,7 @@ INSERT INTO FACTURA (ID_Factura,ID_Cliente,ID_Empleado,Fecha,Hora,ID_Transaccion
 );
 -- Factura Con Transferencia y dos productos
 INSERT INTO FACTURA (ID_Factura,ID_Cliente,ID_Empleado,Fecha,Hora,ID_Transaccion,Total) VALUES (
-  '2',
+  NULL,
   '1',
   '2',
   '2025-05-09',
@@ -70,28 +70,28 @@ INSERT INTO FACTURA (ID_Factura,ID_Cliente,ID_Empleado,Fecha,Hora,ID_Transaccion
 );
 -- Detalle factura 1
 INSERT INTO DETALLE (ID_Factura,ID_Producto,Cantidad,Valor) VALUES (
-  '1',
+  1,
   '1',
   '2',
   '2400'
 );
 --Detalle factura 2 - Producto 1
 INSERT INTO DETALLE (ID_Factura,ID_Producto,Cantidad,Valor) VALUES (
-  '2',
+  2,
   '2',
   '1',
   '700'
 );
 --Detalle factura 2 - Producto 2
 INSERT INTO DETALLE (ID_Factura,ID_Producto,Cantidad,Valor) VALUES (
-  '2',
+  2,
   '3',
   '1',
   '600'
 );
 -- Devolucion de Prueba
 INSERT INTO DEVOLUCION (ID_Factura,ID_Producto,Fecha,Hora) VALUES (
-  '1',
+  1,
   '1',
   '2025-05-09',
   '17:13:12'
