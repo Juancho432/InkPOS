@@ -20,6 +20,7 @@ namespace InkPos
             EmpleadoActual = empleado;
             Database = database;
             InitializeComponent();
+            this.Load += Form_Home_Empleados_Load;
         }
 
         private void button_venta_Click(object sender, EventArgs e)
@@ -41,6 +42,11 @@ namespace InkPos
             FromFactura.Show();
             Hide();
             FromFactura.FormClosed += (s, args) => Show();
+        }
+
+        private void Form_Home_Empleados_Load(object sender, EventArgs e)
+        {
+            lbl_nombreUsuario.Text = EmpleadoActual.Nombre;
         }
     }
 }

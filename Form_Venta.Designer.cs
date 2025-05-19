@@ -142,11 +142,10 @@
             txtbox_buscar_cliente.TextAlign = HorizontalAlignment.Left;
             txtbox_buscar_cliente.TrailingIcon = null;
             txtbox_buscar_cliente.UseSystemPasswordChar = false;
+            txtbox_buscar_cliente.TextChanged += txtbox_buscar_cliente_TextChanged;
             // 
             // txtbox_Valor_total
             // 
-            txtbox_Valor_total.ReadOnly = false;
-            txtbox_Valor_total.Enabled = true;
             txtbox_Valor_total.Anchor = AnchorStyles.None;
             txtbox_Valor_total.AnimateReadOnly = false;
             txtbox_Valor_total.BackgroundImageLayout = ImageLayout.None;
@@ -192,7 +191,7 @@
             txtbox_Cantidad_productos.Name = "txtbox_Cantidad_productos";
             txtbox_Cantidad_productos.PasswordChar = '\0';
             txtbox_Cantidad_productos.PrefixSuffixText = null;
-            txtbox_Cantidad_productos.ReadOnly = false;
+            txtbox_Cantidad_productos.ReadOnly = true;
             txtbox_Cantidad_productos.RightToLeft = RightToLeft.No;
             txtbox_Cantidad_productos.SelectedText = "";
             txtbox_Cantidad_productos.SelectionLength = 0;
@@ -204,7 +203,6 @@
             txtbox_Cantidad_productos.TextAlign = HorizontalAlignment.Left;
             txtbox_Cantidad_productos.TrailingIcon = null;
             txtbox_Cantidad_productos.UseSystemPasswordChar = false;
-            txtbox_Cantidad_productos.KeyDown += txtbox_Cantidad_productos_KeyDown;
             // 
             // button_cancelar
             // 
@@ -290,6 +288,7 @@
             lista_Coincidencias.Name = "lista_Coincidencias";
             lista_Coincidencias.Size = new Size(274, 214);
             lista_Coincidencias.TabIndex = 16;
+            lista_Coincidencias.DoubleClick += lista_Coincidencias_DoubleClick;
             lista_Coincidencias.KeyPress += lista_Coincidencias_KeyPress;
             // 
             // lbl_valorTotal
@@ -334,13 +333,16 @@
             tabla_Productos.RowHeadersWidth = 51;
             tabla_Productos.Size = new Size(746, 297);
             tabla_Productos.TabIndex = 17;
+            tabla_Productos.CellValidating += tabla_Productos_CellValidating;
             tabla_Productos.CellValueChanged += tabla_Productos_CellValueChanged;
+            tabla_Productos.KeyDown += tabla_Productos_KeyDown;
             // 
             // column_codigo
             // 
             column_codigo.HeaderText = "Código";
             column_codigo.MinimumWidth = 6;
             column_codigo.Name = "column_codigo";
+            column_codigo.ReadOnly = true;
             column_codigo.Width = 200;
             // 
             // column_NombreP
@@ -348,6 +350,7 @@
             column_NombreP.HeaderText = "Producto";
             column_NombreP.MinimumWidth = 6;
             column_NombreP.Name = "column_NombreP";
+            column_NombreP.ReadOnly = true;
             column_NombreP.Width = 200;
             // 
             // column_cantidad
@@ -362,6 +365,7 @@
             column_valor.HeaderText = "Valor";
             column_valor.MinimumWidth = 6;
             column_valor.Name = "column_valor";
+            column_valor.ReadOnly = true;
             column_valor.Width = 200;
             // 
             // Form_Venta

@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace InkPos
@@ -25,7 +22,27 @@ namespace InkPos
             Database = database;
             InitializeComponent();
             crear_Lista_Productos();
+
+            tabla_Productos.EditMode = DataGridViewEditMode.EditOnEnter;
+
+            // Configura solo la columna de cantidad como editable
+            foreach (DataGridViewColumn col in tabla_Productos.Columns)
+                col.ReadOnly = col.Name != "column_cantidad";
+
+            // Refuerza la configuración al mostrar el formulario
+            this.Shown += (s, e) =>
+            {
+                foreach (DataGridViewColumn col in tabla_Productos.Columns)
+                    col.ReadOnly = col.Name != "column_cantidad";
+            };
+
+            tabla_Productos.CellValidating += tabla_Productos_CellValidating;
+            tabla_Productos.CellValueChanged += tabla_Productos_CellValueChanged;
+            tabla_Productos.CellBeginEdit += tabla_Productos_CellBeginEdit;
+            tabla_Productos.CellEndEdit += tabla_Productos_CellEndEdit;
+            tabla_Productos.KeyDown += tabla_Productos_KeyDown;
         }
+
         public void crear_Lista_Productos()
         {
             ProductosBaseDatos = ObtenerListaProductos();
@@ -33,40 +50,38 @@ namespace InkPos
 
         private void button_finalizar_Click(object sender, EventArgs e)
         {
-    List<Producto> productos = new List<Producto>();
-    foreach (DataGridViewRow fila in tabla_Productos.Rows)
-    {
-        if (!fila.IsNewRow)
-        {
-            Producto producto = new Producto(
-                fila.Cells["column_codigo"].Value?.ToString(),
-                fila.Cells["column_NombreP"].Value?.ToString(),
-                Convert.ToDecimal(fila.Cells["column_valor"].Value),
-                Convert.ToInt32(fila.Cells["column_cantidad"].Value)
-            );
-            productos.Add(producto);
-        }
-    }
+            List<Producto> productos = new List<Producto>();
+            foreach (DataGridViewRow fila in tabla_Productos.Rows)
+            {
+                if (!fila.IsNewRow)
+                {
+                    Producto producto = new Producto(
+                        fila.Cells["column_codigo"].Value?.ToString(),
+                        fila.Cells["column_NombreP"].Value?.ToString(),
+                        Convert.ToDecimal(fila.Cells["column_valor"].Value),
+                        Convert.ToInt32(fila.Cells["column_cantidad"].Value)
+                    );
+                    productos.Add(producto);
+                }
+            }
 
-    if (productos.Count == 0)
-    {
-        MessageBox.Show("No hay productos en la tabla para finalizar la venta.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        return;
-    }
+            if (productos.Count == 0)
+            {
+                MessageBox.Show("No hay productos en la tabla para finalizar la venta.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-    // Obtener el valor total desde el textbox
-    decimal valorTotal = 0;
-    if (!decimal.TryParse(txtbox_Valor_total.Text, out valorTotal))
-    {
-        MessageBox.Show("Ingrese un valor total válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        return;
-    }
+            decimal valorTotal = 0;
+            if (!decimal.TryParse(txtbox_Valor_total.Text, out valorTotal))
+            {
+                MessageBox.Show("Ingrese un valor total válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             Form_Ventana_Pago ventanaPago = new Form_Ventana_Pago(EmpleadoActual, Database, productos, (int)valorTotal);
-    ventanaPago.ShowDialog();
-    this.Close();
-}
-
+            ventanaPago.ShowDialog();
+            this.Close();
+        }
 
         private void button_cancelar_Click(object sender, EventArgs e)
         {
@@ -85,8 +100,7 @@ namespace InkPos
             lista_Coincidencias.Items.Clear();
             foreach (var producto in coincidencias)
             {
-                string item = $"ID: {producto.IdProducto} | Nombre: {producto.NombreItem}";
-                lista_Coincidencias.Items.Add(item);
+                lista_Coincidencias.Items.Add(producto); // Agrega el objeto completo
             }
         }
 
@@ -104,8 +118,6 @@ namespace InkPos
 
         private List<Producto> ObtenerListaProductos()
         {
-            // Aquí se realiza la consulta a la base de datos
-            // SELECT * FROM Producto;
             return Database.ReadAllProducts();
         }
 
@@ -128,7 +140,23 @@ namespace InkPos
             }
         }
 
-
+        private void lista_Coincidencias_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter && lista_Coincidencias.SelectedItem != null)
+            {
+                var productoSeleccionado = lista_Coincidencias.SelectedItem as Producto;
+                if (productoSeleccionado != null)
+                {
+                    AgregarProductoATabla(productoSeleccionado);
+                    MessageBox.Show($"Producto agregado: {productoSeleccionado.NombreItem}", "Producto Agregado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione un producto válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                e.Handled = true;
+            }
+        }
 
         private void AgregarProductoATabla(Producto producto)
         {
@@ -140,13 +168,26 @@ namespace InkPos
                     return;
                 }
             }
+            int cantidad = 1;
+            decimal valorTotal = producto.Precio * cantidad;
             tabla_Productos.Rows.Add(
-                producto.IdProducto,
-                producto.NombreItem,
-                1,
-                producto.Precio
+                producto.IdProducto,      // column_codigo
+                producto.NombreItem,      // column_NombreP
+                cantidad,                 // column_cantidad
+                valorTotal                // column_valor
             );
             ActualizarValorTotal();
+        }
+
+        // Guarda el valor anterior de cantidad para restaurar si la edición es inválida
+        private object cantidadAnterior = null;
+
+        private void tabla_Productos_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            if (tabla_Productos.Columns[e.ColumnIndex].Name == "column_cantidad")
+            {
+                cantidadAnterior = tabla_Productos.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+            }
         }
 
         private void tabla_Productos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -156,84 +197,35 @@ namespace InkPos
                 e.RowIndex >= 0)
             {
                 DataGridViewRow fila = tabla_Productos.Rows[e.RowIndex];
-                if (int.TryParse(fila.Cells["column_cantidad"].Value?.ToString(), out int cantidad))
+                int cantidad = 1;
+                if (fila.Cells["column_cantidad"].Value != null &&
+                    int.TryParse(fila.Cells["column_cantidad"].Value.ToString(), out cantidad) &&
+                    cantidad > 0)
                 {
-                    if (cantidad == 0)
-                    {
-                        tabla_Productos.Rows.RemoveAt(e.RowIndex);
-                        MessageBox.Show("El producto ha sido eliminado de la tabla porque la cantidad es 0.", "Producto Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
-                    }
-
-                    // Obtener el stock del producto con la base de datos
                     string id = fila.Cells["column_codigo"].Value?.ToString();
                     Producto producto = ProductosBaseDatos.FirstOrDefault(p => p.IdProducto == id);
-                    int stock = producto?.Stock ?? 0;
 
-                    if (cantidad > stock)
+                    decimal precioUnitario = producto?.Precio ?? 0;
+                    if (producto == null && fila.Cells["column_valor"].Value != null && cantidad > 0)
                     {
-                        MessageBox.Show($"La cantidad no puede ser mayor al stock disponible ({stock}).", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        fila.Cells["column_cantidad"].Value = stock;
-                        cantidad = stock;
-                        if (stock == 0)
-                        {
-                            tabla_Productos.Rows.RemoveAt(e.RowIndex);
-                            MessageBox.Show("El producto ha sido eliminado de la tabla porque no hay stock de este producto.", "Producto Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            return;
-                        }
+                        decimal.TryParse(fila.Cells["column_valor"].Value.ToString(), out decimal valorActual);
+                        precioUnitario = valorActual / cantidad;
                     }
 
-                    // Calcular el nuevo total
-                    decimal precioUnitario = producto?.Precio ?? 0;
                     fila.Cells["column_valor"].Value = precioUnitario * cantidad;
                     valor = Convert.ToInt32(fila.Cells["column_valor"].Value);
-                }
-                else
-                {
-                    MessageBox.Show("La cantidad debe ser un número entero mayor a 0.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    fila.Cells["column_cantidad"].Value = 1;
-                    string id = fila.Cells["column_codigo"].Value?.ToString();
-                    Producto producto = ProductosBaseDatos.FirstOrDefault(p => p.IdProducto == id);
-                    decimal precioUnitario = producto?.Precio ?? 0;
-                    fila.Cells["column_valor"].Value = precioUnitario;
                 }
             }
             ActualizarValorTotal();
         }
 
-        private void lista_Coincidencias_KeyPress(object sender, KeyPressEventArgs e)
+        private void tabla_Productos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            // KeyPressEventArgs does not have a KeyCode property. Use KeyDown or KeyUp event instead.
-            // Replace this method with the KeyDown event handler to properly handle the Enter key.
-
-            if (e.KeyChar == (char)Keys.Enter) // Check if the pressed key is Enter
-            {
-                string textoBusqueda = txtbox_busqueda_producto.Text.ToLower();
-                Producto productoEncontrado = null;
-
-                foreach (var producto in ProductosBaseDatos)
-                {
-                    if (producto.NombreItem.ToLower() == textoBusqueda || producto.IdProducto.ToLower() == textoBusqueda)
-                    {
-                        productoEncontrado = producto;
-                        break;
-                    }
-                }
-
-                if (productoEncontrado != null)
-                {
-                    AgregarProductoATabla(productoEncontrado);
-                    MessageBox.Show($"Producto agregado: {productoEncontrado.NombreItem}", "Producto Agregado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("No se encontró el producto buscado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-
-                // Prevent the 'ding' sound when pressing Enter
-                e.Handled = true;
-            }
+            cantidadAnterior = null;
+            if (e.RowIndex >= 0 && e.RowIndex < tabla_Productos.Rows.Count)
+                tabla_Productos.Rows[e.RowIndex].ErrorText = "";
         }
+
 
         private void txtbox_Cantidad_productos_KeyDown(object sender, KeyEventArgs e)
         {
@@ -243,7 +235,6 @@ namespace InkPos
                 {
                     DataGridViewRow fila = null;
 
-                    // Prioriza la fila seleccionada, si no, usa la fila de la celda activa
                     if (tabla_Productos.SelectedRows.Count > 0)
                     {
                         fila = tabla_Productos.SelectedRows[0];
@@ -256,7 +247,6 @@ namespace InkPos
                     if (fila != null && !fila.IsNewRow)
                     {
                         fila.Cells["column_cantidad"].Value = nuevaCantidad;
-                        // Forzar commit para disparar CellValueChanged
                         tabla_Productos.CommitEdit(DataGridViewDataErrorContexts.Commit);
                     }
                     else
@@ -272,23 +262,107 @@ namespace InkPos
                 e.Handled = true;
             }
         }
+
         private void ActualizarValorTotal()
         {
             decimal total = 0;
+            int totalCantidad = 0;
             foreach (DataGridViewRow fila in tabla_Productos.Rows)
             {
-                if (!fila.IsNewRow && fila.Cells["column_valor"].Value != null)
+                if (!fila.IsNewRow)
                 {
-                    if (decimal.TryParse(fila.Cells["column_valor"].Value.ToString(), out decimal valorFila))
+                    // Suma el valor total
+                    if (fila.Cells["column_valor"].Value != null &&
+                        decimal.TryParse(fila.Cells["column_valor"].Value.ToString(), out decimal valorFila))
                     {
                         total += valorFila;
+                    }
+                    // Suma la cantidad total
+                    if (fila.Cells["column_cantidad"].Value != null &&
+                        int.TryParse(fila.Cells["column_cantidad"].Value.ToString(), out int cantidadFila))
+                    {
+                        totalCantidad += cantidadFila;
                     }
                 }
             }
             txtbox_Valor_total.Text = total.ToString("N2");
+            txtbox_Cantidad_productos.Text = totalCantidad.ToString();
         }
+
+        private void Form_Venta_Shown(object sender, EventArgs e)
+        {
+            foreach (DataGridViewColumn col in tabla_Productos.Columns)
+            {
+                col.ReadOnly = col.Name != "column_cantidad";
+            }
+        }
+
+        private void tabla_Productos_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            // No validar la fila de nueva inserción
+            if (tabla_Productos.Rows[e.RowIndex].IsNewRow)
+                return;
+
+            if (tabla_Productos.Columns[e.ColumnIndex].Name == "column_cantidad")
+            {
+                string value = e.FormattedValue?.ToString() ?? "";
+                if (string.IsNullOrWhiteSpace(value) || !int.TryParse(value, out int cantidad) || cantidad <= 0)
+                {
+                    tabla_Productos.Rows[e.RowIndex].ErrorText = "La cantidad debe ser un número entero mayor a 0.";
+                    e.Cancel = true;
+                }
+                else
+                {
+                    tabla_Productos.Rows[e.RowIndex].ErrorText = "";
+                }
+            }
+            else
+            {
+                tabla_Productos.Rows[e.RowIndex].ErrorText = "";
+            }
+        }
+
+
+        private void tabla_Productos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && tabla_Productos.IsCurrentCellInEditMode)
+            {
+                tabla_Productos.EndEdit();
+                e.Handled = true;
+            }
+        }
+
+        private void lista_Coincidencias_DoubleClick(object sender, EventArgs e)
+        {
+            if (lista_Coincidencias.SelectedItem is Producto productoSeleccionado)
+            {
+                AgregarProductoATabla(productoSeleccionado);
+                MessageBox.Show($"Producto agregado: {productoSeleccionado.NombreItem}", "Producto Agregado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un producto válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+
+
+        //agregar consulta sql para buscar cliente por id o nombre
+        //private void txtbox_buscar_cliente_TextChanged(object sender, EventArgs e)
+        //{
+        //    string texto = txtbox_buscar_cliente.Text.Trim();
+        //    if (string.IsNullOrEmpty(texto))
+        //    {
+        //        txtbox_nombre_cliente.Text = "";
+        //        return;
+        //    }
+
+        //    var cliente = Database.ReadClientByIdOrName(texto);
+        //    if (cliente != null)
+        //        txtbox_nombre_cliente.Text = cliente.Nombre;
+        //    else
+        //        txtbox_nombre_cliente.Text = "";
+        //}
 
     }
 }
-
-

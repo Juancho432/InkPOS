@@ -1,18 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace InkPos
+﻿public class Producto
 {
-    public class Producto(string IdProd, string NameItem,decimal Precio, int stock)
-    {
-        public string IdProducto { get; set; } = IdProd;
-        public string NombreItem { get; set; } = NameItem;
-        public decimal Precio { get; set; } = Precio;
-        public int Stock { get; set; } = stock;
-     
+    public string IdProducto { get; set; }
+    public string NombreItem { get; set; }
+    public decimal Precio { get; set; }
+    public int Stock { get; set; }
 
+    public Producto(string IdProd, string NameItem, decimal Precio, int stock)
+    {
+        IdProducto = IdProd;
+        NombreItem = NameItem;
+        this.Precio = Precio;
+        this.Stock = stock;
+    }
+
+    public override string ToString()
+    {
+        return $"ID: {IdProducto} | Nombre: {NombreItem}";
     }
 }

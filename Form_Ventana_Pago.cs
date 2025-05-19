@@ -16,6 +16,7 @@ namespace InkPos
         private DataBaseHandler Database;
         private int Valor;
         private List<Producto> Productos;
+        private string? valorRecibido;
 
         public Form_Ventana_Pago(Empleado empleado, DataBaseHandler database, List<Producto> productos, int ValorTotal)
         {
@@ -24,6 +25,7 @@ namespace InkPos
             Productos = productos ?? new List<Producto>();
             Valor = ValorTotal; // Asigna el valor recibido a la variable de instancia
             InitializeComponent();
+
             txtbox_valor.Text = ValorTotal.ToString("N2"); // Asigna el valor al textbox
             InicializarFormulario();
         }
@@ -157,6 +159,22 @@ namespace InkPos
 
         private void button_confirmar_Click(object sender, EventArgs e)
         {
+
+            try
+            {
+                // Validar campo vacío
+                if (string.IsNullOrWhiteSpace(txtbox_valor_recibido.Text))
+                {
+                    throw new Excepciones.CamposVacios();
+                }
+
+                // Aquí continúa la lógica para guardar la factura, etc.
+            }
+            catch (Excepciones.CamposVacios)
+            {
+             
+                return;
+            }
             //Tomar los datos de la factura y subirlo a la base de datos
         }
     }
