@@ -87,6 +87,8 @@ namespace InkPos
             txtbox_telefono.Clear();
             CB_cargo.SelectedIndex = -1;
             txtbox_salario.Clear();
+            txtbox_usuario.Clear();
+            txtbox_contraseña.Clear();
         }
     }
 }
