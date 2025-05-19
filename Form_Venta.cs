@@ -348,8 +348,8 @@ namespace InkPos
 
 
         //agregar consulta sql para buscar cliente por id o nombre
-        //private void txtbox_buscar_cliente_TextChanged(object sender, EventArgs e)
-        //{
+        private void txtbox_buscar_cliente_TextChanged(object sender, EventArgs e)
+        {
         //    string texto = txtbox_buscar_cliente.Text.Trim();
         //    if (string.IsNullOrEmpty(texto))
         //    {
@@ -362,7 +362,7 @@ namespace InkPos
         //        txtbox_nombre_cliente.Text = cliente.Nombre;
         //    else
         //        txtbox_nombre_cliente.Text = "";
-        //}
+        }
 
     }
 }
