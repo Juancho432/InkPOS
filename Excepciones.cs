@@ -130,12 +130,23 @@
             }
         }
     
-        public class DetalleInexistente
+        public class DetalleInexistente : Exception
         {
             public DetalleInexistente()
             {
                 MessageBox.Show("El producto no se encuentra registrado en la factura", 
                     "Detalle Inexistente",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        //StockNegativo
+        public class StockNegativo : Exception
+        {
+            public StockNegativo()
+            {
+                //Validar stock negativo
+                MessageBox.Show("Verifique que la cantidad del stock sea correcta. No se permiten numeros de stock negativos", "Stock Invalido",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }

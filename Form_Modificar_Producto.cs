@@ -34,6 +34,7 @@
                 return;
             }
             
+
             try
             {
                 switch (campoSeleccionado)
@@ -51,7 +52,15 @@
                     case "Stock":
                         if (!int.TryParse(nuevoValorTexto, out int stock))
                             throw new FormatException("El stock debe ser un número entero válido.");
-                        productoModificado.Stock = stock;
+                        if(stock < 0)
+                        {
+                            throw new Excepciones.StockNegativo();
+                        }
+                        else
+                        {
+                            productoModificado.Stock = stock;
+                        }
+                            
                         break;
 
                     default:
@@ -62,6 +71,10 @@
             catch (FormatException ex)
             {
                 MessageBox.Show(ex.Message);
+                return;
+            }
+            catch
+            {
                 return;
             }
 

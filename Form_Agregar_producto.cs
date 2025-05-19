@@ -41,16 +41,29 @@ namespace InkPos
                     throw new Excepciones.CamposVacios();
                 }
             }
-            catch 
+            catch
             {
                 return;
             }
-
+            ;
             // Parsear los valores numéricos
             if ( !int.TryParse(cantidad, out int stock) ||
                 !decimal.TryParse(precio, out decimal pvp))
             {
                 MessageBox.Show("Verifica que la cantidad y el precio sean valores numéricos válidos.");
+                return;
+            }
+
+            //Validar stock negativo
+            try
+            {
+                if (stock < 0)
+                {
+                    throw new Excepciones.StockNegativo();
+                }
+            }
+            catch
+            {
                 return;
             }
 
