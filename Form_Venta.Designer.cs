@@ -28,7 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panel_venta = new Panel();
+            DG_Busqueda_Productos = new DataGridView();
+            codigoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nombreDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            precioDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            stockDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            productoBindingSource = new BindingSource(components);
             txtbox_nombre_cliente = new MaterialSkin.Controls.MaterialTextBox2();
             lbl_name_cliente = new Label();
             txtbox_buscar_cliente = new MaterialSkin.Controls.MaterialTextBox2();
@@ -37,22 +44,26 @@
             button_cancelar = new MaterialSkin.Controls.MaterialButton();
             button_finalizar = new MaterialSkin.Controls.MaterialButton();
             txtbox_busqueda_producto = new MaterialSkin.Controls.MaterialTextBox2();
-            lista_Coincidencias = new ListBox();
             lbl_valorTotal = new Label();
             lbl_cantidad_productos = new Label();
             lbl_detalleVenta = new Label();
-            tabla_Productos = new DataGridView();
-            column_codigo = new DataGridViewTextBoxColumn();
-            column_NombreP = new DataGridViewTextBoxColumn();
-            column_cantidad = new DataGridViewTextBoxColumn();
-            column_valor = new DataGridViewTextBoxColumn();
+            DG_Detalle = new DataGridView();
+            Codigo = new DataGridViewTextBoxColumn();
+            Nombre = new DataGridViewTextBoxColumn();
+            Cantidad = new DataGridViewTextBoxColumn();
+            Subtotal = new DataGridViewTextBoxColumn();
+            detalleVentaBindingSource = new BindingSource(components);
             panel_venta.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)tabla_Productos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DG_Busqueda_Productos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)productoBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DG_Detalle).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)detalleVentaBindingSource).BeginInit();
             SuspendLayout();
             // 
             // panel_venta
             // 
             panel_venta.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel_venta.Controls.Add(DG_Busqueda_Productos);
             panel_venta.Controls.Add(txtbox_nombre_cliente);
             panel_venta.Controls.Add(lbl_name_cliente);
             panel_venta.Controls.Add(txtbox_buscar_cliente);
@@ -61,16 +72,78 @@
             panel_venta.Controls.Add(button_cancelar);
             panel_venta.Controls.Add(button_finalizar);
             panel_venta.Controls.Add(txtbox_busqueda_producto);
-            panel_venta.Controls.Add(lista_Coincidencias);
             panel_venta.Controls.Add(lbl_valorTotal);
             panel_venta.Controls.Add(lbl_cantidad_productos);
             panel_venta.Controls.Add(lbl_detalleVenta);
-            panel_venta.Controls.Add(tabla_Productos);
-            panel_venta.Location = new Point(4, 2);
-            panel_venta.Margin = new Padding(3, 2, 3, 2);
+            panel_venta.Controls.Add(DG_Detalle);
+            panel_venta.Location = new Point(5, 3);
             panel_venta.Name = "panel_venta";
-            panel_venta.Size = new Size(1324, 878);
+            panel_venta.Size = new Size(1513, 1171);
             panel_venta.TabIndex = 0;
+            // 
+            // DG_Busqueda_Productos
+            // 
+            DG_Busqueda_Productos.AllowUserToAddRows = false;
+            DG_Busqueda_Productos.AllowUserToDeleteRows = false;
+            DG_Busqueda_Productos.AllowUserToResizeColumns = false;
+            DG_Busqueda_Productos.AllowUserToResizeRows = false;
+            DG_Busqueda_Productos.AutoGenerateColumns = false;
+            DG_Busqueda_Productos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            DG_Busqueda_Productos.BackgroundColor = SystemColors.ControlLight;
+            DG_Busqueda_Productos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DG_Busqueda_Productos.Columns.AddRange(new DataGridViewColumn[] { codigoDataGridViewTextBoxColumn, nombreDataGridViewTextBoxColumn, precioDataGridViewTextBoxColumn, stockDataGridViewTextBoxColumn });
+            DG_Busqueda_Productos.DataSource = productoBindingSource;
+            DG_Busqueda_Productos.EditMode = DataGridViewEditMode.EditProgrammatically;
+            DG_Busqueda_Productos.Location = new Point(22, 264);
+            DG_Busqueda_Productos.MultiSelect = false;
+            DG_Busqueda_Productos.Name = "DG_Busqueda_Productos";
+            DG_Busqueda_Productos.ReadOnly = true;
+            DG_Busqueda_Productos.RowHeadersVisible = false;
+            DG_Busqueda_Productos.RowHeadersWidth = 51;
+            DG_Busqueda_Productos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DG_Busqueda_Productos.Size = new Size(482, 579);
+            DG_Busqueda_Productos.TabIndex = 33;
+            DG_Busqueda_Productos.CellDoubleClick += DG_Busqueda_Productos_CellDoubleClick;
+            // 
+            // codigoDataGridViewTextBoxColumn
+            // 
+            codigoDataGridViewTextBoxColumn.DataPropertyName = "Codigo";
+            codigoDataGridViewTextBoxColumn.FillWeight = 15F;
+            codigoDataGridViewTextBoxColumn.HeaderText = "Codigo";
+            codigoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
+            codigoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            nombreDataGridViewTextBoxColumn.FillWeight = 60F;
+            nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            nombreDataGridViewTextBoxColumn.MinimumWidth = 6;
+            nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // precioDataGridViewTextBoxColumn
+            // 
+            precioDataGridViewTextBoxColumn.DataPropertyName = "Precio";
+            precioDataGridViewTextBoxColumn.FillWeight = 15F;
+            precioDataGridViewTextBoxColumn.HeaderText = "Precio";
+            precioDataGridViewTextBoxColumn.MinimumWidth = 6;
+            precioDataGridViewTextBoxColumn.Name = "precioDataGridViewTextBoxColumn";
+            precioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // stockDataGridViewTextBoxColumn
+            // 
+            stockDataGridViewTextBoxColumn.DataPropertyName = "Stock";
+            stockDataGridViewTextBoxColumn.FillWeight = 10F;
+            stockDataGridViewTextBoxColumn.HeaderText = "Stock";
+            stockDataGridViewTextBoxColumn.MinimumWidth = 6;
+            stockDataGridViewTextBoxColumn.Name = "stockDataGridViewTextBoxColumn";
+            stockDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // productoBindingSource
+            // 
+            productoBindingSource.DataSource = typeof(Producto);
             // 
             // txtbox_nombre_cliente
             // 
@@ -82,8 +155,7 @@
             txtbox_nombre_cliente.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_nombre_cliente.HideSelection = true;
             txtbox_nombre_cliente.LeadingIcon = null;
-            txtbox_nombre_cliente.Location = new Point(651, 80);
-            txtbox_nombre_cliente.Margin = new Padding(3, 2, 3, 2);
+            txtbox_nombre_cliente.Location = new Point(744, 107);
             txtbox_nombre_cliente.MaxLength = 32767;
             txtbox_nombre_cliente.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_nombre_cliente.Name = "txtbox_nombre_cliente";
@@ -95,7 +167,7 @@
             txtbox_nombre_cliente.SelectionLength = 0;
             txtbox_nombre_cliente.SelectionStart = 0;
             txtbox_nombre_cliente.ShortcutsEnabled = true;
-            txtbox_nombre_cliente.Size = new Size(409, 48);
+            txtbox_nombre_cliente.Size = new Size(467, 48);
             txtbox_nombre_cliente.TabIndex = 32;
             txtbox_nombre_cliente.TabStop = false;
             txtbox_nombre_cliente.TextAlign = HorizontalAlignment.Left;
@@ -106,9 +178,9 @@
             // 
             lbl_name_cliente.AutoSize = true;
             lbl_name_cliente.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_name_cliente.Location = new Point(542, 88);
+            lbl_name_cliente.Location = new Point(619, 117);
             lbl_name_cliente.Name = "lbl_name_cliente";
-            lbl_name_cliente.Size = new Size(85, 30);
+            lbl_name_cliente.Size = new Size(109, 38);
             lbl_name_cliente.TabIndex = 30;
             lbl_name_cliente.Text = "Cliente:";
             // 
@@ -121,10 +193,9 @@
             txtbox_buscar_cliente.Depth = 0;
             txtbox_buscar_cliente.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_buscar_cliente.HideSelection = true;
-            txtbox_buscar_cliente.Hint = "Ingrese el nombre o ID del cliente";
+            txtbox_buscar_cliente.Hint = "Nombre o ID del Cliente";
             txtbox_buscar_cliente.LeadingIcon = null;
-            txtbox_buscar_cliente.Location = new Point(129, 80);
-            txtbox_buscar_cliente.Margin = new Padding(3, 2, 3, 2);
+            txtbox_buscar_cliente.Location = new Point(112, 107);
             txtbox_buscar_cliente.MaxLength = 32767;
             txtbox_buscar_cliente.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_buscar_cliente.Name = "txtbox_buscar_cliente";
@@ -136,13 +207,13 @@
             txtbox_buscar_cliente.SelectionLength = 0;
             txtbox_buscar_cliente.SelectionStart = 0;
             txtbox_buscar_cliente.ShortcutsEnabled = true;
-            txtbox_buscar_cliente.Size = new Size(228, 48);
+            txtbox_buscar_cliente.Size = new Size(312, 48);
             txtbox_buscar_cliente.TabIndex = 29;
             txtbox_buscar_cliente.TabStop = false;
             txtbox_buscar_cliente.TextAlign = HorizontalAlignment.Left;
             txtbox_buscar_cliente.TrailingIcon = null;
             txtbox_buscar_cliente.UseSystemPasswordChar = false;
-            txtbox_buscar_cliente.TextChanged += txtbox_buscar_cliente_TextChanged;
+            txtbox_buscar_cliente.KeyPress += Txtbox_buscar_cliente_KeyPress;
             // 
             // txtbox_Valor_total
             // 
@@ -154,8 +225,7 @@
             txtbox_Valor_total.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_Valor_total.HideSelection = true;
             txtbox_Valor_total.LeadingIcon = null;
-            txtbox_Valor_total.Location = new Point(842, 578);
-            txtbox_Valor_total.Margin = new Padding(3, 2, 3, 2);
+            txtbox_Valor_total.Location = new Point(962, 880);
             txtbox_Valor_total.MaxLength = 32767;
             txtbox_Valor_total.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_Valor_total.Name = "txtbox_Valor_total";
@@ -167,7 +237,7 @@
             txtbox_Valor_total.SelectionLength = 0;
             txtbox_Valor_total.SelectionStart = 0;
             txtbox_Valor_total.ShortcutsEnabled = true;
-            txtbox_Valor_total.Size = new Size(192, 48);
+            txtbox_Valor_total.Size = new Size(219, 48);
             txtbox_Valor_total.TabIndex = 28;
             txtbox_Valor_total.TabStop = false;
             txtbox_Valor_total.TextAlign = HorizontalAlignment.Left;
@@ -184,8 +254,7 @@
             txtbox_Cantidad_productos.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_Cantidad_productos.HideSelection = true;
             txtbox_Cantidad_productos.LeadingIcon = null;
-            txtbox_Cantidad_productos.Location = new Point(643, 578);
-            txtbox_Cantidad_productos.Margin = new Padding(3, 2, 3, 2);
+            txtbox_Cantidad_productos.Location = new Point(735, 880);
             txtbox_Cantidad_productos.MaxLength = 32767;
             txtbox_Cantidad_productos.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_Cantidad_productos.Name = "txtbox_Cantidad_productos";
@@ -197,7 +266,7 @@
             txtbox_Cantidad_productos.SelectionLength = 0;
             txtbox_Cantidad_productos.SelectionStart = 0;
             txtbox_Cantidad_productos.ShortcutsEnabled = true;
-            txtbox_Cantidad_productos.Size = new Size(144, 48);
+            txtbox_Cantidad_productos.Size = new Size(165, 48);
             txtbox_Cantidad_productos.TabIndex = 27;
             txtbox_Cantidad_productos.TabStop = false;
             txtbox_Cantidad_productos.TextAlign = HorizontalAlignment.Left;
@@ -212,8 +281,8 @@
             button_cancelar.Depth = 0;
             button_cancelar.HighEmphasis = true;
             button_cancelar.Icon = null;
-            button_cancelar.Location = new Point(858, 660);
-            button_cancelar.Margin = new Padding(4);
+            button_cancelar.Location = new Point(962, 936);
+            button_cancelar.Margin = new Padding(5);
             button_cancelar.MouseState = MaterialSkin.MouseState.HOVER;
             button_cancelar.Name = "button_cancelar";
             button_cancelar.NoAccentTextColor = Color.Empty;
@@ -223,7 +292,7 @@
             button_cancelar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_cancelar.UseAccentColor = false;
             button_cancelar.UseVisualStyleBackColor = true;
-            button_cancelar.Click += button_cancelar_Click;
+            button_cancelar.Click += Boton_Cancelar_Click;
             // 
             // button_finalizar
             // 
@@ -233,8 +302,8 @@
             button_finalizar.Depth = 0;
             button_finalizar.HighEmphasis = true;
             button_finalizar.Icon = null;
-            button_finalizar.Location = new Point(704, 660);
-            button_finalizar.Margin = new Padding(4);
+            button_finalizar.Location = new Point(805, 936);
+            button_finalizar.Margin = new Padding(5);
             button_finalizar.MouseState = MaterialSkin.MouseState.HOVER;
             button_finalizar.Name = "button_finalizar";
             button_finalizar.NoAccentTextColor = Color.Empty;
@@ -244,7 +313,7 @@
             button_finalizar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_finalizar.UseAccentColor = false;
             button_finalizar.UseVisualStyleBackColor = true;
-            button_finalizar.Click += button_finalizar_Click;
+            button_finalizar.Click += Boton_Finalizar_Click;
             // 
             // txtbox_busqueda_producto
             // 
@@ -255,10 +324,9 @@
             txtbox_busqueda_producto.Depth = 0;
             txtbox_busqueda_producto.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_busqueda_producto.HideSelection = true;
-            txtbox_busqueda_producto.Hint = "(F4) Código/nombre del producto";
+            txtbox_busqueda_producto.Hint = "Código o nombre del producto";
             txtbox_busqueda_producto.LeadingIcon = null;
-            txtbox_busqueda_producto.Location = new Point(105, 246);
-            txtbox_busqueda_producto.Margin = new Padding(3, 2, 3, 2);
+            txtbox_busqueda_producto.Location = new Point(112, 201);
             txtbox_busqueda_producto.MaxLength = 32767;
             txtbox_busqueda_producto.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_busqueda_producto.Name = "txtbox_busqueda_producto";
@@ -270,34 +338,21 @@
             txtbox_busqueda_producto.SelectionLength = 0;
             txtbox_busqueda_producto.SelectionStart = 0;
             txtbox_busqueda_producto.ShortcutsEnabled = true;
-            txtbox_busqueda_producto.Size = new Size(273, 48);
+            txtbox_busqueda_producto.Size = new Size(312, 48);
             txtbox_busqueda_producto.TabIndex = 24;
             txtbox_busqueda_producto.TabStop = false;
             txtbox_busqueda_producto.TextAlign = HorizontalAlignment.Left;
             txtbox_busqueda_producto.TrailingIcon = null;
             txtbox_busqueda_producto.UseSystemPasswordChar = false;
-            txtbox_busqueda_producto.TextChanged += txtbox_busqueda_producto_TextChanged;
-            // 
-            // lista_Coincidencias
-            // 
-            lista_Coincidencias.Anchor = AnchorStyles.None;
-            lista_Coincidencias.FormattingEnabled = true;
-            lista_Coincidencias.ItemHeight = 15;
-            lista_Coincidencias.Location = new Point(105, 327);
-            lista_Coincidencias.Margin = new Padding(3, 2, 3, 2);
-            lista_Coincidencias.Name = "lista_Coincidencias";
-            lista_Coincidencias.Size = new Size(274, 214);
-            lista_Coincidencias.TabIndex = 16;
-            lista_Coincidencias.DoubleClick += lista_Coincidencias_DoubleClick;
-            lista_Coincidencias.KeyPress += lista_Coincidencias_KeyPress;
+            txtbox_busqueda_producto.TextChanged += Txtbox_busqueda_producto_TextChanged;
             // 
             // lbl_valorTotal
             // 
             lbl_valorTotal.Anchor = AnchorStyles.None;
             lbl_valorTotal.AutoSize = true;
-            lbl_valorTotal.Location = new Point(842, 561);
+            lbl_valorTotal.Location = new Point(962, 857);
             lbl_valorTotal.Name = "lbl_valorTotal";
-            lbl_valorTotal.Size = new Size(63, 15);
+            lbl_valorTotal.Size = new Size(81, 20);
             lbl_valorTotal.TabIndex = 22;
             lbl_valorTotal.Text = "Valor total:";
             // 
@@ -305,9 +360,9 @@
             // 
             lbl_cantidad_productos.Anchor = AnchorStyles.None;
             lbl_cantidad_productos.AutoSize = true;
-            lbl_cantidad_productos.Location = new Point(643, 561);
+            lbl_cantidad_productos.Location = new Point(735, 857);
             lbl_cantidad_productos.Name = "lbl_cantidad_productos";
-            lbl_cantidad_productos.Size = new Size(131, 15);
+            lbl_cantidad_productos.Size = new Size(164, 20);
             lbl_cantidad_productos.TabIndex = 21;
             lbl_cantidad_productos.Text = "Cantidad de productos:";
             // 
@@ -315,87 +370,95 @@
             // 
             lbl_detalleVenta.Anchor = AnchorStyles.None;
             lbl_detalleVenta.AutoSize = true;
-            lbl_detalleVenta.Location = new Point(457, 229);
+            lbl_detalleVenta.Location = new Point(522, 201);
             lbl_detalleVenta.Name = "lbl_detalleVenta";
-            lbl_detalleVenta.Size = new Size(91, 15);
+            lbl_detalleVenta.Size = new Size(118, 20);
             lbl_detalleVenta.TabIndex = 18;
             lbl_detalleVenta.Text = "Detalle de venta";
             // 
-            // tabla_Productos
+            // DG_Detalle
             // 
-            tabla_Productos.Anchor = AnchorStyles.None;
-            tabla_Productos.BackgroundColor = SystemColors.ControlLight;
-            tabla_Productos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tabla_Productos.Columns.AddRange(new DataGridViewColumn[] { column_codigo, column_NombreP, column_cantidad, column_valor });
-            tabla_Productos.Location = new Point(457, 246);
-            tabla_Productos.Margin = new Padding(3, 2, 3, 2);
-            tabla_Productos.Name = "tabla_Productos";
-            tabla_Productos.RowHeadersWidth = 51;
-            tabla_Productos.Size = new Size(746, 297);
-            tabla_Productos.TabIndex = 17;
-            tabla_Productos.CellValidating += tabla_Productos_CellValidating;
-            tabla_Productos.CellValueChanged += tabla_Productos_CellValueChanged;
-            tabla_Productos.KeyDown += tabla_Productos_KeyDown;
+            DG_Detalle.Anchor = AnchorStyles.None;
+            DG_Detalle.AutoGenerateColumns = false;
+            DG_Detalle.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            DG_Detalle.BackgroundColor = SystemColors.ControlLight;
+            DG_Detalle.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DG_Detalle.Columns.AddRange(new DataGridViewColumn[] { Codigo, Nombre, Cantidad, Subtotal });
+            DG_Detalle.DataSource = detalleVentaBindingSource;
+            DG_Detalle.Location = new Point(522, 224);
+            DG_Detalle.Name = "DG_Detalle";
+            DG_Detalle.RowHeadersVisible = false;
+            DG_Detalle.RowHeadersWidth = 51;
+            DG_Detalle.Size = new Size(963, 619);
+            DG_Detalle.TabIndex = 17;
+            DG_Detalle.CellValueChanged += Tabla_Productos_CellValueChanged;
             // 
-            // column_codigo
+            // Codigo
             // 
-            column_codigo.HeaderText = "Código";
-            column_codigo.MinimumWidth = 6;
-            column_codigo.Name = "column_codigo";
-            column_codigo.ReadOnly = true;
-            column_codigo.Width = 200;
+            Codigo.DataPropertyName = "Codigo";
+            Codigo.FillWeight = 10F;
+            Codigo.HeaderText = "Codigo";
+            Codigo.MinimumWidth = 6;
+            Codigo.Name = "Codigo";
+            Codigo.ReadOnly = true;
             // 
-            // column_NombreP
+            // Nombre
             // 
-            column_NombreP.HeaderText = "Producto";
-            column_NombreP.MinimumWidth = 6;
-            column_NombreP.Name = "column_NombreP";
-            column_NombreP.ReadOnly = true;
-            column_NombreP.Width = 200;
+            Nombre.DataPropertyName = "Nombre";
+            Nombre.FillWeight = 65F;
+            Nombre.HeaderText = "Nombre";
+            Nombre.MinimumWidth = 6;
+            Nombre.Name = "Nombre";
+            Nombre.ReadOnly = true;
             // 
-            // column_cantidad
+            // Cantidad
             // 
-            column_cantidad.HeaderText = "Cantidad";
-            column_cantidad.MinimumWidth = 6;
-            column_cantidad.Name = "column_cantidad";
-            column_cantidad.Width = 200;
+            Cantidad.DataPropertyName = "Cantidad";
+            Cantidad.FillWeight = 10F;
+            Cantidad.HeaderText = "Cantidad";
+            Cantidad.MinimumWidth = 6;
+            Cantidad.Name = "Cantidad";
             // 
-            // column_valor
+            // Subtotal
             // 
-            column_valor.HeaderText = "Valor";
-            column_valor.MinimumWidth = 6;
-            column_valor.Name = "column_valor";
-            column_valor.ReadOnly = true;
-            column_valor.Width = 200;
+            Subtotal.DataPropertyName = "Subtotal";
+            Subtotal.FillWeight = 15F;
+            Subtotal.HeaderText = "Subtotal";
+            Subtotal.MinimumWidth = 6;
+            Subtotal.Name = "Subtotal";
+            Subtotal.ReadOnly = true;
+            // 
+            // detalleVentaBindingSource
+            // 
+            detalleVentaBindingSource.DataSource = typeof(DetalleVenta);
             // 
             // Form_Venta
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1332, 796);
+            ClientSize = new Size(1522, 1055);
             Controls.Add(panel_venta);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "Form_Venta";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "InkPOS - Venta";
             WindowState = FormWindowState.Maximized;
+            Load += Form_Venta_Load;
             panel_venta.ResumeLayout(false);
             panel_venta.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)tabla_Productos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DG_Busqueda_Productos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)productoBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DG_Detalle).EndInit();
+            ((System.ComponentModel.ISupportInitialize)detalleVentaBindingSource).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panel_venta;
-        private ListBox lista_Coincidencias;
         private Label lbl_valorTotal;
         private Label lbl_cantidad_productos;
         private Label lbl_detalleVenta;
-        private DataGridView tabla_Productos;
-        private DataGridViewTextBoxColumn column_codigo;
-        private DataGridViewTextBoxColumn column_NombreP;
-        private DataGridViewTextBoxColumn column_cantidad;
-        private DataGridViewTextBoxColumn column_valor;
+        private DataGridView DG_Detalle;
         private MaterialSkin.Controls.MaterialButton button_cancelar;
         private MaterialSkin.Controls.MaterialButton button_finalizar;
         private MaterialSkin.Controls.MaterialTextBox2 txtbox_busqueda_producto;
@@ -404,5 +467,19 @@
         private MaterialSkin.Controls.MaterialTextBox2 txtbox_Valor_total;
         private MaterialSkin.Controls.MaterialTextBox2 txtbox_Cantidad_productos;
         private MaterialSkin.Controls.MaterialTextBox2 txtbox_nombre_cliente;
+        private DataGridViewTextBoxColumn idFacturaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn idProductoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn valorDataGridViewTextBoxColumn;
+        private BindingSource detalleVentaBindingSource;
+        private DataGridViewTextBoxColumn Codigo;
+        private DataGridViewTextBoxColumn Nombre;
+        private DataGridViewTextBoxColumn Cantidad;
+        private DataGridViewTextBoxColumn Subtotal;
+        private DataGridView DG_Busqueda_Productos;
+        private BindingSource productoBindingSource;
+        private DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn precioDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn stockDataGridViewTextBoxColumn;
     }
 }

@@ -15,8 +15,8 @@
             txtbox_contraseña.PasswordChar = '●'; 
             PB_ver.Visible = true;
             PB_ocultar.Visible = false;
-
         }
+
         private void Boton_Ingresar_Click(object sender, EventArgs e)
         {
             // Obtener los datos

@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace InkPos
+﻿namespace InkPos
 {
-    public class DetalleVenta(string IdFac, string IdProd, int Canti, decimal valor)
+    public class DetalleVenta(Producto producto, int cantidad)
     {
-        public string IdFactura { get; } = IdFac;
-        public string IdProducto { get; } = IdProd;
-        public int Cantidad { get; set; } = Canti;
-        public decimal Valor { get; set; } = valor;
+        public Producto Producto { get; } = producto;
+        public int Cantidad { get; set; } = cantidad;
+        public decimal Subtotal => Producto.Precio * Cantidad;
+
+        public string Codigo => Producto.Codigo;
+        public string Nombre => Producto.Nombre;
     }
 }

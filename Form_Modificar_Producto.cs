@@ -40,7 +40,7 @@
                 switch (campoSeleccionado)
                 {
                     case "Nombre":
-                        productoModificado.NombreItem = nuevoValorTexto;
+                        productoModificado.Nombre = nuevoValorTexto;
                         break;
 
                     case "Precio":

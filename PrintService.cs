@@ -29,17 +29,17 @@ namespace InkPos
             for (int i = 0; i < factura.Detalles.Count - 1; i++)
             {
                 DetalleVenta detalle = factura.Detalles[i];
-                Producto producto = database.ReadProductByID(detalle.IdProducto);
-                string temp = $"{i + 1} & {detalle.IdProducto} & {producto.NombreItem.ToUpper()} " +
-                                $"& {detalle.Cantidad} & {producto.Precio} & {detalle.Valor} \\ \n";
+                Producto producto = detalle.Producto;
+                string temp = $"{i + 1} & {producto.Codigo} & {producto.Nombre.ToUpper()} " +
+                                $"& {detalle.Cantidad} & {producto.Precio} & {detalle.Subtotal} \\ \n";
                 details += temp;
                 items += detalle.Cantidad;
-                total += detalle.Valor;
+                total += detalle.Subtotal;
             }
 
             Dictionary<string, string> campos = new()
             {
-                {"invoice_id", factura.IdFactura},
+                {"invoice_id", factura.IdFactura.ToString()},
                 {"date", $"{factura.Fecha} {factura.Hora}"},
                 {"pay_form", factura.IdTransaccion == null ? "Efectivo" : "Transferencia"},
                 {"trans_id", factura.IdTransaccion ?? ""},

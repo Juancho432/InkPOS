@@ -124,8 +124,8 @@ namespace InkPos
                     INSERT INTO PRODUCTO (ID_Producto, Nombre, Precio, Stock)
                     VALUES ($id, $nombre, $precio, $stock);";
 
-                cmd.Parameters.AddWithValue("$id", producto.IdProducto);
-                cmd.Parameters.AddWithValue("$nombre", producto.NombreItem);
+                cmd.Parameters.AddWithValue("$id", producto.Codigo);
+                cmd.Parameters.AddWithValue("$nombre", producto.Nombre);
                 cmd.Parameters.AddWithValue("$precio", producto.Precio);
                 cmd.Parameters.AddWithValue("$stock", producto.Stock);
 
@@ -218,16 +218,19 @@ namespace InkPos
             {
                 conn.Open();
                 using SqliteCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT ID_Producto, Nombre, Precio, Stock FROM PRODUCTO;";
+                cmd.CommandText = @"
+                        SELECT ID_Producto, Nombre, Precio, Stock 
+                        FROM PRODUCTO
+                        WHERE Stock > -1;";
 
                 using var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
                     Producto producto = new
                     (
-                        IdProd: reader.GetString(0),
-                        NameItem: reader.GetString(1),
-                        Precio: reader.GetDecimal(2),
+                        idProd: reader.GetString(0),
+                        nameItem: reader.GetString(1),
+                        precio: reader.GetDecimal(2),
                         stock: reader.GetInt32(3)
                     );
                     productos.Add(producto);
@@ -260,8 +263,8 @@ namespace InkPos
                         Precio = $precio,
                         Stock = $stock
                     WHERE ID_Producto = $id;";
-                cmd.Parameters.AddWithValue("$id", producto.IdProducto);
-                cmd.Parameters.AddWithValue("$nombre", producto.NombreItem);
+                cmd.Parameters.AddWithValue("$id", producto.Codigo);
+                cmd.Parameters.AddWithValue("$nombre", producto.Nombre);
                 cmd.Parameters.AddWithValue("$precio", producto.Precio);
                 cmd.Parameters.AddWithValue("$stock", producto.Stock);
 
@@ -291,7 +294,7 @@ namespace InkPos
                     UPDATE PRODUCTO
                     SET Stock = -1
                     WHERE ID_Producto = $id;";
-                cmd.Parameters.AddWithValue("$id", producto.IdProducto);
+                cmd.Parameters.AddWithValue("$id", producto.Codigo);
 
                 int filasAfectadas = cmd.ExecuteNonQuery();
                 return filasAfectadas > 0;
@@ -806,10 +809,10 @@ namespace InkPos
                     VALUES 
                         ($id_fac, $id_prod, $cant, $val);";
 
-                cmd.Parameters.AddWithValue("$id_fac", detalle.IdFactura);
-                cmd.Parameters.AddWithValue("$id_prod", detalle.IdProducto);
+                //cmd.Parameters.AddWithValue("$id_fac", detalle.IdFactura);
+                //cmd.Parameters.AddWithValue("$id_prod", detalle.IdProducto);
                 cmd.Parameters.AddWithValue("$cant", detalle.Cantidad);
-                cmd.Parameters.AddWithValue("$val", detalle.Valor);
+                cmd.Parameters.AddWithValue("$val", detalle.Subtotal);
 
                 int filasAfectadas = cmd.ExecuteNonQuery();
                 return filasAfectadas > 0;
@@ -826,7 +829,7 @@ namespace InkPos
             }
         }
 
-        public List<DetalleVenta> ReadDetailsByInvoice(string id)
+        public List<DetalleVenta> ReadDetailsByInvoice(int id)
         {
             SqliteConnection conn = new($"Data Source={dbPath}");
             conn.Open();
@@ -847,10 +850,9 @@ namespace InkPos
                 {
                     DetalleVenta detalle = new
                     (
-                        IdFac: reader.GetString(0),
-                        IdProd: reader.GetString(1),
-                        Canti: reader.GetInt32(2),
-                        valor: reader.GetDecimal(3)
+                        //IdFac: reader.GetString(0),
+                        producto: null,
+                        cantidad: reader.GetInt32(2)
                     );
 
                     detalles.Add(detalle);
@@ -886,14 +888,13 @@ namespace InkPos
                     INSERT INTO FACTURA 
                         (ID_Factura, ID_Cliente, ID_Empleado, Fecha, Hora, ID_Transaccion, Total)
                     VALUES 
-                        ($id_fact, $id_cli, $id_emp, $fecha, $hora, $trans, $total);";
-                    cmd.Parameters.AddWithValue("$id_fac", factura.IdFactura);
+                        (NULL, $id_cli, $id_emp, $fecha, $hora, $trans, $total);";
                     cmd.Parameters.AddWithValue("$id_cli", factura.IdCliente);
                     cmd.Parameters.AddWithValue("$id_emp", factura.IdEmpleado);
                     DateTime hoy = DateTime.Now;
                     cmd.Parameters.AddWithValue("$fecha", hoy.Date.ToString("yyyy-MM-dd"));
                     cmd.Parameters.AddWithValue("$hora", hoy.Hour.ToString("HH:mm:ss"));
-                    cmd.Parameters.AddWithValue("$trans", factura.IdTransaccion);
+                    cmd.Parameters.AddWithValue("$trans", factura.IdTransaccion ?? "NULL");
                     cmd.Parameters.AddWithValue("$total", factura.Total);
 
                     filasAfectadas = cmd.ExecuteNonQuery();
@@ -933,19 +934,19 @@ namespace InkPos
                 throw new FacturaInexistente();
             }
 
-            string ID_Factura = reader.GetString(0);
+            int ID_Factura = reader.GetInt32(0);
             string ID_Cliente = reader.GetString(1);
             string ID_Empleado = reader.GetString(2);
             string Fecha = reader.GetString(3);
             string Hora = reader.GetString(4);
             string? ID_Transaccion = reader.GetString(5);
             decimal Total = reader.GetDecimal(6);
-            List<DetalleVenta> detalles = ReadDetailsByInvoice(ID_Factura);
+            List<DetalleVenta> Detalles = ReadDetailsByInvoice(ID_Factura);
 
             SqliteConnection.ClearAllPools();
             conn.Close();
             conn.Dispose();
-            return new Factura(ID_Factura, ID_Cliente, ID_Empleado, Fecha, Hora, ID_Transaccion, Total) {Detalles = detalles};
+            return new Factura(ID_Factura, ID_Cliente, ID_Empleado, Fecha, Hora, ID_Transaccion, Total, Detalles);
         }
     
         public List<Factura> ReadInvoiceByDates(DateTime startDT, DateTime endDT)
@@ -969,15 +970,15 @@ namespace InkPos
                 {
                     Factura factura = new
                     (
-                        IdFac: reader.GetString(0),
-                        IdCl: reader.GetString(1),
+                        idFac: reader.GetInt32(0),
+                        idCl: reader.GetString(1),
                         idEmp: reader.GetString(2),
                         fecha: reader.GetString(3),
                         hora: reader.GetString(4),
-                        idTrans: reader.GetString(5),
-                        Total: reader.GetDecimal(6)
+                        trans: reader.GetString(5),
+                        total: reader.GetDecimal(6),
+                        detalles: ReadDetailsByInvoice(reader.GetInt32(0))
                     );
-                    factura.Detalles = ReadDetailsByInvoice(factura.IdFactura);
                     facturas.Add(factura);
                 }
             }
@@ -994,6 +995,78 @@ namespace InkPos
             }
 
             return facturas;
+        }
+
+        //      #### CRUD Cliente
+
+        public bool CreateClient(Cliente cliente)
+        {
+            using SqliteConnection conn = new($"Data Source={dbPath}");
+            int filasAfectadas = 0;
+            conn.Open();
+
+            try
+            {
+                using (SqliteCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                    INSERT INTO CLIENTE
+                        (ID_Cliente, Nombre, Direccion, Telefono)
+                    VALUES 
+                        ($id_cli, $nombre, $dir, $tel);";
+                    cmd.Parameters.AddWithValue("$id_cli", cliente.IdCliente);
+                    cmd.Parameters.AddWithValue("$nombre", cliente.NombreCliente);
+                    cmd.Parameters.AddWithValue("$dir", cliente.Direccion);
+                    cmd.Parameters.AddWithValue("$tel", cliente.Telefono);
+
+
+                    filasAfectadas = cmd.ExecuteNonQuery();
+                    return filasAfectadas > 0;
+                }
+                ;
+            }
+            catch
+            {
+                throw new ClienteExistente();
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+                SqliteConnection.ClearAllPools();
+            }
+        }
+    
+        public Cliente ReadClientByID(string id)
+        {
+            SqliteConnection conn = new($"Data Source={dbPath}");
+            conn.Open();
+            using SqliteCommand cmd = conn.CreateCommand();
+            cmd.CommandText = @"
+                SELECT ID_Cliente, Nombre, Direccion, Telefono
+                FROM CLIENTE
+                WHERE ID_Cliente = $id";
+            cmd.Parameters.AddWithValue("$id", id);
+
+            using var reader = cmd.ExecuteReader();
+
+            if (!reader.Read())
+            {
+                SqliteConnection.ClearAllPools();
+                conn.Close();
+                conn.Dispose();
+                throw new ClienteInexistente();
+            }
+
+            string ID = reader.GetString(0);
+            string nombre = reader.GetString(1);
+            string dir = reader.GetString(2);
+            string tel = reader.GetString(3);
+
+            SqliteConnection.ClearAllPools();
+            conn.Close();
+            conn.Dispose();
+            return new Cliente(ID, nombre, dir, tel);
         }
     }
 }

@@ -14,6 +14,26 @@
             }
         }
 
+        public class ValorInvalido : Exception
+        {
+            public ValorInvalido()
+            {
+                MessageBox.Show("El valor ingresado no es valido",
+                    "Valor Invalido",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        
+        public class DineroInsuficiente : Exception
+        {
+            public DineroInsuficiente()
+            {
+                MessageBox.Show("El dinero ingresado no es suficiente",
+                    "Dinero Insuficiente",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
         //      #### Producto
 
         public class ProductoInexistente : Exception 
@@ -98,7 +118,6 @@
         }
     
         //      #### Factura
-
         public class FacturaInexistente : Exception
         {
             public FacturaInexistente()
@@ -147,6 +166,26 @@
             {
                 //Validar stock negativo
                 MessageBox.Show("Verifique que la cantidad del stock sea correcta. No se permiten numeros de stock negativos", "Stock Invalido",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+    
+        public class ClienteInexistente : Exception
+        {
+            public ClienteInexistente()
+            {
+                MessageBox.Show("El cliente no esta registrado en la base de datos",
+                    "Cliente Inexistente",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+    
+        public class ClienteExistente : Exception
+        {
+            public ClienteExistente()
+            {
+                MessageBox.Show("El cliente ya esta registrado en la base de datos",
+                    "Cliente Existente",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }

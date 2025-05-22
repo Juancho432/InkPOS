@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace InkPos
+﻿namespace InkPos
 {
     public partial class Form_Home_Empleados : Form
     {
@@ -20,7 +10,6 @@ namespace InkPos
             EmpleadoActual = empleado;
             Database = database;
             InitializeComponent();
-            this.Load += Form_Home_Empleados_Load;
         }
 
         private void button_venta_Click(object sender, EventArgs e)
@@ -33,7 +22,7 @@ namespace InkPos
 
         private void button_salir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void button_facturas_Click(object sender, EventArgs e)
