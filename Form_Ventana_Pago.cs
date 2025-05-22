@@ -4,13 +4,18 @@
     {
 
         private readonly DataBaseHandler Database;
-        private readonly int Valor;
-        private Factura facturaActual;
+        private readonly decimal ValorTotal;
+        private Factura FacturaActual;
+        private Empleado EmpleadoActual;
+        private Cliente ClienteActual;
 
-        public Form_Ventana_Pago(DataBaseHandler database, Factura factura)
+        public Form_Ventana_Pago(DataBaseHandler database, Factura factura, Empleado empleado, Cliente cliente)
         {
-            facturaActual = factura;
+            FacturaActual = factura;
             Database = database;
+            ValorTotal = factura.Total;
+            EmpleadoActual = empleado;
+            ClienteActual = cliente;
             InitializeComponent();
         }
 
@@ -93,21 +98,17 @@
                             {
                                 throw new Excepciones.ValorInvalido();
                             }
-                            else
+
+                            if (valor < ValorTotal)
                             {
-                                decimal valorRecibido = valor;
+                                throw new Excepciones.DineroInsuficiente();
                             }
                         }
                         catch
                         {
                             return;
                         }
-
-                        facturaActual.IdTransaccion = null;
-                        Database.CreateInvoice(facturaActual);
-                        MessageBox.Show("Factura creada con exito", "Venta Finalizada",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                        FacturaActual.IdTransaccion = null;
                         break;
                     }
                 // Transferencia
@@ -125,19 +126,24 @@
                             return;
                         }
 
-                        facturaActual.IdTransaccion = txtbox_codigo_transferencia.Text;
-                        Database.CreateInvoice(facturaActual);
-                        MessageBox.Show("Factura creada con exito", "Venta Finalizada",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        FacturaActual.IdTransaccion = txtbox_codigo_transferencia.Text;
                         break;
                     }
             }
-            Close();
+            FacturaActual.IdFactura = Database.CreateInvoice(FacturaActual);
+            MessageBox.Show("Factura creada con exito", "Venta Finalizada",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            PrintService.GenPDF(FacturaActual, ClienteActual, EmpleadoActual);
+            foreach (DetalleVenta item in FacturaActual.Detalles)
+            {
+                item.Producto.Stock -= item.Cantidad;
+                Database.UpdateProduct(item.Producto);
+            }
         }
 
         private void Form_Ventana_Pago_Load(object sender, EventArgs e)
         {
-            txtbox_valor.Text = Valor.ToString();
+            txtbox_valor.Text = ValorTotal.ToString();
             // Ocultar los controles relacionados con el pago por Transacción
             lbl_codigo_transferencia.Visible = false;
             txtbox_codigo_transferencia.Visible = false;

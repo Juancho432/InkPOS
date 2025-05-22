@@ -3,7 +3,7 @@ namespace InkPos
 {
     public class Factura
     {
-        public int IdFactura;
+        public long IdFactura;
         public string IdCliente;
         public string IdEmpleado;
         public string Fecha;
@@ -20,8 +20,8 @@ namespace InkPos
             IdCliente = idCl;
             IdEmpleado = idEmp; 
             Total = total;
-            Fecha = "";
-            Hora = "";
+            Fecha = DateTime.Now.ToString("yyyy-MM-dd");
+            Hora = DateTime.Now.ToString("HH:mm:ss");
             Detalles = detalles;
         }
 

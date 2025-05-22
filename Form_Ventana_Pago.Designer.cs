@@ -34,7 +34,6 @@
             lbl_cambio = new Label();
             txtbox_valor_recibido = new MaterialSkin.Controls.MaterialTextBox2();
             txtbox_cambio = new MaterialSkin.Controls.MaterialTextBox2();
-            button_GenerarPDF = new MaterialSkin.Controls.MaterialButton();
             button_cancelar = new MaterialSkin.Controls.MaterialButton();
             button_confirmar = new MaterialSkin.Controls.MaterialButton();
             txtbox_valor = new MaterialSkin.Controls.MaterialTextBox2();
@@ -51,7 +50,6 @@
             panel_ventana_pago.Controls.Add(lbl_cambio);
             panel_ventana_pago.Controls.Add(txtbox_valor_recibido);
             panel_ventana_pago.Controls.Add(txtbox_cambio);
-            panel_ventana_pago.Controls.Add(button_GenerarPDF);
             panel_ventana_pago.Controls.Add(button_cancelar);
             panel_ventana_pago.Controls.Add(button_confirmar);
             panel_ventana_pago.Controls.Add(txtbox_valor);
@@ -173,26 +171,6 @@
             txtbox_cambio.TrailingIcon = null;
             txtbox_cambio.UseSystemPasswordChar = false;
             // 
-            // button_GenerarPDF
-            // 
-            button_GenerarPDF.Anchor = AnchorStyles.None;
-            button_GenerarPDF.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button_GenerarPDF.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            button_GenerarPDF.Depth = 0;
-            button_GenerarPDF.HighEmphasis = true;
-            button_GenerarPDF.Icon = null;
-            button_GenerarPDF.Location = new Point(704, 712);
-            button_GenerarPDF.Margin = new Padding(5);
-            button_GenerarPDF.MouseState = MaterialSkin.MouseState.HOVER;
-            button_GenerarPDF.Name = "button_GenerarPDF";
-            button_GenerarPDF.NoAccentTextColor = Color.Empty;
-            button_GenerarPDF.Size = new Size(118, 36);
-            button_GenerarPDF.TabIndex = 13;
-            button_GenerarPDF.Text = "Generar PDF";
-            button_GenerarPDF.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            button_GenerarPDF.UseAccentColor = false;
-            button_GenerarPDF.UseVisualStyleBackColor = true;
-            // 
             // button_cancelar
             // 
             button_cancelar.Anchor = AnchorStyles.None;
@@ -201,7 +179,7 @@
             button_cancelar.Depth = 0;
             button_cancelar.HighEmphasis = true;
             button_cancelar.Icon = null;
-            button_cancelar.Location = new Point(897, 712);
+            button_cancelar.Location = new Point(800, 712);
             button_cancelar.Margin = new Padding(5);
             button_cancelar.MouseState = MaterialSkin.MouseState.HOVER;
             button_cancelar.Name = "button_cancelar";
@@ -222,7 +200,7 @@
             button_confirmar.Depth = 0;
             button_confirmar.HighEmphasis = true;
             button_confirmar.Icon = null;
-            button_confirmar.Location = new Point(509, 712);
+            button_confirmar.Location = new Point(630, 712);
             button_confirmar.Margin = new Padding(5);
             button_confirmar.MouseState = MaterialSkin.MouseState.HOVER;
             button_confirmar.Name = "button_confirmar";
@@ -330,7 +308,6 @@
         #endregion
 
         private Panel panel_ventana_pago;
-        private MaterialSkin.Controls.MaterialButton button_GenerarPDF;
         private MaterialSkin.Controls.MaterialButton button_cancelar;
         private MaterialSkin.Controls.MaterialButton button_confirmar;
         private MaterialSkin.Controls.MaterialTextBox2 txtbox_valor;

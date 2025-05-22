@@ -796,7 +796,7 @@ namespace InkPos
     
         //      #### CRUD Detalle
 
-        public bool CreateDetail(DetalleVenta detalle)
+        public bool CreateDetail(DetalleVenta detalle, long id_fac)
         {
             using SqliteConnection conn = new($"Data Source={dbPath}");
             try
@@ -809,8 +809,8 @@ namespace InkPos
                     VALUES 
                         ($id_fac, $id_prod, $cant, $val);";
 
-                //cmd.Parameters.AddWithValue("$id_fac", detalle.IdFactura);
-                //cmd.Parameters.AddWithValue("$id_prod", detalle.IdProducto);
+                cmd.Parameters.AddWithValue("$id_fac", id_fac);
+                cmd.Parameters.AddWithValue("$id_prod", detalle.Producto.Codigo);
                 cmd.Parameters.AddWithValue("$cant", detalle.Cantidad);
                 cmd.Parameters.AddWithValue("$val", detalle.Subtotal);
 
@@ -874,7 +874,7 @@ namespace InkPos
 
         //      #### CRUD Factura
 
-        public bool CreateInvoice(Factura factura)
+        public long CreateInvoice(Factura factura)
         {
             using SqliteConnection conn = new($"Data Source={dbPath}");
             int filasAfectadas = 0;
@@ -891,15 +891,26 @@ namespace InkPos
                         (NULL, $id_cli, $id_emp, $fecha, $hora, $trans, $total);";
                     cmd.Parameters.AddWithValue("$id_cli", factura.IdCliente);
                     cmd.Parameters.AddWithValue("$id_emp", factura.IdEmpleado);
-                    DateTime hoy = DateTime.Now;
-                    cmd.Parameters.AddWithValue("$fecha", hoy.Date.ToString("yyyy-MM-dd"));
-                    cmd.Parameters.AddWithValue("$hora", hoy.Hour.ToString("HH:mm:ss"));
-                    cmd.Parameters.AddWithValue("$trans", factura.IdTransaccion ?? "NULL");
+                    cmd.Parameters.AddWithValue("$fecha", factura.Fecha);
+                    cmd.Parameters.AddWithValue("$hora", factura.Hora);
+                    cmd.Parameters.AddWithValue("$trans", factura.IdTransaccion ?? (object)DBNull.Value);
                     cmd.Parameters.AddWithValue("$total", factura.Total);
 
                     filasAfectadas = cmd.ExecuteNonQuery();
-                    return filasAfectadas > 0;
                 };
+
+                long id_factura;
+                using (SqliteCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT last_insert_rowid();";
+                    id_factura = (long)cmd.ExecuteScalar()!;
+                }
+
+                foreach (DetalleVenta item in factura.Detalles)
+                {
+                    CreateDetail(item, id_factura);
+                }
+                return id_factura;
             }
             catch
             {
