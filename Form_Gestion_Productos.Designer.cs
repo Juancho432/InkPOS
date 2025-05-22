@@ -28,19 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Gestion_Productos));
             panel_GP = new Panel();
             dgv_Productos = new DataGridView();
-            Column_codigo_producto = new DataGridViewTextBoxColumn();
-            Column_Nombre_Producto = new DataGridViewTextBoxColumn();
-            Column_Precio_Producto = new DataGridViewTextBoxColumn();
-            Column_Stock_Producto = new DataGridViewTextBoxColumn();
             txtbox_buscar = new MaterialSkin.Controls.MaterialTextBox2();
             button_añadir_producto = new Button();
             button_salir = new Button();
             lbl_GP = new Label();
+            productoBindingSource = new BindingSource(components);
+            idProductoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nombreItemDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            precioDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            stockDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             panel_GP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Productos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)productoBindingSource).BeginInit();
             SuspendLayout();
             // 
             // panel_GP
@@ -59,9 +62,11 @@
             // dgv_Productos
             // 
             dgv_Productos.AllowUserToAddRows = false;
+            dgv_Productos.AutoGenerateColumns = false;
             dgv_Productos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_Productos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_Productos.Columns.AddRange(new DataGridViewColumn[] { Column_codigo_producto, Column_Nombre_Producto, Column_Precio_Producto, Column_Stock_Producto });
+            dgv_Productos.Columns.AddRange(new DataGridViewColumn[] { idProductoDataGridViewTextBoxColumn, nombreItemDataGridViewTextBoxColumn, precioDataGridViewTextBoxColumn, stockDataGridViewTextBoxColumn });
+            dgv_Productos.DataSource = productoBindingSource;
             dgv_Productos.Location = new Point(353, 317);
             dgv_Productos.Name = "dgv_Productos";
             dgv_Productos.RowHeadersVisible = false;
@@ -69,30 +74,6 @@
             dgv_Productos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_Productos.Size = new Size(750, 130);
             dgv_Productos.TabIndex = 6;
-            // 
-            // Column_codigo_producto
-            // 
-            Column_codigo_producto.HeaderText = "Código";
-            Column_codigo_producto.MinimumWidth = 6;
-            Column_codigo_producto.Name = "Column_codigo_producto";
-            // 
-            // Column_Nombre_Producto
-            // 
-            Column_Nombre_Producto.HeaderText = "Nombre producto";
-            Column_Nombre_Producto.MinimumWidth = 6;
-            Column_Nombre_Producto.Name = "Column_Nombre_Producto";
-            // 
-            // Column_Precio_Producto
-            // 
-            Column_Precio_Producto.HeaderText = "Precio";
-            Column_Precio_Producto.MinimumWidth = 6;
-            Column_Precio_Producto.Name = "Column_Precio_Producto";
-            // 
-            // Column_Stock_Producto
-            // 
-            Column_Stock_Producto.HeaderText = "Stock";
-            Column_Stock_Producto.MinimumWidth = 6;
-            Column_Stock_Producto.Name = "Column_Stock_Producto";
             // 
             // txtbox_buscar
             // 
@@ -151,6 +132,38 @@
             lbl_GP.TabIndex = 0;
             lbl_GP.Text = "Gestión de productos";
             // 
+            // productoBindingSource
+            // 
+            productoBindingSource.DataSource = typeof(Producto);
+            // 
+            // idProductoDataGridViewTextBoxColumn
+            // 
+            idProductoDataGridViewTextBoxColumn.DataPropertyName = "IdProducto";
+            idProductoDataGridViewTextBoxColumn.HeaderText = "Código";
+            idProductoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            idProductoDataGridViewTextBoxColumn.Name = "idProductoDataGridViewTextBoxColumn";
+            // 
+            // nombreItemDataGridViewTextBoxColumn
+            // 
+            nombreItemDataGridViewTextBoxColumn.DataPropertyName = "NombreItem";
+            nombreItemDataGridViewTextBoxColumn.HeaderText = "NombreItem";
+            nombreItemDataGridViewTextBoxColumn.MinimumWidth = 6;
+            nombreItemDataGridViewTextBoxColumn.Name = "nombreItemDataGridViewTextBoxColumn";
+            // 
+            // precioDataGridViewTextBoxColumn
+            // 
+            precioDataGridViewTextBoxColumn.DataPropertyName = "Precio";
+            precioDataGridViewTextBoxColumn.HeaderText = "Precio";
+            precioDataGridViewTextBoxColumn.MinimumWidth = 6;
+            precioDataGridViewTextBoxColumn.Name = "precioDataGridViewTextBoxColumn";
+            // 
+            // stockDataGridViewTextBoxColumn
+            // 
+            stockDataGridViewTextBoxColumn.DataPropertyName = "Stock";
+            stockDataGridViewTextBoxColumn.HeaderText = "Stock";
+            stockDataGridViewTextBoxColumn.MinimumWidth = 6;
+            stockDataGridViewTextBoxColumn.Name = "stockDataGridViewTextBoxColumn";
+            // 
             // Form_Gestion_Productos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -163,6 +176,7 @@
             panel_GP.ResumeLayout(false);
             panel_GP.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Productos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)productoBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -174,9 +188,10 @@
         private Button button_salir;
         private MaterialSkin.Controls.MaterialTextBox2 txtbox_buscar;
         private DataGridView dgv_Productos;
-        private DataGridViewTextBoxColumn Column_codigo_producto;
-        private DataGridViewTextBoxColumn Column_Nombre_Producto;
-        private DataGridViewTextBoxColumn Column_Precio_Producto;
-        private DataGridViewTextBoxColumn Column_Stock_Producto;
+        private BindingSource productoBindingSource;
+        private DataGridViewTextBoxColumn idProductoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nombreItemDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn precioDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn stockDataGridViewTextBoxColumn;
     }
 }

@@ -15,6 +15,7 @@ namespace InkPos
         private Empleado EmpleadoActual;
         private DataBaseHandler Database;
 
+
         public Form_Gestion_Productos(Empleado empleado, DataBaseHandler database)
         {
             EmpleadoActual = empleado;
