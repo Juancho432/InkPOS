@@ -32,15 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Gestion_Productos));
             panel_GP = new Panel();
             dgv_Productos = new DataGridView();
+            productoBindingSource = new BindingSource(components);
             txtbox_buscar = new MaterialSkin.Controls.MaterialTextBox2();
             button_añadir_producto = new Button();
             button_salir = new Button();
             lbl_GP = new Label();
-            productoBindingSource = new BindingSource(components);
-            idProductoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            nombreItemDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            precioDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            stockDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             panel_GP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Productos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)productoBindingSource).BeginInit();
@@ -65,7 +61,6 @@
             dgv_Productos.AutoGenerateColumns = false;
             dgv_Productos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_Productos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_Productos.Columns.AddRange(new DataGridViewColumn[] { idProductoDataGridViewTextBoxColumn, nombreItemDataGridViewTextBoxColumn, precioDataGridViewTextBoxColumn, stockDataGridViewTextBoxColumn });
             dgv_Productos.DataSource = productoBindingSource;
             dgv_Productos.Location = new Point(353, 317);
             dgv_Productos.Name = "dgv_Productos";
@@ -131,38 +126,6 @@
             lbl_GP.Size = new Size(405, 54);
             lbl_GP.TabIndex = 0;
             lbl_GP.Text = "Gestión de productos";
-            // 
-            // productoBindingSource
-            // 
-            productoBindingSource.DataSource = typeof(Producto);
-            // 
-            // idProductoDataGridViewTextBoxColumn
-            // 
-            idProductoDataGridViewTextBoxColumn.DataPropertyName = "IdProducto";
-            idProductoDataGridViewTextBoxColumn.HeaderText = "Código";
-            idProductoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            idProductoDataGridViewTextBoxColumn.Name = "idProductoDataGridViewTextBoxColumn";
-            // 
-            // nombreItemDataGridViewTextBoxColumn
-            // 
-            nombreItemDataGridViewTextBoxColumn.DataPropertyName = "NombreItem";
-            nombreItemDataGridViewTextBoxColumn.HeaderText = "NombreItem";
-            nombreItemDataGridViewTextBoxColumn.MinimumWidth = 6;
-            nombreItemDataGridViewTextBoxColumn.Name = "nombreItemDataGridViewTextBoxColumn";
-            // 
-            // precioDataGridViewTextBoxColumn
-            // 
-            precioDataGridViewTextBoxColumn.DataPropertyName = "Precio";
-            precioDataGridViewTextBoxColumn.HeaderText = "Precio";
-            precioDataGridViewTextBoxColumn.MinimumWidth = 6;
-            precioDataGridViewTextBoxColumn.Name = "precioDataGridViewTextBoxColumn";
-            // 
-            // stockDataGridViewTextBoxColumn
-            // 
-            stockDataGridViewTextBoxColumn.DataPropertyName = "Stock";
-            stockDataGridViewTextBoxColumn.HeaderText = "Stock";
-            stockDataGridViewTextBoxColumn.MinimumWidth = 6;
-            stockDataGridViewTextBoxColumn.Name = "stockDataGridViewTextBoxColumn";
             // 
             // Form_Gestion_Productos
             // 
