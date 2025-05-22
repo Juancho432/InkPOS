@@ -11,6 +11,9 @@
     <Compile Update="Form_Busqueda_factura.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Form_Gestion_Productos.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Form_Home_Admin.cs">
       <SubType>Form</SubType>
     </Compile>

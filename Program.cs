@@ -11,9 +11,10 @@ namespace InkPos
         [STAThread]
         static void Main()
         {
-            DataBaseHandler database = new();
+            Empleado empleado = new Empleado("1", "sebas", "212", true, 11111111);
+            DataBaseHandler database = new DataBaseHandler();
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form_Login (database));
+            Application.Run(new Form_Gestion_Productos(empleado, database));
         }
     }
 }
