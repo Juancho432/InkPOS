@@ -10,26 +10,24 @@ using System.Windows.Forms;
 
 namespace InkPos
 {
-    public partial class Form_Gestion_Productos : Form
+    public partial class Form_Gestion_Empleados : Form
     {
         private Empleado EmpleadoActual;
         private DataBaseHandler Database;
-        private List<Producto> productos;
 
-        public Form_Gestion_Productos(Empleado empleado, DataBaseHandler database)
+        public Form_Gestion_Empleados(Empleado empleado, DataBaseHandler database)
         {
             EmpleadoActual = empleado;
             Database = database;
-            productos = Database.ReadAllProducts();
             InitializeComponent();
-            dgv_Productos.AutoGenerateColumns = false;
+            dgv_Empleados.AutoGenerateColumns = false;
             AgregarColumnasAcciones();
         }
 
         private void AgregarColumnasAcciones()
         {
             // Evita duplicar columnas si el método se llama más de una vez
-            if (!dgv_Productos.Columns.Contains("Editar"))
+            if (!dgv_Empleados.Columns.Contains("Editar"))
             {
                 // Columna Editar
                 DataGridViewImageColumn colEditar = new DataGridViewImageColumn();
@@ -37,10 +35,10 @@ namespace InkPos
                 colEditar.HeaderText = "✏️";
                 colEditar.Image = Properties.Resources.pen_square; // Ruta relativa
                 colEditar.ImageLayout = DataGridViewImageCellLayout.Zoom;
-                dgv_Productos.Columns.Add(colEditar);
+                dgv_Empleados.Columns.Add(colEditar);
             }
 
-            if (!dgv_Productos.Columns.Contains("Eliminar"))
+            if (!dgv_Empleados.Columns.Contains("Eliminar"))
             {
                 // Columna Eliminar
                 DataGridViewImageColumn colEliminar = new DataGridViewImageColumn();
@@ -48,21 +46,7 @@ namespace InkPos
                 colEliminar.HeaderText = "🗑️";
                 colEliminar.Image = Properties.Resources.icon_borrar;
                 colEliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
-                dgv_Productos.Columns.Add(colEliminar);
-            }
-        }
-
-        private void Form_Gestion_Productos_Load(object sender, EventArgs e)
-        {
-            string filtro = txtbox_buscar.Text.ToLower();
-            List<Producto> coincidencia = [.. productos.Where(p => 
-                                           p.Nombre.Contains(filtro, StringComparison.CurrentCultureIgnoreCase) ||
-                                           p.Codigo.Contains(filtro, StringComparison.CurrentCultureIgnoreCase))];
-
-            productoBindingSource.List.Clear();
-            foreach (Producto item in productos)
-            {
-                productoBindingSource.Add(item);
+                dgv_Empleados.Columns.Add(colEliminar);
             }
         }
     }

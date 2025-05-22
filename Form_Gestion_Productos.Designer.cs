@@ -32,6 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Gestion_Productos));
             panel_GP = new Panel();
             dgv_Productos = new DataGridView();
+            Column_ID_producto = new DataGridViewTextBoxColumn();
+            Column_Nombre_Item = new DataGridViewTextBoxColumn();
+            Column_Precio_Producto = new DataGridViewTextBoxColumn();
+            Column_Stock_Producto = new DataGridViewTextBoxColumn();
             productoBindingSource = new BindingSource(components);
             txtbox_buscar = new MaterialSkin.Controls.MaterialTextBox2();
             button_añadir_producto = new Button();
@@ -57,21 +61,47 @@
             // 
             // dgv_Productos
             // 
-            dgv_Productos.AllowUserToAddRows = false;
+            dgv_Productos.Anchor = AnchorStyles.None;
             dgv_Productos.AutoGenerateColumns = false;
             dgv_Productos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_Productos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_Productos.Columns.AddRange(new DataGridViewColumn[] { Column_ID_producto, Column_Nombre_Item, Column_Precio_Producto, Column_Stock_Producto });
             dgv_Productos.DataSource = productoBindingSource;
-            dgv_Productos.Location = new Point(353, 317);
+            dgv_Productos.Location = new Point(143, 276);
             dgv_Productos.Name = "dgv_Productos";
             dgv_Productos.RowHeadersVisible = false;
             dgv_Productos.RowHeadersWidth = 51;
             dgv_Productos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_Productos.Size = new Size(750, 130);
+            dgv_Productos.Size = new Size(1270, 654);
             dgv_Productos.TabIndex = 6;
+            // 
+            // Column_ID_producto
+            // 
+            Column_ID_producto.HeaderText = "Código";
+            Column_ID_producto.MinimumWidth = 6;
+            Column_ID_producto.Name = "Column_ID_producto";
+            // 
+            // Column_Nombre_Item
+            // 
+            Column_Nombre_Item.HeaderText = "NombreItem";
+            Column_Nombre_Item.MinimumWidth = 6;
+            Column_Nombre_Item.Name = "Column_Nombre_Item";
+            // 
+            // Column_Precio_Producto
+            // 
+            Column_Precio_Producto.HeaderText = "Precio";
+            Column_Precio_Producto.MinimumWidth = 6;
+            Column_Precio_Producto.Name = "Column_Precio_Producto";
+            // 
+            // Column_Stock_Producto
+            // 
+            Column_Stock_Producto.HeaderText = "Stock";
+            Column_Stock_Producto.MinimumWidth = 6;
+            Column_Stock_Producto.Name = "Column_Stock_Producto";
             // 
             // txtbox_buscar
             // 
+            txtbox_buscar.Anchor = AnchorStyles.None;
             txtbox_buscar.AnimateReadOnly = false;
             txtbox_buscar.BackgroundImageLayout = ImageLayout.None;
             txtbox_buscar.CharacterCasing = CharacterCasing.Normal;
@@ -101,6 +131,7 @@
             // 
             // button_añadir_producto
             // 
+            button_añadir_producto.Anchor = AnchorStyles.None;
             button_añadir_producto.Image = (Image)resources.GetObject("button_añadir_producto.Image");
             button_añadir_producto.Location = new Point(1250, 146);
             button_añadir_producto.Name = "button_añadir_producto";
@@ -110,6 +141,7 @@
             // 
             // button_salir
             // 
+            button_salir.Anchor = AnchorStyles.None;
             button_salir.Image = (Image)resources.GetObject("button_salir.Image");
             button_salir.Location = new Point(171, 146);
             button_salir.Name = "button_salir";
@@ -119,6 +151,7 @@
             // 
             // lbl_GP
             // 
+            lbl_GP.Anchor = AnchorStyles.None;
             lbl_GP.AutoSize = true;
             lbl_GP.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_GP.Location = new Point(561, 33);
@@ -136,6 +169,7 @@
             Name = "Form_Gestion_Productos";
             Text = "InkPOS - Gestión de productos";
             WindowState = FormWindowState.Maximized;
+            Load += Form_Gestion_Productos_Load;
             panel_GP.ResumeLayout(false);
             panel_GP.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Productos).EndInit();
@@ -156,5 +190,9 @@
         private DataGridViewTextBoxColumn nombreItemDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn precioDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn stockDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn Column_ID_producto;
+        private DataGridViewTextBoxColumn Column_Nombre_Item;
+        private DataGridViewTextBoxColumn Column_Precio_Producto;
+        private DataGridViewTextBoxColumn Column_Stock_Producto;
     }
 }
