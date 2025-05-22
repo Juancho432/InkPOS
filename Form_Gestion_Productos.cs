@@ -34,7 +34,7 @@ namespace InkPos
                 DataGridViewImageColumn colEditar = new DataGridViewImageColumn();
                 colEditar.Name = "Editar";
                 colEditar.HeaderText = "✏️";
-                colEditar.Image = Image.FromFile("Images/editar.png"); // Ruta relativa
+                colEditar.Image = Properties.Resources.pen_square; // Ruta relativa
                 colEditar.ImageLayout = DataGridViewImageCellLayout.Zoom;
                 dgv_Productos.Columns.Add(colEditar);
             }
@@ -45,7 +45,7 @@ namespace InkPos
                 DataGridViewImageColumn colEliminar = new DataGridViewImageColumn();
                 colEliminar.Name = "Eliminar";
                 colEliminar.HeaderText = "🗑️";
-                colEliminar.Image = Image.FromFile("Images/borrar.png");
+                colEliminar.Image = Properties.Resources.icon_borrar;
                 colEliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
                 dgv_Productos.Columns.Add(colEliminar);
             }
