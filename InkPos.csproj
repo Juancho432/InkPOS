@@ -10,6 +10,8 @@
 
   <ItemGroup>
     <None Remove="icon_inkpos.ico" />
+    <None Remove="Images\borrar.png" />
+    <None Remove="Images\editar.png" />
     <None Remove="InkPosDBTemplate.sql" />
     <None Remove="InkPosDBTestData.sql" />
   </ItemGroup>
@@ -35,6 +37,8 @@
     <EmbeddedResource Include="icon_inkpos.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Images\borrar.png" />
+    <EmbeddedResource Include="Images\editar.png" />
   </ItemGroup>
 
   <ItemGroup>
