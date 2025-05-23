@@ -37,5 +37,13 @@
         {
             lbl_nombreUsuario.Text = EmpleadoActual.Nombre;
         }
+
+        private void button_devolucion_Click(object sender, EventArgs e)
+        {
+            Form_Devolucion form_Devolucion = new(EmpleadoActual, Database);
+            form_Devolucion.Show();
+            Hide();
+            form_Devolucion.FormClosed += (s, args) => Show();
+        }
     }
 }

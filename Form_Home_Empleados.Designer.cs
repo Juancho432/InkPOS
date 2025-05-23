@@ -39,16 +39,22 @@
             PB_facturas = new PictureBox();
             lbl_nombreUsuario = new Label();
             lbl_welcome = new Label();
+            panel_devoluciones = new Panel();
+            button_devolucion = new MaterialSkin.Controls.MaterialButton();
+            PB_devolucion = new PictureBox();
             panel_home_empleado.SuspendLayout();
             panel_ventas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PB_venta).BeginInit();
             panel_facturas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PB_facturas).BeginInit();
+            panel_devoluciones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PB_devolucion).BeginInit();
             SuspendLayout();
             // 
             // panel_home_empleado
             // 
             panel_home_empleado.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel_home_empleado.Controls.Add(panel_devoluciones);
             panel_home_empleado.Controls.Add(button_salir);
             panel_home_empleado.Controls.Add(panel_ventas);
             panel_home_empleado.Controls.Add(panel_facturas);
@@ -67,7 +73,7 @@
             button_salir.Depth = 0;
             button_salir.HighEmphasis = true;
             button_salir.Icon = null;
-            button_salir.Location = new Point(679, 845);
+            button_salir.Location = new Point(727, 840);
             button_salir.Margin = new Padding(5);
             button_salir.MouseState = MaterialSkin.MouseState.HOVER;
             button_salir.Name = "button_salir";
@@ -85,7 +91,7 @@
             panel_ventas.Anchor = AnchorStyles.None;
             panel_ventas.Controls.Add(button_venta);
             panel_ventas.Controls.Add(PB_venta);
-            panel_ventas.Location = new Point(464, 413);
+            panel_ventas.Location = new Point(385, 416);
             panel_ventas.Name = "panel_ventas";
             panel_ventas.Size = new Size(205, 191);
             panel_ventas.TabIndex = 9;
@@ -124,7 +130,7 @@
             panel_facturas.Anchor = AnchorStyles.None;
             panel_facturas.Controls.Add(button_facturas);
             panel_facturas.Controls.Add(PB_facturas);
-            panel_facturas.Location = new Point(766, 413);
+            panel_facturas.Location = new Point(687, 416);
             panel_facturas.Name = "panel_facturas";
             panel_facturas.Size = new Size(205, 191);
             panel_facturas.TabIndex = 8;
@@ -163,7 +169,7 @@
             lbl_nombreUsuario.Anchor = AnchorStyles.None;
             lbl_nombreUsuario.AutoSize = true;
             lbl_nombreUsuario.Font = new Font("Segoe UI", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_nombreUsuario.Location = new Point(744, 183);
+            lbl_nombreUsuario.Location = new Point(815, 180);
             lbl_nombreUsuario.Name = "lbl_nombreUsuario";
             lbl_nombreUsuario.Size = new Size(227, 62);
             lbl_nombreUsuario.TabIndex = 6;
@@ -174,11 +180,50 @@
             lbl_welcome.Anchor = AnchorStyles.None;
             lbl_welcome.AutoSize = true;
             lbl_welcome.Font = new Font("Segoe UI", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_welcome.Location = new Point(464, 183);
+            lbl_welcome.Location = new Point(535, 180);
             lbl_welcome.Name = "lbl_welcome";
             lbl_welcome.Size = new Size(259, 62);
             lbl_welcome.TabIndex = 5;
             lbl_welcome.Text = "Bienvenido";
+            // 
+            // panel_devoluciones
+            // 
+            panel_devoluciones.Anchor = AnchorStyles.None;
+            panel_devoluciones.Controls.Add(button_devolucion);
+            panel_devoluciones.Controls.Add(PB_devolucion);
+            panel_devoluciones.Location = new Point(991, 419);
+            panel_devoluciones.Name = "panel_devoluciones";
+            panel_devoluciones.Size = new Size(205, 191);
+            panel_devoluciones.TabIndex = 9;
+            // 
+            // button_devolucion
+            // 
+            button_devolucion.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button_devolucion.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            button_devolucion.Depth = 0;
+            button_devolucion.HighEmphasis = true;
+            button_devolucion.Icon = null;
+            button_devolucion.Location = new Point(55, 144);
+            button_devolucion.Margin = new Padding(5);
+            button_devolucion.MouseState = MaterialSkin.MouseState.HOVER;
+            button_devolucion.Name = "button_devolucion";
+            button_devolucion.NoAccentTextColor = Color.Empty;
+            button_devolucion.Size = new Size(111, 36);
+            button_devolucion.TabIndex = 1;
+            button_devolucion.Text = "Devolución";
+            button_devolucion.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            button_devolucion.UseAccentColor = false;
+            button_devolucion.UseVisualStyleBackColor = true;
+            button_devolucion.Click += button_devolucion_Click;
+            // 
+            // PB_devolucion
+            // 
+            PB_devolucion.Image = (Image)resources.GetObject("PB_devolucion.Image");
+            PB_devolucion.Location = new Point(40, 3);
+            PB_devolucion.Name = "PB_devolucion";
+            PB_devolucion.Size = new Size(126, 133);
+            PB_devolucion.TabIndex = 0;
+            PB_devolucion.TabStop = false;
             // 
             // Form_Home_Empleados
             // 
@@ -198,6 +243,9 @@
             panel_facturas.ResumeLayout(false);
             panel_facturas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PB_facturas).EndInit();
+            panel_devoluciones.ResumeLayout(false);
+            panel_devoluciones.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PB_devolucion).EndInit();
             ResumeLayout(false);
         }
 
@@ -213,5 +261,8 @@
         private MaterialSkin.Controls.MaterialButton button_venta;
         private PictureBox PB_venta;
         private MaterialSkin.Controls.MaterialButton button_salir;
+        private Panel panel_devoluciones;
+        private MaterialSkin.Controls.MaterialButton button_devolucion;
+        private PictureBox PB_devolucion;
     }
 }
