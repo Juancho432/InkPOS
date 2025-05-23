@@ -180,6 +180,7 @@
             txtbox_contraseña.TextAlign = HorizontalAlignment.Left;
             txtbox_contraseña.TrailingIcon = null;
             txtbox_contraseña.UseSystemPasswordChar = true;
+            txtbox_contraseña.KeyDown += txtbox_clave_KeyDown;
             // 
             // lbl_password
             // 

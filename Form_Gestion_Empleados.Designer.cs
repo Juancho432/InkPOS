@@ -35,12 +35,6 @@
             button_añadir_producto = new Button();
             button_salir = new Button();
             lbl_GE = new Label();
-            Column_IDempleado = new DataGridViewTextBoxColumn();
-            Column_Nombre = new DataGridViewTextBoxColumn();
-            Column_Telefono = new DataGridViewTextBoxColumn();
-            Column_Usuario = new DataGridViewTextBoxColumn();
-            Column_Es_admin = new DataGridViewTextBoxColumn();
-            Column_salario = new DataGridViewTextBoxColumn();
             panel_GE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Empleados).BeginInit();
             SuspendLayout();
@@ -60,12 +54,17 @@
             // 
             // dgv_Empleados
             // 
+            dgv_Empleados.AllowUserToAddRows = false;
+            dgv_Empleados.AllowUserToDeleteRows = false;
+            dgv_Empleados.AllowUserToResizeColumns = false;
+            dgv_Empleados.AllowUserToResizeRows = false;
             dgv_Empleados.Anchor = AnchorStyles.None;
             dgv_Empleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_Empleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_Empleados.Columns.AddRange(new DataGridViewColumn[] { Column_IDempleado, Column_Nombre, Column_Telefono, Column_Usuario, Column_Es_admin, Column_salario });
             dgv_Empleados.Location = new Point(105, 364);
+            dgv_Empleados.MultiSelect = false;
             dgv_Empleados.Name = "dgv_Empleados";
+            dgv_Empleados.ReadOnly = true;
             dgv_Empleados.RowHeadersVisible = false;
             dgv_Empleados.RowHeadersWidth = 51;
             dgv_Empleados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -121,6 +120,7 @@
             button_salir.Size = new Size(69, 48);
             button_salir.TabIndex = 7;
             button_salir.UseVisualStyleBackColor = true;
+            button_salir.Click += button_salir_Click;
             // 
             // lbl_GE
             // 
@@ -132,42 +132,6 @@
             lbl_GE.Size = new Size(419, 54);
             lbl_GE.TabIndex = 6;
             lbl_GE.Text = "Gestión de empleados";
-            // 
-            // Column_IDempleado
-            // 
-            Column_IDempleado.HeaderText = "Cédula";
-            Column_IDempleado.MinimumWidth = 6;
-            Column_IDempleado.Name = "Column_IDempleado";
-            // 
-            // Column_Nombre
-            // 
-            Column_Nombre.HeaderText = "Nombre";
-            Column_Nombre.MinimumWidth = 6;
-            Column_Nombre.Name = "Column_Nombre";
-            // 
-            // Column_Telefono
-            // 
-            Column_Telefono.HeaderText = "Teléfono";
-            Column_Telefono.MinimumWidth = 6;
-            Column_Telefono.Name = "Column_Telefono";
-            // 
-            // Column_Usuario
-            // 
-            Column_Usuario.HeaderText = "Usuario";
-            Column_Usuario.MinimumWidth = 6;
-            Column_Usuario.Name = "Column_Usuario";
-            // 
-            // Column_Es_admin
-            // 
-            Column_Es_admin.HeaderText = "Rol";
-            Column_Es_admin.MinimumWidth = 6;
-            Column_Es_admin.Name = "Column_Es_admin";
-            // 
-            // Column_salario
-            // 
-            Column_salario.HeaderText = "Salario";
-            Column_salario.MinimumWidth = 6;
-            Column_salario.Name = "Column_salario";
             // 
             // Form_Gestion_Empleados
             // 
@@ -192,11 +156,5 @@
         private Button button_salir;
         private Label lbl_GE;
         private DataGridView dgv_Empleados;
-        private DataGridViewTextBoxColumn Column_IDempleado;
-        private DataGridViewTextBoxColumn Column_Nombre;
-        private DataGridViewTextBoxColumn Column_Telefono;
-        private DataGridViewTextBoxColumn Column_Usuario;
-        private DataGridViewTextBoxColumn Column_Es_admin;
-        private DataGridViewTextBoxColumn Column_salario;
     }
 }

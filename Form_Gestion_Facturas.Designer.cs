@@ -35,13 +35,6 @@
             timepicker_fecha_fin = new DateTimePicker();
             timepicker_fecha_inicio = new DateTimePicker();
             dgv_Facturas = new DataGridView();
-            Column_ID_factura = new DataGridViewTextBoxColumn();
-            Column_Cliente = new DataGridViewTextBoxColumn();
-            Column_Empleado = new DataGridViewTextBoxColumn();
-            Column_Fecha = new DataGridViewTextBoxColumn();
-            Column_Hora = new DataGridViewTextBoxColumn();
-            Column_ID_transaccion = new DataGridViewTextBoxColumn();
-            Column_Total = new DataGridViewTextBoxColumn();
             txtbox_buscar_factura = new MaterialSkin.Controls.MaterialTextBox2();
             button_añadir_producto = new Button();
             button_salir = new Button();
@@ -105,59 +98,22 @@
             // 
             // dgv_Facturas
             // 
+            dgv_Facturas.AllowUserToAddRows = false;
+            dgv_Facturas.AllowUserToDeleteRows = false;
+            dgv_Facturas.AllowUserToResizeColumns = false;
+            dgv_Facturas.AllowUserToResizeRows = false;
             dgv_Facturas.Anchor = AnchorStyles.None;
             dgv_Facturas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_Facturas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_Facturas.Columns.AddRange(new DataGridViewColumn[] { Column_ID_factura, Column_Cliente, Column_Empleado, Column_Fecha, Column_Hora, Column_ID_transaccion, Column_Total });
             dgv_Facturas.Location = new Point(43, 345);
+            dgv_Facturas.MultiSelect = false;
             dgv_Facturas.Name = "dgv_Facturas";
+            dgv_Facturas.ReadOnly = true;
             dgv_Facturas.RowHeadersVisible = false;
             dgv_Facturas.RowHeadersWidth = 51;
             dgv_Facturas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_Facturas.Size = new Size(1431, 724);
             dgv_Facturas.TabIndex = 15;
-            // 
-            // Column_ID_factura
-            // 
-            Column_ID_factura.HeaderText = "ID factura";
-            Column_ID_factura.MinimumWidth = 6;
-            Column_ID_factura.Name = "Column_ID_factura";
-            // 
-            // Column_Cliente
-            // 
-            Column_Cliente.HeaderText = "Cliente";
-            Column_Cliente.MinimumWidth = 6;
-            Column_Cliente.Name = "Column_Cliente";
-            // 
-            // Column_Empleado
-            // 
-            Column_Empleado.HeaderText = "Empleado";
-            Column_Empleado.MinimumWidth = 6;
-            Column_Empleado.Name = "Column_Empleado";
-            // 
-            // Column_Fecha
-            // 
-            Column_Fecha.HeaderText = "Fecha";
-            Column_Fecha.MinimumWidth = 6;
-            Column_Fecha.Name = "Column_Fecha";
-            // 
-            // Column_Hora
-            // 
-            Column_Hora.HeaderText = "Hora";
-            Column_Hora.MinimumWidth = 6;
-            Column_Hora.Name = "Column_Hora";
-            // 
-            // Column_ID_transaccion
-            // 
-            Column_ID_transaccion.HeaderText = "Medio de pago";
-            Column_ID_transaccion.MinimumWidth = 6;
-            Column_ID_transaccion.Name = "Column_ID_transaccion";
-            // 
-            // Column_Total
-            // 
-            Column_Total.HeaderText = "Total";
-            Column_Total.MinimumWidth = 6;
-            Column_Total.Name = "Column_Total";
             // 
             // txtbox_buscar_factura
             // 
@@ -247,12 +203,5 @@
         private Label lbl_fecha_inicio;
         private DateTimePicker timepicker_fecha_fin;
         private DateTimePicker timepicker_fecha_inicio;
-        private DataGridViewTextBoxColumn Column_ID_factura;
-        private DataGridViewTextBoxColumn Column_Cliente;
-        private DataGridViewTextBoxColumn Column_Empleado;
-        private DataGridViewTextBoxColumn Column_Fecha;
-        private DataGridViewTextBoxColumn Column_Hora;
-        private DataGridViewTextBoxColumn Column_ID_transaccion;
-        private DataGridViewTextBoxColumn Column_Total;
     }
 }

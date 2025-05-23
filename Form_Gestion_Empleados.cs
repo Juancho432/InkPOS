@@ -49,5 +49,10 @@ namespace InkPos
                 dgv_Empleados.Columns.Add(colEliminar);
             }
         }
+
+        private void button_salir_Click(object sender, EventArgs e)
+        {
+            this.Close();   
+        }
     }
 }
