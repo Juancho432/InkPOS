@@ -155,40 +155,46 @@ namespace InkPos
 
         private void DG_Detalle_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
-            int nuevoValor;
-            if (e.FormattedValue == null)
+            if (e.ColumnIndex == 2)
             {
-                MessageBox.Show("No se puede dejar el campo vacio",
-                                "Cantidad Invalida",
-                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                e.Cancel = true;
-                return;
+                int nuevoValor;
+                if (e.FormattedValue == null)
+                {
+                    MessageBox.Show("No se puede dejar el campo vacio",
+                                    "Cantidad Invalida",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    e.Cancel = true;
+                    return;
+                }
+                else
+                {
+                    nuevoValor = int.Parse(e.FormattedValue.ToString()!);
+                }
+
+                DetalleVenta detalleModificado = (DetalleVenta)detalleVentaBindingSource.List[e.RowIndex]!;
+
+                if (nuevoValor < 0)
+                {
+                    MessageBox.Show("No se puede poner cantidades negativas",
+                                    "Cantidad Invalida",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    e.Cancel = true;
+                    return;
+                }
+
+                if (nuevoValor > detalleModificado.Producto.Stock)
+                {
+                    MessageBox.Show("No se puede agregar mas producto que el stock existente.",
+                                    "Cantidad Invalida",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    e.Cancel = true;
+                    return;
+                } 
             }
             else
             {
-                nuevoValor = int.Parse(e.FormattedValue.ToString()!);
-            }
-
-            DetalleVenta detalleModificado = (DetalleVenta)detalleVentaBindingSource.List[e.RowIndex]!;
-            
-            if (nuevoValor < 0)
-            {
-                MessageBox.Show("No se puede poner cantidades negativas",
-                                "Cantidad Invalida",
-                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                e.Cancel = true;
                 return;
             }
-
-            if (nuevoValor > detalleModificado.Producto.Stock)
-            {
-                MessageBox.Show("No se puede agregar mas producto que el stock existente.",
-                                "Cantidad Invalida",
-                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                e.Cancel = true;
-                return;
-            }
-            
         }
     }
 }
