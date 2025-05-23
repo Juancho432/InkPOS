@@ -104,13 +104,15 @@ namespace InkPos
 
             if (nombreColumna == "Editar")
             {
-                Form_Modificar_Empleado modificar_Empleado = new(EmpleadoActual, Database);
+                Empleado filaSeleccionada = (Empleado)empleadoBindingSource.List[e.RowIndex]!;
+                Form_Modificar_Empleado modificar_Empleado = new(filaSeleccionada, Database);
                 modificar_Empleado.Show();
                 Hide();
                 modificar_Empleado.FormClosed += (s, args) =>
                 {
                     this.Show();
                     CargarEmpleados(); // ← actualiza la vista
+                    
                 };
             }
             else if (nombreColumna == "Eliminar")
