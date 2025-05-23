@@ -102,6 +102,18 @@
             PB_ver.Visible = true;
             PB_ocultar.Visible = false;
         }
+
+        private void txtbox_clave_KeyDown(object? sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;    // Evita beep
+                e.SuppressKeyPress = true;
+                button_ingresar.PerformClick(); // Ejecuta el evento del botón
+            }
+        }
+
+
     }
 }
 

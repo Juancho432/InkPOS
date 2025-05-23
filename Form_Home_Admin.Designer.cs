@@ -109,9 +109,9 @@
             button_maestro_productos.MouseState = MaterialSkin.MouseState.HOVER;
             button_maestro_productos.Name = "button_maestro_productos";
             button_maestro_productos.NoAccentTextColor = Color.Empty;
-            button_maestro_productos.Size = new Size(200, 36);
+            button_maestro_productos.Size = new Size(194, 36);
             button_maestro_productos.TabIndex = 1;
-            button_maestro_productos.Text = "Maestro de productos";
+            button_maestro_productos.Text = "Gestión de productos";
             button_maestro_productos.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_maestro_productos.UseAccentColor = false;
             button_maestro_productos.UseVisualStyleBackColor = true;
@@ -154,6 +154,7 @@
             button_facturas.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_facturas.UseAccentColor = false;
             button_facturas.UseVisualStyleBackColor = true;
+            button_facturas.Click += button_facturas_Click;
             // 
             // PB_facturas
             // 

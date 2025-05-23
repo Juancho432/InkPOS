@@ -32,10 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Gestion_Productos));
             panel_GP = new Panel();
             dgv_Productos = new DataGridView();
-            Column_ID_producto = new DataGridViewTextBoxColumn();
-            Column_Nombre_Item = new DataGridViewTextBoxColumn();
-            Column_Precio_Producto = new DataGridViewTextBoxColumn();
-            Column_Stock_Producto = new DataGridViewTextBoxColumn();
+            codigoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nombreDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             productoBindingSource = new BindingSource(components);
             txtbox_buscar = new MaterialSkin.Controls.MaterialTextBox2();
             button_añadir_producto = new Button();
@@ -58,46 +58,67 @@
             panel_GP.Name = "panel_GP";
             panel_GP.Size = new Size(1513, 1171);
             panel_GP.TabIndex = 0;
+            panel_GP.MouseDown += panelFondo_MouseDown;
             // 
             // dgv_Productos
             // 
+            dgv_Productos.AllowUserToAddRows = false;
+            dgv_Productos.AllowUserToDeleteRows = false;
+            dgv_Productos.AllowUserToResizeColumns = false;
+            dgv_Productos.AllowUserToResizeRows = false;
             dgv_Productos.Anchor = AnchorStyles.None;
             dgv_Productos.AutoGenerateColumns = false;
             dgv_Productos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_Productos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_Productos.Columns.AddRange(new DataGridViewColumn[] { Column_ID_producto, Column_Nombre_Item, Column_Precio_Producto, Column_Stock_Producto });
+            dgv_Productos.Columns.AddRange(new DataGridViewColumn[] { codigoDataGridViewTextBoxColumn, nombreDataGridViewTextBoxColumn, dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2 });
             dgv_Productos.DataSource = productoBindingSource;
-            dgv_Productos.Location = new Point(143, 276);
+            dgv_Productos.Location = new Point(124, 285);
+            dgv_Productos.MultiSelect = false;
             dgv_Productos.Name = "dgv_Productos";
+            dgv_Productos.ReadOnly = true;
             dgv_Productos.RowHeadersVisible = false;
             dgv_Productos.RowHeadersWidth = 51;
             dgv_Productos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_Productos.Size = new Size(1270, 654);
             dgv_Productos.TabIndex = 6;
+            dgv_Productos.CellClick += dgv_Productos_CellClick;
+            dgv_Productos.Leave += dgv_Productos_Leave;
             // 
-            // Column_ID_producto
+            // codigoDataGridViewTextBoxColumn
             // 
-            Column_ID_producto.HeaderText = "Código";
-            Column_ID_producto.MinimumWidth = 6;
-            Column_ID_producto.Name = "Column_ID_producto";
+            codigoDataGridViewTextBoxColumn.DataPropertyName = "Codigo";
+            codigoDataGridViewTextBoxColumn.HeaderText = "Codigo";
+            codigoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
+            codigoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // Column_Nombre_Item
+            // nombreDataGridViewTextBoxColumn
             // 
-            Column_Nombre_Item.HeaderText = "NombreItem";
-            Column_Nombre_Item.MinimumWidth = 6;
-            Column_Nombre_Item.Name = "Column_Nombre_Item";
+            nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            nombreDataGridViewTextBoxColumn.MinimumWidth = 6;
+            nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            nombreDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // Column_Precio_Producto
+            // dataGridViewTextBoxColumn1
             // 
-            Column_Precio_Producto.HeaderText = "Precio";
-            Column_Precio_Producto.MinimumWidth = 6;
-            Column_Precio_Producto.Name = "Column_Precio_Producto";
+            dataGridViewTextBoxColumn1.DataPropertyName = "Precio";
+            dataGridViewTextBoxColumn1.HeaderText = "Precio";
+            dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // Column_Stock_Producto
+            // dataGridViewTextBoxColumn2
             // 
-            Column_Stock_Producto.HeaderText = "Stock";
-            Column_Stock_Producto.MinimumWidth = 6;
-            Column_Stock_Producto.Name = "Column_Stock_Producto";
+            dataGridViewTextBoxColumn2.DataPropertyName = "Stock";
+            dataGridViewTextBoxColumn2.HeaderText = "Stock";
+            dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // productoBindingSource
+            // 
+            productoBindingSource.DataSource = typeof(Producto);
             // 
             // txtbox_buscar
             // 
@@ -128,6 +149,7 @@
             txtbox_buscar.TextAlign = HorizontalAlignment.Left;
             txtbox_buscar.TrailingIcon = null;
             txtbox_buscar.UseSystemPasswordChar = false;
+            txtbox_buscar.TextChanged += txtbox_buscar_TextChanged;
             // 
             // button_añadir_producto
             // 
@@ -138,6 +160,7 @@
             button_añadir_producto.Size = new Size(69, 48);
             button_añadir_producto.TabIndex = 4;
             button_añadir_producto.UseVisualStyleBackColor = true;
+            button_añadir_producto.Click += button_añadir_producto_Click;
             // 
             // button_salir
             // 
@@ -148,6 +171,7 @@
             button_salir.Size = new Size(69, 48);
             button_salir.TabIndex = 3;
             button_salir.UseVisualStyleBackColor = true;
+            button_salir.Click += button_salir_Click;
             // 
             // lbl_GP
             // 
@@ -170,6 +194,7 @@
             Text = "InkPOS - Gestión de productos";
             WindowState = FormWindowState.Maximized;
             Load += Form_Gestion_Productos_Load;
+            MouseDown += Form_Gestion_Productos_MouseDown;
             panel_GP.ResumeLayout(false);
             panel_GP.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Productos).EndInit();
@@ -185,14 +210,14 @@
         private Button button_salir;
         private MaterialSkin.Controls.MaterialTextBox2 txtbox_buscar;
         private DataGridView dgv_Productos;
-        private BindingSource productoBindingSource;
         private DataGridViewTextBoxColumn idProductoDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nombreItemDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn precioDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn stockDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn Column_ID_producto;
-        private DataGridViewTextBoxColumn Column_Nombre_Item;
-        private DataGridViewTextBoxColumn Column_Precio_Producto;
-        private DataGridViewTextBoxColumn Column_Stock_Producto;
+        private DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private BindingSource productoBindingSource;
     }
 }
