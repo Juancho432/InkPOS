@@ -55,7 +55,7 @@
             panel_devolucion.Controls.Add(lbl_devolucion);
             panel_devolucion.Location = new Point(5, 2);
             panel_devolucion.Name = "panel_devolucion";
-            panel_devolucion.Size = new Size(1513, 1171);
+            panel_devolucion.Size = new Size(1513, 1051);
             panel_devolucion.TabIndex = 0;
             // 
             // button_cancelar
@@ -66,7 +66,7 @@
             button_cancelar.Depth = 0;
             button_cancelar.HighEmphasis = true;
             button_cancelar.Icon = null;
-            button_cancelar.Location = new Point(821, 627);
+            button_cancelar.Location = new Point(821, 567);
             button_cancelar.Margin = new Padding(4, 6, 4, 6);
             button_cancelar.MouseState = MaterialSkin.MouseState.HOVER;
             button_cancelar.Name = "button_cancelar";
@@ -87,7 +87,7 @@
             button_confirmar.Depth = 0;
             button_confirmar.HighEmphasis = true;
             button_confirmar.Icon = null;
-            button_confirmar.Location = new Point(576, 627);
+            button_confirmar.Location = new Point(576, 567);
             button_confirmar.Margin = new Padding(4, 6, 4, 6);
             button_confirmar.MouseState = MaterialSkin.MouseState.HOVER;
             button_confirmar.Name = "button_confirmar";
@@ -98,6 +98,7 @@
             button_confirmar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_confirmar.UseAccentColor = false;
             button_confirmar.UseVisualStyleBackColor = true;
+            button_confirmar.Click += button_confirmar_Click;
             // 
             // txtbox_codigo_producto
             // 
@@ -109,7 +110,7 @@
             txtbox_codigo_producto.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_codigo_producto.HideSelection = true;
             txtbox_codigo_producto.LeadingIcon = null;
-            txtbox_codigo_producto.Location = new Point(641, 371);
+            txtbox_codigo_producto.Location = new Point(641, 311);
             txtbox_codigo_producto.MaxLength = 32767;
             txtbox_codigo_producto.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_codigo_producto.Name = "txtbox_codigo_producto";
@@ -138,7 +139,7 @@
             txtbox_cantidad_producto.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_cantidad_producto.HideSelection = true;
             txtbox_cantidad_producto.LeadingIcon = null;
-            txtbox_cantidad_producto.Location = new Point(641, 448);
+            txtbox_cantidad_producto.Location = new Point(641, 388);
             txtbox_cantidad_producto.MaxLength = 32767;
             txtbox_cantidad_producto.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_cantidad_producto.Name = "txtbox_cantidad_producto";
@@ -167,7 +168,7 @@
             txtbox_ID_factura.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_ID_factura.HideSelection = true;
             txtbox_ID_factura.LeadingIcon = null;
-            txtbox_ID_factura.Location = new Point(641, 294);
+            txtbox_ID_factura.Location = new Point(641, 234);
             txtbox_ID_factura.MaxLength = 32767;
             txtbox_ID_factura.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_ID_factura.Name = "txtbox_ID_factura";
@@ -191,7 +192,7 @@
             lbl_NombreCodigo_Producto.Anchor = AnchorStyles.None;
             lbl_NombreCodigo_Producto.AutoSize = true;
             lbl_NombreCodigo_Producto.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_NombreCodigo_Producto.Location = new Point(364, 388);
+            lbl_NombreCodigo_Producto.Location = new Point(364, 328);
             lbl_NombreCodigo_Producto.Name = "lbl_NombreCodigo_Producto";
             lbl_NombreCodigo_Producto.Size = new Size(231, 31);
             lbl_NombreCodigo_Producto.TabIndex = 9;
@@ -202,7 +203,7 @@
             lbl_cantidad.Anchor = AnchorStyles.None;
             lbl_cantidad.AutoSize = true;
             lbl_cantidad.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_cantidad.Location = new Point(477, 465);
+            lbl_cantidad.Location = new Point(477, 405);
             lbl_cantidad.Name = "lbl_cantidad";
             lbl_cantidad.Size = new Size(118, 31);
             lbl_cantidad.TabIndex = 8;
@@ -213,7 +214,7 @@
             lbl_fve.Anchor = AnchorStyles.None;
             lbl_fve.AutoSize = true;
             lbl_fve.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_fve.Location = new Point(441, 311);
+            lbl_fve.Location = new Point(441, 251);
             lbl_fve.Name = "lbl_fve";
             lbl_fve.Size = new Size(154, 31);
             lbl_fve.TabIndex = 7;
@@ -224,7 +225,7 @@
             lbl_devolucion.Anchor = AnchorStyles.None;
             lbl_devolucion.AutoSize = true;
             lbl_devolucion.Font = new Font("Segoe UI", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_devolucion.Location = new Point(632, 123);
+            lbl_devolucion.Location = new Point(632, 63);
             lbl_devolucion.Name = "lbl_devolucion";
             lbl_devolucion.Size = new Size(262, 62);
             lbl_devolucion.TabIndex = 6;
@@ -234,7 +235,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1522, 1175);
+            ClientSize = new Size(1522, 1055);
             Controls.Add(panel_devolucion);
             Name = "Form_Devolucion";
             Text = "InkPOS - Devolución";
