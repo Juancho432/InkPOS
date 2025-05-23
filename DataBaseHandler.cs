@@ -145,15 +145,15 @@ namespace InkPos
             }
         }
 
-        public Producto ReadProductByID(string id)
+        public Producto ReadProductByID(string id, bool justValid = true)
         {
             using SqliteConnection conn = new($"Data Source={dbPath}");
             conn.Open();
             using SqliteCommand cmd = conn.CreateCommand();
-            cmd.CommandText = @"
+            cmd.CommandText = $@"
                 SELECT ID_Producto, Nombre, Precio, Stock
                 FROM PRODUCTO
-                WHERE ID_Producto = $codigo AND Stock > -1"; // Los productos con stock -1 estan "Borrados"
+                WHERE ID_Producto = $codigo {(justValid ? "AND Stock > -1" : "")};"; // Los productos con stock -1 estan "Borrados"
             cmd.Parameters.AddWithValue("$codigo", id);
 
             using var reader = cmd.ExecuteReader();
@@ -839,7 +839,7 @@ namespace InkPos
             {
                 using SqliteCommand cmd = conn.CreateCommand();
                 cmd.CommandText = @"
-                    SELECT ID_Factura, ID_Producto, Cantidad, Valor
+                    SELECT ID_Producto, Cantidad
                     FROM DETALLE
                     WHERE ID_Factura = $id";
                 cmd.Parameters.AddWithValue("$id", id);
@@ -850,9 +850,8 @@ namespace InkPos
                 {
                     DetalleVenta detalle = new
                     (
-                        //IdFac: reader.GetString(0),
-                        producto: null,
-                        cantidad: reader.GetInt32(2)
+                        producto: ReadProductByID(id: reader.GetString(0), justValid: false),
+                        cantidad: reader.GetInt32(1)
                     );
 
                     detalles.Add(detalle);
@@ -860,7 +859,7 @@ namespace InkPos
             }
             catch 
             {
-
+                throw new FacturaInexistente();
             }
             finally
             {
@@ -950,7 +949,7 @@ namespace InkPos
             string ID_Empleado = reader.GetString(2);
             string Fecha = reader.GetString(3);
             string Hora = reader.GetString(4);
-            string? ID_Transaccion = reader.GetString(5);
+            string? ID_Transaccion = reader.IsDBNull(5) ? null : reader.GetString(5);
             decimal Total = reader.GetDecimal(6);
             List<DetalleVenta> Detalles = ReadDetailsByInvoice(ID_Factura);
 

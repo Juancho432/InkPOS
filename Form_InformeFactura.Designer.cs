@@ -28,48 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_InformeFactura));
             pictureBox1 = new PictureBox();
             button_imprimir = new Button();
             lbl_PapeleríaAJ = new Label();
             tlb_info_cliente = new TableLayoutPanel();
-            lbl_fve = new Label();
-            lbl_telefono = new Label();
-            lbl_ciudad = new Label();
-            lbl_nit = new Label();
-            lbl_dirección = new Label();
-            label4 = new Label();
-            label2 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label3 = new Label();
-            label5 = new Label();
-            lbl_señor = new Label();
+            lbl_Telefono = new Label();
+            lbl_Nit = new Label();
+            lbl_Direccion = new Label();
+            lbl_Titulo_Direccion = new Label();
+            lbl_titulo_Señor = new Label();
+            lbl_Titulo_Telefono = new Label();
+            lbl_Titulo_Nit = new Label();
+            lbl_Señor = new Label();
+            lbl_Titulo_Num = new Label();
+            lbl_Num = new Label();
             label14 = new Label();
             tbl_fecha_metodo = new TableLayoutPanel();
-            lbl_metodo_pago = new Label();
-            label21 = new Label();
-            label24 = new Label();
-            lbl_fecha_expedicion = new Label();
-            dgvDetalleVenta = new DataGridView();
-            column_codigo = new DataGridViewTextBoxColumn();
-            column_NombreP = new DataGridViewTextBoxColumn();
-            column_cantidad = new DataGridViewTextBoxColumn();
-            column_valor = new DataGridViewTextBoxColumn();
+            lbl_Metodo = new Label();
+            lbl_Titulo_Fecha = new Label();
+            lbl_Titulo_Metodo = new Label();
+            lbl_Fecha = new Label();
+            DG_Detalle = new DataGridView();
+            codigoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nombreDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            cantidadDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            subtotalDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            detalleVentaBindingSource = new BindingSource(components);
             label15 = new Label();
             label20 = new Label();
             tableLayoutPanel3 = new TableLayoutPanel();
-            label17 = new Label();
-            lbl_valor_total = new Label();
-            lbl_total_cantidad = new Label();
-            lbl_generación = new Label();
-            lbl_fecha_generacion = new Label();
-            lbl_hora_generacion = new Label();
-            button_salir = new Button();
+            lbl_Valor_Total = new Label();
+            lbl_Total_Cantidad = new Label();
+            Btn_Salir = new MaterialSkin.Controls.MaterialButton();
+            lbl_Titulo_Empleado = new Label();
+            lbl_Empleado = new Label();
+            lbl_Titulo_Total_Cantidad = new Label();
+            lbl_Titulo_Valor_Total = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tlb_info_cliente.SuspendLayout();
             tbl_fecha_metodo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvDetalleVenta).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DG_Detalle).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)detalleVentaBindingSource).BeginInit();
             tableLayoutPanel3.SuspendLayout();
             SuspendLayout();
             // 
@@ -90,6 +91,7 @@
             button_imprimir.Size = new Size(69, 48);
             button_imprimir.TabIndex = 2;
             button_imprimir.UseVisualStyleBackColor = true;
+            button_imprimir.Click += Boton_Imprimir_Click;
             // 
             // lbl_PapeleríaAJ
             // 
@@ -113,18 +115,18 @@
             tlb_info_cliente.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 197F));
             tlb_info_cliente.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
             tlb_info_cliente.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 172F));
-            tlb_info_cliente.Controls.Add(lbl_fve, 5, 1);
-            tlb_info_cliente.Controls.Add(lbl_telefono, 5, 0);
-            tlb_info_cliente.Controls.Add(lbl_ciudad, 3, 1);
-            tlb_info_cliente.Controls.Add(lbl_nit, 3, 0);
-            tlb_info_cliente.Controls.Add(lbl_dirección, 1, 1);
-            tlb_info_cliente.Controls.Add(label4, 0, 1);
-            tlb_info_cliente.Controls.Add(label2, 0, 0);
-            tlb_info_cliente.Controls.Add(label6, 4, 0);
-            tlb_info_cliente.Controls.Add(label7, 4, 1);
-            tlb_info_cliente.Controls.Add(label3, 2, 0);
-            tlb_info_cliente.Controls.Add(label5, 2, 1);
-            tlb_info_cliente.Controls.Add(lbl_señor, 1, 0);
+            tlb_info_cliente.Controls.Add(lbl_Telefono, 5, 0);
+            tlb_info_cliente.Controls.Add(lbl_Nit, 3, 0);
+            tlb_info_cliente.Controls.Add(lbl_Direccion, 1, 1);
+            tlb_info_cliente.Controls.Add(lbl_Titulo_Direccion, 0, 1);
+            tlb_info_cliente.Controls.Add(lbl_titulo_Señor, 0, 0);
+            tlb_info_cliente.Controls.Add(lbl_Titulo_Nit, 2, 0);
+            tlb_info_cliente.Controls.Add(lbl_Señor, 1, 0);
+            tlb_info_cliente.Controls.Add(lbl_Titulo_Num, 2, 1);
+            tlb_info_cliente.Controls.Add(lbl_Num, 3, 1);
+            tlb_info_cliente.Controls.Add(lbl_Titulo_Telefono, 4, 0);
+            tlb_info_cliente.Controls.Add(lbl_Titulo_Empleado, 4, 1);
+            tlb_info_cliente.Controls.Add(lbl_Empleado, 5, 1);
             tlb_info_cliente.Location = new Point(575, 105);
             tlb_info_cliente.Name = "tlb_info_cliente";
             tlb_info_cliente.RowCount = 2;
@@ -133,137 +135,115 @@
             tlb_info_cliente.Size = new Size(836, 80);
             tlb_info_cliente.TabIndex = 4;
             // 
-            // lbl_fve
+            // lbl_Telefono
             // 
-            lbl_fve.Anchor = AnchorStyles.Left;
-            lbl_fve.AutoSize = true;
-            lbl_fve.Location = new Point(666, 51);
-            lbl_fve.Name = "lbl_fve";
-            lbl_fve.Size = new Size(73, 20);
-            lbl_fve.TabIndex = 6;
-            lbl_fve.Text = "__________ ";
-            lbl_fve.TextAlign = ContentAlignment.MiddleLeft;
+            lbl_Telefono.Anchor = AnchorStyles.Left;
+            lbl_Telefono.AutoSize = true;
+            lbl_Telefono.Location = new Point(666, 11);
+            lbl_Telefono.Name = "lbl_Telefono";
+            lbl_Telefono.Size = new Size(73, 20);
+            lbl_Telefono.TabIndex = 6;
+            lbl_Telefono.Text = "__________ ";
+            lbl_Telefono.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lbl_telefono
+            // lbl_Nit
             // 
-            lbl_telefono.Anchor = AnchorStyles.Left;
-            lbl_telefono.AutoSize = true;
-            lbl_telefono.Location = new Point(666, 11);
-            lbl_telefono.Name = "lbl_telefono";
-            lbl_telefono.Size = new Size(73, 20);
-            lbl_telefono.TabIndex = 6;
-            lbl_telefono.Text = "__________ ";
-            lbl_telefono.TextAlign = ContentAlignment.MiddleLeft;
+            lbl_Nit.Anchor = AnchorStyles.Left;
+            lbl_Nit.AutoSize = true;
+            lbl_Nit.Location = new Point(381, 11);
+            lbl_Nit.Name = "lbl_Nit";
+            lbl_Nit.Size = new Size(73, 20);
+            lbl_Nit.TabIndex = 6;
+            lbl_Nit.Text = "__________ ";
+            lbl_Nit.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lbl_ciudad
+            // lbl_Direccion
             // 
-            lbl_ciudad.Anchor = AnchorStyles.Left;
-            lbl_ciudad.AutoSize = true;
-            lbl_ciudad.Location = new Point(381, 51);
-            lbl_ciudad.Name = "lbl_ciudad";
-            lbl_ciudad.Size = new Size(73, 20);
-            lbl_ciudad.TabIndex = 6;
-            lbl_ciudad.Text = "__________ ";
-            lbl_ciudad.TextAlign = ContentAlignment.MiddleLeft;
+            lbl_Direccion.Anchor = AnchorStyles.Left;
+            lbl_Direccion.AutoSize = true;
+            lbl_Direccion.Location = new Point(109, 51);
+            lbl_Direccion.Name = "lbl_Direccion";
+            lbl_Direccion.Size = new Size(73, 20);
+            lbl_Direccion.TabIndex = 5;
+            lbl_Direccion.Text = "__________ ";
+            lbl_Direccion.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lbl_nit
+            // lbl_Titulo_Direccion
             // 
-            lbl_nit.Anchor = AnchorStyles.Left;
-            lbl_nit.AutoSize = true;
-            lbl_nit.Location = new Point(381, 11);
-            lbl_nit.Name = "lbl_nit";
-            lbl_nit.Size = new Size(73, 20);
-            lbl_nit.TabIndex = 6;
-            lbl_nit.Text = "__________ ";
-            lbl_nit.TextAlign = ContentAlignment.MiddleLeft;
+            lbl_Titulo_Direccion.Anchor = AnchorStyles.Left;
+            lbl_Titulo_Direccion.AutoSize = true;
+            lbl_Titulo_Direccion.Location = new Point(3, 51);
+            lbl_Titulo_Direccion.Name = "lbl_Titulo_Direccion";
+            lbl_Titulo_Direccion.Size = new Size(75, 20);
+            lbl_Titulo_Direccion.TabIndex = 5;
+            lbl_Titulo_Direccion.Text = "Dirección:";
+            lbl_Titulo_Direccion.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lbl_dirección
+            // lbl_titulo_Señor
             // 
-            lbl_dirección.Anchor = AnchorStyles.Left;
-            lbl_dirección.AutoSize = true;
-            lbl_dirección.Location = new Point(109, 51);
-            lbl_dirección.Name = "lbl_dirección";
-            lbl_dirección.Size = new Size(73, 20);
-            lbl_dirección.TabIndex = 5;
-            lbl_dirección.Text = "__________ ";
-            lbl_dirección.TextAlign = ContentAlignment.MiddleLeft;
+            lbl_titulo_Señor.Anchor = AnchorStyles.Left;
+            lbl_titulo_Señor.AutoSize = true;
+            lbl_titulo_Señor.Location = new Point(3, 11);
+            lbl_titulo_Señor.Name = "lbl_titulo_Señor";
+            lbl_titulo_Señor.Size = new Size(82, 20);
+            lbl_titulo_Señor.TabIndex = 0;
+            lbl_titulo_Señor.Text = "Señor (es): ";
+            lbl_titulo_Señor.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label4
+            // lbl_Titulo_Telefono
             // 
-            label4.Anchor = AnchorStyles.Left;
-            label4.AutoSize = true;
-            label4.Location = new Point(3, 51);
-            label4.Name = "label4";
-            label4.Size = new Size(75, 20);
-            label4.TabIndex = 5;
-            label4.Text = "Dirección:";
-            label4.TextAlign = ContentAlignment.MiddleLeft;
+            lbl_Titulo_Telefono.Anchor = AnchorStyles.Left;
+            lbl_Titulo_Telefono.AutoSize = true;
+            lbl_Titulo_Telefono.Location = new Point(578, 11);
+            lbl_Titulo_Telefono.Name = "lbl_Titulo_Telefono";
+            lbl_Titulo_Telefono.Size = new Size(70, 20);
+            lbl_Titulo_Telefono.TabIndex = 6;
+            lbl_Titulo_Telefono.Text = "Teléfono:";
+            lbl_Titulo_Telefono.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label2
+            // lbl_Titulo_Nit
             // 
-            label2.Anchor = AnchorStyles.Left;
-            label2.AutoSize = true;
-            label2.Location = new Point(3, 11);
-            label2.Name = "label2";
-            label2.Size = new Size(82, 20);
-            label2.TabIndex = 0;
-            label2.Text = "Señor (es): ";
-            label2.TextAlign = ContentAlignment.MiddleLeft;
+            lbl_Titulo_Nit.Anchor = AnchorStyles.Left;
+            lbl_Titulo_Nit.AutoSize = true;
+            lbl_Titulo_Nit.Location = new Point(312, 11);
+            lbl_Titulo_Nit.Name = "lbl_Titulo_Nit";
+            lbl_Titulo_Nit.Size = new Size(39, 20);
+            lbl_Titulo_Nit.TabIndex = 5;
+            lbl_Titulo_Nit.Text = "NIT: ";
+            lbl_Titulo_Nit.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label6
+            // lbl_Señor
             // 
-            label6.Anchor = AnchorStyles.Left;
-            label6.AutoSize = true;
-            label6.Location = new Point(578, 11);
-            label6.Name = "label6";
-            label6.Size = new Size(70, 20);
-            label6.TabIndex = 6;
-            label6.Text = "Teléfono:";
-            label6.TextAlign = ContentAlignment.MiddleLeft;
+            lbl_Señor.Anchor = AnchorStyles.Left;
+            lbl_Señor.AutoSize = true;
+            lbl_Señor.Location = new Point(109, 11);
+            lbl_Señor.Name = "lbl_Señor";
+            lbl_Señor.Size = new Size(73, 20);
+            lbl_Señor.TabIndex = 6;
+            lbl_Señor.Text = "__________ ";
+            lbl_Señor.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label7
+            // lbl_Titulo_Num
             // 
-            label7.Anchor = AnchorStyles.Left;
-            label7.AutoSize = true;
-            label7.Location = new Point(578, 51);
-            label7.Name = "label7";
-            label7.Size = new Size(40, 20);
-            label7.TabIndex = 5;
-            label7.Text = "FVE: ";
-            label7.TextAlign = ContentAlignment.MiddleLeft;
+            lbl_Titulo_Num.Anchor = AnchorStyles.Left;
+            lbl_Titulo_Num.AutoSize = true;
+            lbl_Titulo_Num.Location = new Point(312, 51);
+            lbl_Titulo_Num.Name = "lbl_Titulo_Num";
+            lbl_Titulo_Num.Size = new Size(44, 20);
+            lbl_Titulo_Num.TabIndex = 5;
+            lbl_Titulo_Num.Text = "Num:";
+            lbl_Titulo_Num.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label3
+            // lbl_Num
             // 
-            label3.Anchor = AnchorStyles.Left;
-            label3.AutoSize = true;
-            label3.Location = new Point(312, 11);
-            label3.Name = "label3";
-            label3.Size = new Size(39, 20);
-            label3.TabIndex = 5;
-            label3.Text = "NIT: ";
-            label3.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // label5
-            // 
-            label5.Anchor = AnchorStyles.Left;
-            label5.AutoSize = true;
-            label5.Location = new Point(312, 51);
-            label5.Name = "label5";
-            label5.Size = new Size(59, 20);
-            label5.TabIndex = 5;
-            label5.Text = "Ciudad:";
-            label5.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // lbl_señor
-            // 
-            lbl_señor.Anchor = AnchorStyles.Left;
-            lbl_señor.AutoSize = true;
-            lbl_señor.Location = new Point(109, 11);
-            lbl_señor.Name = "lbl_señor";
-            lbl_señor.Size = new Size(73, 20);
-            lbl_señor.TabIndex = 6;
-            lbl_señor.Text = "__________ ";
-            lbl_señor.TextAlign = ContentAlignment.MiddleLeft;
+            lbl_Num.Anchor = AnchorStyles.Left;
+            lbl_Num.AutoSize = true;
+            lbl_Num.Location = new Point(381, 51);
+            lbl_Num.Name = "lbl_Num";
+            lbl_Num.Size = new Size(73, 20);
+            lbl_Num.TabIndex = 6;
+            lbl_Num.Text = "__________ ";
+            lbl_Num.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label14
             // 
@@ -284,10 +264,10 @@
             tbl_fecha_metodo.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 53.39806F));
             tbl_fecha_metodo.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 130F));
             tbl_fecha_metodo.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 281F));
-            tbl_fecha_metodo.Controls.Add(lbl_metodo_pago, 3, 0);
-            tbl_fecha_metodo.Controls.Add(label21, 0, 0);
-            tbl_fecha_metodo.Controls.Add(label24, 2, 0);
-            tbl_fecha_metodo.Controls.Add(lbl_fecha_expedicion, 1, 0);
+            tbl_fecha_metodo.Controls.Add(lbl_Metodo, 3, 0);
+            tbl_fecha_metodo.Controls.Add(lbl_Titulo_Fecha, 0, 0);
+            tbl_fecha_metodo.Controls.Add(lbl_Titulo_Metodo, 2, 0);
+            tbl_fecha_metodo.Controls.Add(lbl_Fecha, 1, 0);
             tbl_fecha_metodo.Location = new Point(575, 206);
             tbl_fecha_metodo.Name = "tbl_fecha_metodo";
             tbl_fecha_metodo.RowCount = 1;
@@ -295,90 +275,104 @@
             tbl_fecha_metodo.Size = new Size(836, 54);
             tbl_fecha_metodo.TabIndex = 6;
             // 
-            // lbl_metodo_pago
+            // lbl_Metodo
             // 
-            lbl_metodo_pago.Anchor = AnchorStyles.Left;
-            lbl_metodo_pago.AutoSize = true;
-            lbl_metodo_pago.Location = new Point(557, 17);
-            lbl_metodo_pago.Name = "lbl_metodo_pago";
-            lbl_metodo_pago.Size = new Size(73, 20);
-            lbl_metodo_pago.TabIndex = 6;
-            lbl_metodo_pago.Text = "__________ ";
-            lbl_metodo_pago.TextAlign = ContentAlignment.MiddleLeft;
+            lbl_Metodo.Anchor = AnchorStyles.Left;
+            lbl_Metodo.AutoSize = true;
+            lbl_Metodo.Location = new Point(557, 17);
+            lbl_Metodo.Name = "lbl_Metodo";
+            lbl_Metodo.Size = new Size(73, 20);
+            lbl_Metodo.TabIndex = 6;
+            lbl_Metodo.Text = "__________ ";
+            lbl_Metodo.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label21
+            // lbl_Titulo_Fecha
             // 
-            label21.Anchor = AnchorStyles.Left;
-            label21.AutoSize = true;
-            label21.Location = new Point(3, 17);
-            label21.Name = "label21";
-            label21.Size = new Size(134, 20);
-            label21.TabIndex = 0;
-            label21.Text = "Fecha expedicción:";
-            label21.TextAlign = ContentAlignment.MiddleLeft;
-            label21.Click += label21_Click;
+            lbl_Titulo_Fecha.Anchor = AnchorStyles.Left;
+            lbl_Titulo_Fecha.AutoSize = true;
+            lbl_Titulo_Fecha.Location = new Point(3, 17);
+            lbl_Titulo_Fecha.Name = "lbl_Titulo_Fecha";
+            lbl_Titulo_Fecha.Size = new Size(134, 20);
+            lbl_Titulo_Fecha.TabIndex = 0;
+            lbl_Titulo_Fecha.Text = "Fecha expedicción:";
+            lbl_Titulo_Fecha.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label24
+            // lbl_Titulo_Metodo
             // 
-            label24.Anchor = AnchorStyles.Left;
-            label24.AutoSize = true;
-            label24.Location = new Point(427, 17);
-            label24.Name = "label24";
-            label24.Size = new Size(114, 20);
-            label24.TabIndex = 5;
-            label24.Text = "Forma de pago:";
-            label24.TextAlign = ContentAlignment.MiddleLeft;
+            lbl_Titulo_Metodo.Anchor = AnchorStyles.Left;
+            lbl_Titulo_Metodo.AutoSize = true;
+            lbl_Titulo_Metodo.Location = new Point(427, 17);
+            lbl_Titulo_Metodo.Name = "lbl_Titulo_Metodo";
+            lbl_Titulo_Metodo.Size = new Size(114, 20);
+            lbl_Titulo_Metodo.TabIndex = 5;
+            lbl_Titulo_Metodo.Text = "Forma de pago:";
+            lbl_Titulo_Metodo.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lbl_fecha_expedicion
+            // lbl_Fecha
             // 
-            lbl_fecha_expedicion.Anchor = AnchorStyles.Left;
-            lbl_fecha_expedicion.AutoSize = true;
-            lbl_fecha_expedicion.Location = new Point(201, 17);
-            lbl_fecha_expedicion.Name = "lbl_fecha_expedicion";
-            lbl_fecha_expedicion.Size = new Size(73, 20);
-            lbl_fecha_expedicion.TabIndex = 6;
-            lbl_fecha_expedicion.Text = "__________ ";
-            lbl_fecha_expedicion.TextAlign = ContentAlignment.MiddleLeft;
+            lbl_Fecha.Anchor = AnchorStyles.Left;
+            lbl_Fecha.AutoSize = true;
+            lbl_Fecha.Location = new Point(201, 17);
+            lbl_Fecha.Name = "lbl_Fecha";
+            lbl_Fecha.Size = new Size(73, 20);
+            lbl_Fecha.TabIndex = 6;
+            lbl_Fecha.Text = "__________ ";
+            lbl_Fecha.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // dgvDetalleVenta
+            // DG_Detalle
             // 
-            dgvDetalleVenta.Anchor = AnchorStyles.None;
-            dgvDetalleVenta.BackgroundColor = SystemColors.ControlLight;
-            dgvDetalleVenta.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDetalleVenta.Columns.AddRange(new DataGridViewColumn[] { column_codigo, column_NombreP, column_cantidad, column_valor });
-            dgvDetalleVenta.Location = new Point(575, 279);
-            dgvDetalleVenta.Name = "dgvDetalleVenta";
-            dgvDetalleVenta.RowHeadersWidth = 51;
-            dgvDetalleVenta.Size = new Size(836, 396);
-            dgvDetalleVenta.TabIndex = 8;
+            DG_Detalle.Anchor = AnchorStyles.None;
+            DG_Detalle.AutoGenerateColumns = false;
+            DG_Detalle.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            DG_Detalle.BackgroundColor = SystemColors.ControlLight;
+            DG_Detalle.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DG_Detalle.Columns.AddRange(new DataGridViewColumn[] { codigoDataGridViewTextBoxColumn, nombreDataGridViewTextBoxColumn, cantidadDataGridViewTextBoxColumn, subtotalDataGridViewTextBoxColumn });
+            DG_Detalle.DataSource = detalleVentaBindingSource;
+            DG_Detalle.Location = new Point(575, 279);
+            DG_Detalle.Name = "DG_Detalle";
+            DG_Detalle.RowHeadersVisible = false;
+            DG_Detalle.RowHeadersWidth = 51;
+            DG_Detalle.Size = new Size(836, 396);
+            DG_Detalle.TabIndex = 8;
             // 
-            // column_codigo
+            // codigoDataGridViewTextBoxColumn
             // 
-            column_codigo.HeaderText = "Código";
-            column_codigo.MinimumWidth = 6;
-            column_codigo.Name = "column_codigo";
-            column_codigo.Width = 200;
+            codigoDataGridViewTextBoxColumn.DataPropertyName = "Codigo";
+            codigoDataGridViewTextBoxColumn.FillWeight = 10F;
+            codigoDataGridViewTextBoxColumn.HeaderText = "Codigo";
+            codigoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
+            codigoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // column_NombreP
+            // nombreDataGridViewTextBoxColumn
             // 
-            column_NombreP.HeaderText = "Producto";
-            column_NombreP.MinimumWidth = 6;
-            column_NombreP.Name = "column_NombreP";
-            column_NombreP.Width = 200;
+            nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            nombreDataGridViewTextBoxColumn.FillWeight = 65F;
+            nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            nombreDataGridViewTextBoxColumn.MinimumWidth = 6;
+            nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            nombreDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // column_cantidad
+            // cantidadDataGridViewTextBoxColumn
             // 
-            column_cantidad.HeaderText = "Cantidad";
-            column_cantidad.MinimumWidth = 6;
-            column_cantidad.Name = "column_cantidad";
-            column_cantidad.Width = 200;
+            cantidadDataGridViewTextBoxColumn.DataPropertyName = "Cantidad";
+            cantidadDataGridViewTextBoxColumn.FillWeight = 10F;
+            cantidadDataGridViewTextBoxColumn.HeaderText = "Cantidad";
+            cantidadDataGridViewTextBoxColumn.MinimumWidth = 6;
+            cantidadDataGridViewTextBoxColumn.Name = "cantidadDataGridViewTextBoxColumn";
             // 
-            // column_valor
+            // subtotalDataGridViewTextBoxColumn
             // 
-            column_valor.HeaderText = "Valor";
-            column_valor.MinimumWidth = 6;
-            column_valor.Name = "column_valor";
-            column_valor.Width = 200;
+            subtotalDataGridViewTextBoxColumn.DataPropertyName = "Subtotal";
+            subtotalDataGridViewTextBoxColumn.FillWeight = 15F;
+            subtotalDataGridViewTextBoxColumn.HeaderText = "Subtotal";
+            subtotalDataGridViewTextBoxColumn.MinimumWidth = 6;
+            subtotalDataGridViewTextBoxColumn.Name = "subtotalDataGridViewTextBoxColumn";
+            subtotalDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // detalleVentaBindingSource
+            // 
+            detalleVentaBindingSource.DataSource = typeof(DetalleVenta);
             // 
             // label15
             // 
@@ -399,116 +393,122 @@
             label20.Size = new Size(0, 20);
             label20.TabIndex = 11;
             label20.TextAlign = ContentAlignment.MiddleLeft;
-            label20.Click += label20_Click;
             // 
             // tableLayoutPanel3
             // 
             tableLayoutPanel3.Anchor = AnchorStyles.None;
             tableLayoutPanel3.BackColor = SystemColors.ButtonFace;
-            tableLayoutPanel3.ColumnCount = 3;
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70.9876556F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 29.0123463F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 187F));
-            tableLayoutPanel3.Controls.Add(label17, 0, 0);
-            tableLayoutPanel3.Controls.Add(lbl_valor_total, 2, 0);
-            tableLayoutPanel3.Controls.Add(lbl_total_cantidad, 1, 0);
+            tableLayoutPanel3.ColumnCount = 4;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel3.Controls.Add(lbl_Total_Cantidad, 1, 0);
+            tableLayoutPanel3.Controls.Add(lbl_Valor_Total, 3, 0);
+            tableLayoutPanel3.Controls.Add(lbl_Titulo_Total_Cantidad, 0, 0);
+            tableLayoutPanel3.Controls.Add(lbl_Titulo_Valor_Total, 2, 0);
             tableLayoutPanel3.Location = new Point(575, 671);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 53.75F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel3.Size = new Size(836, 54);
             tableLayoutPanel3.TabIndex = 12;
             // 
-            // label17
+            // lbl_Valor_Total
             // 
-            label17.Anchor = AnchorStyles.Left;
-            label17.AutoSize = true;
-            label17.Location = new Point(3, 17);
-            label17.Name = "label17";
-            label17.Size = new Size(45, 20);
-            label17.TabIndex = 0;
-            label17.Text = "Total:";
-            label17.TextAlign = ContentAlignment.MiddleLeft;
+            lbl_Valor_Total.Anchor = AnchorStyles.Left;
+            lbl_Valor_Total.AutoSize = true;
+            lbl_Valor_Total.Location = new Point(630, 17);
+            lbl_Valor_Total.Name = "lbl_Valor_Total";
+            lbl_Valor_Total.Size = new Size(73, 20);
+            lbl_Valor_Total.TabIndex = 6;
+            lbl_Valor_Total.Text = "__________ ";
+            lbl_Valor_Total.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lbl_valor_total
+            // lbl_Total_Cantidad
             // 
-            lbl_valor_total.Anchor = AnchorStyles.Left;
-            lbl_valor_total.AutoSize = true;
-            lbl_valor_total.Location = new Point(651, 17);
-            lbl_valor_total.Name = "lbl_valor_total";
-            lbl_valor_total.Size = new Size(73, 20);
-            lbl_valor_total.TabIndex = 6;
-            lbl_valor_total.Text = "__________ ";
-            lbl_valor_total.TextAlign = ContentAlignment.MiddleLeft;
+            lbl_Total_Cantidad.Anchor = AnchorStyles.Left;
+            lbl_Total_Cantidad.AutoSize = true;
+            lbl_Total_Cantidad.Location = new Point(212, 17);
+            lbl_Total_Cantidad.Name = "lbl_Total_Cantidad";
+            lbl_Total_Cantidad.Size = new Size(73, 20);
+            lbl_Total_Cantidad.TabIndex = 6;
+            lbl_Total_Cantidad.Text = "__________ ";
+            lbl_Total_Cantidad.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lbl_total_cantidad
+            // Btn_Salir
             // 
-            lbl_total_cantidad.Anchor = AnchorStyles.Left;
-            lbl_total_cantidad.AutoSize = true;
-            lbl_total_cantidad.Location = new Point(463, 17);
-            lbl_total_cantidad.Name = "lbl_total_cantidad";
-            lbl_total_cantidad.Size = new Size(73, 20);
-            lbl_total_cantidad.TabIndex = 6;
-            lbl_total_cantidad.Text = "__________ ";
-            lbl_total_cantidad.TextAlign = ContentAlignment.MiddleLeft;
+            Btn_Salir.AutoSize = false;
+            Btn_Salir.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            Btn_Salir.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            Btn_Salir.Depth = 0;
+            Btn_Salir.HighEmphasis = true;
+            Btn_Salir.Icon = null;
+            Btn_Salir.Location = new Point(930, 791);
+            Btn_Salir.Margin = new Padding(4, 6, 4, 6);
+            Btn_Salir.MouseState = MaterialSkin.MouseState.HOVER;
+            Btn_Salir.Name = "Btn_Salir";
+            Btn_Salir.NoAccentTextColor = Color.Empty;
+            Btn_Salir.Size = new Size(108, 50);
+            Btn_Salir.TabIndex = 13;
+            Btn_Salir.Text = "Salir";
+            Btn_Salir.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            Btn_Salir.UseAccentColor = false;
+            Btn_Salir.UseVisualStyleBackColor = true;
+            Btn_Salir.Click += Btn_Salir_Click;
             // 
-            // lbl_generación
+            // lbl_Titulo_Empleado
             // 
-            lbl_generación.Anchor = AnchorStyles.None;
-            lbl_generación.AutoSize = true;
-            lbl_generación.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_generación.Location = new Point(650, 791);
-            lbl_generación.Name = "lbl_generación";
-            lbl_generación.Size = new Size(346, 28);
-            lbl_generación.TabIndex = 13;
-            lbl_generación.Text = "Fecha y hora de generación: ";
+            lbl_Titulo_Empleado.Anchor = AnchorStyles.Left;
+            lbl_Titulo_Empleado.AutoSize = true;
+            lbl_Titulo_Empleado.Location = new Point(578, 51);
+            lbl_Titulo_Empleado.Name = "lbl_Titulo_Empleado";
+            lbl_Titulo_Empleado.Size = new Size(80, 20);
+            lbl_Titulo_Empleado.TabIndex = 7;
+            lbl_Titulo_Empleado.Text = "Empleado:";
+            lbl_Titulo_Empleado.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lbl_fecha_generacion
+            // lbl_Empleado
             // 
-            lbl_fecha_generacion.Anchor = AnchorStyles.None;
-            lbl_fecha_generacion.AutoSize = true;
-            lbl_fecha_generacion.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_fecha_generacion.Location = new Point(1002, 791);
-            lbl_fecha_generacion.Name = "lbl_fecha_generacion";
-            lbl_fecha_generacion.Size = new Size(144, 28);
-            lbl_fecha_generacion.TabIndex = 14;
-            lbl_fecha_generacion.Text = "xxxx-xx-xx";
+            lbl_Empleado.Anchor = AnchorStyles.Left;
+            lbl_Empleado.AutoSize = true;
+            lbl_Empleado.Location = new Point(666, 51);
+            lbl_Empleado.Name = "lbl_Empleado";
+            lbl_Empleado.Size = new Size(57, 20);
+            lbl_Empleado.TabIndex = 8;
+            lbl_Empleado.Text = "________";
             // 
-            // lbl_hora_generacion
+            // lbl_Titulo_Total_Cantidad
             // 
-            lbl_hora_generacion.Anchor = AnchorStyles.None;
-            lbl_hora_generacion.AutoSize = true;
-            lbl_hora_generacion.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_hora_generacion.Location = new Point(1176, 791);
-            lbl_hora_generacion.Name = "lbl_hora_generacion";
-            lbl_hora_generacion.Size = new Size(80, 28);
-            lbl_hora_generacion.TabIndex = 15;
-            lbl_hora_generacion.Text = "00:00";
+            lbl_Titulo_Total_Cantidad.Anchor = AnchorStyles.Left;
+            lbl_Titulo_Total_Cantidad.AutoSize = true;
+            lbl_Titulo_Total_Cantidad.Location = new Point(3, 17);
+            lbl_Titulo_Total_Cantidad.Name = "lbl_Titulo_Total_Cantidad";
+            lbl_Titulo_Total_Cantidad.Size = new Size(127, 20);
+            lbl_Titulo_Total_Cantidad.TabIndex = 7;
+            lbl_Titulo_Total_Cantidad.Text = "Numero de Items:";
             // 
-            // button_salir
+            // lbl_Titulo_Valor_Total
             // 
-            button_salir.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button_salir.Location = new Point(935, 986);
-            button_salir.Name = "button_salir";
-            button_salir.Size = new Size(94, 44);
-            button_salir.TabIndex = 16;
-            button_salir.Text = "Salir";
-            button_salir.UseVisualStyleBackColor = true;
+            lbl_Titulo_Valor_Total.Anchor = AnchorStyles.Left;
+            lbl_Titulo_Valor_Total.AutoSize = true;
+            lbl_Titulo_Valor_Total.Location = new Point(421, 17);
+            lbl_Titulo_Valor_Total.Name = "lbl_Titulo_Valor_Total";
+            lbl_Titulo_Valor_Total.Size = new Size(81, 20);
+            lbl_Titulo_Valor_Total.TabIndex = 8;
+            lbl_Titulo_Valor_Total.Text = "Valor total:";
             // 
             // Form_InformeFactura
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ButtonShadow;
+            BackColor = SystemColors.ControlLight;
             ClientSize = new Size(1924, 1055);
-            Controls.Add(button_salir);
-            Controls.Add(lbl_hora_generacion);
-            Controls.Add(lbl_fecha_generacion);
-            Controls.Add(lbl_generación);
+            Controls.Add(Btn_Salir);
             Controls.Add(tableLayoutPanel3);
             Controls.Add(label20);
             Controls.Add(label15);
-            Controls.Add(dgvDetalleVenta);
+            Controls.Add(DG_Detalle);
             Controls.Add(tbl_fecha_metodo);
             Controls.Add(label14);
             Controls.Add(tlb_info_cliente);
@@ -526,7 +526,8 @@
             tlb_info_cliente.PerformLayout();
             tbl_fecha_metodo.ResumeLayout(false);
             tbl_fecha_metodo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvDetalleVenta).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DG_Detalle).EndInit();
+            ((System.ComponentModel.ISupportInitialize)detalleVentaBindingSource).EndInit();
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
             ResumeLayout(false);
@@ -538,38 +539,37 @@
         private Button button_imprimir;
         private Label lbl_PapeleríaAJ;
         private TableLayoutPanel tlb_info_cliente;
-        private Label label2;
-        private Label label7;
-        private Label label6;
-        private Label label5;
-        private Label label4;
-        private Label label3;
-        private Label lbl_dirección;
-        private Label lbl_fve;
-        private Label lbl_telefono;
-        private Label lbl_ciudad;
-        private Label lbl_nit;
-        private Label lbl_señor;
+        private Label lbl_titulo_Señor;
+        private Label lbl_Titulo_Num;
+        private Label lbl_Titulo_Telefono;
+        private Label lbl_Titulo_Direccion;
+        private Label lbl_Titulo_Nit;
+        private Label lbl_Direccion;
+        private Label lbl_Num;
+        private Label lbl_Telefono;
+        private Label lbl_Nit;
+        private Label lbl_Señor;
         private Label label14;
         private TableLayoutPanel tbl_fecha_metodo;
-        private Label lbl_metodo_pago;
-        private Label label21;
-        private Label label24;
-        private Label lbl_fecha_expedicion;
-        private DataGridView dgvDetalleVenta;
-        private DataGridViewTextBoxColumn column_codigo;
-        private DataGridViewTextBoxColumn column_NombreP;
-        private DataGridViewTextBoxColumn column_cantidad;
-        private DataGridViewTextBoxColumn column_valor;
+        private Label lbl_Metodo;
+        private Label lbl_Titulo_Fecha;
+        private Label lbl_Titulo_Metodo;
+        private Label lbl_Fecha;
+        private DataGridView DG_Detalle;
         private Label label15;
         private Label label20;
         private TableLayoutPanel tableLayoutPanel3;
-        private Label label17;
-        private Label lbl_valor_total;
-        private Label lbl_total_cantidad;
-        private Label lbl_generación;
-        private Label lbl_fecha_generacion;
-        private Label lbl_hora_generacion;
-        private Button button_salir;
+        private Label lbl_Valor_Total;
+        private Label lbl_Total_Cantidad;
+        private BindingSource detalleVentaBindingSource;
+        private DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn cantidadDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn subtotalDataGridViewTextBoxColumn;
+        private MaterialSkin.Controls.MaterialButton Btn_Salir;
+        private Label lbl_Titulo_Empleado;
+        private Label lbl_Empleado;
+        private Label lbl_Titulo_Total_Cantidad;
+        private Label lbl_Titulo_Valor_Total;
     }
 }

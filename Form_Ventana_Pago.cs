@@ -139,6 +139,7 @@
                 item.Producto.Stock -= item.Cantidad;
                 Database.UpdateProduct(item.Producto);
             }
+            Close();
         }
 
         private void Form_Ventana_Pago_Load(object sender, EventArgs e)
