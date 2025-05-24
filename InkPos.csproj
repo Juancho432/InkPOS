@@ -26,9 +26,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="LaTeX\**\*.*">
+    <Content Include="texlive\**\*.*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Link>LaTeX\%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <Link>texlive\%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Content>
   </ItemGroup>
 

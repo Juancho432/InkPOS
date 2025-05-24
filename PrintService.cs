@@ -8,21 +8,23 @@ namespace InkPos
     {
         public static void GenPDF(Factura factura, Cliente cliente, Empleado empleado)
         {
-            string tinitexPath = Path.Combine(AppContext.BaseDirectory, "LaTeX", "tinitex.exe");
-            string plantillaPath = Path.Combine(AppContext.BaseDirectory, "LaTeX", "TemplateFactura.tex");
-            string salidaDir = Path.Combine(AppContext.BaseDirectory, "Facturas");
-            string temporalDir = Path.Combine(Path.GetTempPath(), "FacturaTemp");
+            string workDirPath = Path.Combine(AppContext.BaseDirectory, "texlive", "2025", "bin", "windows");
+            string pdflatexPath = Path.Combine(
+                workDirPath, "pdflatex.exe");
+            
+            string templatePath = Path.Combine(
+                workDirPath, "TemplateFactura.tex");
 
-            if (!File.Exists(tinitexPath))
-                throw new FileNotFoundException("No se encontró tinitex.exe", tinitexPath);
-            if (!File.Exists(plantillaPath))
-                throw new FileNotFoundException("No se encontró la plantilla", plantillaPath);
+            string tempDirPath = Path.Combine(
+                AppContext.BaseDirectory, "Temp");
 
-            Directory.CreateDirectory(salidaDir);
-            Directory.CreateDirectory(temporalDir);
+            if (!File.Exists(pdflatexPath))
+                throw new FileNotFoundException("No se encontró pdflatex.exe", pdflatexPath);
+            if (!File.Exists(templatePath))
+                throw new FileNotFoundException("No se encontró TemplateFactura.tex", templatePath);
 
             // Leer plantilla original
-            string contenido = File.ReadAllText(plantillaPath);
+            string contenido = File.ReadAllText(templatePath);
             string details = "";
             int items = 0;
             decimal total = 0;
@@ -62,36 +64,47 @@ namespace InkPos
                 return campos.TryGetValue(clave, out var valor) ? valor : match.Value;
             });
 
+            Directory.CreateDirectory(tempDirPath);
             // Guardar .tex temporal con los datos reemplazados
-            string temporalTex = Path.Combine(AppContext.BaseDirectory, "LaTeX", $"{factura.IdFactura}.tex");
-            File.WriteAllText(temporalTex, reemplazado);
+            string customTex = Path.Combine(tempDirPath, $"R{factura.IdFactura}.tex");
+            File.WriteAllText(customTex, reemplazado);
+            string logoPath = Path.Combine(workDirPath, "Logo.png");
+            File.Copy(logoPath, Path.Combine(tempDirPath, "Logo.png"));
 
-            // Compilar con tinitex.exe
-            var psi = new ProcessStartInfo
+            Process proc = new()
             {
-                FileName = tinitexPath,
-                Arguments = $"--quiet {temporalTex}",
-                UseShellExecute = false,
-                RedirectStandardOutput = true,
-                RedirectStandardError = true,
-                CreateNoWindow = true
+                // Compilar con pdflatex.exe
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = pdflatexPath,
+                    Arguments = $"-output-directory={tempDirPath} {customTex}",
+                    UseShellExecute = false,
+                    CreateNoWindow = false
+                }
             };
 
-            using var proc = Process.Start(psi);
-
+            proc.Start();
+            
+            if (proc.WaitForExit(1000))
+            {
+                proc.Kill();
+            }
             // Mover PDF a destino final
             using SaveFileDialog saveFileDialog = new();
             saveFileDialog.Title = "Guardar archivo";
             saveFileDialog.Filter = "Documento Portable (*.pdf)|*.pdf";
             saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            saveFileDialog.FileName = factura.IdFactura + ".pdf";
+            saveFileDialog.FileName = $"R{factura.IdFactura}.pdf";
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string rutaSeleccionada = saveFileDialog.FileName;
-                string pdfGenerado = Path.Combine(AppContext.BaseDirectory, "LaTeX", $"{factura.IdFactura}.pdf");
+                string pdfGenerado = Path.Combine(tempDirPath, $"R{factura.IdFactura}.pdf");
                 File.Move(pdfGenerado, rutaSeleccionada, overwrite: true);
-                File.Delete(temporalTex);
+                File.Delete(customTex);
+                File.Delete(logoPath);
+                File.Delete(Path.Combine(tempDirPath, $"R{factura.IdFactura}.aux"));
+                File.Delete(Path.Combine(tempDirPath, $"R{factura.IdFactura}.log"));
             }
         }
 
