@@ -105,7 +105,7 @@ namespace InkPos
 
             if (nombreColumna == "Editar")
             {
-                Form_Modificar_Producto modificar_Producto = new(EmpleadoActual, Database);
+                Form_Modificar_Producto modificar_Producto = new(EmpleadoActual, Database, productoSeleccionado);
                 modificar_Producto.Show();
                 Hide();
                 modificar_Producto.FormClosed += (s, args) => {

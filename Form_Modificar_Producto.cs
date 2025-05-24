@@ -4,12 +4,18 @@
     {
         private Empleado EmpleadoActual;
         private DataBaseHandler Database;
-
-        public Form_Modificar_Producto(Empleado empleado, DataBaseHandler database)
+        private Producto productoAModificar;
+        public Form_Modificar_Producto(Empleado empleado, DataBaseHandler database, Producto productoAModificar)
         {
             EmpleadoActual = empleado;
             Database = database;
             InitializeComponent();
+            this.productoAModificar = productoAModificar;
+            this.EmpleadoActual = empleado;
+            this.Database = database;
+
+            // Mostrar el código en el TextBox
+            txtbox_producto_a_modificar.Text = productoAModificar.Codigo;
         }
 
         private void Boton_Confirmar_Click(object sender, EventArgs e)

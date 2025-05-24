@@ -52,5 +52,13 @@
             Hide();
             gestion_facturas.FormClosed += (s, args) => this.Show();
         }
+
+        private void button_reporte_ventas_Click(object sender, EventArgs e)
+        {
+            Form_Reporte_Venta reporte_Venta = new(EmpleadoActual, Database);
+            reporte_Venta.Show();
+            Hide();
+            reporte_Venta.FormClosed += (s, args) => this.Show();
+        }
     }
 }

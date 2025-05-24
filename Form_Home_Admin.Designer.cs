@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Home_Admin));
             panel_home_admin = new Panel();
+            panel_reporte_ventas = new Panel();
+            button_reporte_ventas = new MaterialSkin.Controls.MaterialButton();
+            PB_reporte_ventas = new PictureBox();
             button_salir = new MaterialSkin.Controls.MaterialButton();
             panel_MProductos = new Panel();
             button_maestro_productos = new MaterialSkin.Controls.MaterialButton();
@@ -43,6 +46,8 @@
             lbl_nombreUsuario = new Label();
             lbl_welcome = new Label();
             panel_home_admin.SuspendLayout();
+            panel_reporte_ventas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PB_reporte_ventas).BeginInit();
             panel_MProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PB_MProductos).BeginInit();
             panel_facturas.SuspendLayout();
@@ -54,6 +59,7 @@
             // panel_home_admin
             // 
             panel_home_admin.Anchor = AnchorStyles.None;
+            panel_home_admin.Controls.Add(panel_reporte_ventas);
             panel_home_admin.Controls.Add(button_salir);
             panel_home_admin.Controls.Add(panel_MProductos);
             panel_home_admin.Controls.Add(panel_facturas);
@@ -65,6 +71,45 @@
             panel_home_admin.Size = new Size(1513, 1171);
             panel_home_admin.TabIndex = 0;
             panel_home_admin.Paint += panel_home_admin_Paint;
+            // 
+            // panel_reporte_ventas
+            // 
+            panel_reporte_ventas.Anchor = AnchorStyles.None;
+            panel_reporte_ventas.Controls.Add(button_reporte_ventas);
+            panel_reporte_ventas.Controls.Add(PB_reporte_ventas);
+            panel_reporte_ventas.Location = new Point(1101, 415);
+            panel_reporte_ventas.Name = "panel_reporte_ventas";
+            panel_reporte_ventas.Size = new Size(205, 191);
+            panel_reporte_ventas.TabIndex = 10;
+            // 
+            // button_reporte_ventas
+            // 
+            button_reporte_ventas.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button_reporte_ventas.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            button_reporte_ventas.Depth = 0;
+            button_reporte_ventas.HighEmphasis = true;
+            button_reporte_ventas.Icon = null;
+            button_reporte_ventas.Location = new Point(21, 146);
+            button_reporte_ventas.Margin = new Padding(4, 6, 4, 6);
+            button_reporte_ventas.MouseState = MaterialSkin.MouseState.HOVER;
+            button_reporte_ventas.Name = "button_reporte_ventas";
+            button_reporte_ventas.NoAccentTextColor = Color.Empty;
+            button_reporte_ventas.Size = new Size(166, 36);
+            button_reporte_ventas.TabIndex = 1;
+            button_reporte_ventas.Text = "Reporte de ventas";
+            button_reporte_ventas.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            button_reporte_ventas.UseAccentColor = false;
+            button_reporte_ventas.UseVisualStyleBackColor = true;
+            button_reporte_ventas.Click += button_reporte_ventas_Click;
+            // 
+            // PB_reporte_ventas
+            // 
+            PB_reporte_ventas.Image = (Image)resources.GetObject("PB_reporte_ventas.Image");
+            PB_reporte_ventas.Location = new Point(40, 3);
+            PB_reporte_ventas.Name = "PB_reporte_ventas";
+            PB_reporte_ventas.Size = new Size(126, 134);
+            PB_reporte_ventas.TabIndex = 0;
+            PB_reporte_ventas.TabStop = false;
             // 
             // button_salir
             // 
@@ -92,7 +137,7 @@
             panel_MProductos.Anchor = AnchorStyles.None;
             panel_MProductos.Controls.Add(button_maestro_productos);
             panel_MProductos.Controls.Add(PB_MProductos);
-            panel_MProductos.Location = new Point(674, 423);
+            panel_MProductos.Location = new Point(463, 424);
             panel_MProductos.Name = "panel_MProductos";
             panel_MProductos.Size = new Size(205, 191);
             panel_MProductos.TabIndex = 4;
@@ -131,7 +176,7 @@
             panel_facturas.Anchor = AnchorStyles.None;
             panel_facturas.Controls.Add(button_facturas);
             panel_facturas.Controls.Add(PB_facturas);
-            panel_facturas.Location = new Point(989, 414);
+            panel_facturas.Location = new Point(778, 415);
             panel_facturas.Name = "panel_facturas";
             panel_facturas.Size = new Size(205, 191);
             panel_facturas.TabIndex = 3;
@@ -170,7 +215,7 @@
             panel_button_GEmpleados.Anchor = AnchorStyles.None;
             panel_button_GEmpleados.Controls.Add(button_GEmpleados);
             panel_button_GEmpleados.Controls.Add(PB_GEmpleados);
-            panel_button_GEmpleados.Location = new Point(376, 420);
+            panel_button_GEmpleados.Location = new Point(165, 421);
             panel_button_GEmpleados.Name = "panel_button_GEmpleados";
             panel_button_GEmpleados.Size = new Size(205, 191);
             panel_button_GEmpleados.TabIndex = 2;
@@ -238,6 +283,9 @@
             Load += Form_Home_Admin_Load;
             panel_home_admin.ResumeLayout(false);
             panel_home_admin.PerformLayout();
+            panel_reporte_ventas.ResumeLayout(false);
+            panel_reporte_ventas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PB_reporte_ventas).EndInit();
             panel_MProductos.ResumeLayout(false);
             panel_MProductos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PB_MProductos).EndInit();
@@ -265,5 +313,8 @@
         private MaterialSkin.Controls.MaterialButton button_maestro_productos;
         private PictureBox PB_MProductos;
         private MaterialSkin.Controls.MaterialButton button_salir;
+        private Panel panel_reporte_ventas;
+        private MaterialSkin.Controls.MaterialButton button_reporte_ventas;
+        private PictureBox PB_reporte_ventas;
     }
 }

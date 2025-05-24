@@ -73,7 +73,7 @@
             txtbox_producto_a_modificar.Name = "txtbox_producto_a_modificar";
             txtbox_producto_a_modificar.PasswordChar = '\0';
             txtbox_producto_a_modificar.PrefixSuffixText = null;
-            txtbox_producto_a_modificar.ReadOnly = false;
+            txtbox_producto_a_modificar.ReadOnly = true;
             txtbox_producto_a_modificar.RightToLeft = RightToLeft.No;
             txtbox_producto_a_modificar.SelectedText = "";
             txtbox_producto_a_modificar.SelectionLength = 0;
@@ -94,7 +94,7 @@
             button_cancelar.Depth = 0;
             button_cancelar.HighEmphasis = true;
             button_cancelar.Icon = null;
-            button_cancelar.Location = new Point(909, 520);
+            button_cancelar.Location = new Point(914, 511);
             button_cancelar.Margin = new Padding(4, 6, 4, 6);
             button_cancelar.MouseState = MaterialSkin.MouseState.HOVER;
             button_cancelar.Name = "button_cancelar";
