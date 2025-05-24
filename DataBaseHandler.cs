@@ -1007,6 +1007,51 @@ namespace InkPos
             return facturas;
         }
 
+        public List<Factura> ReadAllInvoices()
+        {
+            using SqliteConnection conn = new($"Data Source={dbPath}");
+            List<Factura> facturas = [];
+
+            try
+            {
+                conn.Open();
+                using var cmd = conn.CreateCommand();
+                cmd.CommandText = @"
+                    SELECT ID_Factura, ID_Cliente, ID_Empleado, Fecha, Hora, ID_Transaccion, Total
+                    FROM Factura;";
+
+                using var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Factura factura = new
+                    (
+                        idFac: reader.GetInt32(0),
+                        idCl: reader.GetString(1),
+                        idEmp: reader.GetString(2),
+                        fecha: reader.GetString(3),
+                        hora: reader.GetString(4),
+                        trans: reader.IsDBNull(5) ? null : reader.GetString(5),
+                        total: reader.GetInt32(6),
+                        detalles: ReadDetailsByInvoice(reader.GetInt32(0))
+                    );
+                    facturas.Add(factura);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al listar productos:\n" + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+                SqliteConnection.ClearAllPools();
+            }
+
+            return facturas;
+        }
+
         //      #### CRUD Cliente
 
         public bool CreateClient(Cliente cliente)
