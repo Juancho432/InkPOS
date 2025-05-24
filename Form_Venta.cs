@@ -189,7 +189,12 @@ namespace InkPos
                                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     e.Cancel = true;
                     return;
-                } 
+                }
+
+                if (nuevoValor == 0)
+                {
+                    detalleVentaBindingSource.List.RemoveAt(e.RowIndex);
+                }
             }
             else
             {
