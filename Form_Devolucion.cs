@@ -56,16 +56,17 @@ namespace InkPos
                     return;
                 }
 
-                // Paso 4: Verificar si ya se hizo una devolución
-                try
+
+                // Paso 6: Registrar la devolución
+                bool exito = Database.CreateRefund(idFactura, codigoProducto);
+                if (exito)
                 {
-                    Database.ReadRefundByProduct(codigoProducto);
-                    MessageBox.Show("Este producto ya fue devuelto.");
-                    return;
+                    MessageBox.Show("Devolución registrada y stock actualizado.");
+                    this.Close();
                 }
-                catch (DevolucionInexistente)
+                else
                 {
-                    // No hay devolución previa, continuar
+                    MessageBox.Show("No se pudo registrar la devolución.");
                 }
 
                 // Paso 5: Actualizar el stock
@@ -83,18 +84,6 @@ namespace InkPos
                     return;
                 }
 
-
-                // Paso 6: Registrar la devolución
-                bool exito = Database.CreateRefund(idFactura, codigoProducto);
-                if (exito)
-                {
-                    MessageBox.Show("Devolución registrada y stock actualizado.");
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("No se pudo registrar la devolución.");
-                }
             }
             catch (FacturaInexistente)
             {
@@ -102,7 +91,7 @@ namespace InkPos
             }
             catch (DevolucionExistente)
             {
-                MessageBox.Show("Ya existe una devolución registrada para este producto.");
+                return;
             }
             catch (Exception ex)
             {
