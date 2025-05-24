@@ -176,7 +176,7 @@
             txtbox_cedula.Name = "txtbox_cedula";
             txtbox_cedula.PasswordChar = '\0';
             txtbox_cedula.PrefixSuffixText = null;
-            txtbox_cedula.ReadOnly = false;
+            txtbox_cedula.ReadOnly = true;
             txtbox_cedula.RightToLeft = RightToLeft.No;
             txtbox_cedula.SelectedText = "";
             txtbox_cedula.SelectionLength = 0;

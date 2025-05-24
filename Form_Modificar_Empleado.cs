@@ -148,6 +148,7 @@ namespace InkPos
         {
             lbl_cargo.Visible = false;
             CB_cargo.Visible = false;
+            txtbox_cedula.Text=EmpleadoActual.Id_Empleado.ToString();
         }
     }
 }
