@@ -342,6 +342,10 @@
             // 
             // DG_Detalle
             // 
+            DG_Detalle.AllowUserToAddRows = false;
+            DG_Detalle.AllowUserToDeleteRows = false;
+            DG_Detalle.AllowUserToResizeColumns = false;
+            DG_Detalle.AllowUserToResizeRows = false;
             DG_Detalle.Anchor = AnchorStyles.None;
             DG_Detalle.AutoGenerateColumns = false;
             DG_Detalle.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;

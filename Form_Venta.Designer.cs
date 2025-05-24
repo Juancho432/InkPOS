@@ -378,6 +378,10 @@
             // 
             // DG_Detalle
             // 
+            DG_Detalle.AllowUserToAddRows = false;
+            DG_Detalle.AllowUserToDeleteRows = false;
+            DG_Detalle.AllowUserToResizeColumns = false;
+            DG_Detalle.AllowUserToResizeRows = false;
             DG_Detalle.Anchor = AnchorStyles.None;
             DG_Detalle.AutoGenerateColumns = false;
             DG_Detalle.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -386,6 +390,7 @@
             DG_Detalle.Columns.AddRange(new DataGridViewColumn[] { Codigo, Nombre, Cantidad, Subtotal });
             DG_Detalle.DataSource = detalleVentaBindingSource;
             DG_Detalle.Location = new Point(522, 224);
+            DG_Detalle.MultiSelect = false;
             DG_Detalle.Name = "DG_Detalle";
             DG_Detalle.RowHeadersVisible = false;
             DG_Detalle.RowHeadersWidth = 51;
