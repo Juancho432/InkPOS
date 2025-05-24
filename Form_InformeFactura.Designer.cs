@@ -39,11 +39,13 @@
             lbl_Direccion = new Label();
             lbl_Titulo_Direccion = new Label();
             lbl_titulo_Señor = new Label();
-            lbl_Titulo_Telefono = new Label();
             lbl_Titulo_Nit = new Label();
             lbl_Señor = new Label();
             lbl_Titulo_Num = new Label();
             lbl_Num = new Label();
+            lbl_Titulo_Telefono = new Label();
+            lbl_Titulo_Empleado = new Label();
+            lbl_Empleado = new Label();
             label14 = new Label();
             tbl_fecha_metodo = new TableLayoutPanel();
             lbl_Metodo = new Label();
@@ -59,13 +61,11 @@
             label15 = new Label();
             label20 = new Label();
             tableLayoutPanel3 = new TableLayoutPanel();
-            lbl_Valor_Total = new Label();
             lbl_Total_Cantidad = new Label();
-            Btn_Salir = new MaterialSkin.Controls.MaterialButton();
-            lbl_Titulo_Empleado = new Label();
-            lbl_Empleado = new Label();
+            lbl_Valor_Total = new Label();
             lbl_Titulo_Total_Cantidad = new Label();
             lbl_Titulo_Valor_Total = new Label();
+            Btn_Salir = new MaterialSkin.Controls.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tlb_info_cliente.SuspendLayout();
             tbl_fecha_metodo.SuspendLayout();
@@ -190,17 +190,6 @@
             lbl_titulo_Señor.Text = "Señor (es): ";
             lbl_titulo_Señor.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lbl_Titulo_Telefono
-            // 
-            lbl_Titulo_Telefono.Anchor = AnchorStyles.Left;
-            lbl_Titulo_Telefono.AutoSize = true;
-            lbl_Titulo_Telefono.Location = new Point(578, 11);
-            lbl_Titulo_Telefono.Name = "lbl_Titulo_Telefono";
-            lbl_Titulo_Telefono.Size = new Size(70, 20);
-            lbl_Titulo_Telefono.TabIndex = 6;
-            lbl_Titulo_Telefono.Text = "Teléfono:";
-            lbl_Titulo_Telefono.TextAlign = ContentAlignment.MiddleLeft;
-            // 
             // lbl_Titulo_Nit
             // 
             lbl_Titulo_Nit.Anchor = AnchorStyles.Left;
@@ -244,6 +233,38 @@
             lbl_Num.TabIndex = 6;
             lbl_Num.Text = "__________ ";
             lbl_Num.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lbl_Titulo_Telefono
+            // 
+            lbl_Titulo_Telefono.Anchor = AnchorStyles.Left;
+            lbl_Titulo_Telefono.AutoSize = true;
+            lbl_Titulo_Telefono.Location = new Point(578, 11);
+            lbl_Titulo_Telefono.Name = "lbl_Titulo_Telefono";
+            lbl_Titulo_Telefono.Size = new Size(70, 20);
+            lbl_Titulo_Telefono.TabIndex = 6;
+            lbl_Titulo_Telefono.Text = "Teléfono:";
+            lbl_Titulo_Telefono.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lbl_Titulo_Empleado
+            // 
+            lbl_Titulo_Empleado.Anchor = AnchorStyles.Left;
+            lbl_Titulo_Empleado.AutoSize = true;
+            lbl_Titulo_Empleado.Location = new Point(578, 51);
+            lbl_Titulo_Empleado.Name = "lbl_Titulo_Empleado";
+            lbl_Titulo_Empleado.Size = new Size(80, 20);
+            lbl_Titulo_Empleado.TabIndex = 7;
+            lbl_Titulo_Empleado.Text = "Empleado:";
+            lbl_Titulo_Empleado.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lbl_Empleado
+            // 
+            lbl_Empleado.Anchor = AnchorStyles.Left;
+            lbl_Empleado.AutoSize = true;
+            lbl_Empleado.Location = new Point(666, 51);
+            lbl_Empleado.Name = "lbl_Empleado";
+            lbl_Empleado.Size = new Size(57, 20);
+            lbl_Empleado.TabIndex = 8;
+            lbl_Empleado.Text = "________";
             // 
             // label14
             // 
@@ -321,6 +342,10 @@
             // 
             // DG_Detalle
             // 
+            DG_Detalle.AllowUserToAddRows = false;
+            DG_Detalle.AllowUserToDeleteRows = false;
+            DG_Detalle.AllowUserToResizeColumns = false;
+            DG_Detalle.AllowUserToResizeRows = false;
             DG_Detalle.Anchor = AnchorStyles.None;
             DG_Detalle.AutoGenerateColumns = false;
             DG_Detalle.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -414,6 +439,17 @@
             tableLayoutPanel3.Size = new Size(836, 54);
             tableLayoutPanel3.TabIndex = 12;
             // 
+            // lbl_Total_Cantidad
+            // 
+            lbl_Total_Cantidad.Anchor = AnchorStyles.Left;
+            lbl_Total_Cantidad.AutoSize = true;
+            lbl_Total_Cantidad.Location = new Point(212, 17);
+            lbl_Total_Cantidad.Name = "lbl_Total_Cantidad";
+            lbl_Total_Cantidad.Size = new Size(73, 20);
+            lbl_Total_Cantidad.TabIndex = 6;
+            lbl_Total_Cantidad.Text = "__________ ";
+            lbl_Total_Cantidad.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // lbl_Valor_Total
             // 
             lbl_Valor_Total.Anchor = AnchorStyles.Left;
@@ -425,16 +461,25 @@
             lbl_Valor_Total.Text = "__________ ";
             lbl_Valor_Total.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lbl_Total_Cantidad
+            // lbl_Titulo_Total_Cantidad
             // 
-            lbl_Total_Cantidad.Anchor = AnchorStyles.Left;
-            lbl_Total_Cantidad.AutoSize = true;
-            lbl_Total_Cantidad.Location = new Point(212, 17);
-            lbl_Total_Cantidad.Name = "lbl_Total_Cantidad";
-            lbl_Total_Cantidad.Size = new Size(73, 20);
-            lbl_Total_Cantidad.TabIndex = 6;
-            lbl_Total_Cantidad.Text = "__________ ";
-            lbl_Total_Cantidad.TextAlign = ContentAlignment.MiddleLeft;
+            lbl_Titulo_Total_Cantidad.Anchor = AnchorStyles.Left;
+            lbl_Titulo_Total_Cantidad.AutoSize = true;
+            lbl_Titulo_Total_Cantidad.Location = new Point(3, 17);
+            lbl_Titulo_Total_Cantidad.Name = "lbl_Titulo_Total_Cantidad";
+            lbl_Titulo_Total_Cantidad.Size = new Size(127, 20);
+            lbl_Titulo_Total_Cantidad.TabIndex = 7;
+            lbl_Titulo_Total_Cantidad.Text = "Numero de Items:";
+            // 
+            // lbl_Titulo_Valor_Total
+            // 
+            lbl_Titulo_Valor_Total.Anchor = AnchorStyles.Left;
+            lbl_Titulo_Valor_Total.AutoSize = true;
+            lbl_Titulo_Valor_Total.Location = new Point(421, 17);
+            lbl_Titulo_Valor_Total.Name = "lbl_Titulo_Valor_Total";
+            lbl_Titulo_Valor_Total.Size = new Size(81, 20);
+            lbl_Titulo_Valor_Total.TabIndex = 8;
+            lbl_Titulo_Valor_Total.Text = "Valor total:";
             // 
             // Btn_Salir
             // 
@@ -456,47 +501,6 @@
             Btn_Salir.UseAccentColor = false;
             Btn_Salir.UseVisualStyleBackColor = true;
             Btn_Salir.Click += Btn_Salir_Click;
-            // 
-            // lbl_Titulo_Empleado
-            // 
-            lbl_Titulo_Empleado.Anchor = AnchorStyles.Left;
-            lbl_Titulo_Empleado.AutoSize = true;
-            lbl_Titulo_Empleado.Location = new Point(578, 51);
-            lbl_Titulo_Empleado.Name = "lbl_Titulo_Empleado";
-            lbl_Titulo_Empleado.Size = new Size(80, 20);
-            lbl_Titulo_Empleado.TabIndex = 7;
-            lbl_Titulo_Empleado.Text = "Empleado:";
-            lbl_Titulo_Empleado.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // lbl_Empleado
-            // 
-            lbl_Empleado.Anchor = AnchorStyles.Left;
-            lbl_Empleado.AutoSize = true;
-            lbl_Empleado.Location = new Point(666, 51);
-            lbl_Empleado.Name = "lbl_Empleado";
-            lbl_Empleado.Size = new Size(57, 20);
-            lbl_Empleado.TabIndex = 8;
-            lbl_Empleado.Text = "________";
-            // 
-            // lbl_Titulo_Total_Cantidad
-            // 
-            lbl_Titulo_Total_Cantidad.Anchor = AnchorStyles.Left;
-            lbl_Titulo_Total_Cantidad.AutoSize = true;
-            lbl_Titulo_Total_Cantidad.Location = new Point(3, 17);
-            lbl_Titulo_Total_Cantidad.Name = "lbl_Titulo_Total_Cantidad";
-            lbl_Titulo_Total_Cantidad.Size = new Size(127, 20);
-            lbl_Titulo_Total_Cantidad.TabIndex = 7;
-            lbl_Titulo_Total_Cantidad.Text = "Numero de Items:";
-            // 
-            // lbl_Titulo_Valor_Total
-            // 
-            lbl_Titulo_Valor_Total.Anchor = AnchorStyles.Left;
-            lbl_Titulo_Valor_Total.AutoSize = true;
-            lbl_Titulo_Valor_Total.Location = new Point(421, 17);
-            lbl_Titulo_Valor_Total.Name = "lbl_Titulo_Valor_Total";
-            lbl_Titulo_Valor_Total.Size = new Size(81, 20);
-            lbl_Titulo_Valor_Total.TabIndex = 8;
-            lbl_Titulo_Valor_Total.Text = "Valor total:";
             // 
             // Form_InformeFactura
             // 
