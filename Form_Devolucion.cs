@@ -74,7 +74,14 @@ namespace InkPos
 
 
                 //Conexion con BBDD - ACTUALIZAR STOCK NUEVAMENTE LUEGO DE LA DEVOLUCION
-                //Database.UpdateProductStock(producto);
+                try
+                {
+                    Database.UpdateProduct(producto);
+                }
+                catch
+                {
+                    return;
+                }
 
 
                 // Paso 6: Registrar la devolución
@@ -101,7 +108,6 @@ namespace InkPos
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-
         }
     }
 }
