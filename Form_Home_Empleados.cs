@@ -45,5 +45,13 @@
             Hide();
             form_Devolucion.FormClosed += (s, args) => Show();
         }
+
+        private void button_settings_Click(object sender, EventArgs e)
+        {
+            Form_Settings_Empleado settings_Empleado = new(EmpleadoActual, Database);
+            settings_Empleado.Show();
+            Hide();
+            settings_Empleado.FormClosed += (s, args) => Show();
+        }
     }
 }
