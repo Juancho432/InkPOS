@@ -3,13 +3,13 @@ namespace InkPos
 {
     public class Factura
     {
-        public long IdFactura;
-        public string IdCliente;
-        public string IdEmpleado;
-        public string Fecha;
-        public string Hora;
-        public string? IdTransaccion;
-        public decimal Total;
+        public long IdFactura { get; set; }
+        public string IdCliente { get; set; }
+        public string IdEmpleado { get; set; }
+        public string Fecha { get; set; }
+        public string Hora { get; set; }
+        public string? IdTransaccion { get; set; }
+        public decimal Total { get; set; }
 
         // Lista de detalles de venta asociados a esta factura
         public List<DetalleVenta> Detalles { get; } = [];

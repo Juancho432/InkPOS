@@ -1,62 +1,79 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Globalization;
 
 namespace InkPos
 {
     public partial class Form_Gestion_Facturas : Form
     {
-        private Empleado EmpleadoActual;
-        private DataBaseHandler Database;
+        private readonly Empleado EmpleadoActual;
+        private readonly DataBaseHandler Database;
+        private readonly List<Factura> Facturas;
 
         public Form_Gestion_Facturas(Empleado empleado, DataBaseHandler database)
         {
             EmpleadoActual = empleado;
             Database = database;
+            Facturas = Database.ReadAllInvoices();
             InitializeComponent();
-            dgv_Facturas.AutoGenerateColumns = false;
-            AgregarColumnasAcciones();
         }
 
-        private void AgregarColumnasAcciones()
+        private void Form_Gestion_Facturas_Load(object sender, EventArgs e)
         {
-            // Columna Ver
-            if (!dgv_Facturas.Columns.Contains("Ver"))
+            foreach (Factura item in Facturas)
             {
-                DataGridViewImageColumn colVer = new DataGridViewImageColumn();
-                colVer.Name = "Ver";
-                colVer.HeaderText = "👁️"; // 
-                colVer.Image = Properties.Resources.overview; 
-                colVer.ImageLayout = DataGridViewImageCellLayout.Zoom;
-                dgv_Facturas.Columns.Add(colVer);
+                facturaBindingSource.Add(item);
+            }
+        }
+
+        private void Txtbox_buscar_factura_TextChanged(object sender, EventArgs e)
+        {
+            string filtro = txtbox_buscar_factura.Text.ToLower();
+            List<Factura> coincidencias = [.. Facturas.Where(p =>
+                                            p.IdFactura.ToString().Contains(filtro))];
+
+            facturaBindingSource.List.Clear();
+            foreach (Factura item in coincidencias)
+            {
+                facturaBindingSource.Add(item);
+            }
+        }
+
+        private bool VerificarFechas(string? inicio, string? final, string busqueda)
+        {
+            string formato = "yyyy-MM-dd";
+            DateTime Inicio;
+            DateTime Final;
+            DateTime Busqueda = DateTime.ParseExact(
+                busqueda, formato, CultureInfo.InvariantCulture);
+            
+            if (inicio != null)
+            {
+                Inicio = DateTime.ParseExact(
+                    inicio, formato, CultureInfo.InvariantCulture);
+            }
+            else
+            {
+                Inicio = DateTime.ParseExact(
+                    Database.ReadOldestInvoice(), formato, CultureInfo.InvariantCulture);
             }
 
-            // Columna Imprimir
-            if (!dgv_Facturas.Columns.Contains("Imprimir"))
+            if (final != null)
             {
-                DataGridViewImageColumn colImprimir = new DataGridViewImageColumn();
-                colImprimir.Name = "Imprimir";
-                colImprimir.HeaderText = "🖨️";
-                colImprimir.Image = Properties.Resources.print;
-                colImprimir.ImageLayout = DataGridViewImageCellLayout.Zoom;
-                dgv_Facturas.Columns.Add(colImprimir);
+                Final = DateTime.ParseExact(final, formato, CultureInfo.InvariantCulture);
+            }
+            else
+            {
+                Final = DateTime.ParseExact(
+                    Database.ReadNewestInvoice(), formato, CultureInfo.InvariantCulture);
             }
 
-            // Columna Editar
-            if (!dgv_Facturas.Columns.Contains("Editar"))
+            if (DateTime.Compare(Inicio, Busqueda) == -1 &&
+                DateTime.Compare(Busqueda, Final) == -1)
             {
-                DataGridViewImageColumn colEditar = new DataGridViewImageColumn();
-                colEditar.Name = "Editar";
-                colEditar.HeaderText = "✏️";
-                colEditar.Image = Properties.Resources.pen_square;
-                colEditar.ImageLayout = DataGridViewImageCellLayout.Zoom;
-                dgv_Facturas.Columns.Add(colEditar);
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }

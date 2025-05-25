@@ -28,45 +28,162 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Gestion_Facturas));
             panel_GF = new Panel();
+            DG_Facturas = new DataGridView();
+            idFacturaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            idClienteDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            idEmpleadoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            fechaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            horaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            idTransaccionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            totalDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            Ver = new DataGridViewImageColumn();
+            Imprimir = new DataGridViewImageColumn();
+            Editar = new DataGridViewImageColumn();
+            facturaBindingSource = new BindingSource(components);
             lbl_fecha_fin = new Label();
             lbl_fecha_inicio = new Label();
-            timepicker_fecha_fin = new DateTimePicker();
-            timepicker_fecha_inicio = new DateTimePicker();
-            dgv_Facturas = new DataGridView();
+            TP_Fecha_Fin = new DateTimePicker();
+            TP_Fecha_Inicio = new DateTimePicker();
             txtbox_buscar_factura = new MaterialSkin.Controls.MaterialTextBox2();
-            button_añadir_producto = new Button();
             button_salir = new Button();
             lbl_GF = new Label();
             panel_GF.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgv_Facturas).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DG_Facturas).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)facturaBindingSource).BeginInit();
             SuspendLayout();
             // 
             // panel_GF
             // 
             panel_GF.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel_GF.Controls.Add(DG_Facturas);
             panel_GF.Controls.Add(lbl_fecha_fin);
             panel_GF.Controls.Add(lbl_fecha_inicio);
-            panel_GF.Controls.Add(timepicker_fecha_fin);
-            panel_GF.Controls.Add(timepicker_fecha_inicio);
-            panel_GF.Controls.Add(dgv_Facturas);
+            panel_GF.Controls.Add(TP_Fecha_Fin);
+            panel_GF.Controls.Add(TP_Fecha_Inicio);
             panel_GF.Controls.Add(txtbox_buscar_factura);
-            panel_GF.Controls.Add(button_añadir_producto);
             panel_GF.Controls.Add(button_salir);
             panel_GF.Controls.Add(lbl_GF);
-            panel_GF.Location = new Point(5, 2);
+            panel_GF.Location = new Point(4, 2);
+            panel_GF.Margin = new Padding(3, 2, 3, 2);
             panel_GF.Name = "panel_GF";
-            panel_GF.Size = new Size(1513, 1171);
+            panel_GF.Size = new Size(1324, 878);
             panel_GF.TabIndex = 0;
+            // 
+            // DG_Facturas
+            // 
+            DG_Facturas.AllowUserToAddRows = false;
+            DG_Facturas.AllowUserToDeleteRows = false;
+            DG_Facturas.AllowUserToResizeColumns = false;
+            DG_Facturas.AllowUserToResizeRows = false;
+            DG_Facturas.AutoGenerateColumns = false;
+            DG_Facturas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            DG_Facturas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DG_Facturas.Columns.AddRange(new DataGridViewColumn[] { idFacturaDataGridViewTextBoxColumn, idClienteDataGridViewTextBoxColumn, idEmpleadoDataGridViewTextBoxColumn, fechaDataGridViewTextBoxColumn, horaDataGridViewTextBoxColumn, idTransaccionDataGridViewTextBoxColumn, totalDataGridViewTextBoxColumn, Ver, Imprimir, Editar });
+            DG_Facturas.DataSource = facturaBindingSource;
+            DG_Facturas.Location = new Point(186, 335);
+            DG_Facturas.MultiSelect = false;
+            DG_Facturas.Name = "DG_Facturas";
+            DG_Facturas.ReadOnly = true;
+            DG_Facturas.RowHeadersVisible = false;
+            DG_Facturas.Size = new Size(882, 247);
+            DG_Facturas.TabIndex = 20;
+            // 
+            // idFacturaDataGridViewTextBoxColumn
+            // 
+            idFacturaDataGridViewTextBoxColumn.DataPropertyName = "IdFactura";
+            idFacturaDataGridViewTextBoxColumn.HeaderText = "Factura N°";
+            idFacturaDataGridViewTextBoxColumn.Name = "idFacturaDataGridViewTextBoxColumn";
+            idFacturaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idClienteDataGridViewTextBoxColumn
+            // 
+            idClienteDataGridViewTextBoxColumn.DataPropertyName = "IdCliente";
+            idClienteDataGridViewTextBoxColumn.HeaderText = "Cliente N°";
+            idClienteDataGridViewTextBoxColumn.Name = "idClienteDataGridViewTextBoxColumn";
+            idClienteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idEmpleadoDataGridViewTextBoxColumn
+            // 
+            idEmpleadoDataGridViewTextBoxColumn.DataPropertyName = "IdEmpleado";
+            idEmpleadoDataGridViewTextBoxColumn.HeaderText = "Empleado N°";
+            idEmpleadoDataGridViewTextBoxColumn.Name = "idEmpleadoDataGridViewTextBoxColumn";
+            idEmpleadoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fechaDataGridViewTextBoxColumn
+            // 
+            fechaDataGridViewTextBoxColumn.DataPropertyName = "Fecha";
+            fechaDataGridViewTextBoxColumn.HeaderText = "Fecha";
+            fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
+            fechaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // horaDataGridViewTextBoxColumn
+            // 
+            horaDataGridViewTextBoxColumn.DataPropertyName = "Hora";
+            horaDataGridViewTextBoxColumn.HeaderText = "Hora";
+            horaDataGridViewTextBoxColumn.Name = "horaDataGridViewTextBoxColumn";
+            horaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idTransaccionDataGridViewTextBoxColumn
+            // 
+            idTransaccionDataGridViewTextBoxColumn.DataPropertyName = "IdTransaccion";
+            idTransaccionDataGridViewTextBoxColumn.HeaderText = "Transaccion";
+            idTransaccionDataGridViewTextBoxColumn.Name = "idTransaccionDataGridViewTextBoxColumn";
+            idTransaccionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // totalDataGridViewTextBoxColumn
+            // 
+            totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
+            totalDataGridViewTextBoxColumn.HeaderText = "Total";
+            totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
+            totalDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Ver
+            // 
+            Ver.FillWeight = 25F;
+            Ver.HeaderText = "👁️";
+            Ver.Image = Properties.Resources.overview;
+            Ver.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            Ver.Name = "Ver";
+            Ver.ReadOnly = true;
+            Ver.Resizable = DataGridViewTriState.True;
+            Ver.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
+            // Imprimir
+            // 
+            Imprimir.FillWeight = 25F;
+            Imprimir.HeaderText = "🖨️";
+            Imprimir.Image = Properties.Resources.print;
+            Imprimir.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            Imprimir.Name = "Imprimir";
+            Imprimir.ReadOnly = true;
+            Imprimir.Resizable = DataGridViewTriState.True;
+            Imprimir.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
+            // Editar
+            // 
+            Editar.FillWeight = 25F;
+            Editar.HeaderText = "✏️";
+            Editar.Image = Properties.Resources.pen_square;
+            Editar.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            Editar.Name = "Editar";
+            Editar.ReadOnly = true;
+            Editar.Resizable = DataGridViewTriState.True;
+            Editar.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
+            // facturaBindingSource
+            // 
+            facturaBindingSource.DataSource = typeof(Factura);
             // 
             // lbl_fecha_fin
             // 
             lbl_fecha_fin.Anchor = AnchorStyles.None;
             lbl_fecha_fin.AutoSize = true;
-            lbl_fecha_fin.Location = new Point(1045, 235);
+            lbl_fecha_fin.Location = new Point(659, 203);
             lbl_fecha_fin.Name = "lbl_fecha_fin";
-            lbl_fecha_fin.Size = new Size(50, 20);
+            lbl_fecha_fin.Size = new Size(40, 15);
             lbl_fecha_fin.TabIndex = 19;
             lbl_fecha_fin.Text = "Hasta:";
             // 
@@ -74,46 +191,31 @@
             // 
             lbl_fecha_inicio.Anchor = AnchorStyles.None;
             lbl_fecha_inicio.AutoSize = true;
-            lbl_fecha_inicio.Location = new Point(706, 235);
+            lbl_fecha_inicio.Location = new Point(659, 167);
             lbl_fecha_inicio.Name = "lbl_fecha_inicio";
-            lbl_fecha_inicio.Size = new Size(54, 20);
+            lbl_fecha_inicio.Size = new Size(42, 15);
             lbl_fecha_inicio.TabIndex = 18;
             lbl_fecha_inicio.Text = "Desde:";
             // 
-            // timepicker_fecha_fin
+            // TP_Fecha_Fin
             // 
-            timepicker_fecha_fin.Anchor = AnchorStyles.None;
-            timepicker_fecha_fin.Location = new Point(929, 267);
-            timepicker_fecha_fin.Name = "timepicker_fecha_fin";
-            timepicker_fecha_fin.Size = new Size(291, 27);
-            timepicker_fecha_fin.TabIndex = 17;
+            TP_Fecha_Fin.Anchor = AnchorStyles.None;
+            TP_Fecha_Fin.Location = new Point(707, 203);
+            TP_Fecha_Fin.Margin = new Padding(3, 2, 3, 2);
+            TP_Fecha_Fin.Name = "TP_Fecha_Fin";
+            TP_Fecha_Fin.ShowCheckBox = true;
+            TP_Fecha_Fin.Size = new Size(255, 23);
+            TP_Fecha_Fin.TabIndex = 17;
             // 
-            // timepicker_fecha_inicio
+            // TP_Fecha_Inicio
             // 
-            timepicker_fecha_inicio.Anchor = AnchorStyles.None;
-            timepicker_fecha_inicio.Location = new Point(592, 267);
-            timepicker_fecha_inicio.Name = "timepicker_fecha_inicio";
-            timepicker_fecha_inicio.Size = new Size(291, 27);
-            timepicker_fecha_inicio.TabIndex = 16;
-            // 
-            // dgv_Facturas
-            // 
-            dgv_Facturas.AllowUserToAddRows = false;
-            dgv_Facturas.AllowUserToDeleteRows = false;
-            dgv_Facturas.AllowUserToResizeColumns = false;
-            dgv_Facturas.AllowUserToResizeRows = false;
-            dgv_Facturas.Anchor = AnchorStyles.None;
-            dgv_Facturas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv_Facturas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_Facturas.Location = new Point(43, 345);
-            dgv_Facturas.MultiSelect = false;
-            dgv_Facturas.Name = "dgv_Facturas";
-            dgv_Facturas.ReadOnly = true;
-            dgv_Facturas.RowHeadersVisible = false;
-            dgv_Facturas.RowHeadersWidth = 51;
-            dgv_Facturas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_Facturas.Size = new Size(1431, 724);
-            dgv_Facturas.TabIndex = 15;
+            TP_Fecha_Inicio.Anchor = AnchorStyles.None;
+            TP_Fecha_Inicio.Location = new Point(707, 167);
+            TP_Fecha_Inicio.Margin = new Padding(3, 2, 3, 2);
+            TP_Fecha_Inicio.Name = "TP_Fecha_Inicio";
+            TP_Fecha_Inicio.ShowCheckBox = true;
+            TP_Fecha_Inicio.Size = new Size(255, 23);
+            TP_Fecha_Inicio.TabIndex = 16;
             // 
             // txtbox_buscar_factura
             // 
@@ -126,7 +228,8 @@
             txtbox_buscar_factura.HideSelection = true;
             txtbox_buscar_factura.Hint = "Ingrese el N° de factura";
             txtbox_buscar_factura.LeadingIcon = null;
-            txtbox_buscar_factura.Location = new Point(348, 246);
+            txtbox_buscar_factura.Location = new Point(308, 167);
+            txtbox_buscar_factura.Margin = new Padding(3, 2, 3, 2);
             txtbox_buscar_factura.MaxLength = 32767;
             txtbox_buscar_factura.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_buscar_factura.Name = "txtbox_buscar_factura";
@@ -138,30 +241,22 @@
             txtbox_buscar_factura.SelectionLength = 0;
             txtbox_buscar_factura.SelectionStart = 0;
             txtbox_buscar_factura.ShortcutsEnabled = true;
-            txtbox_buscar_factura.Size = new Size(192, 48);
+            txtbox_buscar_factura.Size = new Size(207, 48);
             txtbox_buscar_factura.TabIndex = 14;
             txtbox_buscar_factura.TabStop = false;
             txtbox_buscar_factura.TextAlign = HorizontalAlignment.Left;
             txtbox_buscar_factura.TrailingIcon = null;
             txtbox_buscar_factura.UseSystemPasswordChar = false;
-            // 
-            // button_añadir_producto
-            // 
-            button_añadir_producto.Anchor = AnchorStyles.None;
-            button_añadir_producto.Image = (Image)resources.GetObject("button_añadir_producto.Image");
-            button_añadir_producto.Location = new Point(1291, 246);
-            button_añadir_producto.Name = "button_añadir_producto";
-            button_añadir_producto.Size = new Size(69, 48);
-            button_añadir_producto.TabIndex = 13;
-            button_añadir_producto.UseVisualStyleBackColor = true;
+            txtbox_buscar_factura.TextChanged += Txtbox_buscar_factura_TextChanged;
             // 
             // button_salir
             // 
             button_salir.Anchor = AnchorStyles.None;
             button_salir.Image = (Image)resources.GetObject("button_salir.Image");
-            button_salir.Location = new Point(212, 246);
+            button_salir.Location = new Point(187, 124);
+            button_salir.Margin = new Padding(3, 2, 3, 2);
             button_salir.Name = "button_salir";
-            button_salir.Size = new Size(69, 48);
+            button_salir.Size = new Size(60, 36);
             button_salir.TabIndex = 12;
             button_salir.UseVisualStyleBackColor = true;
             // 
@@ -170,38 +265,51 @@
             lbl_GF.Anchor = AnchorStyles.None;
             lbl_GF.AutoSize = true;
             lbl_GF.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_GF.Location = new Point(602, 133);
+            lbl_GF.Location = new Point(528, 40);
             lbl_GF.Name = "lbl_GF";
-            lbl_GF.Size = new Size(364, 54);
+            lbl_GF.Size = new Size(294, 45);
             lbl_GF.TabIndex = 11;
             lbl_GF.Text = "Gestión de facturas";
             // 
             // Form_Gestion_Facturas
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1522, 1175);
+            ClientSize = new Size(1199, 562);
             Controls.Add(panel_GF);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form_Gestion_Facturas";
             Text = "InkPOS - Gestion de facturas";
             WindowState = FormWindowState.Maximized;
+            Load += Form_Gestion_Facturas_Load;
             panel_GF.ResumeLayout(false);
             panel_GF.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgv_Facturas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DG_Facturas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)facturaBindingSource).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panel_GF;
-        private DataGridView dgv_Facturas;
         private MaterialSkin.Controls.MaterialTextBox2 txtbox_buscar_factura;
-        private Button button_añadir_producto;
         private Button button_salir;
         private Label lbl_GF;
         private Label lbl_fecha_fin;
         private Label lbl_fecha_inicio;
-        private DateTimePicker timepicker_fecha_fin;
-        private DateTimePicker timepicker_fecha_inicio;
+        private DateTimePicker TP_Fecha_Fin;
+        private DateTimePicker TP_Fecha_Inicio;
+        private DataGridView DG_Facturas;
+        private BindingSource facturaBindingSource;
+        private DataGridViewTextBoxColumn idFacturaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn idClienteDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn idEmpleadoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn fechaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn horaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn idTransaccionDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
+        private DataGridViewImageColumn Ver;
+        private DataGridViewImageColumn Imprimir;
+        private DataGridViewImageColumn Editar;
     }
 }

@@ -1052,6 +1052,66 @@ namespace InkPos
             return facturas;
         }
 
+        public string ReadOldestInvoice()
+        {
+            using SqliteConnection conn = new($"Data Source={dbPath}");
+            conn.Open();
+
+            var command = conn.CreateCommand();
+            command.CommandText = @"
+                    SELECT Fecha, Hora
+                    FROM FACTURA
+                    ORDER BY Fecha ASC, Hora ASC
+                    LIMIT 1;";
+
+            using var reader = command.ExecuteReader();
+            
+            if (!reader.Read())
+            {
+                SqliteConnection.ClearAllPools();
+                conn.Close();
+                conn.Dispose();
+                throw new FacturaInexistente();
+            }
+            else
+            {
+                SqliteConnection.ClearAllPools();
+                conn.Close();
+                conn.Dispose();
+                return reader.GetString(0);
+            }
+        }
+
+        public string ReadNewestInvoice()
+        {
+            using SqliteConnection conn = new($"Data Source={dbPath}");
+            conn.Open();
+
+            var command = conn.CreateCommand();
+            command.CommandText = @"
+                    SELECT Fecha, Hora
+                    FROM FACTURA
+                    ORDER BY Fecha DESC, Hora DESC
+                    LIMIT 1;";
+
+            using var reader = command.ExecuteReader();
+
+            if (!reader.Read())
+            {
+                SqliteConnection.ClearAllPools();
+                conn.Close();
+                conn.Dispose();
+                throw new FacturaInexistente();
+            }
+            else
+            {
+                SqliteConnection.ClearAllPools();
+                conn.Close();
+                conn.Dispose();
+                return reader.GetString(0);
+            }
+        }
+
         //      #### CRUD Cliente
 
         public bool CreateClient(Cliente cliente)
