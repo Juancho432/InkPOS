@@ -111,7 +111,7 @@
         {
             public DevolucionInexistente()
             {
-                MessageBox.Show("La devolucion no se encuantra en la Base de Datos", 
+                MessageBox.Show("La devolucion no se encuentra en la Base de Datos", 
                     "Devolucion Inexistente",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
