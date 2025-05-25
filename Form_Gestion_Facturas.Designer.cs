@@ -90,6 +90,7 @@
             DG_Facturas.RowHeadersVisible = false;
             DG_Facturas.Size = new Size(882, 247);
             DG_Facturas.TabIndex = 20;
+            DG_Facturas.CellClick += DG_Facturas_CellClick;
             // 
             // idFacturaDataGridViewTextBoxColumn
             // 
@@ -206,6 +207,8 @@
             TP_Fecha_Fin.ShowCheckBox = true;
             TP_Fecha_Fin.Size = new Size(255, 23);
             TP_Fecha_Fin.TabIndex = 17;
+            TP_Fecha_Fin.ValueChanged += TP_ValueChanged;
+            TP_Fecha_Fin.Validating += TP_Validating;
             // 
             // TP_Fecha_Inicio
             // 
@@ -216,6 +219,8 @@
             TP_Fecha_Inicio.ShowCheckBox = true;
             TP_Fecha_Inicio.Size = new Size(255, 23);
             TP_Fecha_Inicio.TabIndex = 16;
+            TP_Fecha_Inicio.ValueChanged += TP_ValueChanged;
+            TP_Fecha_Inicio.Validating += TP_Validating;
             // 
             // txtbox_buscar_factura
             // 

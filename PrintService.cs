@@ -79,7 +79,7 @@ namespace InkPos
                     FileName = pdflatexPath,
                     Arguments = $"-output-directory={tempDirPath} {customTex}",
                     UseShellExecute = false,
-                    CreateNoWindow = false
+                    CreateNoWindow = true
                 }
             };
 
@@ -101,11 +101,16 @@ namespace InkPos
                 string rutaSeleccionada = saveFileDialog.FileName;
                 string pdfGenerado = Path.Combine(tempDirPath, $"R{factura.IdFactura}.pdf");
                 File.Move(pdfGenerado, rutaSeleccionada, overwrite: true);
-                File.Delete(customTex);
-                File.Delete(logoPath);
-                File.Delete(Path.Combine(tempDirPath, $"R{factura.IdFactura}.aux"));
-                File.Delete(Path.Combine(tempDirPath, $"R{factura.IdFactura}.log"));
             }
+            else
+            {
+                File.Delete(Path.Combine(tempDirPath, $"R{factura.IdFactura}.pdf"));
+            }
+            
+            File.Delete(customTex);
+            File.Delete(Path.Combine(tempDirPath, "Logo.png"));
+            File.Delete(Path.Combine(tempDirPath, $"R{factura.IdFactura}.aux"));
+            File.Delete(Path.Combine(tempDirPath, $"R{factura.IdFactura}.log"));
         }
 
         [GeneratedRegex(@"\\C\{(.*?)\}")]

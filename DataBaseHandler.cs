@@ -1076,10 +1076,11 @@ namespace InkPos
             }
             else
             {
+                string result = reader.GetString(0);
                 SqliteConnection.ClearAllPools();
                 conn.Close();
                 conn.Dispose();
-                return reader.GetString(0);
+                return result;
             }
         }
 
@@ -1106,10 +1107,11 @@ namespace InkPos
             }
             else
             {
+                string result = reader.GetString(0);
                 SqliteConnection.ClearAllPools();
                 conn.Close();
                 conn.Dispose();
-                return reader.GetString(0);
+                return result;
             }
         }
 
