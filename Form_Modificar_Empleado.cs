@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 using static InkPos.Excepciones;
 
 namespace InkPos
@@ -35,20 +36,20 @@ namespace InkPos
             int campoSeleccionado = CB_valor_a_modificar.SelectedIndex;
             string nuevoValor = txtbox_nuevo_valor.Text.Trim();
 
-            // Validar campos vacíos
+            // Validar campos vacíos (excepto para el cargo que usa CB_cargo)
             try
             {
                 if ((string.IsNullOrWhiteSpace(cedulaEmpleado) ||
-                    string.IsNullOrWhiteSpace(nuevoValor)) && CB_valor_a_modificar.SelectedIndex != 2)
+                    string.IsNullOrWhiteSpace(nuevoValor)) && campoSeleccionado != 2)
                 {
                     throw new Excepciones.CamposVacios();
                 }
             }
             catch (Excepciones.CamposVacios)
             {
+                MessageBox.Show("Por favor, completa todos los campos requeridos.");
                 return;
             }
-
 
             // Buscar empleado
             Empleado empleadoExistente;
@@ -62,38 +63,48 @@ namespace InkPos
                 return;
             }
 
-
             // Actualizar campo seleccionado
             try
             {
                 switch (campoSeleccionado)
                 {
-                    // Nombre
-                    case 0:
+                    case 0: // Nombre
                         empleadoExistente.Nombre = nuevoValor;
                         break;
 
-                    // Telefono
-                    case 1:
+                    case 1: // Teléfono
                         empleadoExistente.Telefono = nuevoValor;
                         break;
 
-                    // Cargo
-                    case 2:
+                    case 2: // Cargo
                         empleadoExistente.Es_Admin = CB_cargo.SelectedIndex == 1;
                         break;
 
-                    // Salario
-                    case 3:
+                    case 3: // Salario
                         if (!double.TryParse(nuevoValor, out double nuevoSalario))
-                        {
                             throw new FormatException("El salario debe ser un número válido.");
-                        }
-                        else
-                        {
-                            empleadoExistente.Salario = nuevoSalario;
-                        }
+                        empleadoExistente.Salario = nuevoSalario;
                         break;
+
+                    case 4: // Usuario
+                        if (!ActualizarUsuario(empleadoExistente.Id_Empleado, nuevoValor))
+                        {
+                            MessageBox.Show("No se pudo actualizar el usuario.");
+                            return;
+                        }
+                        MessageBox.Show("Usuario actualizado exitosamente.");
+                        Close();
+                        return;
+
+                    case 5: // Contraseña
+                        if (!ActualizarContrasena(empleadoExistente.Id_Empleado, nuevoValor))
+                        {
+                            MessageBox.Show("No se pudo actualizar la contraseña.");
+                            return;
+                        }
+                        MessageBox.Show("Contraseña actualizada exitosamente.");
+                        Close();
+                        return;
                 }
             }
             catch (FormatException ex)
@@ -102,7 +113,7 @@ namespace InkPos
                 return;
             }
 
-            // Actualizar en base de datos
+            // Actualizar datos generales si no fue usuario/contraseña
             bool exito = Database.UpdateEmployedData(empleadoExistente);
 
             if (exito)
@@ -115,6 +126,79 @@ namespace InkPos
                 MessageBox.Show("No se pudo modificar el empleado.");
             }
         }
+
+
+        private bool ActualizarUsuario(string idEmpleado, string nuevoUsuario)
+        {
+            using var conn = new Microsoft.Data.Sqlite.SqliteConnection($"Data Source={Database.DbPath}");
+            try
+            {
+                conn.Open();
+                using var cmd = conn.CreateCommand();
+                cmd.CommandText = @"
+            UPDATE Empleado
+            SET Usuario = $usuario
+            WHERE ID_Empleado = $id;";
+                cmd.Parameters.AddWithValue("$usuario", nuevoUsuario);
+                cmd.Parameters.AddWithValue("$id", idEmpleado);
+
+                return cmd.ExecuteNonQuery() > 0;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+                Microsoft.Data.Sqlite.SqliteConnection.ClearAllPools();
+            }
+        }
+
+        private bool ActualizarContrasena(string idEmpleado, string nuevaContrasena)
+        {
+            using var conn = new Microsoft.Data.Sqlite.SqliteConnection($"Data Source={Database.DbPath}");
+            try
+            {
+                conn.Open();
+                using var cmd = conn.CreateCommand();
+                cmd.CommandText = @"
+            UPDATE Empleado
+            SET Contrasena = $pass
+            WHERE ID_Empleado = $id;";
+                cmd.Parameters.AddWithValue("$pass", ToSHA256(nuevaContrasena));
+                cmd.Parameters.AddWithValue("$id", idEmpleado);
+
+                return cmd.ExecuteNonQuery() > 0;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+                Microsoft.Data.Sqlite.SqliteConnection.ClearAllPools();
+            }
+        }
+
+        private string ToSHA256(string? input)
+        {
+            if (string.IsNullOrWhiteSpace(input))
+                throw new ArgumentNullException(nameof(input), "El valor para hashear no puede ser nulo o vacío.");
+
+            byte[] bytes = SHA256.HashData(Encoding.UTF8.GetBytes(input));
+            StringBuilder sb = new();
+            foreach (byte b in bytes)
+            {
+                sb.Append(b.ToString("x2"));
+            }
+            return sb.ToString();
+        }
+
+
 
         private void button_limpiar_Click(object sender, EventArgs e)
         {

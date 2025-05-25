@@ -171,5 +171,10 @@ namespace InkPos
                 // ??
             }
         }
+
+        private void button_salir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
