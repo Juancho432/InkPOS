@@ -66,10 +66,9 @@
             panel_GF.Controls.Add(txtbox_buscar_factura);
             panel_GF.Controls.Add(button_salir);
             panel_GF.Controls.Add(lbl_GF);
-            panel_GF.Location = new Point(4, 2);
-            panel_GF.Margin = new Padding(3, 2, 3, 2);
+            panel_GF.Location = new Point(5, 3);
             panel_GF.Name = "panel_GF";
-            panel_GF.Size = new Size(1324, 878);
+            panel_GF.Size = new Size(1513, 1171);
             panel_GF.TabIndex = 0;
             // 
             // DG_Facturas
@@ -78,23 +77,27 @@
             DG_Facturas.AllowUserToDeleteRows = false;
             DG_Facturas.AllowUserToResizeColumns = false;
             DG_Facturas.AllowUserToResizeRows = false;
+            DG_Facturas.Anchor = AnchorStyles.None;
             DG_Facturas.AutoGenerateColumns = false;
             DG_Facturas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DG_Facturas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DG_Facturas.Columns.AddRange(new DataGridViewColumn[] { idFacturaDataGridViewTextBoxColumn, idClienteDataGridViewTextBoxColumn, idEmpleadoDataGridViewTextBoxColumn, fechaDataGridViewTextBoxColumn, horaDataGridViewTextBoxColumn, idTransaccionDataGridViewTextBoxColumn, totalDataGridViewTextBoxColumn, Ver, Imprimir, Editar });
             DG_Facturas.DataSource = facturaBindingSource;
-            DG_Facturas.Location = new Point(186, 335);
+            DG_Facturas.Location = new Point(213, 447);
+            DG_Facturas.Margin = new Padding(3, 4, 3, 4);
             DG_Facturas.MultiSelect = false;
             DG_Facturas.Name = "DG_Facturas";
             DG_Facturas.ReadOnly = true;
             DG_Facturas.RowHeadersVisible = false;
-            DG_Facturas.Size = new Size(882, 247);
+            DG_Facturas.RowHeadersWidth = 51;
+            DG_Facturas.Size = new Size(1008, 329);
             DG_Facturas.TabIndex = 20;
             // 
             // idFacturaDataGridViewTextBoxColumn
             // 
             idFacturaDataGridViewTextBoxColumn.DataPropertyName = "IdFactura";
             idFacturaDataGridViewTextBoxColumn.HeaderText = "Factura N°";
+            idFacturaDataGridViewTextBoxColumn.MinimumWidth = 6;
             idFacturaDataGridViewTextBoxColumn.Name = "idFacturaDataGridViewTextBoxColumn";
             idFacturaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -102,6 +105,7 @@
             // 
             idClienteDataGridViewTextBoxColumn.DataPropertyName = "IdCliente";
             idClienteDataGridViewTextBoxColumn.HeaderText = "Cliente N°";
+            idClienteDataGridViewTextBoxColumn.MinimumWidth = 6;
             idClienteDataGridViewTextBoxColumn.Name = "idClienteDataGridViewTextBoxColumn";
             idClienteDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -109,6 +113,7 @@
             // 
             idEmpleadoDataGridViewTextBoxColumn.DataPropertyName = "IdEmpleado";
             idEmpleadoDataGridViewTextBoxColumn.HeaderText = "Empleado N°";
+            idEmpleadoDataGridViewTextBoxColumn.MinimumWidth = 6;
             idEmpleadoDataGridViewTextBoxColumn.Name = "idEmpleadoDataGridViewTextBoxColumn";
             idEmpleadoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -116,6 +121,7 @@
             // 
             fechaDataGridViewTextBoxColumn.DataPropertyName = "Fecha";
             fechaDataGridViewTextBoxColumn.HeaderText = "Fecha";
+            fechaDataGridViewTextBoxColumn.MinimumWidth = 6;
             fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
             fechaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -123,6 +129,7 @@
             // 
             horaDataGridViewTextBoxColumn.DataPropertyName = "Hora";
             horaDataGridViewTextBoxColumn.HeaderText = "Hora";
+            horaDataGridViewTextBoxColumn.MinimumWidth = 6;
             horaDataGridViewTextBoxColumn.Name = "horaDataGridViewTextBoxColumn";
             horaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -130,6 +137,7 @@
             // 
             idTransaccionDataGridViewTextBoxColumn.DataPropertyName = "IdTransaccion";
             idTransaccionDataGridViewTextBoxColumn.HeaderText = "Transaccion";
+            idTransaccionDataGridViewTextBoxColumn.MinimumWidth = 6;
             idTransaccionDataGridViewTextBoxColumn.Name = "idTransaccionDataGridViewTextBoxColumn";
             idTransaccionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -137,6 +145,7 @@
             // 
             totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
             totalDataGridViewTextBoxColumn.HeaderText = "Total";
+            totalDataGridViewTextBoxColumn.MinimumWidth = 6;
             totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
             totalDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -146,6 +155,7 @@
             Ver.HeaderText = "👁️";
             Ver.Image = Properties.Resources.overview;
             Ver.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            Ver.MinimumWidth = 6;
             Ver.Name = "Ver";
             Ver.ReadOnly = true;
             Ver.Resizable = DataGridViewTriState.True;
@@ -157,6 +167,7 @@
             Imprimir.HeaderText = "🖨️";
             Imprimir.Image = Properties.Resources.print;
             Imprimir.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            Imprimir.MinimumWidth = 6;
             Imprimir.Name = "Imprimir";
             Imprimir.ReadOnly = true;
             Imprimir.Resizable = DataGridViewTriState.True;
@@ -168,6 +179,7 @@
             Editar.HeaderText = "✏️";
             Editar.Image = Properties.Resources.pen_square;
             Editar.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            Editar.MinimumWidth = 6;
             Editar.Name = "Editar";
             Editar.ReadOnly = true;
             Editar.Resizable = DataGridViewTriState.True;
@@ -181,9 +193,9 @@
             // 
             lbl_fecha_fin.Anchor = AnchorStyles.None;
             lbl_fecha_fin.AutoSize = true;
-            lbl_fecha_fin.Location = new Point(659, 203);
+            lbl_fecha_fin.Location = new Point(753, 271);
             lbl_fecha_fin.Name = "lbl_fecha_fin";
-            lbl_fecha_fin.Size = new Size(40, 15);
+            lbl_fecha_fin.Size = new Size(50, 20);
             lbl_fecha_fin.TabIndex = 19;
             lbl_fecha_fin.Text = "Hasta:";
             // 
@@ -191,30 +203,28 @@
             // 
             lbl_fecha_inicio.Anchor = AnchorStyles.None;
             lbl_fecha_inicio.AutoSize = true;
-            lbl_fecha_inicio.Location = new Point(659, 167);
+            lbl_fecha_inicio.Location = new Point(753, 223);
             lbl_fecha_inicio.Name = "lbl_fecha_inicio";
-            lbl_fecha_inicio.Size = new Size(42, 15);
+            lbl_fecha_inicio.Size = new Size(54, 20);
             lbl_fecha_inicio.TabIndex = 18;
             lbl_fecha_inicio.Text = "Desde:";
             // 
             // TP_Fecha_Fin
             // 
             TP_Fecha_Fin.Anchor = AnchorStyles.None;
-            TP_Fecha_Fin.Location = new Point(707, 203);
-            TP_Fecha_Fin.Margin = new Padding(3, 2, 3, 2);
+            TP_Fecha_Fin.Location = new Point(808, 271);
             TP_Fecha_Fin.Name = "TP_Fecha_Fin";
             TP_Fecha_Fin.ShowCheckBox = true;
-            TP_Fecha_Fin.Size = new Size(255, 23);
+            TP_Fecha_Fin.Size = new Size(291, 27);
             TP_Fecha_Fin.TabIndex = 17;
             // 
             // TP_Fecha_Inicio
             // 
             TP_Fecha_Inicio.Anchor = AnchorStyles.None;
-            TP_Fecha_Inicio.Location = new Point(707, 167);
-            TP_Fecha_Inicio.Margin = new Padding(3, 2, 3, 2);
+            TP_Fecha_Inicio.Location = new Point(808, 223);
             TP_Fecha_Inicio.Name = "TP_Fecha_Inicio";
             TP_Fecha_Inicio.ShowCheckBox = true;
-            TP_Fecha_Inicio.Size = new Size(255, 23);
+            TP_Fecha_Inicio.Size = new Size(291, 27);
             TP_Fecha_Inicio.TabIndex = 16;
             // 
             // txtbox_buscar_factura
@@ -228,8 +238,7 @@
             txtbox_buscar_factura.HideSelection = true;
             txtbox_buscar_factura.Hint = "Ingrese el N° de factura";
             txtbox_buscar_factura.LeadingIcon = null;
-            txtbox_buscar_factura.Location = new Point(308, 167);
-            txtbox_buscar_factura.Margin = new Padding(3, 2, 3, 2);
+            txtbox_buscar_factura.Location = new Point(352, 223);
             txtbox_buscar_factura.MaxLength = 32767;
             txtbox_buscar_factura.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_buscar_factura.Name = "txtbox_buscar_factura";
@@ -241,7 +250,7 @@
             txtbox_buscar_factura.SelectionLength = 0;
             txtbox_buscar_factura.SelectionStart = 0;
             txtbox_buscar_factura.ShortcutsEnabled = true;
-            txtbox_buscar_factura.Size = new Size(207, 48);
+            txtbox_buscar_factura.Size = new Size(237, 48);
             txtbox_buscar_factura.TabIndex = 14;
             txtbox_buscar_factura.TabStop = false;
             txtbox_buscar_factura.TextAlign = HorizontalAlignment.Left;
@@ -253,31 +262,30 @@
             // 
             button_salir.Anchor = AnchorStyles.None;
             button_salir.Image = (Image)resources.GetObject("button_salir.Image");
-            button_salir.Location = new Point(187, 124);
-            button_salir.Margin = new Padding(3, 2, 3, 2);
+            button_salir.Location = new Point(214, 165);
             button_salir.Name = "button_salir";
-            button_salir.Size = new Size(60, 36);
+            button_salir.Size = new Size(69, 48);
             button_salir.TabIndex = 12;
             button_salir.UseVisualStyleBackColor = true;
+            button_salir.Click += button_salir_Click;
             // 
             // lbl_GF
             // 
             lbl_GF.Anchor = AnchorStyles.None;
             lbl_GF.AutoSize = true;
             lbl_GF.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_GF.Location = new Point(528, 40);
+            lbl_GF.Location = new Point(603, 53);
             lbl_GF.Name = "lbl_GF";
-            lbl_GF.Size = new Size(294, 45);
+            lbl_GF.Size = new Size(364, 54);
             lbl_GF.TabIndex = 11;
             lbl_GF.Text = "Gestión de facturas";
             // 
             // Form_Gestion_Facturas
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1199, 562);
+            ClientSize = new Size(1370, 749);
             Controls.Add(panel_GF);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "Form_Gestion_Facturas";
             Text = "InkPOS - Gestion de facturas";
             WindowState = FormWindowState.Maximized;

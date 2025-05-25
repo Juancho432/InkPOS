@@ -44,7 +44,7 @@ namespace InkPos
             DateTime Final;
             DateTime Busqueda = DateTime.ParseExact(
                 busqueda, formato, CultureInfo.InvariantCulture);
-            
+
             if (inicio != null)
             {
                 Inicio = DateTime.ParseExact(
@@ -75,6 +75,11 @@ namespace InkPos
             {
                 return false;
             }
+        }
+
+        private void button_salir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

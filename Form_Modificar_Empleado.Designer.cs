@@ -120,7 +120,7 @@
             CB_valor_a_modificar.Hint = "¿Qué campo desea modificar?";
             CB_valor_a_modificar.IntegralHeight = false;
             CB_valor_a_modificar.ItemHeight = 43;
-            CB_valor_a_modificar.Items.AddRange(new object[] { "Nombre", "Télefono", "Cargo", "Salario" });
+            CB_valor_a_modificar.Items.AddRange(new object[] { "Nombre", "Télefono", "Cargo", "Salario", "Usuario", "Contraseña" });
             CB_valor_a_modificar.Location = new Point(621, 264);
             CB_valor_a_modificar.MaxDropDownItems = 4;
             CB_valor_a_modificar.MouseState = MaterialSkin.MouseState.OUT;
