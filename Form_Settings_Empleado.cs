@@ -76,7 +76,6 @@ namespace InkPos
                 string hashGuardado = ObtenerHashContrasena(EmpleadoActual.Id_Empleado, Database.DbPath);
                 string hashIngresado = ToSHA256(contrasenaActualIngresada); // ✅ Usando método correcto
 
-                MessageBox.Show($"Hash guardado: {hashGuardado}\nHash ingresado: {hashIngresado}");
 
                 if (!hashGuardado.Equals(hashIngresado, StringComparison.OrdinalIgnoreCase))
                 {
