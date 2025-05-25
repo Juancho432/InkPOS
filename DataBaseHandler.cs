@@ -8,6 +8,7 @@ namespace InkPos
     public class DataBaseHandler
     {
         private readonly string dbPath = "InkPos.db";
+        public string DbPath => dbPath;
         private readonly string templatePath = "InkPosDBTemplate.sql";
 
         public DataBaseHandler()

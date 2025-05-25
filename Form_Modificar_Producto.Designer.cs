@@ -31,7 +31,6 @@
             panel_mod = new Panel();
             txtbox_producto_a_modificar = new MaterialSkin.Controls.MaterialTextBox2();
             button_cancelar = new MaterialSkin.Controls.MaterialButton();
-            button_limpiar = new MaterialSkin.Controls.MaterialButton();
             button_confirmar = new MaterialSkin.Controls.MaterialButton();
             lbl_ingresevalor = new Label();
             CB_valor_a_modificar = new MaterialSkin.Controls.MaterialComboBox();
@@ -45,7 +44,6 @@
             panel_mod.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel_mod.Controls.Add(txtbox_producto_a_modificar);
             panel_mod.Controls.Add(button_cancelar);
-            panel_mod.Controls.Add(button_limpiar);
             panel_mod.Controls.Add(button_confirmar);
             panel_mod.Controls.Add(lbl_ingresevalor);
             panel_mod.Controls.Add(CB_valor_a_modificar);
@@ -65,9 +63,9 @@
             txtbox_producto_a_modificar.Depth = 0;
             txtbox_producto_a_modificar.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_producto_a_modificar.HideSelection = true;
-            txtbox_producto_a_modificar.Hint = "Ingrese el código del producto que desea modificar";
+            txtbox_producto_a_modificar.Hint = "Código del producto a modificar";
             txtbox_producto_a_modificar.LeadingIcon = null;
-            txtbox_producto_a_modificar.Location = new Point(562, 119);
+            txtbox_producto_a_modificar.Location = new Point(627, 120);
             txtbox_producto_a_modificar.MaxLength = 32767;
             txtbox_producto_a_modificar.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_producto_a_modificar.Name = "txtbox_producto_a_modificar";
@@ -79,7 +77,7 @@
             txtbox_producto_a_modificar.SelectionLength = 0;
             txtbox_producto_a_modificar.SelectionStart = 0;
             txtbox_producto_a_modificar.ShortcutsEnabled = true;
-            txtbox_producto_a_modificar.Size = new Size(387, 48);
+            txtbox_producto_a_modificar.Size = new Size(256, 48);
             txtbox_producto_a_modificar.TabIndex = 7;
             txtbox_producto_a_modificar.TabStop = false;
             txtbox_producto_a_modificar.TextAlign = HorizontalAlignment.Center;
@@ -106,27 +104,6 @@
             button_cancelar.UseAccentColor = false;
             button_cancelar.UseVisualStyleBackColor = true;
             button_cancelar.Click += Boton_Cancelar_Click;
-            // 
-            // button_limpiar
-            // 
-            button_limpiar.Anchor = AnchorStyles.None;
-            button_limpiar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button_limpiar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            button_limpiar.Depth = 0;
-            button_limpiar.HighEmphasis = true;
-            button_limpiar.Icon = null;
-            button_limpiar.Location = new Point(727, 511);
-            button_limpiar.Margin = new Padding(4, 6, 4, 6);
-            button_limpiar.MouseState = MaterialSkin.MouseState.HOVER;
-            button_limpiar.Name = "button_limpiar";
-            button_limpiar.NoAccentTextColor = Color.Empty;
-            button_limpiar.Size = new Size(79, 36);
-            button_limpiar.TabIndex = 5;
-            button_limpiar.Text = "Limpiar";
-            button_limpiar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            button_limpiar.UseAccentColor = false;
-            button_limpiar.UseVisualStyleBackColor = true;
-            button_limpiar.Click += Boton_Limpiar_Click;
             // 
             // button_confirmar
             // 
@@ -176,7 +153,7 @@
             CB_valor_a_modificar.IntegralHeight = false;
             CB_valor_a_modificar.ItemHeight = 43;
             CB_valor_a_modificar.Items.AddRange(new object[] { "Nombre", "Precio", "Stock" });
-            CB_valor_a_modificar.Location = new Point(627, 213);
+            CB_valor_a_modificar.Location = new Point(627, 220);
             CB_valor_a_modificar.MaxDropDownItems = 4;
             CB_valor_a_modificar.MouseState = MaterialSkin.MouseState.OUT;
             CB_valor_a_modificar.Name = "CB_valor_a_modificar";
@@ -245,7 +222,6 @@
         private MaterialSkin.Controls.MaterialTextBox2 txtbox_nuevo_valor;
         private MaterialSkin.Controls.MaterialComboBox CB_valor_a_modificar;
         private MaterialSkin.Controls.MaterialButton button_cancelar;
-        private MaterialSkin.Controls.MaterialButton button_limpiar;
         private MaterialSkin.Controls.MaterialButton button_confirmar;
         private Label lbl_ingresevalor;
         private MaterialSkin.Controls.MaterialTextBox2 txtbox_producto_a_modificar;

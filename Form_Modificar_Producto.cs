@@ -16,6 +16,9 @@
 
             // Mostrar el código en el TextBox
             txtbox_producto_a_modificar.Text = productoAModificar.Codigo;
+
+            CB_valor_a_modificar.SelectedIndexChanged += (s, e) => txtbox_nuevo_valor.Clear();
+
         }
 
         private void Boton_Confirmar_Click(object sender, EventArgs e)
