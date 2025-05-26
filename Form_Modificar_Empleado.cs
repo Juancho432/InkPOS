@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
 using static InkPos.Excepciones;
+using System.Text.RegularExpressions;
 
 namespace InkPos
 {
@@ -73,6 +74,8 @@ namespace InkPos
                         break;
 
                     case 1: // Teléfono
+                        if (!Regex.IsMatch(nuevoValor, @"^\d+$"))
+                            throw new FormatException("El número de teléfono debe contener solo números.");
                         empleadoExistente.Telefono = nuevoValor;
                         break;
 
