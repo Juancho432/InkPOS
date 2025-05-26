@@ -10,7 +10,7 @@ INSERT INTO PRODUCTO (ID_Producto,Nombre,Precio,Stock) VALUES (
   '1',
   'Lapicero',
   '1200',
-  '10'
+  '10'	
 );
 -- Producto sin stock
 INSERT INTO PRODUCTO (ID_Producto,Nombre,Precio,Stock) VALUES (
@@ -29,9 +29,9 @@ INSERT INTO PRODUCTO (ID_Producto,Nombre,Precio,Stock) VALUES (
 -- Admin
 INSERT INTO EMPLEADO (ID_Empleado, Nombre, Telefono, Usuario, Contrasena, Es_Admin, Salario, Es_activo) VALUES (
   '1',
-  'Juan Manuel',
+  'JuanManuel',
   '456',
-  'Patron',
+  'Patron123',
   '0654e893cc3007912095cf9e957defc8f49dc5b868c320ce13dc7a7a1aec2715', -- QueMira?
   '1',
   '1000000000',
@@ -48,6 +48,7 @@ INSERT INTO EMPLEADO (ID_Empleado, Nombre, Telefono, Usuario, Contrasena, Es_Adm
   '10',
   '1'
 );
+
 -- Factura en Efectivo y un producto 2 veces
 INSERT INTO FACTURA (ID_Factura,ID_Cliente,ID_Empleado,Fecha,Hora,ID_Transaccion,Total) VALUES (
   NULL,
