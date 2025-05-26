@@ -872,6 +872,39 @@ namespace InkPos
             return detalles;
         }
 
+        public bool UpdateDetail(DetalleVenta detalle, long id_fac)
+        {
+            SqliteConnection conn = new($"Data Source={dbPath}");
+            try
+            {
+                conn.Open();
+                using var cmd = conn.CreateCommand();
+                cmd.CommandText = @"
+                    UPDATE Detalle
+                    SET ID_Producto = $prod,
+                        Cantidad = $cant,
+                        Valor = $valor
+                    WHERE ID_Factura = $id;";
+                cmd.Parameters.AddWithValue("$id", id_fac);
+                cmd.Parameters.AddWithValue("$prod", detalle.Producto.Codigo);
+                cmd.Parameters.AddWithValue("$cant", detalle.Cantidad);
+                cmd.Parameters.AddWithValue("$total", detalle.Subtotal);
+
+                int filasAfectadas = cmd.ExecuteNonQuery();
+                return filasAfectadas > 0;
+            }
+            catch
+            {
+                throw new DetalleInexistente();
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+                SqliteConnection.ClearAllPools();
+            }
+        }
+
         //      #### CRUD Factura
 
         public long CreateInvoice(Factura factura)
@@ -1115,6 +1148,50 @@ namespace InkPos
             }
         }
 
+        public bool UpdateInvoice(Factura factura)
+        {
+            SqliteConnection conn = new($"Data Source={dbPath}");
+            try
+            {
+                conn.Open();
+                using var cmd = conn.CreateCommand();
+                cmd.CommandText = @"
+                    UPDATE Factura
+                    SET ID_Cliente = $idCli,
+                        ID_Empleado = $idEmp,
+                        Fecha = $fecha,
+                        Hora = $hora,
+                        ID_Transaccion = $trans,
+                        Total = $total
+                    WHERE ID_Factura = $id;";
+                cmd.Parameters.AddWithValue("$id", factura.IdFactura);
+                cmd.Parameters.AddWithValue("$idCli", factura.IdCliente);
+                cmd.Parameters.AddWithValue("$idEmp", factura.IdEmpleado);
+                cmd.Parameters.AddWithValue("$fecha", factura.Fecha);
+                cmd.Parameters.AddWithValue("$hora", factura.Hora);
+                cmd.Parameters.AddWithValue("$trans", factura.IdTransaccion ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("$total", factura.Total);
+
+                int filasAfectadas = cmd.ExecuteNonQuery();
+                
+                foreach (DetalleVenta item in factura.Detalles)
+                {
+                    UpdateDetail(item, factura.IdFactura);
+                }
+                return true;
+            }
+            catch
+            {
+                throw new FacturaInexistente();
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+                SqliteConnection.ClearAllPools();
+            }
+        }
+        
         //      #### CRUD Cliente
 
         public bool CreateClient(Cliente cliente)
