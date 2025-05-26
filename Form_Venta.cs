@@ -55,11 +55,6 @@ namespace InkPos
             Close();
         }
 
-        private void Tabla_Productos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            ActualizarValorTotal();
-        }
-
         private void ActualizarValorTotal()
         {
             decimal valorTotal = 0;
@@ -158,7 +153,7 @@ namespace InkPos
             if (e.ColumnIndex == 2)
             {
                 int nuevoValor;
-                if (e.FormattedValue == null)
+                if (string.IsNullOrEmpty(e.FormattedValue!.ToString()))
                 {
                     MessageBox.Show("No se puede dejar el campo vacio",
                                     "Cantidad Invalida",
@@ -190,16 +185,24 @@ namespace InkPos
                     e.Cancel = true;
                     return;
                 }
-
-                if (nuevoValor == 0)
-                {
-                    detalleVentaBindingSource.List.RemoveAt(e.RowIndex);
-                }
             }
             else
             {
                 return;
             }
+        }
+
+        private void DG_Detalle_CellValidated(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 2)
+            {
+                var detalle = (DetalleVenta)detalleVentaBindingSource[e.RowIndex];
+                if (detalle.Cantidad == 0)
+                {
+                    detalleVentaBindingSource.RemoveAt(e.RowIndex);
+                }
+            }
+            ActualizarValorTotal();
         }
     }
 }

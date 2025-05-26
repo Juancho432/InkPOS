@@ -396,8 +396,8 @@
             DG_Detalle.RowHeadersWidth = 51;
             DG_Detalle.Size = new Size(963, 619);
             DG_Detalle.TabIndex = 17;
+            DG_Detalle.CellValidated += DG_Detalle_CellValidated;
             DG_Detalle.CellValidating += DG_Detalle_CellValidating;
-            DG_Detalle.CellValueChanged += Tabla_Productos_CellValueChanged;
             // 
             // Codigo
             // 
