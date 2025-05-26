@@ -32,6 +32,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Gestion_Facturas));
             panel_GF = new Panel();
             DG_Facturas = new DataGridView();
+            facturaBindingSource = new BindingSource(components);
+            lbl_fecha_fin = new Label();
+            lbl_fecha_inicio = new Label();
+            TP_Fecha_Fin = new DateTimePicker();
+            TP_Fecha_Inicio = new DateTimePicker();
+            txtbox_buscar_factura = new MaterialSkin.Controls.MaterialTextBox2();
+            button_salir = new Button();
+            lbl_GF = new Label();
             idFacturaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             idClienteDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             idEmpleadoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -41,15 +49,6 @@
             totalDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             Ver = new DataGridViewImageColumn();
             Imprimir = new DataGridViewImageColumn();
-            Editar = new DataGridViewImageColumn();
-            facturaBindingSource = new BindingSource(components);
-            lbl_fecha_fin = new Label();
-            lbl_fecha_inicio = new Label();
-            TP_Fecha_Fin = new DateTimePicker();
-            TP_Fecha_Inicio = new DateTimePicker();
-            txtbox_buscar_factura = new MaterialSkin.Controls.MaterialTextBox2();
-            button_salir = new Button();
-            lbl_GF = new Label();
             panel_GF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DG_Facturas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)facturaBindingSource).BeginInit();
@@ -81,7 +80,7 @@
             DG_Facturas.AutoGenerateColumns = false;
             DG_Facturas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DG_Facturas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DG_Facturas.Columns.AddRange(new DataGridViewColumn[] { idFacturaDataGridViewTextBoxColumn, idClienteDataGridViewTextBoxColumn, idEmpleadoDataGridViewTextBoxColumn, fechaDataGridViewTextBoxColumn, horaDataGridViewTextBoxColumn, idTransaccionDataGridViewTextBoxColumn, totalDataGridViewTextBoxColumn, Ver, Imprimir, Editar });
+            DG_Facturas.Columns.AddRange(new DataGridViewColumn[] { idFacturaDataGridViewTextBoxColumn, idClienteDataGridViewTextBoxColumn, idEmpleadoDataGridViewTextBoxColumn, fechaDataGridViewTextBoxColumn, horaDataGridViewTextBoxColumn, idTransaccionDataGridViewTextBoxColumn, totalDataGridViewTextBoxColumn, Ver, Imprimir });
             DG_Facturas.DataSource = facturaBindingSource;
             DG_Facturas.Location = new Point(213, 447);
             DG_Facturas.Margin = new Padding(3, 4, 3, 4);
@@ -93,98 +92,6 @@
             DG_Facturas.Size = new Size(1008, 329);
             DG_Facturas.TabIndex = 20;
             DG_Facturas.CellClick += DG_Facturas_CellClick;
-            // 
-            // idFacturaDataGridViewTextBoxColumn
-            // 
-            idFacturaDataGridViewTextBoxColumn.DataPropertyName = "IdFactura";
-            idFacturaDataGridViewTextBoxColumn.HeaderText = "Factura N°";
-            idFacturaDataGridViewTextBoxColumn.MinimumWidth = 6;
-            idFacturaDataGridViewTextBoxColumn.Name = "idFacturaDataGridViewTextBoxColumn";
-            idFacturaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idClienteDataGridViewTextBoxColumn
-            // 
-            idClienteDataGridViewTextBoxColumn.DataPropertyName = "IdCliente";
-            idClienteDataGridViewTextBoxColumn.HeaderText = "Cliente N°";
-            idClienteDataGridViewTextBoxColumn.MinimumWidth = 6;
-            idClienteDataGridViewTextBoxColumn.Name = "idClienteDataGridViewTextBoxColumn";
-            idClienteDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idEmpleadoDataGridViewTextBoxColumn
-            // 
-            idEmpleadoDataGridViewTextBoxColumn.DataPropertyName = "IdEmpleado";
-            idEmpleadoDataGridViewTextBoxColumn.HeaderText = "Empleado N°";
-            idEmpleadoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            idEmpleadoDataGridViewTextBoxColumn.Name = "idEmpleadoDataGridViewTextBoxColumn";
-            idEmpleadoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fechaDataGridViewTextBoxColumn
-            // 
-            fechaDataGridViewTextBoxColumn.DataPropertyName = "Fecha";
-            fechaDataGridViewTextBoxColumn.HeaderText = "Fecha";
-            fechaDataGridViewTextBoxColumn.MinimumWidth = 6;
-            fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
-            fechaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // horaDataGridViewTextBoxColumn
-            // 
-            horaDataGridViewTextBoxColumn.DataPropertyName = "Hora";
-            horaDataGridViewTextBoxColumn.HeaderText = "Hora";
-            horaDataGridViewTextBoxColumn.MinimumWidth = 6;
-            horaDataGridViewTextBoxColumn.Name = "horaDataGridViewTextBoxColumn";
-            horaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idTransaccionDataGridViewTextBoxColumn
-            // 
-            idTransaccionDataGridViewTextBoxColumn.DataPropertyName = "IdTransaccion";
-            idTransaccionDataGridViewTextBoxColumn.HeaderText = "Transaccion";
-            idTransaccionDataGridViewTextBoxColumn.MinimumWidth = 6;
-            idTransaccionDataGridViewTextBoxColumn.Name = "idTransaccionDataGridViewTextBoxColumn";
-            idTransaccionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // totalDataGridViewTextBoxColumn
-            // 
-            totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
-            totalDataGridViewTextBoxColumn.HeaderText = "Total";
-            totalDataGridViewTextBoxColumn.MinimumWidth = 6;
-            totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
-            totalDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Ver
-            // 
-            Ver.FillWeight = 25F;
-            Ver.HeaderText = "👁️";
-            Ver.Image = Properties.Resources.overview;
-            Ver.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            Ver.MinimumWidth = 6;
-            Ver.Name = "Ver";
-            Ver.ReadOnly = true;
-            Ver.Resizable = DataGridViewTriState.True;
-            Ver.SortMode = DataGridViewColumnSortMode.Automatic;
-            // 
-            // Imprimir
-            // 
-            Imprimir.FillWeight = 25F;
-            Imprimir.HeaderText = "🖨️";
-            Imprimir.Image = Properties.Resources.print;
-            Imprimir.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            Imprimir.MinimumWidth = 6;
-            Imprimir.Name = "Imprimir";
-            Imprimir.ReadOnly = true;
-            Imprimir.Resizable = DataGridViewTriState.True;
-            Imprimir.SortMode = DataGridViewColumnSortMode.Automatic;
-            // 
-            // Editar
-            // 
-            Editar.FillWeight = 25F;
-            Editar.HeaderText = "✏️";
-            Editar.Image = Properties.Resources.pen_square;
-            Editar.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            Editar.MinimumWidth = 6;
-            Editar.Name = "Editar";
-            Editar.ReadOnly = true;
-            Editar.Resizable = DataGridViewTriState.True;
-            Editar.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
             // facturaBindingSource
             // 
@@ -285,6 +192,86 @@
             lbl_GF.TabIndex = 11;
             lbl_GF.Text = "Gestión de facturas";
             // 
+            // idFacturaDataGridViewTextBoxColumn
+            // 
+            idFacturaDataGridViewTextBoxColumn.DataPropertyName = "IdFactura";
+            idFacturaDataGridViewTextBoxColumn.HeaderText = "Factura N°";
+            idFacturaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            idFacturaDataGridViewTextBoxColumn.Name = "idFacturaDataGridViewTextBoxColumn";
+            idFacturaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idClienteDataGridViewTextBoxColumn
+            // 
+            idClienteDataGridViewTextBoxColumn.DataPropertyName = "IdCliente";
+            idClienteDataGridViewTextBoxColumn.HeaderText = "Cliente N°";
+            idClienteDataGridViewTextBoxColumn.MinimumWidth = 6;
+            idClienteDataGridViewTextBoxColumn.Name = "idClienteDataGridViewTextBoxColumn";
+            idClienteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idEmpleadoDataGridViewTextBoxColumn
+            // 
+            idEmpleadoDataGridViewTextBoxColumn.DataPropertyName = "IdEmpleado";
+            idEmpleadoDataGridViewTextBoxColumn.HeaderText = "Empleado N°";
+            idEmpleadoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            idEmpleadoDataGridViewTextBoxColumn.Name = "idEmpleadoDataGridViewTextBoxColumn";
+            idEmpleadoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fechaDataGridViewTextBoxColumn
+            // 
+            fechaDataGridViewTextBoxColumn.DataPropertyName = "Fecha";
+            fechaDataGridViewTextBoxColumn.HeaderText = "Fecha";
+            fechaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
+            fechaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // horaDataGridViewTextBoxColumn
+            // 
+            horaDataGridViewTextBoxColumn.DataPropertyName = "Hora";
+            horaDataGridViewTextBoxColumn.HeaderText = "Hora";
+            horaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            horaDataGridViewTextBoxColumn.Name = "horaDataGridViewTextBoxColumn";
+            horaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idTransaccionDataGridViewTextBoxColumn
+            // 
+            idTransaccionDataGridViewTextBoxColumn.DataPropertyName = "IdTransaccion";
+            idTransaccionDataGridViewTextBoxColumn.HeaderText = "Transaccion";
+            idTransaccionDataGridViewTextBoxColumn.MinimumWidth = 6;
+            idTransaccionDataGridViewTextBoxColumn.Name = "idTransaccionDataGridViewTextBoxColumn";
+            idTransaccionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // totalDataGridViewTextBoxColumn
+            // 
+            totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
+            totalDataGridViewTextBoxColumn.HeaderText = "Total";
+            totalDataGridViewTextBoxColumn.MinimumWidth = 6;
+            totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
+            totalDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Ver
+            // 
+            Ver.FillWeight = 25F;
+            Ver.HeaderText = "👁️";
+            Ver.Image = Properties.Resources.overview;
+            Ver.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            Ver.MinimumWidth = 6;
+            Ver.Name = "Ver";
+            Ver.ReadOnly = true;
+            Ver.Resizable = DataGridViewTriState.True;
+            Ver.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
+            // Imprimir
+            // 
+            Imprimir.FillWeight = 25F;
+            Imprimir.HeaderText = "🖨️";
+            Imprimir.Image = Properties.Resources.print;
+            Imprimir.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            Imprimir.MinimumWidth = 6;
+            Imprimir.Name = "Imprimir";
+            Imprimir.ReadOnly = true;
+            Imprimir.Resizable = DataGridViewTriState.True;
+            Imprimir.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
             // Form_Gestion_Facturas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -323,6 +310,5 @@
         private DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
         private DataGridViewImageColumn Ver;
         private DataGridViewImageColumn Imprimir;
-        private DataGridViewImageColumn Editar;
     }
 }

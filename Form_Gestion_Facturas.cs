@@ -164,17 +164,11 @@ namespace InkPos
             {
                 PrintService.GenPDF(facturaActual, clienteActual, empleadoActual);
             }
-
-            // Editar
-            else if (e.ColumnIndex == 9)
-            {
-                // ??
-            }
         }
 
         private void button_salir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }
