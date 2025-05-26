@@ -32,12 +32,11 @@ namespace InkPos
             TP_Fecha_Inicio.MaxDate = TP_Fecha_Fin.MaxDate = DateTime.Now;
         }
 
-        private void Txtbox_buscar_factura_TextChanged(object sender, EventArgs e)
+        private void Filtro(object sender, EventArgs e)
         {
-            string filtro = txtbox_buscar_factura.Text.ToLower();
             List<Factura> coincidencias =
                 [.. Facturas.Where(p =>
-                    p.IdFactura.ToString().Contains(filtro) &&
+                    p.IdFactura.ToString().Contains(txtbox_buscar_factura.Text) &&
                     VerificarFechas(
                         TP_Fecha_Inicio.Checked
                             ? TP_Fecha_Inicio.Value.ToString("yyyy-MM-dd")
@@ -45,7 +44,8 @@ namespace InkPos
                         TP_Fecha_Fin.Checked
                             ? TP_Fecha_Fin.Value.ToString("yyyy-MM-dd")
                             : null,
-                        p.Fecha))];
+                        p.Fecha) &&
+                     p.IdEmpleado.Contains(txtbox_buscar_factura_empleado.Text))];
 
             facturaBindingSource.List.Clear();
             foreach (Factura item in coincidencias)
@@ -96,6 +96,26 @@ namespace InkPos
 
         private void TP_Validating(object sender, CancelEventArgs e)
         {
+            if (!TP_Fecha_Inicio.Checked)
+            {
+                TP_Fecha_Inicio.Value =
+                    DateTime.ParseExact(
+                        Database.ReadOldestInvoice(),
+                        "yyyy-MM-dd",
+                        CultureInfo.InvariantCulture);
+                TP_Fecha_Inicio.Checked = false;
+            }
+
+            if (!TP_Fecha_Fin.Checked)
+            {
+                TP_Fecha_Fin.Value =
+                    DateTime.ParseExact(
+                        Database.ReadNewestInvoice(),
+                        "yyyy-MM-dd",
+                        CultureInfo.InvariantCulture);
+                TP_Fecha_Fin.Checked = false;
+            }
+
             // Si la fecha de inicio es superior a la de fin
             if (DateTime.Compare(TP_Fecha_Inicio.Value, TP_Fecha_Fin.Value) == 1)
             {
@@ -117,28 +137,6 @@ namespace InkPos
                         Database.ReadNewestInvoice(),
                         "yyyy-MM-dd",
                         CultureInfo.InvariantCulture);
-            }
-        }
-
-        private void TP_ValueChanged(object sender, EventArgs e)
-        {
-            string filtro = txtbox_buscar_factura.Text.ToLower();
-            List<Factura> coincidencias =
-                [.. Facturas.Where(p =>
-                    p.IdFactura.ToString().Contains(filtro) &&
-                    VerificarFechas(
-                        TP_Fecha_Inicio.Checked
-                            ? TP_Fecha_Inicio.Value.ToString("yyyy-MM-dd")
-                            : null,
-                        TP_Fecha_Fin.Checked
-                            ? TP_Fecha_Fin.Value.ToString("yyyy-MM-dd")
-                            : null,
-                        p.Fecha))];
-
-            facturaBindingSource.List.Clear();
-            foreach (Factura item in coincidencias)
-            {
-                facturaBindingSource.Add(item);
             }
         }
 

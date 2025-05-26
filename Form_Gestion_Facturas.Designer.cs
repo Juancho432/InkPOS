@@ -31,15 +31,8 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Gestion_Facturas));
             panel_GF = new Panel();
+            txtbox_buscar_factura_empleado = new MaterialSkin.Controls.MaterialTextBox2();
             DG_Facturas = new DataGridView();
-            facturaBindingSource = new BindingSource(components);
-            lbl_fecha_fin = new Label();
-            lbl_fecha_inicio = new Label();
-            TP_Fecha_Fin = new DateTimePicker();
-            TP_Fecha_Inicio = new DateTimePicker();
-            txtbox_buscar_factura = new MaterialSkin.Controls.MaterialTextBox2();
-            button_salir = new Button();
-            lbl_GF = new Label();
             idFacturaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             idClienteDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             idEmpleadoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -49,6 +42,14 @@
             totalDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             Ver = new DataGridViewImageColumn();
             Imprimir = new DataGridViewImageColumn();
+            facturaBindingSource = new BindingSource(components);
+            lbl_fecha_fin = new Label();
+            lbl_fecha_inicio = new Label();
+            TP_Fecha_Fin = new DateTimePicker();
+            TP_Fecha_Inicio = new DateTimePicker();
+            txtbox_buscar_factura = new MaterialSkin.Controls.MaterialTextBox2();
+            button_salir = new Button();
+            lbl_GF = new Label();
             panel_GF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DG_Facturas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)facturaBindingSource).BeginInit();
@@ -57,6 +58,7 @@
             // panel_GF
             // 
             panel_GF.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel_GF.Controls.Add(txtbox_buscar_factura_empleado);
             panel_GF.Controls.Add(DG_Facturas);
             panel_GF.Controls.Add(lbl_fecha_fin);
             panel_GF.Controls.Add(lbl_fecha_inicio);
@@ -69,6 +71,37 @@
             panel_GF.Name = "panel_GF";
             panel_GF.Size = new Size(1513, 1171);
             panel_GF.TabIndex = 0;
+            // 
+            // txtbox_buscar_factura_empleado
+            // 
+            txtbox_buscar_factura_empleado.Anchor = AnchorStyles.None;
+            txtbox_buscar_factura_empleado.AnimateReadOnly = false;
+            txtbox_buscar_factura_empleado.BackgroundImageLayout = ImageLayout.None;
+            txtbox_buscar_factura_empleado.CharacterCasing = CharacterCasing.Normal;
+            txtbox_buscar_factura_empleado.Depth = 0;
+            txtbox_buscar_factura_empleado.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtbox_buscar_factura_empleado.HideSelection = true;
+            txtbox_buscar_factura_empleado.Hint = "Ingrese el N° empleado";
+            txtbox_buscar_factura_empleado.LeadingIcon = null;
+            txtbox_buscar_factura_empleado.Location = new Point(352, 318);
+            txtbox_buscar_factura_empleado.MaxLength = 32767;
+            txtbox_buscar_factura_empleado.MouseState = MaterialSkin.MouseState.OUT;
+            txtbox_buscar_factura_empleado.Name = "txtbox_buscar_factura_empleado";
+            txtbox_buscar_factura_empleado.PasswordChar = '\0';
+            txtbox_buscar_factura_empleado.PrefixSuffixText = null;
+            txtbox_buscar_factura_empleado.ReadOnly = false;
+            txtbox_buscar_factura_empleado.RightToLeft = RightToLeft.No;
+            txtbox_buscar_factura_empleado.SelectedText = "";
+            txtbox_buscar_factura_empleado.SelectionLength = 0;
+            txtbox_buscar_factura_empleado.SelectionStart = 0;
+            txtbox_buscar_factura_empleado.ShortcutsEnabled = true;
+            txtbox_buscar_factura_empleado.Size = new Size(237, 48);
+            txtbox_buscar_factura_empleado.TabIndex = 21;
+            txtbox_buscar_factura_empleado.TabStop = false;
+            txtbox_buscar_factura_empleado.TextAlign = HorizontalAlignment.Left;
+            txtbox_buscar_factura_empleado.TrailingIcon = null;
+            txtbox_buscar_factura_empleado.UseSystemPasswordChar = false;
+            txtbox_buscar_factura_empleado.TextChanged += Filtro;
             // 
             // DG_Facturas
             // 
@@ -92,105 +125,6 @@
             DG_Facturas.Size = new Size(1008, 329);
             DG_Facturas.TabIndex = 20;
             DG_Facturas.CellClick += DG_Facturas_CellClick;
-            // 
-            // facturaBindingSource
-            // 
-            facturaBindingSource.DataSource = typeof(Factura);
-            // 
-            // lbl_fecha_fin
-            // 
-            lbl_fecha_fin.Anchor = AnchorStyles.None;
-            lbl_fecha_fin.AutoSize = true;
-            lbl_fecha_fin.Location = new Point(753, 271);
-            lbl_fecha_fin.Name = "lbl_fecha_fin";
-            lbl_fecha_fin.Size = new Size(50, 20);
-            lbl_fecha_fin.TabIndex = 19;
-            lbl_fecha_fin.Text = "Hasta:";
-            // 
-            // lbl_fecha_inicio
-            // 
-            lbl_fecha_inicio.Anchor = AnchorStyles.None;
-            lbl_fecha_inicio.AutoSize = true;
-            lbl_fecha_inicio.Location = new Point(753, 223);
-            lbl_fecha_inicio.Name = "lbl_fecha_inicio";
-            lbl_fecha_inicio.Size = new Size(54, 20);
-            lbl_fecha_inicio.TabIndex = 18;
-            lbl_fecha_inicio.Text = "Desde:";
-            // 
-            // TP_Fecha_Fin
-            // 
-            TP_Fecha_Fin.Anchor = AnchorStyles.None;
-            TP_Fecha_Fin.Location = new Point(808, 271);
-            TP_Fecha_Fin.Name = "TP_Fecha_Fin";
-            TP_Fecha_Fin.ShowCheckBox = true;
-            TP_Fecha_Fin.Size = new Size(291, 27);
-            TP_Fecha_Fin.TabIndex = 17;
-            TP_Fecha_Fin.ValueChanged += TP_ValueChanged;
-            TP_Fecha_Fin.Validating += TP_Validating;
-            // 
-            // TP_Fecha_Inicio
-            // 
-            TP_Fecha_Inicio.Anchor = AnchorStyles.None;
-            TP_Fecha_Inicio.Location = new Point(808, 223);
-            TP_Fecha_Inicio.Name = "TP_Fecha_Inicio";
-            TP_Fecha_Inicio.ShowCheckBox = true;
-            TP_Fecha_Inicio.Size = new Size(291, 27);
-            TP_Fecha_Inicio.TabIndex = 16;
-            TP_Fecha_Inicio.ValueChanged += TP_ValueChanged;
-            TP_Fecha_Inicio.Validating += TP_Validating;
-            // 
-            // txtbox_buscar_factura
-            // 
-            txtbox_buscar_factura.Anchor = AnchorStyles.None;
-            txtbox_buscar_factura.AnimateReadOnly = false;
-            txtbox_buscar_factura.BackgroundImageLayout = ImageLayout.None;
-            txtbox_buscar_factura.CharacterCasing = CharacterCasing.Normal;
-            txtbox_buscar_factura.Depth = 0;
-            txtbox_buscar_factura.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtbox_buscar_factura.HideSelection = true;
-            txtbox_buscar_factura.Hint = "Ingrese el N° de factura";
-            txtbox_buscar_factura.LeadingIcon = null;
-            txtbox_buscar_factura.Location = new Point(352, 223);
-            txtbox_buscar_factura.MaxLength = 32767;
-            txtbox_buscar_factura.MouseState = MaterialSkin.MouseState.OUT;
-            txtbox_buscar_factura.Name = "txtbox_buscar_factura";
-            txtbox_buscar_factura.PasswordChar = '\0';
-            txtbox_buscar_factura.PrefixSuffixText = null;
-            txtbox_buscar_factura.ReadOnly = false;
-            txtbox_buscar_factura.RightToLeft = RightToLeft.No;
-            txtbox_buscar_factura.SelectedText = "";
-            txtbox_buscar_factura.SelectionLength = 0;
-            txtbox_buscar_factura.SelectionStart = 0;
-            txtbox_buscar_factura.ShortcutsEnabled = true;
-            txtbox_buscar_factura.Size = new Size(237, 48);
-            txtbox_buscar_factura.TabIndex = 14;
-            txtbox_buscar_factura.TabStop = false;
-            txtbox_buscar_factura.TextAlign = HorizontalAlignment.Left;
-            txtbox_buscar_factura.TrailingIcon = null;
-            txtbox_buscar_factura.UseSystemPasswordChar = false;
-            txtbox_buscar_factura.TextChanged += Txtbox_buscar_factura_TextChanged;
-            // 
-            // button_salir
-            // 
-            button_salir.Anchor = AnchorStyles.None;
-            button_salir.Image = (Image)resources.GetObject("button_salir.Image");
-            button_salir.Location = new Point(214, 165);
-            button_salir.Name = "button_salir";
-            button_salir.Size = new Size(69, 48);
-            button_salir.TabIndex = 12;
-            button_salir.UseVisualStyleBackColor = true;
-            button_salir.Click += button_salir_Click;
-            // 
-            // lbl_GF
-            // 
-            lbl_GF.Anchor = AnchorStyles.None;
-            lbl_GF.AutoSize = true;
-            lbl_GF.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_GF.Location = new Point(603, 53);
-            lbl_GF.Name = "lbl_GF";
-            lbl_GF.Size = new Size(364, 54);
-            lbl_GF.TabIndex = 11;
-            lbl_GF.Text = "Gestión de facturas";
             // 
             // idFacturaDataGridViewTextBoxColumn
             // 
@@ -272,6 +206,105 @@
             Imprimir.Resizable = DataGridViewTriState.True;
             Imprimir.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
+            // facturaBindingSource
+            // 
+            facturaBindingSource.DataSource = typeof(Factura);
+            // 
+            // lbl_fecha_fin
+            // 
+            lbl_fecha_fin.Anchor = AnchorStyles.None;
+            lbl_fecha_fin.AutoSize = true;
+            lbl_fecha_fin.Location = new Point(753, 271);
+            lbl_fecha_fin.Name = "lbl_fecha_fin";
+            lbl_fecha_fin.Size = new Size(50, 20);
+            lbl_fecha_fin.TabIndex = 19;
+            lbl_fecha_fin.Text = "Hasta:";
+            // 
+            // lbl_fecha_inicio
+            // 
+            lbl_fecha_inicio.Anchor = AnchorStyles.None;
+            lbl_fecha_inicio.AutoSize = true;
+            lbl_fecha_inicio.Location = new Point(753, 223);
+            lbl_fecha_inicio.Name = "lbl_fecha_inicio";
+            lbl_fecha_inicio.Size = new Size(54, 20);
+            lbl_fecha_inicio.TabIndex = 18;
+            lbl_fecha_inicio.Text = "Desde:";
+            // 
+            // TP_Fecha_Fin
+            // 
+            TP_Fecha_Fin.Anchor = AnchorStyles.None;
+            TP_Fecha_Fin.Location = new Point(808, 271);
+            TP_Fecha_Fin.Name = "TP_Fecha_Fin";
+            TP_Fecha_Fin.ShowCheckBox = true;
+            TP_Fecha_Fin.Size = new Size(291, 27);
+            TP_Fecha_Fin.TabIndex = 17;
+            TP_Fecha_Fin.ValueChanged += Filtro;
+            TP_Fecha_Fin.Validating += TP_Validating;
+            // 
+            // TP_Fecha_Inicio
+            // 
+            TP_Fecha_Inicio.Anchor = AnchorStyles.None;
+            TP_Fecha_Inicio.Location = new Point(808, 223);
+            TP_Fecha_Inicio.Name = "TP_Fecha_Inicio";
+            TP_Fecha_Inicio.ShowCheckBox = true;
+            TP_Fecha_Inicio.Size = new Size(291, 27);
+            TP_Fecha_Inicio.TabIndex = 16;
+            TP_Fecha_Inicio.ValueChanged += Filtro;
+            TP_Fecha_Inicio.Validating += TP_Validating;
+            // 
+            // txtbox_buscar_factura
+            // 
+            txtbox_buscar_factura.Anchor = AnchorStyles.None;
+            txtbox_buscar_factura.AnimateReadOnly = false;
+            txtbox_buscar_factura.BackgroundImageLayout = ImageLayout.None;
+            txtbox_buscar_factura.CharacterCasing = CharacterCasing.Normal;
+            txtbox_buscar_factura.Depth = 0;
+            txtbox_buscar_factura.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtbox_buscar_factura.HideSelection = true;
+            txtbox_buscar_factura.Hint = "Ingrese el N° de factura";
+            txtbox_buscar_factura.LeadingIcon = null;
+            txtbox_buscar_factura.Location = new Point(352, 223);
+            txtbox_buscar_factura.MaxLength = 32767;
+            txtbox_buscar_factura.MouseState = MaterialSkin.MouseState.OUT;
+            txtbox_buscar_factura.Name = "txtbox_buscar_factura";
+            txtbox_buscar_factura.PasswordChar = '\0';
+            txtbox_buscar_factura.PrefixSuffixText = null;
+            txtbox_buscar_factura.ReadOnly = false;
+            txtbox_buscar_factura.RightToLeft = RightToLeft.No;
+            txtbox_buscar_factura.SelectedText = "";
+            txtbox_buscar_factura.SelectionLength = 0;
+            txtbox_buscar_factura.SelectionStart = 0;
+            txtbox_buscar_factura.ShortcutsEnabled = true;
+            txtbox_buscar_factura.Size = new Size(237, 48);
+            txtbox_buscar_factura.TabIndex = 14;
+            txtbox_buscar_factura.TabStop = false;
+            txtbox_buscar_factura.TextAlign = HorizontalAlignment.Left;
+            txtbox_buscar_factura.TrailingIcon = null;
+            txtbox_buscar_factura.UseSystemPasswordChar = false;
+            txtbox_buscar_factura.TextChanged += Filtro;
+            // 
+            // button_salir
+            // 
+            button_salir.Anchor = AnchorStyles.None;
+            button_salir.Image = (Image)resources.GetObject("button_salir.Image");
+            button_salir.Location = new Point(214, 165);
+            button_salir.Name = "button_salir";
+            button_salir.Size = new Size(69, 48);
+            button_salir.TabIndex = 12;
+            button_salir.UseVisualStyleBackColor = true;
+            button_salir.Click += button_salir_Click;
+            // 
+            // lbl_GF
+            // 
+            lbl_GF.Anchor = AnchorStyles.None;
+            lbl_GF.AutoSize = true;
+            lbl_GF.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_GF.Location = new Point(603, 53);
+            lbl_GF.Name = "lbl_GF";
+            lbl_GF.Size = new Size(364, 54);
+            lbl_GF.TabIndex = 11;
+            lbl_GF.Text = "Gestión de facturas";
+            // 
             // Form_Gestion_Facturas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -310,5 +343,6 @@
         private DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
         private DataGridViewImageColumn Ver;
         private DataGridViewImageColumn Imprimir;
+        private MaterialSkin.Controls.MaterialTextBox2 txtbox_buscar_factura_empleado;
     }
 }
