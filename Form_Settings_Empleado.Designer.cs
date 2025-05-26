@@ -75,7 +75,7 @@
             button_salir.Size = new Size(69, 48);
             button_salir.TabIndex = 13;
             button_salir.UseVisualStyleBackColor = true;
-            button_salir.Click += button_salir_Click;
+            button_salir.Click += Button_salir_Click;
             // 
             // PB_ocultar
             // 
@@ -165,7 +165,7 @@
             button_saveChanges.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_saveChanges.UseAccentColor = false;
             button_saveChanges.UseVisualStyleBackColor = true;
-            button_saveChanges.Click += button_saveChanges_Click;
+            button_saveChanges.Click += Button_saveChanges_Click;
             // 
             // txtbox_new_password
             // 

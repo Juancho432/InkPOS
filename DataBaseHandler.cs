@@ -501,7 +501,7 @@ namespace InkPos
             }
         }
 
-        public bool UpdateEmployedLogin(Empleado empleado, string usuario, string contrasena)
+        public bool UpdateEmployedLogin(Empleado empleado, string contrasena)
         {
             SqliteConnection conn = new($"Data Source={dbPath}");
             try
@@ -510,26 +510,17 @@ namespace InkPos
                 using var cmd = conn.CreateCommand();
                 cmd.CommandText = @"
                     UPDATE Empleado
-                    SET Usuario = $user,
-                        Contraseña = $contra
+                    SET Contrasena = $contra
                     WHERE ID_Empleado = $id;";
                 cmd.Parameters.AddWithValue("$id", empleado.Id_Empleado);
-                cmd.Parameters.AddWithValue("$user", usuario);
                 cmd.Parameters.AddWithValue("$contra", ToSHA256(contrasena));
 
                 int filasAfectadas = cmd.ExecuteNonQuery();
                 return filasAfectadas > 0;
             }
-            catch (SqliteException ex)
+            catch
             {
-                if (ex.SqliteErrorCode == 19) // constraint violation
-                {
-                    if (ex.Message.Contains("EMPLEADO.ID_Empleado"))
-                        throw new EmpleadoExistente();
-                    else if (ex.Message.Contains("EMPLEADO.Usuario"))
-                        throw new UsuarioEmpleadoExistente();
-                }
-                return false;
+                throw new EmpleadoInexistente();
             }
             finally
             {
