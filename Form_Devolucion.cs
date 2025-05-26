@@ -42,15 +42,15 @@ namespace InkPos
                 Factura factura = Database.ReadInvoiceByID(idFactura);
 
                 // Paso 2: Buscar el detalle del producto
-                var detalle = factura.Detalles.FirstOrDefault(d => d.Producto.Codigo == codigoProducto);
-                if (detalle == null)
+                int indice = factura.Detalles.FindIndex(d => d.Producto.Codigo == codigoProducto);
+                if (indice == -1)
                 {
                     MessageBox.Show("El producto no está en la factura.");
                     return;
                 }
 
                 // Paso 3: Validar que no se devuelva más cantidad de la vendida
-                if (cantidadDevolver > detalle.Cantidad)
+                if (cantidadDevolver > factura.Detalles[indice].Cantidad)
                 {
                     MessageBox.Show("No puedes devolver más cantidad de la que se vendió.");
                     return;
@@ -62,7 +62,7 @@ namespace InkPos
                 if (exito)
                 {
                     MessageBox.Show("Devolución registrada y stock actualizado.");
-                    this.Close();
+                    
                 }
                 else
                 {
@@ -70,19 +70,23 @@ namespace InkPos
                 }
 
                 // Paso 5: Actualizar el stock
-                Producto producto = detalle.Producto;
+                Producto producto = factura.Detalles[indice].Producto;
                 producto.Stock += cantidadDevolver;
+                factura.Detalles[indice].Cantidad -= cantidadDevolver;
+                factura.Total -= factura.Detalles[indice].Producto.Precio * cantidadDevolver;
 
 
                 //Conexion con BBDD - ACTUALIZAR STOCK NUEVAMENTE LUEGO DE LA DEVOLUCION
                 try
                 {
                     Database.UpdateProduct(producto);
+                    Database.UpdateInvoice(factura);
                 }
                 catch
                 {
                     return;
                 }
+                Close();
 
             }
             catch (FacturaInexistente)

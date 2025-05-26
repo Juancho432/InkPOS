@@ -881,14 +881,13 @@ namespace InkPos
                 using var cmd = conn.CreateCommand();
                 cmd.CommandText = @"
                     UPDATE Detalle
-                    SET ID_Producto = $prod,
-                        Cantidad = $cant,
+                    SET Cantidad = $cant,
                         Valor = $valor
-                    WHERE ID_Factura = $id;";
-                cmd.Parameters.AddWithValue("$id", id_fac);
+                    WHERE ID_Factura = $id_fac AND ID_Producto = $prod;";
+                cmd.Parameters.AddWithValue("$id_fac", id_fac);
                 cmd.Parameters.AddWithValue("$prod", detalle.Producto.Codigo);
                 cmd.Parameters.AddWithValue("$cant", detalle.Cantidad);
-                cmd.Parameters.AddWithValue("$total", detalle.Subtotal);
+                cmd.Parameters.AddWithValue("$valor", detalle.Subtotal);
 
                 int filasAfectadas = cmd.ExecuteNonQuery();
                 return filasAfectadas > 0;
