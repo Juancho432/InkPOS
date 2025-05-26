@@ -6,26 +6,26 @@ INSERT INTO CLIENTE (ID_Cliente,Nombre,Direccion,Telefono) VALUES (
   '123'
 );
 -- Producto de Prueba
---INSERT INTO PRODUCTO (ID_Producto,Nombre,Precio,Stock) VALUES (
---  '1',
---  'Lapicero',
---  '1200',
---  '10'
---);
+INSERT INTO PRODUCTO (ID_Producto,Nombre,Precio,Stock) VALUES (
+  '1',
+  'Lapicero',
+  '1200',
+  '10'
+);
 -- Producto sin stock
---INSERT INTO PRODUCTO (ID_Producto,Nombre,Precio,Stock) VALUES (
---  '2',
---  'Borrador',
---  '700',
---  '0'
---);
+INSERT INTO PRODUCTO (ID_Producto,Nombre,Precio,Stock) VALUES (
+  '2',
+  'Borrador',
+  '700',
+  '0'
+);
 -- Producto Eliminado
---INSERT INTO PRODUCTO (ID_Producto,Nombre,Precio,Stock) VALUES (
---  '3',
---  'Sacapuntas',
---  '600',
---  '-1'
---);
+INSERT INTO PRODUCTO (ID_Producto,Nombre,Precio,Stock) VALUES (
+  '3',
+  'Sacapuntas',
+  '600',
+  '-1'
+);
 -- Admin
 INSERT INTO EMPLEADO (ID_Empleado, Nombre, Telefono, Usuario, Contrasena, Es_Admin, Salario, Es_activo) VALUES (
   '1',
@@ -111,9 +111,9 @@ INSERT INTO CLIENTE (ID_Cliente, Nombre, Direccion, Telefono) VALUES
 
 --Inserción de productos
 INSERT INTO PRODUCTO (ID_Producto,Nombre,Precio,Stock) VALUES 
-(1, 'Lapicero', 1000, 1000),
-(2, 'Borrador', 700, 500),
-(3, 'Colbon pequeño', 1000, 700),
+(41, 'Lapicero', 1000, 1000),
+(42, 'Borrador', 700, 500),
+(43, 'Colbon pequeño', 1000, 700),
 (4, 'Colbon grande', 5000, 1000),
 (5, 'Pegastick pequeño', 1200, 800),
 (6, 'Block Base 30 Sin rotulo', 7500, 1000),
