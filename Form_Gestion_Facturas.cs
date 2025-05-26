@@ -25,7 +25,7 @@ namespace InkPos
             }
             TP_Fecha_Inicio.MinDate = TP_Fecha_Fin.MinDate =
                 DateTime.ParseExact(
-                    Database.ReadNewestInvoice(),
+                    Database.ReadOldestInvoice(),
                     "yyyy-MM-dd",
                     CultureInfo.InvariantCulture);
 
