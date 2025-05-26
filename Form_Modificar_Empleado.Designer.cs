@@ -168,7 +168,7 @@
             txtbox_cedula.Depth = 0;
             txtbox_cedula.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_cedula.HideSelection = true;
-            txtbox_cedula.Hint = "Ingrese la cédula del empleado";
+            txtbox_cedula.Hint = "Cédula del empleado a modificar";
             txtbox_cedula.LeadingIcon = null;
             txtbox_cedula.Location = new Point(600, 141);
             txtbox_cedula.MaxLength = 32767;

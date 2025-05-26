@@ -576,7 +576,7 @@
             txtbox_Fecha.Location = new Point(202, 453);
             txtbox_Fecha.Multiline = true;
             txtbox_Fecha.Name = "txtbox_Fecha";
-            txtbox_Fecha.Size = new Size(125, 34);
+            txtbox_Fecha.Size = new Size(156, 34);
             txtbox_Fecha.TabIndex = 20;
             // 
             // txtbox_Total_Cantidad

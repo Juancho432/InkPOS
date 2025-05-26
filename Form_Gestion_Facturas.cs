@@ -152,7 +152,7 @@ namespace InkPos
             {
                 Form_InformeFactura informe = new(
                     facturaActual,
-                    empleadoActual,
+                    EmpleadoActual,
                     clienteActual);
 
                 informe.Show();
