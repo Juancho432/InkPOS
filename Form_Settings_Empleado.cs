@@ -171,6 +171,21 @@ namespace InkPos
             PB_ocultar.Visible = false;
         }
 
+        private void Form_Login_Load(object sender, EventArgs e)
+        {
+            CentrarControlesEnPanel(panel_settings_empleado);
+        }
 
+        private void CentrarControlesEnPanel(Panel panel)
+        {
+            foreach (Control ctrl in panel.Controls)
+            {
+                if (ctrl.Tag != null && ctrl.Tag.ToString() == "No")
+                    continue; // Saltar este control
+
+                int nuevoX = (panel.Width - ctrl.Width) / 2;
+                ctrl.Location = new Point(nuevoX, ctrl.Location.Y);
+            }
+        }
     }
 }

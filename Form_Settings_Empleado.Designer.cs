@@ -49,6 +49,7 @@
             // 
             // panel_settings_empleado
             // 
+            panel_settings_empleado.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel_settings_empleado.Controls.Add(button_salir);
             panel_settings_empleado.Controls.Add(PB_ocultar);
             panel_settings_empleado.Controls.Add(PB_ver);
@@ -63,14 +64,14 @@
             panel_settings_empleado.Controls.Add(txtbox_telefono);
             panel_settings_empleado.Location = new Point(5, 2);
             panel_settings_empleado.Name = "panel_settings_empleado";
-            panel_settings_empleado.Size = new Size(1513, 1141);
+            panel_settings_empleado.Size = new Size(1907, 1141);
             panel_settings_empleado.TabIndex = 0;
             // 
             // button_salir
             // 
             button_salir.Anchor = AnchorStyles.None;
             button_salir.Image = (Image)resources.GetObject("button_salir.Image");
-            button_salir.Location = new Point(347, 73);
+            button_salir.Location = new Point(561, 185);
             button_salir.Name = "button_salir";
             button_salir.Size = new Size(69, 48);
             button_salir.TabIndex = 13;
@@ -82,7 +83,7 @@
             PB_ocultar.Anchor = AnchorStyles.None;
             PB_ocultar.Cursor = Cursors.Hand;
             PB_ocultar.Image = (Image)resources.GetObject("PB_ocultar.Image");
-            PB_ocultar.Location = new Point(914, 421);
+            PB_ocultar.Location = new Point(1128, 533);
             PB_ocultar.Name = "PB_ocultar";
             PB_ocultar.Size = new Size(51, 48);
             PB_ocultar.TabIndex = 12;
@@ -94,7 +95,7 @@
             PB_ver.Anchor = AnchorStyles.None;
             PB_ver.Cursor = Cursors.Hand;
             PB_ver.Image = (Image)resources.GetObject("PB_ver.Image");
-            PB_ver.Location = new Point(915, 421);
+            PB_ver.Location = new Point(1129, 533);
             PB_ver.Name = "PB_ver";
             PB_ver.Size = new Size(51, 48);
             PB_ver.TabIndex = 11;
@@ -103,27 +104,31 @@
             // 
             // lbl_motivos
             // 
-            lbl_motivos.Location = new Point(480, 142);
+            lbl_motivos.Anchor = AnchorStyles.None;
+            lbl_motivos.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_motivos.Location = new Point(694, 253);
             lbl_motivos.Name = "lbl_motivos";
-            lbl_motivos.Size = new Size(475, 60);
+            lbl_motivos.Size = new Size(512, 60);
             lbl_motivos.TabIndex = 8;
             lbl_motivos.Text = "Para proteger tu información personal, únicamente puedes actualizar tu número de teléfono y contraseña. Si necesitas realizar otros cambios, por favor contacta a un administrador.";
             lbl_motivos.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lbl_info
             // 
+            lbl_info.Anchor = AnchorStyles.None;
             lbl_info.AutoSize = true;
-            lbl_info.Font = new Font("Segoe UI", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_info.Location = new Point(480, 59);
+            lbl_info.Font = new Font("Arial Rounded MT Bold", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_info.Location = new Point(694, 171);
             lbl_info.Name = "lbl_info";
-            lbl_info.Size = new Size(486, 62);
+            lbl_info.Size = new Size(523, 54);
             lbl_info.TabIndex = 7;
             lbl_info.Text = "Modificar información";
             // 
             // lbl_NPassword
             // 
+            lbl_NPassword.Anchor = AnchorStyles.None;
             lbl_NPassword.AutoSize = true;
-            lbl_NPassword.Location = new Point(444, 440);
+            lbl_NPassword.Location = new Point(658, 552);
             lbl_NPassword.Name = "lbl_NPassword";
             lbl_NPassword.Size = new Size(130, 20);
             lbl_NPassword.TabIndex = 6;
@@ -131,8 +136,9 @@
             // 
             // lbl_CActual
             // 
+            lbl_CActual.Anchor = AnchorStyles.None;
             lbl_CActual.AutoSize = true;
-            lbl_CActual.Location = new Point(376, 273);
+            lbl_CActual.Location = new Point(590, 385);
             lbl_CActual.Name = "lbl_CActual";
             lbl_CActual.Size = new Size(198, 20);
             lbl_CActual.TabIndex = 5;
@@ -140,8 +146,9 @@
             // 
             // lbl_telefono
             // 
+            lbl_telefono.Anchor = AnchorStyles.None;
             lbl_telefono.AutoSize = true;
-            lbl_telefono.Location = new Point(504, 359);
+            lbl_telefono.Location = new Point(718, 471);
             lbl_telefono.Name = "lbl_telefono";
             lbl_telefono.Size = new Size(70, 20);
             lbl_telefono.TabIndex = 4;
@@ -149,12 +156,13 @@
             // 
             // button_saveChanges
             // 
+            button_saveChanges.Anchor = AnchorStyles.None;
             button_saveChanges.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             button_saveChanges.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             button_saveChanges.Depth = 0;
             button_saveChanges.HighEmphasis = true;
             button_saveChanges.Icon = null;
-            button_saveChanges.Location = new Point(649, 587);
+            button_saveChanges.Location = new Point(863, 699);
             button_saveChanges.Margin = new Padding(4, 6, 4, 6);
             button_saveChanges.MouseState = MaterialSkin.MouseState.HOVER;
             button_saveChanges.Name = "button_saveChanges";
@@ -169,6 +177,7 @@
             // 
             // txtbox_new_password
             // 
+            txtbox_new_password.Anchor = AnchorStyles.None;
             txtbox_new_password.AnimateReadOnly = false;
             txtbox_new_password.BackgroundImageLayout = ImageLayout.None;
             txtbox_new_password.CharacterCasing = CharacterCasing.Normal;
@@ -177,7 +186,7 @@
             txtbox_new_password.HideSelection = true;
             txtbox_new_password.Hint = "Dejar en blanco si no desea modificar";
             txtbox_new_password.LeadingIcon = null;
-            txtbox_new_password.Location = new Point(596, 421);
+            txtbox_new_password.Location = new Point(810, 533);
             txtbox_new_password.MaxLength = 32767;
             txtbox_new_password.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_new_password.Name = "txtbox_new_password";
@@ -198,6 +207,7 @@
             // 
             // txtbox_actual_password
             // 
+            txtbox_actual_password.Anchor = AnchorStyles.None;
             txtbox_actual_password.AnimateReadOnly = false;
             txtbox_actual_password.BackgroundImageLayout = ImageLayout.None;
             txtbox_actual_password.CharacterCasing = CharacterCasing.Normal;
@@ -206,7 +216,7 @@
             txtbox_actual_password.HideSelection = true;
             txtbox_actual_password.Hint = "Obligatorio";
             txtbox_actual_password.LeadingIcon = null;
-            txtbox_actual_password.Location = new Point(596, 245);
+            txtbox_actual_password.Location = new Point(810, 357);
             txtbox_actual_password.MaxLength = 32767;
             txtbox_actual_password.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_actual_password.Name = "txtbox_actual_password";
@@ -227,6 +237,7 @@
             // 
             // txtbox_telefono
             // 
+            txtbox_telefono.Anchor = AnchorStyles.None;
             txtbox_telefono.AnimateReadOnly = false;
             txtbox_telefono.BackgroundImageLayout = ImageLayout.None;
             txtbox_telefono.CharacterCasing = CharacterCasing.Normal;
@@ -235,7 +246,7 @@
             txtbox_telefono.HideSelection = true;
             txtbox_telefono.Hint = "Dejar en blanco si no desea modificar";
             txtbox_telefono.LeadingIcon = null;
-            txtbox_telefono.Location = new Point(596, 331);
+            txtbox_telefono.Location = new Point(810, 443);
             txtbox_telefono.MaxLength = 32767;
             txtbox_telefono.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_telefono.Name = "txtbox_telefono";
@@ -258,8 +269,9 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1522, 1175);
+            ClientSize = new Size(1924, 1150);
             Controls.Add(panel_settings_empleado);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form_Settings_Empleado";
             Text = "InkPOS - Configuraciones de empleado";
             WindowState = FormWindowState.Maximized;

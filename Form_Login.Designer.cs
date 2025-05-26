@@ -62,7 +62,7 @@
             panel_login.Controls.Add(lbl_InkPOS);
             panel_login.Location = new Point(5, 2);
             panel_login.Name = "panel_login";
-            panel_login.Size = new Size(1513, 1051);
+            panel_login.Size = new Size(1831, 1171);
             panel_login.TabIndex = 0;
             // 
             // PB_ocultar
@@ -70,11 +70,12 @@
             PB_ocultar.Anchor = AnchorStyles.None;
             PB_ocultar.Cursor = Cursors.Hand;
             PB_ocultar.Image = (Image)resources.GetObject("PB_ocultar.Image");
-            PB_ocultar.Location = new Point(959, 573);
+            PB_ocultar.Location = new Point(1076, 633);
             PB_ocultar.Name = "PB_ocultar";
             PB_ocultar.Size = new Size(51, 48);
             PB_ocultar.TabIndex = 10;
             PB_ocultar.TabStop = false;
+            PB_ocultar.Tag = "No";
             PB_ocultar.Click += PB_ocultar_Click;
             // 
             // PB_ver
@@ -82,27 +83,30 @@
             PB_ver.Anchor = AnchorStyles.None;
             PB_ver.Cursor = Cursors.Hand;
             PB_ver.Image = (Image)resources.GetObject("PB_ver.Image");
-            PB_ver.Location = new Point(959, 573);
+            PB_ver.Location = new Point(1076, 633);
             PB_ver.Name = "PB_ver";
             PB_ver.Size = new Size(51, 48);
             PB_ver.TabIndex = 9;
             PB_ver.TabStop = false;
+            PB_ver.Tag = "No";
             PB_ver.Click += PB_ver_Click;
             // 
             // button_salir
             // 
             button_salir.Anchor = AnchorStyles.None;
+            button_salir.AutoSize = false;
             button_salir.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             button_salir.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             button_salir.Depth = 0;
+            button_salir.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button_salir.HighEmphasis = true;
             button_salir.Icon = null;
-            button_salir.Location = new Point(781, 882);
+            button_salir.Location = new Point(899, 982);
             button_salir.Margin = new Padding(4, 6, 4, 6);
             button_salir.MouseState = MaterialSkin.MouseState.HOVER;
             button_salir.Name = "button_salir";
             button_salir.NoAccentTextColor = Color.Empty;
-            button_salir.Size = new Size(64, 36);
+            button_salir.Size = new Size(152, 45);
             button_salir.TabIndex = 8;
             button_salir.Text = "SALIR";
             button_salir.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -113,18 +117,21 @@
             // button_limpiar
             // 
             button_limpiar.Anchor = AnchorStyles.None;
+            button_limpiar.AutoSize = false;
             button_limpiar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             button_limpiar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             button_limpiar.Depth = 0;
+            button_limpiar.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button_limpiar.HighEmphasis = true;
             button_limpiar.Icon = null;
-            button_limpiar.Location = new Point(874, 791);
+            button_limpiar.Location = new Point(990, 852);
             button_limpiar.Margin = new Padding(4, 6, 4, 6);
             button_limpiar.MouseState = MaterialSkin.MouseState.HOVER;
             button_limpiar.Name = "button_limpiar";
             button_limpiar.NoAccentTextColor = Color.Empty;
-            button_limpiar.Size = new Size(79, 36);
+            button_limpiar.Size = new Size(152, 45);
             button_limpiar.TabIndex = 7;
+            button_limpiar.Tag = "No";
             button_limpiar.Text = "LIMPIAR";
             button_limpiar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_limpiar.UseAccentColor = false;
@@ -134,18 +141,21 @@
             // button_ingresar
             // 
             button_ingresar.Anchor = AnchorStyles.None;
+            button_ingresar.AutoSize = false;
             button_ingresar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             button_ingresar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             button_ingresar.Depth = 0;
+            button_ingresar.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button_ingresar.HighEmphasis = true;
             button_ingresar.Icon = null;
-            button_ingresar.Location = new Point(641, 791);
+            button_ingresar.Location = new Point(675, 852);
             button_ingresar.Margin = new Padding(4, 6, 4, 6);
             button_ingresar.MouseState = MaterialSkin.MouseState.HOVER;
             button_ingresar.Name = "button_ingresar";
             button_ingresar.NoAccentTextColor = Color.Empty;
-            button_ingresar.Size = new Size(91, 36);
+            button_ingresar.Size = new Size(152, 45);
             button_ingresar.TabIndex = 6;
+            button_ingresar.Tag = "No";
             button_ingresar.Text = "INGRESAR";
             button_ingresar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_ingresar.UseAccentColor = false;
@@ -159,10 +169,10 @@
             txtbox_contraseña.BackgroundImageLayout = ImageLayout.None;
             txtbox_contraseña.CharacterCasing = CharacterCasing.Normal;
             txtbox_contraseña.Depth = 0;
-            txtbox_contraseña.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtbox_contraseña.Font = new Font("Arial Rounded MT Bold", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtbox_contraseña.HideSelection = true;
             txtbox_contraseña.LeadingIcon = null;
-            txtbox_contraseña.Location = new Point(641, 573);
+            txtbox_contraseña.Location = new Point(800, 633);
             txtbox_contraseña.MaxLength = 32767;
             txtbox_contraseña.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_contraseña.Name = "txtbox_contraseña";
@@ -186,11 +196,11 @@
             // 
             lbl_password.Anchor = AnchorStyles.None;
             lbl_password.AutoSize = true;
-            lbl_password.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_password.Font = new Font("Arial Rounded MT Bold", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_password.ForeColor = SystemColors.ControlText;
-            lbl_password.Location = new Point(641, 505);
+            lbl_password.Location = new Point(800, 575);
             lbl_password.Name = "lbl_password";
-            lbl_password.Size = new Size(114, 28);
+            lbl_password.Size = new Size(183, 32);
             lbl_password.TabIndex = 4;
             lbl_password.Tag = "";
             lbl_password.Text = "Contraseña:";
@@ -202,10 +212,10 @@
             txtbox_ID_usuario.BackgroundImageLayout = ImageLayout.None;
             txtbox_ID_usuario.CharacterCasing = CharacterCasing.Normal;
             txtbox_ID_usuario.Depth = 0;
-            txtbox_ID_usuario.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtbox_ID_usuario.Font = new Font("Arial Rounded MT Bold", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtbox_ID_usuario.HideSelection = true;
             txtbox_ID_usuario.LeadingIcon = null;
-            txtbox_ID_usuario.Location = new Point(641, 400);
+            txtbox_ID_usuario.Location = new Point(800, 460);
             txtbox_ID_usuario.MaxLength = 32767;
             txtbox_ID_usuario.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_ID_usuario.Name = "txtbox_ID_usuario";
@@ -228,11 +238,11 @@
             // 
             lbl_ID_usuario.Anchor = AnchorStyles.None;
             lbl_ID_usuario.AutoSize = true;
-            lbl_ID_usuario.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_ID_usuario.Font = new Font("Arial Rounded MT Bold", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_ID_usuario.ForeColor = SystemColors.ControlText;
-            lbl_ID_usuario.Location = new Point(641, 353);
+            lbl_ID_usuario.Location = new Point(800, 413);
             lbl_ID_usuario.Name = "lbl_ID_usuario";
-            lbl_ID_usuario.Size = new Size(104, 28);
+            lbl_ID_usuario.Size = new Size(163, 32);
             lbl_ID_usuario.TabIndex = 2;
             lbl_ID_usuario.Text = "ID usuario:";
             // 
@@ -240,10 +250,10 @@
             // 
             lbl_login.Anchor = AnchorStyles.None;
             lbl_login.AutoSize = true;
-            lbl_login.Font = new Font("Segoe UI", 22.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_login.Location = new Point(714, 236);
+            lbl_login.Font = new Font("Arial Rounded MT Bold", 25.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_login.Location = new Point(881, 316);
             lbl_login.Name = "lbl_login";
-            lbl_login.Size = new Size(121, 50);
+            lbl_login.Size = new Size(157, 51);
             lbl_login.TabIndex = 1;
             lbl_login.Text = "Login:";
             // 
@@ -251,10 +261,10 @@
             // 
             lbl_InkPOS.Anchor = AnchorStyles.None;
             lbl_InkPOS.AutoSize = true;
-            lbl_InkPOS.Font = new Font("Segoe UI", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_InkPOS.Location = new Point(689, 94);
+            lbl_InkPOS.Font = new Font("Arial Rounded MT Bold", 72F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_InkPOS.Location = new Point(719, 121);
             lbl_InkPOS.Name = "lbl_InkPOS";
-            lbl_InkPOS.Size = new Size(176, 62);
+            lbl_InkPOS.Size = new Size(493, 139);
             lbl_InkPOS.TabIndex = 0;
             lbl_InkPOS.Text = "InkPOS";
             // 
@@ -262,12 +272,15 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1522, 1055);
+            BackColor = SystemColors.Menu;
+            ClientSize = new Size(1840, 1175);
             Controls.Add(panel_login);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form_Login";
             Text = "InkPOS - Login";
             WindowState = FormWindowState.Maximized;
             FormClosed += Form_Login_FormClosed;
+            Load += Form_Login_Load;
             Click += PB_ver_Click;
             panel_login.ResumeLayout(false);
             panel_login.PerformLayout();
