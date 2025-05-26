@@ -1,4 +1,6 @@
-﻿namespace InkPos
+﻿using System.Windows.Forms;
+
+namespace InkPos
 {
     public partial class Form_Login : Form
     {
@@ -12,7 +14,7 @@
         }
         private void InicializarControles()
         {
-            txtbox_contraseña.PasswordChar = '●'; 
+            txtbox_contraseña.PasswordChar = '●';
             PB_ver.Visible = true;
             PB_ocultar.Visible = false;
         }
@@ -113,7 +115,22 @@
             }
         }
 
+        private void CentrarControlesEnPanel(Panel panel)
+        {
+            foreach (Control ctrl in panel.Controls)
+            {
+                if (ctrl.Tag != null && ctrl.Tag.ToString() == "No")
+                    continue; // Saltar este control
 
+                int nuevoX = (panel.Width - ctrl.Width) / 2;
+                ctrl.Location = new Point(nuevoX, ctrl.Location.Y);
+            }
+        }
+
+        private void Form_Login_Load(object sender, EventArgs e)
+        {
+            CentrarControlesEnPanel(panel_login);
+        }
     }
 }
 

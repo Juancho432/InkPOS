@@ -1,4 +1,6 @@
-﻿namespace InkPos
+﻿using System.Windows.Forms;
+
+namespace InkPos
 {
     public partial class Form_Home_Empleados : Form
     {
@@ -53,5 +55,8 @@
             Hide();
             settings_Empleado.FormClosed += (s, args) => Show();
         }
+
+
+
     }
 }
