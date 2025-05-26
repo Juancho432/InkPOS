@@ -112,9 +112,6 @@ INSERT INTO CLIENTE (ID_Cliente, Nombre, Direccion, Telefono) VALUES
 
 --Inserción de productos
 INSERT INTO PRODUCTO (ID_Producto,Nombre,Precio,Stock) VALUES 
-(41, 'Lapicero', 1000, 1000),
-(42, 'Borrador', 700, 500),
-(43, 'Colbon pequeño', 1000, 700),
 (4, 'Colbon grande', 5000, 1000),
 (5, 'Pegastick pequeño', 1200, 800),
 (6, 'Block Base 30 Sin rotulo', 7500, 1000),
