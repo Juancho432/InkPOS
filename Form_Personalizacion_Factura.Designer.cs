@@ -47,9 +47,9 @@
             lbl_upload.BackColor = Color.Transparent;
             lbl_upload.Font = new Font("Arial Rounded MT Bold", 9F);
             lbl_upload.ForeColor = Color.White;
-            lbl_upload.Location = new Point(734, 610);
+            lbl_upload.Location = new Point(308, 338);
             lbl_upload.Name = "lbl_upload";
-            lbl_upload.Size = new Size(168, 17);
+            lbl_upload.Size = new Size(133, 14);
             lbl_upload.TabIndex = 37;
             lbl_upload.Text = "Seleccione la imagen:";
             // 
@@ -60,9 +60,9 @@
             lbl_ingresevalor.BackColor = Color.Transparent;
             lbl_ingresevalor.Font = new Font("Arial Rounded MT Bold", 9F);
             lbl_ingresevalor.ForeColor = Color.White;
-            lbl_ingresevalor.Location = new Point(727, 610);
+            lbl_ingresevalor.Location = new Point(302, 338);
             lbl_ingresevalor.Name = "lbl_ingresevalor";
-            lbl_ingresevalor.Size = new Size(175, 17);
+            lbl_ingresevalor.Size = new Size(139, 14);
             lbl_ingresevalor.TabIndex = 35;
             lbl_ingresevalor.Text = "Ingrese el nuevo valor:";
             // 
@@ -82,12 +82,13 @@
             CB_valor_a_modificar.Hint = "¿Qué atributo desea modificar?";
             CB_valor_a_modificar.IntegralHeight = false;
             CB_valor_a_modificar.ItemHeight = 43;
-            CB_valor_a_modificar.Items.AddRange(new object[] { "Dirección\t", "Logo", "Nombre de la empresa", "Teléfono" });
-            CB_valor_a_modificar.Location = new Point(830, 369);
+            CB_valor_a_modificar.Items.AddRange(new object[] { "Dirección", "Logo", "Nombre de la empresa", "Teléfono" });
+            CB_valor_a_modificar.Location = new Point(426, 201);
+            CB_valor_a_modificar.Margin = new Padding(3, 2, 3, 2);
             CB_valor_a_modificar.MaxDropDownItems = 4;
             CB_valor_a_modificar.MouseState = MaterialSkin.MouseState.OUT;
             CB_valor_a_modificar.Name = "CB_valor_a_modificar";
-            CB_valor_a_modificar.Size = new Size(312, 49);
+            CB_valor_a_modificar.Size = new Size(274, 49);
             CB_valor_a_modificar.StartIndex = 0;
             CB_valor_a_modificar.TabIndex = 34;
             CB_valor_a_modificar.SelectedIndexChanged += CB_valor_a_modificar_SelectedIndexChanged;
@@ -102,7 +103,8 @@
             txtbox_nuevo_valor.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_nuevo_valor.HideSelection = true;
             txtbox_nuevo_valor.LeadingIcon = null;
-            txtbox_nuevo_valor.Location = new Point(977, 594);
+            txtbox_nuevo_valor.Location = new Point(521, 326);
+            txtbox_nuevo_valor.Margin = new Padding(3, 2, 3, 2);
             txtbox_nuevo_valor.MaxLength = 32767;
             txtbox_nuevo_valor.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_nuevo_valor.Name = "txtbox_nuevo_valor";
@@ -114,7 +116,7 @@
             txtbox_nuevo_valor.SelectionLength = 0;
             txtbox_nuevo_valor.SelectionStart = 0;
             txtbox_nuevo_valor.ShortcutsEnabled = true;
-            txtbox_nuevo_valor.Size = new Size(125, 48);
+            txtbox_nuevo_valor.Size = new Size(109, 48);
             txtbox_nuevo_valor.TabIndex = 33;
             txtbox_nuevo_valor.TabStop = false;
             txtbox_nuevo_valor.TextAlign = HorizontalAlignment.Left;
@@ -123,7 +125,7 @@
             // 
             // button_salir
             // 
-            button_salir.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            button_salir.Anchor = AnchorStyles.None;
             button_salir.AutoSize = false;
             button_salir.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             button_salir.BackColor = Color.Transparent;
@@ -131,12 +133,12 @@
             button_salir.Depth = 0;
             button_salir.HighEmphasis = true;
             button_salir.Icon = null;
-            button_salir.Location = new Point(1103, 871);
-            button_salir.Margin = new Padding(4, 6, 4, 6);
+            button_salir.Location = new Point(652, 438);
+            button_salir.Margin = new Padding(4);
             button_salir.MouseState = MaterialSkin.MouseState.HOVER;
             button_salir.Name = "button_salir";
             button_salir.NoAccentTextColor = Color.Empty;
-            button_salir.Size = new Size(126, 36);
+            button_salir.Size = new Size(110, 27);
             button_salir.TabIndex = 31;
             button_salir.Text = "SALIR";
             button_salir.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -146,7 +148,7 @@
             // 
             // button_limpiar
             // 
-            button_limpiar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            button_limpiar.Anchor = AnchorStyles.None;
             button_limpiar.AutoSize = false;
             button_limpiar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             button_limpiar.BackColor = Color.Transparent;
@@ -154,12 +156,12 @@
             button_limpiar.Depth = 0;
             button_limpiar.HighEmphasis = true;
             button_limpiar.Icon = null;
-            button_limpiar.Location = new Point(906, 871);
-            button_limpiar.Margin = new Padding(4, 6, 4, 6);
+            button_limpiar.Location = new Point(490, 438);
+            button_limpiar.Margin = new Padding(4);
             button_limpiar.MouseState = MaterialSkin.MouseState.HOVER;
             button_limpiar.Name = "button_limpiar";
             button_limpiar.NoAccentTextColor = Color.Empty;
-            button_limpiar.Size = new Size(126, 36);
+            button_limpiar.Size = new Size(110, 27);
             button_limpiar.TabIndex = 30;
             button_limpiar.Text = "LIMPIAR";
             button_limpiar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -168,7 +170,7 @@
             // 
             // button_confirmar
             // 
-            button_confirmar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            button_confirmar.Anchor = AnchorStyles.None;
             button_confirmar.AutoSize = false;
             button_confirmar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             button_confirmar.BackColor = Color.Transparent;
@@ -176,17 +178,18 @@
             button_confirmar.Depth = 0;
             button_confirmar.HighEmphasis = true;
             button_confirmar.Icon = null;
-            button_confirmar.Location = new Point(717, 871);
-            button_confirmar.Margin = new Padding(4, 6, 4, 6);
+            button_confirmar.Location = new Point(331, 438);
+            button_confirmar.Margin = new Padding(4);
             button_confirmar.MouseState = MaterialSkin.MouseState.HOVER;
             button_confirmar.Name = "button_confirmar";
             button_confirmar.NoAccentTextColor = Color.Empty;
-            button_confirmar.Size = new Size(126, 36);
+            button_confirmar.Size = new Size(110, 27);
             button_confirmar.TabIndex = 29;
             button_confirmar.Text = "confirmar";
             button_confirmar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_confirmar.UseAccentColor = false;
             button_confirmar.UseVisualStyleBackColor = false;
+            button_confirmar.Click += Button_confirmar_Click;
             // 
             // lbl_Personalizacion
             // 
@@ -195,9 +198,9 @@
             lbl_Personalizacion.BackColor = Color.Transparent;
             lbl_Personalizacion.Font = new Font("Arial Rounded MT Bold", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_Personalizacion.ForeColor = Color.White;
-            lbl_Personalizacion.Location = new Point(668, 194);
+            lbl_Personalizacion.Location = new Point(308, 108);
             lbl_Personalizacion.Name = "lbl_Personalizacion";
-            lbl_Personalizacion.Size = new Size(634, 54);
+            lbl_Personalizacion.Size = new Size(518, 44);
             lbl_Personalizacion.TabIndex = 28;
             lbl_Personalizacion.Text = "Personalización de factura";
             // 
@@ -205,18 +208,20 @@
             // 
             button_upload.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             button_upload.Image = (Image)resources.GetObject("button_upload.Image");
-            button_upload.Location = new Point(977, 595);
+            button_upload.Location = new Point(521, 326);
+            button_upload.Margin = new Padding(3, 2, 3, 2);
             button_upload.Name = "button_upload";
-            button_upload.Size = new Size(125, 47);
+            button_upload.Size = new Size(109, 35);
             button_upload.TabIndex = 38;
             button_upload.UseVisualStyleBackColor = true;
+            button_upload.Click += button_upload_Click;
             // 
             // Form_Personalizacion_Factura
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(1924, 1175);
+            ClientSize = new Size(1199, 562);
             Controls.Add(button_upload);
             Controls.Add(lbl_upload);
             Controls.Add(lbl_ingresevalor);
@@ -227,6 +232,7 @@
             Controls.Add(button_confirmar);
             Controls.Add(lbl_Personalizacion);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form_Personalizacion_Factura";
             Text = "InkPOS - Personalización de factura";
             WindowState = FormWindowState.Maximized;

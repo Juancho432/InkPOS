@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using System.Text.Json;
 using System.Windows.Forms;
 
 namespace InkPos
 {
     public partial class Form_Personalizacion_Factura : Form
     {
-        private Empleado EmpleadoActual;
-        private DataBaseHandler Database;
+        private readonly Empleado EmpleadoActual;
+        private readonly DataBaseHandler Database;
+        private string? LogoFile = null;
 
         public Form_Personalizacion_Factura(Empleado empleado, DataBaseHandler database)
         {
@@ -55,7 +50,94 @@ namespace InkPos
 
         private void button_salir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
+        }
+
+        private void button_upload_Click(object sender, EventArgs e)
+        {
+            using SaveFileDialog saveFileDialog = new();
+            saveFileDialog.Title = "Seleccione de Logo";
+            saveFileDialog.Filter = "Archivos de imagen (*.png)|*.png";
+            saveFileDialog.FileName = "Logo.png";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                LogoFile = saveFileDialog.FileName;
+            }
+        }
+
+        private void Button_confirmar_Click(object sender, EventArgs e)
+        {
+            int campo = CB_valor_a_modificar.SelectedIndex;
+            string nuevoValor = txtbox_nuevo_valor.Text.Trim();
+            string rutaJson = Path.Combine(AppContext.BaseDirectory, "config.json");
+
+            if (string.IsNullOrEmpty(nuevoValor))
+            {
+                MessageBox.Show("Ingrese un valor válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Config empresa = new();
+
+            // Leer JSON si existe
+            if (File.Exists(rutaJson))
+            {
+                string jsonExistente = File.ReadAllText(rutaJson);
+                empresa = JsonSerializer.Deserialize<Config>(jsonExistente) ?? new Config();
+            }
+
+            // Modificar campo
+            switch (campo)
+            {
+                // Direccion
+                case 0:
+                    empresa.Direccion = nuevoValor;
+                    break;
+
+                // Logo
+                case 1:
+                    if (LogoFile != null)
+                    {
+                        try
+                        {
+                            // Copiamos el archivo seleccionado al directorio raíz como Logo.png
+                            string destino = Path.Combine(AppContext.BaseDirectory, "Logo.png");
+
+                            // Si el usuario guardó el archivo en otro nombre, lo copiamos como Logo.png en raíz
+                            File.Copy(LogoFile, destino, overwrite: true);
+
+                            MessageBox.Show("Logo guardado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error al guardar el archivo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe seleccionar un archivo como logo", "Logo no seleccionado",
+                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    break;
+
+                // Nombre
+                case 2:
+                    empresa.Nombre = nuevoValor;
+                    break;
+
+                // Telefono
+                case 3:
+                    empresa.Telefono = nuevoValor;
+                    break;
+            }
+
+            // Guardar de nuevo en JSON
+            string json = JsonSerializer.Serialize(empresa, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(rutaJson, json);
+
+            MessageBox.Show("Información actualizada correctamente.", "Éxito", 
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

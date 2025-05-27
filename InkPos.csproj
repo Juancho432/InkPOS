@@ -9,18 +9,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="config.json" />
     <None Remove="icon_inkpos.ico" />
     <None Remove="Images\borrar.png" />
     <None Remove="Images\editar.png" />
     <None Remove="InkPosDBTemplate.sql" />
     <None Remove="InkPosDBTestData.sql" />
+    <None Remove="Logo.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="InkPosDBTemplate.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="InkPosDBTestData.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -53,6 +61,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="texlive\2025\bin\windows\Logo.png" Link="Logo.png" />
   </ItemGroup>
 
   <ItemGroup>

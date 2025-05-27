@@ -1,5 +1,6 @@
 
 using System.Diagnostics;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 
 namespace InkPos
@@ -17,6 +18,11 @@ namespace InkPos
 
             string tempDirPath = Path.Combine(
                 AppContext.BaseDirectory, "Temp");
+
+            string rutaJson = Path.Combine(AppContext.BaseDirectory, "config.json");
+
+            string jsonExistente = File.ReadAllText(rutaJson);
+            Config empresa = JsonSerializer.Deserialize<Config>(jsonExistente)!;
 
             if (!File.Exists(pdflatexPath))
                 throw new FileNotFoundException("No se encontró pdflatex.exe", pdflatexPath);
@@ -54,7 +60,10 @@ namespace InkPos
                 {"details", details},
                 {"total_items", factura.Detalles.Count.ToString()},
                 {"total_products", items.ToString()},
-                {"total", total.ToString()}
+                {"total", total.ToString()},
+                {"empresa_nombre", empresa.Nombre! },
+                {"empresa_tel", empresa.Telefono!},
+                {"empresa_dir", Regex.Escape(empresa.Direccion!)}
             };
 
             // Reemplazar campos \C{nombre} por los valores del diccionario
@@ -68,7 +77,8 @@ namespace InkPos
             // Guardar .tex temporal con los datos reemplazados
             string customTex = Path.Combine(tempDirPath, $"R{factura.IdFactura}.tex");
             File.WriteAllText(customTex, reemplazado);
-            string logoPath = Path.Combine(workDirPath, "Logo.png");
+            
+            string logoPath = Path.Combine(AppContext.BaseDirectory, "Logo.png");
             File.Copy(logoPath, Path.Combine(tempDirPath, "Logo.png"));
 
             Process proc = new()
