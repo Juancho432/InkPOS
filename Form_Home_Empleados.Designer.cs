@@ -56,6 +56,7 @@
             // panel_home_empleado
             // 
             panel_home_empleado.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel_home_empleado.BackgroundImage = (Image)resources.GetObject("panel_home_empleado.BackgroundImage");
             panel_home_empleado.Controls.Add(button_settings);
             panel_home_empleado.Controls.Add(panel_devoluciones);
             panel_home_empleado.Controls.Add(button_salir);
@@ -71,6 +72,7 @@
             // button_settings
             // 
             button_settings.Anchor = AnchorStyles.None;
+            button_settings.BackColor = Color.Transparent;
             button_settings.Cursor = Cursors.Hand;
             button_settings.Image = (Image)resources.GetObject("button_settings.Image");
             button_settings.Location = new Point(1846, 48);
@@ -83,6 +85,7 @@
             // panel_devoluciones
             // 
             panel_devoluciones.Anchor = AnchorStyles.None;
+            panel_devoluciones.BackColor = Color.Transparent;
             panel_devoluciones.Controls.Add(button_devolucion);
             panel_devoluciones.Controls.Add(PB_devolucion);
             panel_devoluciones.Location = new Point(1143, 424);
@@ -125,6 +128,7 @@
             button_salir.Anchor = AnchorStyles.None;
             button_salir.AutoSize = false;
             button_salir.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button_salir.BackColor = Color.Transparent;
             button_salir.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             button_salir.Depth = 0;
             button_salir.HighEmphasis = true;
@@ -139,12 +143,13 @@
             button_salir.Text = "SALIR";
             button_salir.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_salir.UseAccentColor = false;
-            button_salir.UseVisualStyleBackColor = true;
+            button_salir.UseVisualStyleBackColor = false;
             button_salir.Click += button_salir_Click;
             // 
             // panel_ventas
             // 
             panel_ventas.Anchor = AnchorStyles.None;
+            panel_ventas.BackColor = Color.Transparent;
             panel_ventas.Controls.Add(button_venta);
             panel_ventas.Controls.Add(PB_venta);
             panel_ventas.Location = new Point(537, 421);
@@ -185,6 +190,7 @@
             // panel_facturas
             // 
             panel_facturas.Anchor = AnchorStyles.None;
+            panel_facturas.BackColor = Color.Transparent;
             panel_facturas.Controls.Add(button_facturas);
             panel_facturas.Controls.Add(PB_facturas);
             panel_facturas.Location = new Point(839, 421);
@@ -226,7 +232,9 @@
             // 
             lbl_nombreUsuario.Anchor = AnchorStyles.None;
             lbl_nombreUsuario.AutoSize = true;
+            lbl_nombreUsuario.BackColor = Color.Transparent;
             lbl_nombreUsuario.Font = new Font("Arial Rounded MT Bold", 28.2F);
+            lbl_nombreUsuario.ForeColor = Color.White;
             lbl_nombreUsuario.Location = new Point(967, 185);
             lbl_nombreUsuario.Name = "lbl_nombreUsuario";
             lbl_nombreUsuario.Size = new Size(263, 54);
@@ -237,7 +245,9 @@
             // 
             lbl_welcome.Anchor = AnchorStyles.None;
             lbl_welcome.AutoSize = true;
+            lbl_welcome.BackColor = Color.Transparent;
             lbl_welcome.Font = new Font("Arial Rounded MT Bold", 28.2F);
+            lbl_welcome.ForeColor = Color.White;
             lbl_welcome.Location = new Point(687, 185);
             lbl_welcome.Name = "lbl_welcome";
             lbl_welcome.Size = new Size(277, 54);
@@ -248,6 +258,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1924, 1175);
             Controls.Add(panel_home_empleado);
             Icon = (Icon)resources.GetObject("$this.Icon");

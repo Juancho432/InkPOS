@@ -28,7 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Agregar_Empleado));
             panel_agregar_empleado = new Panel();
+            txtbox_contraseña = new MaterialSkin.Controls.MaterialTextBox2();
+            txtbox_usuario = new MaterialSkin.Controls.MaterialTextBox2();
+            lbl_usuario = new Label();
+            lbl_contraseña = new Label();
             CB_cargo = new MaterialSkin.Controls.MaterialComboBox();
             lbl_salario = new Label();
             lbl_cargo = new Label();
@@ -43,15 +48,12 @@
             txtbox_nombre_empleado = new MaterialSkin.Controls.MaterialTextBox2();
             lbl_nombre = new Label();
             lbl_GestionEmpleados = new Label();
-            lbl_contraseña = new Label();
-            lbl_usuario = new Label();
-            txtbox_usuario = new MaterialSkin.Controls.MaterialTextBox2();
-            txtbox_contraseña = new MaterialSkin.Controls.MaterialTextBox2();
             panel_agregar_empleado.SuspendLayout();
             SuspendLayout();
             // 
             // panel_agregar_empleado
             // 
+            panel_agregar_empleado.BackgroundImage = (Image)resources.GetObject("panel_agregar_empleado.BackgroundImage");
             panel_agregar_empleado.Controls.Add(txtbox_contraseña);
             panel_agregar_empleado.Controls.Add(txtbox_usuario);
             panel_agregar_empleado.Controls.Add(lbl_usuario);
@@ -72,8 +74,92 @@
             panel_agregar_empleado.Controls.Add(lbl_GestionEmpleados);
             panel_agregar_empleado.Location = new Point(5, 2);
             panel_agregar_empleado.Name = "panel_agregar_empleado";
-            panel_agregar_empleado.Size = new Size(1513, 1171);
+            panel_agregar_empleado.Size = new Size(1916, 1171);
             panel_agregar_empleado.TabIndex = 0;
+            // 
+            // txtbox_contraseña
+            // 
+            txtbox_contraseña.Anchor = AnchorStyles.None;
+            txtbox_contraseña.AnimateReadOnly = false;
+            txtbox_contraseña.BackgroundImageLayout = ImageLayout.None;
+            txtbox_contraseña.CharacterCasing = CharacterCasing.Normal;
+            txtbox_contraseña.Depth = 0;
+            txtbox_contraseña.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtbox_contraseña.HideSelection = true;
+            txtbox_contraseña.LeadingIcon = null;
+            txtbox_contraseña.Location = new Point(850, 729);
+            txtbox_contraseña.MaxLength = 32767;
+            txtbox_contraseña.MouseState = MaterialSkin.MouseState.OUT;
+            txtbox_contraseña.Name = "txtbox_contraseña";
+            txtbox_contraseña.PasswordChar = '\0';
+            txtbox_contraseña.PrefixSuffixText = null;
+            txtbox_contraseña.ReadOnly = false;
+            txtbox_contraseña.RightToLeft = RightToLeft.No;
+            txtbox_contraseña.SelectedText = "";
+            txtbox_contraseña.SelectionLength = 0;
+            txtbox_contraseña.SelectionStart = 0;
+            txtbox_contraseña.ShortcutsEnabled = true;
+            txtbox_contraseña.Size = new Size(312, 48);
+            txtbox_contraseña.TabIndex = 47;
+            txtbox_contraseña.TabStop = false;
+            txtbox_contraseña.TextAlign = HorizontalAlignment.Left;
+            txtbox_contraseña.TrailingIcon = null;
+            txtbox_contraseña.UseSystemPasswordChar = false;
+            // 
+            // txtbox_usuario
+            // 
+            txtbox_usuario.Anchor = AnchorStyles.None;
+            txtbox_usuario.AnimateReadOnly = false;
+            txtbox_usuario.BackgroundImageLayout = ImageLayout.None;
+            txtbox_usuario.CharacterCasing = CharacterCasing.Normal;
+            txtbox_usuario.Depth = 0;
+            txtbox_usuario.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtbox_usuario.HideSelection = true;
+            txtbox_usuario.LeadingIcon = null;
+            txtbox_usuario.Location = new Point(850, 652);
+            txtbox_usuario.MaxLength = 32767;
+            txtbox_usuario.MouseState = MaterialSkin.MouseState.OUT;
+            txtbox_usuario.Name = "txtbox_usuario";
+            txtbox_usuario.PasswordChar = '\0';
+            txtbox_usuario.PrefixSuffixText = null;
+            txtbox_usuario.ReadOnly = false;
+            txtbox_usuario.RightToLeft = RightToLeft.No;
+            txtbox_usuario.SelectedText = "";
+            txtbox_usuario.SelectionLength = 0;
+            txtbox_usuario.SelectionStart = 0;
+            txtbox_usuario.ShortcutsEnabled = true;
+            txtbox_usuario.Size = new Size(312, 48);
+            txtbox_usuario.TabIndex = 46;
+            txtbox_usuario.TabStop = false;
+            txtbox_usuario.TextAlign = HorizontalAlignment.Left;
+            txtbox_usuario.TrailingIcon = null;
+            txtbox_usuario.UseSystemPasswordChar = false;
+            // 
+            // lbl_usuario
+            // 
+            lbl_usuario.Anchor = AnchorStyles.None;
+            lbl_usuario.AutoSize = true;
+            lbl_usuario.BackColor = Color.Transparent;
+            lbl_usuario.Font = new Font("Arial Rounded MT Bold", 12F);
+            lbl_usuario.ForeColor = Color.White;
+            lbl_usuario.Location = new Point(720, 672);
+            lbl_usuario.Name = "lbl_usuario";
+            lbl_usuario.Size = new Size(92, 23);
+            lbl_usuario.TabIndex = 45;
+            lbl_usuario.Text = "Usuario:";
+            // 
+            // lbl_contraseña
+            // 
+            lbl_contraseña.Anchor = AnchorStyles.None;
+            lbl_contraseña.AutoSize = true;
+            lbl_contraseña.BackColor = Color.Transparent;
+            lbl_contraseña.Font = new Font("Arial Rounded MT Bold", 12F);
+            lbl_contraseña.ForeColor = Color.White;
+            lbl_contraseña.Location = new Point(709, 749);
+            lbl_contraseña.Name = "lbl_contraseña";
+            lbl_contraseña.Size = new Size(130, 23);
+            lbl_contraseña.TabIndex = 44;
+            lbl_contraseña.Text = "Contraseña:";
             // 
             // CB_cargo
             // 
@@ -92,7 +178,7 @@
             CB_cargo.IntegralHeight = false;
             CB_cargo.ItemHeight = 43;
             CB_cargo.Items.AddRange(new object[] { "Empleado", "Admin" });
-            CB_cargo.Location = new Point(648, 497);
+            CB_cargo.Location = new Point(850, 497);
             CB_cargo.MaxDropDownItems = 4;
             CB_cargo.MouseState = MaterialSkin.MouseState.OUT;
             CB_cargo.Name = "CB_cargo";
@@ -104,11 +190,12 @@
             // 
             lbl_salario.Anchor = AnchorStyles.None;
             lbl_salario.AutoSize = true;
-            lbl_salario.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_salario.ForeColor = SystemColors.ControlText;
-            lbl_salario.Location = new Point(531, 597);
+            lbl_salario.BackColor = Color.Transparent;
+            lbl_salario.Font = new Font("Arial Rounded MT Bold", 12F);
+            lbl_salario.ForeColor = Color.White;
+            lbl_salario.Location = new Point(733, 597);
             lbl_salario.Name = "lbl_salario";
-            lbl_salario.Size = new Size(76, 28);
+            lbl_salario.Size = new Size(84, 23);
             lbl_salario.TabIndex = 42;
             lbl_salario.Text = "Salario:";
             // 
@@ -116,11 +203,12 @@
             // 
             lbl_cargo.Anchor = AnchorStyles.None;
             lbl_cargo.AutoSize = true;
-            lbl_cargo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_cargo.ForeColor = SystemColors.ControlText;
-            lbl_cargo.Location = new Point(551, 518);
+            lbl_cargo.BackColor = Color.Transparent;
+            lbl_cargo.Font = new Font("Arial Rounded MT Bold", 12F);
+            lbl_cargo.ForeColor = Color.White;
+            lbl_cargo.Location = new Point(753, 518);
             lbl_cargo.Name = "lbl_cargo";
-            lbl_cargo.Size = new Size(69, 28);
+            lbl_cargo.Size = new Size(77, 23);
             lbl_cargo.TabIndex = 41;
             lbl_cargo.Text = "Cargo:";
             // 
@@ -128,33 +216,36 @@
             // 
             lbl_telefono.Anchor = AnchorStyles.None;
             lbl_telefono.AutoSize = true;
-            lbl_telefono.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_telefono.ForeColor = SystemColors.ControlText;
-            lbl_telefono.Location = new Point(531, 441);
+            lbl_telefono.BackColor = Color.Transparent;
+            lbl_telefono.Font = new Font("Arial Rounded MT Bold", 12F);
+            lbl_telefono.ForeColor = Color.White;
+            lbl_telefono.Location = new Point(733, 441);
             lbl_telefono.Name = "lbl_telefono";
-            lbl_telefono.Size = new Size(90, 28);
+            lbl_telefono.Size = new Size(101, 23);
             lbl_telefono.TabIndex = 40;
             lbl_telefono.Text = "Teléfono:";
             // 
             // button_agregar_empleado
             // 
             button_agregar_empleado.Anchor = AnchorStyles.None;
+            button_agregar_empleado.AutoSize = false;
             button_agregar_empleado.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button_agregar_empleado.BackColor = Color.Transparent;
             button_agregar_empleado.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             button_agregar_empleado.Depth = 0;
             button_agregar_empleado.HighEmphasis = true;
             button_agregar_empleado.Icon = null;
-            button_agregar_empleado.Location = new Point(693, 848);
+            button_agregar_empleado.Location = new Point(895, 848);
             button_agregar_empleado.Margin = new Padding(4, 6, 4, 6);
             button_agregar_empleado.MouseState = MaterialSkin.MouseState.HOVER;
             button_agregar_empleado.Name = "button_agregar_empleado";
             button_agregar_empleado.NoAccentTextColor = Color.Empty;
-            button_agregar_empleado.Size = new Size(220, 36);
+            button_agregar_empleado.Size = new Size(220, 45);
             button_agregar_empleado.TabIndex = 39;
             button_agregar_empleado.Text = "AGREGAR NUEVO EMPLEADO";
             button_agregar_empleado.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_agregar_empleado.UseAccentColor = false;
-            button_agregar_empleado.UseVisualStyleBackColor = true;
+            button_agregar_empleado.UseVisualStyleBackColor = false;
             button_agregar_empleado.Click += Boton_Agregar_Empleado_Click;
             // 
             // txtbox_cedula
@@ -167,7 +258,7 @@
             txtbox_cedula.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_cedula.HideSelection = true;
             txtbox_cedula.LeadingIcon = null;
-            txtbox_cedula.Location = new Point(648, 343);
+            txtbox_cedula.Location = new Point(850, 343);
             txtbox_cedula.MaxLength = 32767;
             txtbox_cedula.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_cedula.Name = "txtbox_cedula";
@@ -196,7 +287,7 @@
             txtbox_telefono.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_telefono.HideSelection = true;
             txtbox_telefono.LeadingIcon = null;
-            txtbox_telefono.Location = new Point(648, 421);
+            txtbox_telefono.Location = new Point(850, 421);
             txtbox_telefono.MaxLength = 32767;
             txtbox_telefono.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_telefono.Name = "txtbox_telefono";
@@ -225,7 +316,7 @@
             txtbox_salario.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_salario.HideSelection = true;
             txtbox_salario.LeadingIcon = null;
-            txtbox_salario.Location = new Point(648, 577);
+            txtbox_salario.Location = new Point(850, 577);
             txtbox_salario.MaxLength = 32767;
             txtbox_salario.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_salario.Name = "txtbox_salario";
@@ -247,54 +338,59 @@
             // button_salir
             // 
             button_salir.Anchor = AnchorStyles.None;
+            button_salir.AutoSize = false;
             button_salir.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button_salir.BackColor = Color.Transparent;
             button_salir.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             button_salir.Depth = 0;
             button_salir.HighEmphasis = true;
             button_salir.Icon = null;
-            button_salir.Location = new Point(928, 954);
+            button_salir.Location = new Point(1104, 954);
             button_salir.Margin = new Padding(4, 6, 4, 6);
             button_salir.MouseState = MaterialSkin.MouseState.HOVER;
             button_salir.Name = "button_salir";
             button_salir.NoAccentTextColor = Color.Empty;
-            button_salir.Size = new Size(64, 36);
+            button_salir.Size = new Size(134, 45);
             button_salir.TabIndex = 33;
             button_salir.Text = "SALIR";
             button_salir.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_salir.UseAccentColor = false;
-            button_salir.UseVisualStyleBackColor = true;
+            button_salir.UseVisualStyleBackColor = false;
             button_salir.Click += Boton_Salir_Click;
             // 
             // button_limpiar
             // 
             button_limpiar.Anchor = AnchorStyles.None;
+            button_limpiar.AutoSize = false;
             button_limpiar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button_limpiar.BackColor = Color.Transparent;
             button_limpiar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             button_limpiar.Depth = 0;
             button_limpiar.HighEmphasis = true;
             button_limpiar.Icon = null;
-            button_limpiar.Location = new Point(615, 954);
+            button_limpiar.Location = new Point(817, 954);
             button_limpiar.Margin = new Padding(4, 6, 4, 6);
             button_limpiar.MouseState = MaterialSkin.MouseState.HOVER;
             button_limpiar.Name = "button_limpiar";
             button_limpiar.NoAccentTextColor = Color.Empty;
-            button_limpiar.Size = new Size(79, 36);
+            button_limpiar.Size = new Size(134, 45);
             button_limpiar.TabIndex = 32;
             button_limpiar.Text = "LIMPIAR";
             button_limpiar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_limpiar.UseAccentColor = false;
-            button_limpiar.UseVisualStyleBackColor = true;
+            button_limpiar.UseVisualStyleBackColor = false;
             button_limpiar.Click += Boton_Limpiar_Click;
             // 
             // lbl_cedula
             // 
             lbl_cedula.Anchor = AnchorStyles.None;
             lbl_cedula.AutoSize = true;
-            lbl_cedula.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_cedula.ForeColor = SystemColors.ControlText;
-            lbl_cedula.Location = new Point(544, 363);
+            lbl_cedula.BackColor = Color.Transparent;
+            lbl_cedula.Font = new Font("Arial Rounded MT Bold", 12F);
+            lbl_cedula.ForeColor = Color.White;
+            lbl_cedula.Location = new Point(746, 363);
             lbl_cedula.Name = "lbl_cedula";
-            lbl_cedula.Size = new Size(76, 28);
+            lbl_cedula.Size = new Size(85, 23);
             lbl_cedula.TabIndex = 30;
             lbl_cedula.Tag = "";
             lbl_cedula.Text = "Cédula:";
@@ -309,7 +405,7 @@
             txtbox_nombre_empleado.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_nombre_empleado.HideSelection = true;
             txtbox_nombre_empleado.LeadingIcon = null;
-            txtbox_nombre_empleado.Location = new Point(648, 259);
+            txtbox_nombre_empleado.Location = new Point(850, 259);
             txtbox_nombre_empleado.MaxLength = 32767;
             txtbox_nombre_empleado.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_nombre_empleado.Name = "txtbox_nombre_empleado";
@@ -332,11 +428,12 @@
             // 
             lbl_nombre.Anchor = AnchorStyles.None;
             lbl_nombre.AutoSize = true;
-            lbl_nombre.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_nombre.ForeColor = SystemColors.ControlText;
-            lbl_nombre.Location = new Point(531, 279);
+            lbl_nombre.BackColor = Color.Transparent;
+            lbl_nombre.Font = new Font("Arial Rounded MT Bold", 12F);
+            lbl_nombre.ForeColor = Color.White;
+            lbl_nombre.Location = new Point(733, 279);
             lbl_nombre.Name = "lbl_nombre";
-            lbl_nombre.Size = new Size(89, 28);
+            lbl_nombre.Size = new Size(95, 23);
             lbl_nombre.TabIndex = 28;
             lbl_nombre.Text = "Nombre:";
             // 
@@ -344,101 +441,23 @@
             // 
             lbl_GestionEmpleados.Anchor = AnchorStyles.None;
             lbl_GestionEmpleados.AutoSize = true;
-            lbl_GestionEmpleados.Font = new Font("Segoe UI", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_GestionEmpleados.Location = new Point(575, 131);
+            lbl_GestionEmpleados.BackColor = Color.Transparent;
+            lbl_GestionEmpleados.Font = new Font("Arial Rounded MT Bold", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_GestionEmpleados.ForeColor = Color.White;
+            lbl_GestionEmpleados.Location = new Point(777, 131);
             lbl_GestionEmpleados.Name = "lbl_GestionEmpleados";
-            lbl_GestionEmpleados.Size = new Size(428, 62);
+            lbl_GestionEmpleados.Size = new Size(461, 54);
             lbl_GestionEmpleados.TabIndex = 27;
             lbl_GestionEmpleados.Text = "Gestión empleados";
-            // 
-            // lbl_contraseña
-            // 
-            lbl_contraseña.Anchor = AnchorStyles.None;
-            lbl_contraseña.AutoSize = true;
-            lbl_contraseña.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_contraseña.ForeColor = SystemColors.ControlText;
-            lbl_contraseña.Location = new Point(507, 749);
-            lbl_contraseña.Name = "lbl_contraseña";
-            lbl_contraseña.Size = new Size(114, 28);
-            lbl_contraseña.TabIndex = 44;
-            lbl_contraseña.Text = "Contraseña:";
-            // 
-            // lbl_usuario
-            // 
-            lbl_usuario.Anchor = AnchorStyles.None;
-            lbl_usuario.AutoSize = true;
-            lbl_usuario.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_usuario.ForeColor = SystemColors.ControlText;
-            lbl_usuario.Location = new Point(518, 672);
-            lbl_usuario.Name = "lbl_usuario";
-            lbl_usuario.Size = new Size(83, 28);
-            lbl_usuario.TabIndex = 45;
-            lbl_usuario.Text = "Usuario:";
-            // 
-            // txtbox_usuario
-            // 
-            txtbox_usuario.Anchor = AnchorStyles.None;
-            txtbox_usuario.AnimateReadOnly = false;
-            txtbox_usuario.BackgroundImageLayout = ImageLayout.None;
-            txtbox_usuario.CharacterCasing = CharacterCasing.Normal;
-            txtbox_usuario.Depth = 0;
-            txtbox_usuario.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtbox_usuario.HideSelection = true;
-            txtbox_usuario.LeadingIcon = null;
-            txtbox_usuario.Location = new Point(648, 652);
-            txtbox_usuario.MaxLength = 32767;
-            txtbox_usuario.MouseState = MaterialSkin.MouseState.OUT;
-            txtbox_usuario.Name = "txtbox_usuario";
-            txtbox_usuario.PasswordChar = '\0';
-            txtbox_usuario.PrefixSuffixText = null;
-            txtbox_usuario.ReadOnly = false;
-            txtbox_usuario.RightToLeft = RightToLeft.No;
-            txtbox_usuario.SelectedText = "";
-            txtbox_usuario.SelectionLength = 0;
-            txtbox_usuario.SelectionStart = 0;
-            txtbox_usuario.ShortcutsEnabled = true;
-            txtbox_usuario.Size = new Size(312, 48);
-            txtbox_usuario.TabIndex = 46;
-            txtbox_usuario.TabStop = false;
-            txtbox_usuario.TextAlign = HorizontalAlignment.Left;
-            txtbox_usuario.TrailingIcon = null;
-            txtbox_usuario.UseSystemPasswordChar = false;
-            // 
-            // txtbox_contraseña
-            // 
-            txtbox_contraseña.Anchor = AnchorStyles.None;
-            txtbox_contraseña.AnimateReadOnly = false;
-            txtbox_contraseña.BackgroundImageLayout = ImageLayout.None;
-            txtbox_contraseña.CharacterCasing = CharacterCasing.Normal;
-            txtbox_contraseña.Depth = 0;
-            txtbox_contraseña.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtbox_contraseña.HideSelection = true;
-            txtbox_contraseña.LeadingIcon = null;
-            txtbox_contraseña.Location = new Point(648, 729);
-            txtbox_contraseña.MaxLength = 32767;
-            txtbox_contraseña.MouseState = MaterialSkin.MouseState.OUT;
-            txtbox_contraseña.Name = "txtbox_contraseña";
-            txtbox_contraseña.PasswordChar = '\0';
-            txtbox_contraseña.PrefixSuffixText = null;
-            txtbox_contraseña.ReadOnly = false;
-            txtbox_contraseña.RightToLeft = RightToLeft.No;
-            txtbox_contraseña.SelectedText = "";
-            txtbox_contraseña.SelectionLength = 0;
-            txtbox_contraseña.SelectionStart = 0;
-            txtbox_contraseña.ShortcutsEnabled = true;
-            txtbox_contraseña.Size = new Size(312, 48);
-            txtbox_contraseña.TabIndex = 47;
-            txtbox_contraseña.TabStop = false;
-            txtbox_contraseña.TextAlign = HorizontalAlignment.Left;
-            txtbox_contraseña.TrailingIcon = null;
-            txtbox_contraseña.UseSystemPasswordChar = false;
             // 
             // Form_Agregar_Empleado
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1522, 1055);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(1924, 1175);
             Controls.Add(panel_agregar_empleado);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form_Agregar_Empleado";
             Text = "InkPOS - Agregar empleado";
             WindowState = FormWindowState.Maximized;

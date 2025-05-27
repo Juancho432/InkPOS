@@ -44,6 +44,9 @@
     <Compile Update="Form_Modificar_Producto.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Form_Personalizacion_Factura.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Form_Reporte_Venta.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Agregar_Producto));
             panel_agregar_producto = new Panel();
             button_cancelar = new MaterialSkin.Controls.MaterialButton();
             button_limpiar = new MaterialSkin.Controls.MaterialButton();
@@ -48,6 +49,7 @@
             // panel_agregar_producto
             // 
             panel_agregar_producto.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel_agregar_producto.BackgroundImage = (Image)resources.GetObject("panel_agregar_producto.BackgroundImage");
             panel_agregar_producto.Controls.Add(button_cancelar);
             panel_agregar_producto.Controls.Add(button_limpiar);
             panel_agregar_producto.Controls.Add(button_agregar);
@@ -69,17 +71,18 @@
             // button_cancelar
             // 
             button_cancelar.Anchor = AnchorStyles.None;
+            button_cancelar.AutoSize = false;
             button_cancelar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             button_cancelar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             button_cancelar.Depth = 0;
             button_cancelar.HighEmphasis = true;
             button_cancelar.Icon = null;
-            button_cancelar.Location = new Point(920, 668);
+            button_cancelar.Location = new Point(780, 797);
             button_cancelar.Margin = new Padding(4, 6, 4, 6);
             button_cancelar.MouseState = MaterialSkin.MouseState.HOVER;
             button_cancelar.Name = "button_cancelar";
             button_cancelar.NoAccentTextColor = Color.Empty;
-            button_cancelar.Size = new Size(96, 36);
+            button_cancelar.Size = new Size(134, 45);
             button_cancelar.TabIndex = 35;
             button_cancelar.Text = "cancelar";
             button_cancelar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -90,17 +93,18 @@
             // button_limpiar
             // 
             button_limpiar.Anchor = AnchorStyles.None;
+            button_limpiar.AutoSize = false;
             button_limpiar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             button_limpiar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             button_limpiar.Depth = 0;
             button_limpiar.HighEmphasis = true;
             button_limpiar.Icon = null;
-            button_limpiar.Location = new Point(750, 668);
+            button_limpiar.Location = new Point(918, 683);
             button_limpiar.Margin = new Padding(4, 6, 4, 6);
             button_limpiar.MouseState = MaterialSkin.MouseState.HOVER;
             button_limpiar.Name = "button_limpiar";
             button_limpiar.NoAccentTextColor = Color.Empty;
-            button_limpiar.Size = new Size(79, 36);
+            button_limpiar.Size = new Size(134, 45);
             button_limpiar.TabIndex = 34;
             button_limpiar.Text = "limpiar";
             button_limpiar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -111,17 +115,18 @@
             // button_agregar
             // 
             button_agregar.Anchor = AnchorStyles.None;
+            button_agregar.AutoSize = false;
             button_agregar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             button_agregar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             button_agregar.Depth = 0;
             button_agregar.HighEmphasis = true;
             button_agregar.Icon = null;
-            button_agregar.Location = new Point(560, 668);
+            button_agregar.Location = new Point(665, 683);
             button_agregar.Margin = new Padding(4, 6, 4, 6);
             button_agregar.MouseState = MaterialSkin.MouseState.HOVER;
             button_agregar.Name = "button_agregar";
             button_agregar.NoAccentTextColor = Color.Empty;
-            button_agregar.Size = new Size(88, 36);
+            button_agregar.Size = new Size(134, 45);
             button_agregar.TabIndex = 33;
             button_agregar.Text = "agregar";
             button_agregar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -139,7 +144,7 @@
             txtbox_add_precio.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_add_precio.HideSelection = true;
             txtbox_add_precio.LeadingIcon = null;
-            txtbox_add_precio.Location = new Point(750, 492);
+            txtbox_add_precio.Location = new Point(750, 538);
             txtbox_add_precio.MaxLength = 32767;
             txtbox_add_precio.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_add_precio.Name = "txtbox_add_precio";
@@ -197,7 +202,7 @@
             txtbox_add_cantidad.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_add_cantidad.HideSelection = true;
             txtbox_add_cantidad.LeadingIcon = null;
-            txtbox_add_cantidad.Location = new Point(750, 417);
+            txtbox_add_cantidad.Location = new Point(750, 464);
             txtbox_add_cantidad.MaxLength = 32767;
             txtbox_add_cantidad.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_add_cantidad.Name = "txtbox_add_cantidad";
@@ -249,10 +254,12 @@
             // 
             lbl_precio.Anchor = AnchorStyles.None;
             lbl_precio.AutoSize = true;
-            lbl_precio.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_precio.Location = new Point(673, 517);
+            lbl_precio.BackColor = Color.Transparent;
+            lbl_precio.Font = new Font("Arial Rounded MT Bold", 12F);
+            lbl_precio.ForeColor = Color.White;
+            lbl_precio.Location = new Point(665, 550);
             lbl_precio.Name = "lbl_precio";
-            lbl_precio.Size = new Size(71, 23);
+            lbl_precio.Size = new Size(79, 23);
             lbl_precio.TabIndex = 21;
             lbl_precio.Text = "Precio:";
             // 
@@ -260,10 +267,12 @@
             // 
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
-            label3.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(652, 442);
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Arial Rounded MT Bold", 12F);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(639, 476);
             label3.Name = "label3";
-            label3.Size = new Size(93, 23);
+            label3.Size = new Size(105, 23);
             label3.TabIndex = 20;
             label3.Text = "Cantidad:";
             // 
@@ -271,10 +280,12 @@
             // 
             lbl_stock.Anchor = AnchorStyles.None;
             lbl_stock.AutoSize = true;
-            lbl_stock.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_stock.Location = new Point(609, 395);
+            lbl_stock.BackColor = Color.Transparent;
+            lbl_stock.Font = new Font("Arial Rounded MT Bold", 12F);
+            lbl_stock.ForeColor = Color.White;
+            lbl_stock.Location = new Point(665, 413);
             lbl_stock.Name = "lbl_stock";
-            lbl_stock.Size = new Size(72, 23);
+            lbl_stock.Size = new Size(79, 23);
             lbl_stock.TabIndex = 19;
             lbl_stock.Text = "(Stock)";
             // 
@@ -282,10 +293,12 @@
             // 
             lbl_codigoproducto.Anchor = AnchorStyles.None;
             lbl_codigoproducto.AutoSize = true;
-            lbl_codigoproducto.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_codigoproducto.Location = new Point(560, 323);
+            lbl_codigoproducto.BackColor = Color.Transparent;
+            lbl_codigoproducto.Font = new Font("Arial Rounded MT Bold", 12F);
+            lbl_codigoproducto.ForeColor = Color.White;
+            lbl_codigoproducto.Location = new Point(528, 323);
             lbl_codigoproducto.Name = "lbl_codigoproducto";
-            lbl_codigoproducto.Size = new Size(185, 23);
+            lbl_codigoproducto.Size = new Size(216, 23);
             lbl_codigoproducto.TabIndex = 18;
             lbl_codigoproducto.Text = "Código del producto:";
             // 
@@ -293,10 +306,12 @@
             // 
             lbl_nombreproducto.Anchor = AnchorStyles.None;
             lbl_nombreproducto.AutoSize = true;
-            lbl_nombreproducto.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_nombreproducto.Location = new Point(542, 249);
+            lbl_nombreproducto.BackColor = Color.Transparent;
+            lbl_nombreproducto.Font = new Font("Arial Rounded MT Bold", 12F);
+            lbl_nombreproducto.ForeColor = Color.White;
+            lbl_nombreproducto.Location = new Point(519, 239);
             lbl_nombreproducto.Name = "lbl_nombreproducto";
-            lbl_nombreproducto.Size = new Size(193, 23);
+            lbl_nombreproducto.Size = new Size(225, 23);
             lbl_nombreproducto.TabIndex = 17;
             lbl_nombreproducto.Text = "Nombre del producto:";
             // 
@@ -304,10 +319,12 @@
             // 
             lbl_agregarproducto.Anchor = AnchorStyles.None;
             lbl_agregarproducto.AutoSize = true;
-            lbl_agregarproducto.Font = new Font("Times New Roman", 28.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_agregarproducto.BackColor = Color.Transparent;
+            lbl_agregarproducto.Font = new Font("Arial Rounded MT Bold", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_agregarproducto.ForeColor = Color.White;
             lbl_agregarproducto.Location = new Point(585, 78);
             lbl_agregarproducto.Name = "lbl_agregarproducto";
-            lbl_agregarproducto.Size = new Size(385, 53);
+            lbl_agregarproducto.Size = new Size(433, 54);
             lbl_agregarproducto.TabIndex = 14;
             lbl_agregarproducto.Text = "Agregar producto";
             // 
@@ -315,6 +332,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1522, 1055);
             Controls.Add(panel_agregar_producto);
             Name = "Form_Agregar_Producto";
