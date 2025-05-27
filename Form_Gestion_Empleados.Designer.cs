@@ -30,6 +30,8 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Gestion_Empleados));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel_GE = new Panel();
             dgv_Empleados = new DataGridView();
             idEmpleadoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -50,12 +52,14 @@
             // panel_GE
             // 
             panel_GE.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel_GE.BackgroundImage = (Image)resources.GetObject("panel_GE.BackgroundImage");
             panel_GE.Controls.Add(dgv_Empleados);
             panel_GE.Controls.Add(txtbox_buscar_empleado);
             panel_GE.Controls.Add(button_añadir_empleado);
             panel_GE.Controls.Add(button_salir);
             panel_GE.Controls.Add(lbl_GE);
             panel_GE.Location = new Point(5, 2);
+            panel_GE.Margin = new Padding(3, 4, 3, 4);
             panel_GE.Name = "panel_GE";
             panel_GE.Size = new Size(1513, 1051);
             panel_GE.TabIndex = 0;
@@ -69,17 +73,34 @@
             dgv_Empleados.Anchor = AnchorStyles.None;
             dgv_Empleados.AutoGenerateColumns = false;
             dgv_Empleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgv_Empleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgv_Empleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_Empleados.Columns.AddRange(new DataGridViewColumn[] { idEmpleadoDataGridViewTextBoxColumn, nombreDataGridViewTextBoxColumn, telefonoDataGridViewTextBoxColumn, esAdminDataGridViewCheckBoxColumn, salarioDataGridViewTextBoxColumn });
             dgv_Empleados.DataSource = empleadoBindingSource;
-            dgv_Empleados.Location = new Point(105, 304);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgv_Empleados.DefaultCellStyle = dataGridViewCellStyle2;
+            dgv_Empleados.Location = new Point(102, 303);
+            dgv_Empleados.Margin = new Padding(3, 4, 3, 4);
             dgv_Empleados.MultiSelect = false;
             dgv_Empleados.Name = "dgv_Empleados";
             dgv_Empleados.ReadOnly = true;
             dgv_Empleados.RowHeadersVisible = false;
             dgv_Empleados.RowHeadersWidth = 51;
             dgv_Empleados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_Empleados.Size = new Size(1322, 670);
+            dgv_Empleados.Size = new Size(1322, 671);
             dgv_Empleados.TabIndex = 10;
             dgv_Empleados.CellClick += dgv_Empleados_CellClick;
             dgv_Empleados.Leave += dgv_Empleados_Leave;
@@ -139,7 +160,8 @@
             txtbox_buscar_empleado.HideSelection = true;
             txtbox_buscar_empleado.Hint = "Ingrese la cédula del empleado";
             txtbox_buscar_empleado.LeadingIcon = null;
-            txtbox_buscar_empleado.Location = new Point(649, 157);
+            txtbox_buscar_empleado.Location = new Point(637, 156);
+            txtbox_buscar_empleado.Margin = new Padding(3, 4, 3, 4);
             txtbox_buscar_empleado.MaxLength = 32767;
             txtbox_buscar_empleado.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_buscar_empleado.Name = "txtbox_buscar_empleado";
@@ -163,7 +185,8 @@
             // 
             button_añadir_empleado.Anchor = AnchorStyles.None;
             button_añadir_empleado.Image = (Image)resources.GetObject("button_añadir_empleado.Image");
-            button_añadir_empleado.Location = new Point(1293, 157);
+            button_añadir_empleado.Location = new Point(1257, 156);
+            button_añadir_empleado.Margin = new Padding(3, 4, 3, 4);
             button_añadir_empleado.Name = "button_añadir_empleado";
             button_añadir_empleado.Size = new Size(69, 48);
             button_añadir_empleado.TabIndex = 8;
@@ -174,7 +197,8 @@
             // 
             button_salir.Anchor = AnchorStyles.None;
             button_salir.Image = (Image)resources.GetObject("button_salir.Image");
-            button_salir.Location = new Point(214, 157);
+            button_salir.Location = new Point(178, 156);
+            button_salir.Margin = new Padding(3, 4, 3, 4);
             button_salir.Name = "button_salir";
             button_salir.Size = new Size(69, 48);
             button_salir.TabIndex = 7;
@@ -185,10 +209,12 @@
             // 
             lbl_GE.Anchor = AnchorStyles.None;
             lbl_GE.AutoSize = true;
-            lbl_GE.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_GE.Location = new Point(604, 44);
+            lbl_GE.BackColor = Color.Transparent;
+            lbl_GE.Font = new Font("Arial Rounded MT Bold", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_GE.ForeColor = Color.White;
+            lbl_GE.Location = new Point(568, 44);
             lbl_GE.Name = "lbl_GE";
-            lbl_GE.Size = new Size(419, 54);
+            lbl_GE.Size = new Size(454, 46);
             lbl_GE.TabIndex = 6;
             lbl_GE.Text = "Gestión de empleados";
             // 
@@ -198,8 +224,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1522, 1055);
             Controls.Add(panel_GE);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Form_Gestion_Empleados";
-            Text = "InkPOS _ Gestion de empleados";
+            Text = "InkPOS - Gestion de empleados";
             WindowState = FormWindowState.Maximized;
             Load += Form_Gestion_Empleados_Load;
             MouseDown += Form_Gestion_Empleados_MouseDown;

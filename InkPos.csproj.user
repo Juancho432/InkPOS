@@ -29,9 +29,6 @@
     <Compile Update="Form_Home_Empleados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form_Home_Gestion_Empleados.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Form_InformeFactura.cs">
       <SubType>Form</SubType>
     </Compile>

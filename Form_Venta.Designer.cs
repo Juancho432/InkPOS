@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Venta));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
@@ -67,6 +68,7 @@
             // panel_venta
             // 
             panel_venta.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel_venta.BackgroundImage = (Image)resources.GetObject("panel_venta.BackgroundImage");
             panel_venta.Controls.Add(DG_Busqueda_Productos);
             panel_venta.Controls.Add(txtbox_nombre_cliente);
             panel_venta.Controls.Add(lbl_name_cliente);
@@ -197,10 +199,12 @@
             // lbl_name_cliente
             // 
             lbl_name_cliente.AutoSize = true;
-            lbl_name_cliente.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_name_cliente.BackColor = Color.Transparent;
+            lbl_name_cliente.Font = new Font("Arial Rounded MT Bold", 7.8F);
+            lbl_name_cliente.ForeColor = Color.White;
             lbl_name_cliente.Location = new Point(619, 117);
             lbl_name_cliente.Name = "lbl_name_cliente";
-            lbl_name_cliente.Size = new Size(109, 38);
+            lbl_name_cliente.Size = new Size(58, 15);
             lbl_name_cliente.TabIndex = 30;
             lbl_name_cliente.Text = "Cliente:";
             // 
@@ -370,9 +374,12 @@
             // 
             lbl_valorTotal.Anchor = AnchorStyles.None;
             lbl_valorTotal.AutoSize = true;
-            lbl_valorTotal.Location = new Point(962, 857);
+            lbl_valorTotal.BackColor = Color.Transparent;
+            lbl_valorTotal.Font = new Font("Arial Rounded MT Bold", 9F);
+            lbl_valorTotal.ForeColor = Color.White;
+            lbl_valorTotal.Location = new Point(949, 860);
             lbl_valorTotal.Name = "lbl_valorTotal";
-            lbl_valorTotal.Size = new Size(81, 20);
+            lbl_valorTotal.Size = new Size(88, 17);
             lbl_valorTotal.TabIndex = 22;
             lbl_valorTotal.Text = "Valor total:";
             // 
@@ -380,9 +387,12 @@
             // 
             lbl_cantidad_productos.Anchor = AnchorStyles.None;
             lbl_cantidad_productos.AutoSize = true;
-            lbl_cantidad_productos.Location = new Point(735, 857);
+            lbl_cantidad_productos.BackColor = Color.Transparent;
+            lbl_cantidad_productos.Font = new Font("Arial Rounded MT Bold", 9F);
+            lbl_cantidad_productos.ForeColor = Color.White;
+            lbl_cantidad_productos.Location = new Point(722, 860);
             lbl_cantidad_productos.Name = "lbl_cantidad_productos";
-            lbl_cantidad_productos.Size = new Size(164, 20);
+            lbl_cantidad_productos.Size = new Size(178, 17);
             lbl_cantidad_productos.TabIndex = 21;
             lbl_cantidad_productos.Text = "Cantidad de productos:";
             // 
@@ -390,9 +400,12 @@
             // 
             lbl_detalleVenta.Anchor = AnchorStyles.None;
             lbl_detalleVenta.AutoSize = true;
+            lbl_detalleVenta.BackColor = Color.Transparent;
+            lbl_detalleVenta.Font = new Font("Arial Rounded MT Bold", 7.8F);
+            lbl_detalleVenta.ForeColor = Color.White;
             lbl_detalleVenta.Location = new Point(522, 201);
             lbl_detalleVenta.Name = "lbl_detalleVenta";
-            lbl_detalleVenta.Size = new Size(118, 20);
+            lbl_detalleVenta.Size = new Size(112, 15);
             lbl_detalleVenta.TabIndex = 18;
             lbl_detalleVenta.Text = "Detalle de venta";
             // 
@@ -478,8 +491,10 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1522, 1055);
             Controls.Add(panel_venta);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form_Venta";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "InkPOS - Venta";

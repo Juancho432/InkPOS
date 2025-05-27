@@ -87,10 +87,10 @@ namespace InkPos
                     EmpleadoActual.Telefono = telefonoNuevo;
                     Database.UpdateEmployedData(EmpleadoActual);
                 }
-                
+
                 if (txtbox_actual_password.Text == txtbox_new_password.Text)
                 {
-                    MessageBox.Show("La contraseña nueva no puede ser igual a la actual", "Error", 
+                    MessageBox.Show("La contraseña nueva no puede ser igual a la actual", "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }

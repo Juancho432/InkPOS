@@ -113,6 +113,7 @@
             // 
             // PB_devolucion
             // 
+            PB_devolucion.BackColor = Color.DarkGray;
             PB_devolucion.Image = (Image)resources.GetObject("PB_devolucion.Image");
             PB_devolucion.Location = new Point(40, 3);
             PB_devolucion.Name = "PB_devolucion";
@@ -177,6 +178,7 @@
             // 
             // PB_venta
             // 
+            PB_venta.BackColor = Color.DarkGray;
             PB_venta.Image = (Image)resources.GetObject("PB_venta.Image");
             PB_venta.Location = new Point(40, 3);
             PB_venta.Name = "PB_venta";
@@ -218,6 +220,7 @@
             // 
             // PB_facturas
             // 
+            PB_facturas.BackColor = Color.DarkGray;
             PB_facturas.Image = (Image)resources.GetObject("PB_facturas.Image");
             PB_facturas.Location = new Point(40, 3);
             PB_facturas.Name = "PB_facturas";

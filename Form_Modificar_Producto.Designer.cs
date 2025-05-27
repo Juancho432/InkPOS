@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Modificar_Producto));
             panel_mod = new Panel();
             txtbox_producto_a_modificar = new MaterialSkin.Controls.MaterialTextBox2();
             button_cancelar = new MaterialSkin.Controls.MaterialButton();
@@ -42,6 +43,7 @@
             // panel_mod
             // 
             panel_mod.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel_mod.BackgroundImage = (Image)resources.GetObject("panel_mod.BackgroundImage");
             panel_mod.Controls.Add(txtbox_producto_a_modificar);
             panel_mod.Controls.Add(button_cancelar);
             panel_mod.Controls.Add(button_confirmar);
@@ -65,7 +67,7 @@
             txtbox_producto_a_modificar.HideSelection = true;
             txtbox_producto_a_modificar.Hint = "Código del producto a modificar";
             txtbox_producto_a_modificar.LeadingIcon = null;
-            txtbox_producto_a_modificar.Location = new Point(627, 120);
+            txtbox_producto_a_modificar.Location = new Point(628, 183);
             txtbox_producto_a_modificar.MaxLength = 32767;
             txtbox_producto_a_modificar.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_producto_a_modificar.Name = "txtbox_producto_a_modificar";
@@ -92,7 +94,7 @@
             button_cancelar.Depth = 0;
             button_cancelar.HighEmphasis = true;
             button_cancelar.Icon = null;
-            button_cancelar.Location = new Point(914, 511);
+            button_cancelar.Location = new Point(915, 574);
             button_cancelar.Margin = new Padding(4, 6, 4, 6);
             button_cancelar.MouseState = MaterialSkin.MouseState.HOVER;
             button_cancelar.Name = "button_cancelar";
@@ -113,7 +115,7 @@
             button_confirmar.Depth = 0;
             button_confirmar.HighEmphasis = true;
             button_confirmar.Icon = null;
-            button_confirmar.Location = new Point(529, 511);
+            button_confirmar.Location = new Point(530, 574);
             button_confirmar.Margin = new Padding(4, 6, 4, 6);
             button_confirmar.MouseState = MaterialSkin.MouseState.HOVER;
             button_confirmar.Name = "button_confirmar";
@@ -130,9 +132,12 @@
             // 
             lbl_ingresevalor.Anchor = AnchorStyles.None;
             lbl_ingresevalor.AutoSize = true;
-            lbl_ingresevalor.Location = new Point(539, 345);
+            lbl_ingresevalor.BackColor = Color.Transparent;
+            lbl_ingresevalor.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_ingresevalor.ForeColor = Color.White;
+            lbl_ingresevalor.Location = new Point(540, 408);
             lbl_ingresevalor.Name = "lbl_ingresevalor";
-            lbl_ingresevalor.Size = new Size(157, 20);
+            lbl_ingresevalor.Size = new Size(175, 17);
             lbl_ingresevalor.TabIndex = 3;
             lbl_ingresevalor.Text = "Ingrese el nuevo valor:";
             // 
@@ -153,7 +158,7 @@
             CB_valor_a_modificar.IntegralHeight = false;
             CB_valor_a_modificar.ItemHeight = 43;
             CB_valor_a_modificar.Items.AddRange(new object[] { "Nombre", "Precio", "Stock" });
-            CB_valor_a_modificar.Location = new Point(627, 220);
+            CB_valor_a_modificar.Location = new Point(628, 283);
             CB_valor_a_modificar.MaxDropDownItems = 4;
             CB_valor_a_modificar.MouseState = MaterialSkin.MouseState.OUT;
             CB_valor_a_modificar.Name = "CB_valor_a_modificar";
@@ -165,10 +170,12 @@
             // 
             lbl_mod.Anchor = AnchorStyles.None;
             lbl_mod.AutoSize = true;
-            lbl_mod.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_mod.Location = new Point(562, 9);
+            lbl_mod.BackColor = Color.Transparent;
+            lbl_mod.Font = new Font("Arial Rounded MT Bold", 25.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_mod.ForeColor = Color.White;
+            lbl_mod.Location = new Point(563, 72);
             lbl_mod.Name = "lbl_mod";
-            lbl_mod.Size = new Size(400, 60);
+            lbl_mod.Size = new Size(434, 51);
             lbl_mod.TabIndex = 1;
             lbl_mod.Text = "Modificar Producto";
             // 
@@ -182,7 +189,7 @@
             txtbox_nuevo_valor.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_nuevo_valor.HideSelection = true;
             txtbox_nuevo_valor.LeadingIcon = null;
-            txtbox_nuevo_valor.Location = new Point(745, 327);
+            txtbox_nuevo_valor.Location = new Point(746, 390);
             txtbox_nuevo_valor.MaxLength = 32767;
             txtbox_nuevo_valor.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_nuevo_valor.Name = "txtbox_nuevo_valor";
@@ -205,8 +212,10 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1522, 1055);
             Controls.Add(panel_mod);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form_Modificar_Producto";
             Text = "InkPOS - Modificar producto";
             WindowState = FormWindowState.Maximized;

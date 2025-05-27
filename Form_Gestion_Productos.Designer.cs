@@ -30,6 +30,8 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Gestion_Productos));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel_GP = new Panel();
             dgv_Productos = new DataGridView();
             codigoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -49,6 +51,7 @@
             // panel_GP
             // 
             panel_GP.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel_GP.BackgroundImage = (Image)resources.GetObject("panel_GP.BackgroundImage");
             panel_GP.Controls.Add(dgv_Productos);
             panel_GP.Controls.Add(txtbox_buscar);
             panel_GP.Controls.Add(button_añadir_producto);
@@ -69,9 +72,25 @@
             dgv_Productos.Anchor = AnchorStyles.None;
             dgv_Productos.AutoGenerateColumns = false;
             dgv_Productos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgv_Productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgv_Productos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_Productos.Columns.AddRange(new DataGridViewColumn[] { codigoDataGridViewTextBoxColumn, nombreDataGridViewTextBoxColumn, dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2 });
             dgv_Productos.DataSource = productoBindingSource;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgv_Productos.DefaultCellStyle = dataGridViewCellStyle2;
             dgv_Productos.Location = new Point(124, 285);
             dgv_Productos.MultiSelect = false;
             dgv_Productos.Name = "dgv_Productos";
@@ -131,7 +150,7 @@
             txtbox_buscar.HideSelection = true;
             txtbox_buscar.Hint = "Ingrese el código o nombre del producto";
             txtbox_buscar.LeadingIcon = null;
-            txtbox_buscar.Location = new Point(561, 158);
+            txtbox_buscar.Location = new Point(611, 158);
             txtbox_buscar.MaxLength = 32767;
             txtbox_buscar.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_buscar.Name = "txtbox_buscar";
@@ -177,10 +196,12 @@
             // 
             lbl_GP.Anchor = AnchorStyles.None;
             lbl_GP.AutoSize = true;
-            lbl_GP.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_GP.BackColor = Color.Transparent;
+            lbl_GP.Font = new Font("Arial Rounded MT Bold", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_GP.ForeColor = Color.White;
             lbl_GP.Location = new Point(561, 33);
             lbl_GP.Name = "lbl_GP";
-            lbl_GP.Size = new Size(405, 54);
+            lbl_GP.Size = new Size(440, 46);
             lbl_GP.TabIndex = 0;
             lbl_GP.Text = "Gestión de productos";
             // 
@@ -188,8 +209,10 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1522, 1175);
             Controls.Add(panel_GP);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form_Gestion_Productos";
             Text = "InkPOS - Gestión de productos";
             WindowState = FormWindowState.Maximized;
