@@ -168,5 +168,13 @@ namespace InkPos
         {
             Close();
         }
+
+        private void button_settings_factura_Click(object sender, EventArgs e)
+        {
+            Form_Personalizacion_Factura personalizacion_Factura = new(EmpleadoActual, Database);
+            personalizacion_Factura.Show();
+            Hide();
+            personalizacion_Factura.FormClosed += (s, args) => this.Show();
+        }
     }
 }

@@ -49,6 +49,7 @@
             // panel_login
             // 
             panel_login.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel_login.BackgroundImage = (Image)resources.GetObject("panel_login.BackgroundImage");
             panel_login.Controls.Add(PB_ocultar);
             panel_login.Controls.Add(PB_ver);
             panel_login.Controls.Add(button_salir);
@@ -62,7 +63,7 @@
             panel_login.Controls.Add(lbl_InkPOS);
             panel_login.Location = new Point(5, 2);
             panel_login.Name = "panel_login";
-            panel_login.Size = new Size(1831, 1171);
+            panel_login.Size = new Size(1831, 1170);
             panel_login.TabIndex = 0;
             // 
             // PB_ocultar
@@ -96,6 +97,7 @@
             button_salir.Anchor = AnchorStyles.None;
             button_salir.AutoSize = false;
             button_salir.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button_salir.BackColor = Color.Transparent;
             button_salir.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             button_salir.Depth = 0;
             button_salir.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -111,7 +113,7 @@
             button_salir.Text = "SALIR";
             button_salir.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_salir.UseAccentColor = false;
-            button_salir.UseVisualStyleBackColor = true;
+            button_salir.UseVisualStyleBackColor = false;
             button_salir.Click += Boton_Salir_click;
             // 
             // button_limpiar
@@ -119,6 +121,7 @@
             button_limpiar.Anchor = AnchorStyles.None;
             button_limpiar.AutoSize = false;
             button_limpiar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button_limpiar.BackColor = Color.Transparent;
             button_limpiar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             button_limpiar.Depth = 0;
             button_limpiar.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -135,7 +138,7 @@
             button_limpiar.Text = "LIMPIAR";
             button_limpiar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_limpiar.UseAccentColor = false;
-            button_limpiar.UseVisualStyleBackColor = true;
+            button_limpiar.UseVisualStyleBackColor = false;
             button_limpiar.Click += Boton_Limpiar_Click;
             // 
             // button_ingresar
@@ -143,6 +146,7 @@
             button_ingresar.Anchor = AnchorStyles.None;
             button_ingresar.AutoSize = false;
             button_ingresar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button_ingresar.BackColor = Color.Transparent;
             button_ingresar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             button_ingresar.Depth = 0;
             button_ingresar.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -159,7 +163,7 @@
             button_ingresar.Text = "INGRESAR";
             button_ingresar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             button_ingresar.UseAccentColor = false;
-            button_ingresar.UseVisualStyleBackColor = true;
+            button_ingresar.UseVisualStyleBackColor = false;
             button_ingresar.Click += Boton_Ingresar_Click;
             // 
             // txtbox_contraseña
@@ -196,8 +200,9 @@
             // 
             lbl_password.Anchor = AnchorStyles.None;
             lbl_password.AutoSize = true;
+            lbl_password.BackColor = Color.Transparent;
             lbl_password.Font = new Font("Arial Rounded MT Bold", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_password.ForeColor = SystemColors.ControlText;
+            lbl_password.ForeColor = Color.White;
             lbl_password.Location = new Point(800, 575);
             lbl_password.Name = "lbl_password";
             lbl_password.Size = new Size(183, 32);
@@ -238,8 +243,9 @@
             // 
             lbl_ID_usuario.Anchor = AnchorStyles.None;
             lbl_ID_usuario.AutoSize = true;
+            lbl_ID_usuario.BackColor = Color.Transparent;
             lbl_ID_usuario.Font = new Font("Arial Rounded MT Bold", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_ID_usuario.ForeColor = SystemColors.ControlText;
+            lbl_ID_usuario.ForeColor = Color.White;
             lbl_ID_usuario.Location = new Point(800, 413);
             lbl_ID_usuario.Name = "lbl_ID_usuario";
             lbl_ID_usuario.Size = new Size(163, 32);
@@ -250,7 +256,9 @@
             // 
             lbl_login.Anchor = AnchorStyles.None;
             lbl_login.AutoSize = true;
+            lbl_login.BackColor = Color.Transparent;
             lbl_login.Font = new Font("Arial Rounded MT Bold", 25.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_login.ForeColor = Color.White;
             lbl_login.Location = new Point(881, 316);
             lbl_login.Name = "lbl_login";
             lbl_login.Size = new Size(157, 51);
@@ -261,7 +269,9 @@
             // 
             lbl_InkPOS.Anchor = AnchorStyles.None;
             lbl_InkPOS.AutoSize = true;
+            lbl_InkPOS.BackColor = Color.Transparent;
             lbl_InkPOS.Font = new Font("Arial Rounded MT Bold", 72F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_InkPOS.ForeColor = Color.White;
             lbl_InkPOS.Location = new Point(719, 121);
             lbl_InkPOS.Name = "lbl_InkPOS";
             lbl_InkPOS.Size = new Size(493, 139);
@@ -273,6 +283,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Menu;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1840, 1175);
             Controls.Add(panel_login);
             Icon = (Icon)resources.GetObject("$this.Icon");

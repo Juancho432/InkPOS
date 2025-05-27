@@ -47,7 +47,7 @@ namespace InkPos
             }
             ;
             // Parsear los valores numéricos
-            if ( !int.TryParse(cantidad, out int stock) ||
+            if (!int.TryParse(cantidad, out int stock) ||
                 !decimal.TryParse(precio, out decimal pvp))
             {
                 MessageBox.Show("Verifica que la cantidad y el precio sean valores numéricos válidos.");
@@ -99,5 +99,21 @@ namespace InkPos
         {
             this.Close();
         }
+
+        private void CentrarControlesEnPanel(Panel panel)
+        {
+            foreach (Control ctrl in panel.Controls)
+            {
+                int nuevoX = (panel.Width - ctrl.Width) / 2;
+                ctrl.Location = new Point(nuevoX, ctrl.Location.Y);
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            CentrarControlesEnPanel(panel_agregar_producto);
+        }
+
+
     }
 }
