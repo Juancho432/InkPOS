@@ -1,3 +1,4 @@
+PRAGMA encoding = "UTF-8";
 -- Cliente de Prueba
 INSERT INTO CLIENTE (ID_Cliente,Nombre,Direccion,Telefono) VALUES (
   '1',
@@ -108,12 +109,12 @@ INSERT INTO CLIENTE (ID_Cliente, Nombre, Direccion, Telefono) VALUES
 (7, 'Daniela Mora', 'Calle 100 #110-120', '3167890123'),
 (8, 'Andres Castro', 'Carrera 120 #130-140', '3178901234'),
 (9, 'Carolina Rios', 'Avenida 150 #160-170', '3189012345'),
-(10, 'Sebastian El Caldeño', 'Caldas, Antioquia', '3110000000');
+(10, 'Sebastian El CaldeÃ±o', 'Caldas, Antioquia', '3110000000');
 
---Inserción de productos
+--InserciÃ³n de productos
 INSERT INTO PRODUCTO (ID_Producto,Nombre,Precio,Stock) VALUES 
 (4, 'Colbon grande', 5000, 1000),
-(5, 'Pegastick pequeño', 1200, 800),
+(5, 'Pegastick pequeÃ±o', 1200, 800),
 (6, 'Block Base 30 Sin rotulo', 7500, 1000),
 (7, 'Cartulina', 1900, 500),
 (8, 'Cuaderno sencillo', 4450, 1000),
@@ -138,7 +139,7 @@ INSERT INTO PRODUCTO (ID_Producto,Nombre,Precio,Stock) VALUES
 (27, 'Sobre Lluvia de sobres', 1500, 1000),
 (28, 'Carpeta Carton', 1000, 1000),
 (29, 'Gancho Carpeta Carton', 300, 500),
-(30, 'Trident Pequeño', 400, 1000),
+(30, 'Trident PequeÃ±o', 400, 1000),
 (31, 'Sobre Fichas Bibliograficas', 2000, 1000),
 (32, 'Resaltador Normal', 2500, 1000),
 (33, 'Carpeta de Bisel', 1800, 2000),
@@ -146,6 +147,6 @@ INSERT INTO PRODUCTO (ID_Producto,Nombre,Precio,Stock) VALUES
 (35, 'Audifonos sencillos', 8000, 4000),
 (36, 'Cagador V8', 17000, 1000),
 (37, 'Bon Bon Bum', 500, 1500),
-(38, 'Alcancia pequeña', 500, 1000),
+(38, 'Alcancia pequeÃ±a', 500, 1000),
 (39, 'Alcancia grande', 2000, 1000),
 (40, 'Bolas de icopor medianas', 2000, 1000);
