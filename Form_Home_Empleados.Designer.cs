@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Home_Empleados));
             panel_home_empleado = new Panel();
-            button_settings = new PictureBox();
+            button_settings = new Button();
             panel_devoluciones = new Panel();
             button_devolucion = new MaterialSkin.Controls.MaterialButton();
             PB_devolucion = new PictureBox();
@@ -44,7 +44,6 @@
             lbl_nombreUsuario = new Label();
             lbl_welcome = new Label();
             panel_home_empleado.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)button_settings).BeginInit();
             panel_devoluciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PB_devolucion).BeginInit();
             panel_ventas.SuspendLayout();
@@ -72,14 +71,12 @@
             // button_settings
             // 
             button_settings.Anchor = AnchorStyles.None;
-            button_settings.BackColor = Color.Transparent;
-            button_settings.Cursor = Cursors.Hand;
             button_settings.Image = (Image)resources.GetObject("button_settings.Image");
-            button_settings.Location = new Point(1846, 48);
+            button_settings.Location = new Point(1601, 160);
             button_settings.Name = "button_settings";
-            button_settings.Size = new Size(33, 34);
-            button_settings.TabIndex = 11;
-            button_settings.TabStop = false;
+            button_settings.Size = new Size(62, 47);
+            button_settings.TabIndex = 40;
+            button_settings.UseVisualStyleBackColor = true;
             button_settings.Click += button_settings_Click;
             // 
             // panel_devoluciones
@@ -268,7 +265,6 @@
             Load += Form_Home_Empleados_Load;
             panel_home_empleado.ResumeLayout(false);
             panel_home_empleado.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)button_settings).EndInit();
             panel_devoluciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)PB_devolucion).EndInit();
             panel_ventas.ResumeLayout(false);
@@ -293,6 +289,6 @@
         private Panel panel_devoluciones;
         private MaterialSkin.Controls.MaterialButton button_devolucion;
         private PictureBox PB_devolucion;
-        private PictureBox button_settings;
+        private Button button_settings;
     }
 }
