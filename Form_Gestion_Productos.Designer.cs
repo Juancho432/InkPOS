@@ -91,7 +91,7 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgv_Productos.DefaultCellStyle = dataGridViewCellStyle2;
-            dgv_Productos.Location = new Point(124, 285);
+            dgv_Productos.Location = new Point(124, 372);
             dgv_Productos.MultiSelect = false;
             dgv_Productos.Name = "dgv_Productos";
             dgv_Productos.ReadOnly = true;
@@ -150,7 +150,7 @@
             txtbox_buscar.HideSelection = true;
             txtbox_buscar.Hint = "Ingrese el código o nombre del producto";
             txtbox_buscar.LeadingIcon = null;
-            txtbox_buscar.Location = new Point(611, 158);
+            txtbox_buscar.Location = new Point(611, 245);
             txtbox_buscar.MaxLength = 32767;
             txtbox_buscar.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_buscar.Name = "txtbox_buscar";
@@ -174,7 +174,7 @@
             // 
             button_añadir_producto.Anchor = AnchorStyles.None;
             button_añadir_producto.Image = (Image)resources.GetObject("button_añadir_producto.Image");
-            button_añadir_producto.Location = new Point(1250, 146);
+            button_añadir_producto.Location = new Point(1250, 233);
             button_añadir_producto.Name = "button_añadir_producto";
             button_añadir_producto.Size = new Size(69, 48);
             button_añadir_producto.TabIndex = 4;
@@ -185,7 +185,7 @@
             // 
             button_salir.Anchor = AnchorStyles.None;
             button_salir.Image = (Image)resources.GetObject("button_salir.Image");
-            button_salir.Location = new Point(171, 146);
+            button_salir.Location = new Point(171, 233);
             button_salir.Name = "button_salir";
             button_salir.Size = new Size(69, 48);
             button_salir.TabIndex = 3;
@@ -199,7 +199,7 @@
             lbl_GP.BackColor = Color.Transparent;
             lbl_GP.Font = new Font("Arial Rounded MT Bold", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_GP.ForeColor = Color.White;
-            lbl_GP.Location = new Point(561, 33);
+            lbl_GP.Location = new Point(561, 120);
             lbl_GP.Name = "lbl_GP";
             lbl_GP.Size = new Size(440, 46);
             lbl_GP.TabIndex = 0;

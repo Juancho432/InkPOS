@@ -67,7 +67,7 @@
             txtbox_producto_a_modificar.HideSelection = true;
             txtbox_producto_a_modificar.Hint = "Código del producto a modificar";
             txtbox_producto_a_modificar.LeadingIcon = null;
-            txtbox_producto_a_modificar.Location = new Point(628, 183);
+            txtbox_producto_a_modificar.Location = new Point(761, 340);
             txtbox_producto_a_modificar.MaxLength = 32767;
             txtbox_producto_a_modificar.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_producto_a_modificar.Name = "txtbox_producto_a_modificar";
@@ -94,7 +94,7 @@
             button_cancelar.Depth = 0;
             button_cancelar.HighEmphasis = true;
             button_cancelar.Icon = null;
-            button_cancelar.Location = new Point(915, 574);
+            button_cancelar.Location = new Point(1048, 731);
             button_cancelar.Margin = new Padding(4, 6, 4, 6);
             button_cancelar.MouseState = MaterialSkin.MouseState.HOVER;
             button_cancelar.Name = "button_cancelar";
@@ -115,7 +115,7 @@
             button_confirmar.Depth = 0;
             button_confirmar.HighEmphasis = true;
             button_confirmar.Icon = null;
-            button_confirmar.Location = new Point(530, 574);
+            button_confirmar.Location = new Point(663, 731);
             button_confirmar.Margin = new Padding(4, 6, 4, 6);
             button_confirmar.MouseState = MaterialSkin.MouseState.HOVER;
             button_confirmar.Name = "button_confirmar";
@@ -135,7 +135,7 @@
             lbl_ingresevalor.BackColor = Color.Transparent;
             lbl_ingresevalor.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_ingresevalor.ForeColor = Color.White;
-            lbl_ingresevalor.Location = new Point(540, 408);
+            lbl_ingresevalor.Location = new Point(658, 565);
             lbl_ingresevalor.Name = "lbl_ingresevalor";
             lbl_ingresevalor.Size = new Size(175, 17);
             lbl_ingresevalor.TabIndex = 3;
@@ -158,7 +158,7 @@
             CB_valor_a_modificar.IntegralHeight = false;
             CB_valor_a_modificar.ItemHeight = 43;
             CB_valor_a_modificar.Items.AddRange(new object[] { "Nombre", "Precio", "Stock" });
-            CB_valor_a_modificar.Location = new Point(628, 283);
+            CB_valor_a_modificar.Location = new Point(761, 440);
             CB_valor_a_modificar.MaxDropDownItems = 4;
             CB_valor_a_modificar.MouseState = MaterialSkin.MouseState.OUT;
             CB_valor_a_modificar.Name = "CB_valor_a_modificar";
@@ -173,7 +173,7 @@
             lbl_mod.BackColor = Color.Transparent;
             lbl_mod.Font = new Font("Arial Rounded MT Bold", 25.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_mod.ForeColor = Color.White;
-            lbl_mod.Location = new Point(563, 72);
+            lbl_mod.Location = new Point(673, 227);
             lbl_mod.Name = "lbl_mod";
             lbl_mod.Size = new Size(434, 51);
             lbl_mod.TabIndex = 1;
@@ -189,7 +189,7 @@
             txtbox_nuevo_valor.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_nuevo_valor.HideSelection = true;
             txtbox_nuevo_valor.LeadingIcon = null;
-            txtbox_nuevo_valor.Location = new Point(746, 390);
+            txtbox_nuevo_valor.Location = new Point(864, 547);
             txtbox_nuevo_valor.MaxLength = 32767;
             txtbox_nuevo_valor.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_nuevo_valor.Name = "txtbox_nuevo_valor";

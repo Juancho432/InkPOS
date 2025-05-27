@@ -61,7 +61,7 @@
             button_cancelar.Depth = 0;
             button_cancelar.HighEmphasis = true;
             button_cancelar.Icon = null;
-            button_cancelar.Location = new Point(925, 676);
+            button_cancelar.Location = new Point(918, 766);
             button_cancelar.Margin = new Padding(5);
             button_cancelar.MouseState = MaterialSkin.MouseState.HOVER;
             button_cancelar.Name = "button_cancelar";
@@ -78,7 +78,7 @@
             // 
             button_imprimir.Anchor = AnchorStyles.None;
             button_imprimir.Image = (Image)resources.GetObject("button_imprimir.Image");
-            button_imprimir.Location = new Point(1042, 454);
+            button_imprimir.Location = new Point(1035, 544);
             button_imprimir.Name = "button_imprimir";
             button_imprimir.Size = new Size(69, 48);
             button_imprimir.TabIndex = 10;
@@ -92,7 +92,7 @@
             link_label_Ver.BackColor = Color.Transparent;
             link_label_Ver.Font = new Font("Arial Rounded MT Bold", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             link_label_Ver.LinkColor = Color.White;
-            link_label_Ver.Location = new Point(841, 464);
+            link_label_Ver.Location = new Point(834, 554);
             link_label_Ver.Name = "link_label_Ver";
             link_label_Ver.Size = new Size(62, 32);
             link_label_Ver.TabIndex = 9;
@@ -111,7 +111,7 @@
             txtbox_ingresar_N_factura.HideSelection = true;
             txtbox_ingresar_N_factura.Hint = "Ingrese el N° de factura";
             txtbox_ingresar_N_factura.LeadingIcon = null;
-            txtbox_ingresar_N_factura.Location = new Point(841, 294);
+            txtbox_ingresar_N_factura.Location = new Point(834, 384);
             txtbox_ingresar_N_factura.MaxLength = 32767;
             txtbox_ingresar_N_factura.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_ingresar_N_factura.Name = "txtbox_ingresar_N_factura";
@@ -137,7 +137,7 @@
             lbl_busquda_facturas.BackColor = Color.Transparent;
             lbl_busquda_facturas.Font = new Font("Arial Rounded MT Bold", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_busquda_facturas.ForeColor = Color.White;
-            lbl_busquda_facturas.Location = new Point(718, 134);
+            lbl_busquda_facturas.Location = new Point(711, 224);
             lbl_busquda_facturas.Name = "lbl_busquda_facturas";
             lbl_busquda_facturas.Size = new Size(524, 54);
             lbl_busquda_facturas.TabIndex = 4;

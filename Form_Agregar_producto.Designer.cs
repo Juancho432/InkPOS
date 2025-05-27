@@ -77,7 +77,7 @@
             button_cancelar.Depth = 0;
             button_cancelar.HighEmphasis = true;
             button_cancelar.Icon = null;
-            button_cancelar.Location = new Point(780, 797);
+            button_cancelar.Location = new Point(705, 792);
             button_cancelar.Margin = new Padding(4, 6, 4, 6);
             button_cancelar.MouseState = MaterialSkin.MouseState.HOVER;
             button_cancelar.Name = "button_cancelar";
@@ -99,7 +99,7 @@
             button_limpiar.Depth = 0;
             button_limpiar.HighEmphasis = true;
             button_limpiar.Icon = null;
-            button_limpiar.Location = new Point(918, 683);
+            button_limpiar.Location = new Point(843, 678);
             button_limpiar.Margin = new Padding(4, 6, 4, 6);
             button_limpiar.MouseState = MaterialSkin.MouseState.HOVER;
             button_limpiar.Name = "button_limpiar";
@@ -121,7 +121,7 @@
             button_agregar.Depth = 0;
             button_agregar.HighEmphasis = true;
             button_agregar.Icon = null;
-            button_agregar.Location = new Point(665, 683);
+            button_agregar.Location = new Point(590, 678);
             button_agregar.Margin = new Padding(4, 6, 4, 6);
             button_agregar.MouseState = MaterialSkin.MouseState.HOVER;
             button_agregar.Name = "button_agregar";
@@ -144,7 +144,7 @@
             txtbox_add_precio.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_add_precio.HideSelection = true;
             txtbox_add_precio.LeadingIcon = null;
-            txtbox_add_precio.Location = new Point(750, 538);
+            txtbox_add_precio.Location = new Point(675, 533);
             txtbox_add_precio.MaxLength = 32767;
             txtbox_add_precio.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_add_precio.Name = "txtbox_add_precio";
@@ -173,7 +173,7 @@
             txtbox_add_codigo_producto.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_add_codigo_producto.HideSelection = true;
             txtbox_add_codigo_producto.LeadingIcon = null;
-            txtbox_add_codigo_producto.Location = new Point(750, 312);
+            txtbox_add_codigo_producto.Location = new Point(675, 307);
             txtbox_add_codigo_producto.MaxLength = 32767;
             txtbox_add_codigo_producto.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_add_codigo_producto.Name = "txtbox_add_codigo_producto";
@@ -202,7 +202,7 @@
             txtbox_add_cantidad.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_add_cantidad.HideSelection = true;
             txtbox_add_cantidad.LeadingIcon = null;
-            txtbox_add_cantidad.Location = new Point(750, 464);
+            txtbox_add_cantidad.Location = new Point(675, 459);
             txtbox_add_cantidad.MaxLength = 32767;
             txtbox_add_cantidad.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_add_cantidad.Name = "txtbox_add_cantidad";
@@ -231,7 +231,7 @@
             txtbox_add_nombre_producto.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_add_nombre_producto.HideSelection = true;
             txtbox_add_nombre_producto.LeadingIcon = null;
-            txtbox_add_nombre_producto.Location = new Point(750, 224);
+            txtbox_add_nombre_producto.Location = new Point(675, 219);
             txtbox_add_nombre_producto.MaxLength = 32767;
             txtbox_add_nombre_producto.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_add_nombre_producto.Name = "txtbox_add_nombre_producto";
@@ -257,7 +257,7 @@
             lbl_precio.BackColor = Color.Transparent;
             lbl_precio.Font = new Font("Arial Rounded MT Bold", 12F);
             lbl_precio.ForeColor = Color.White;
-            lbl_precio.Location = new Point(665, 550);
+            lbl_precio.Location = new Point(590, 545);
             lbl_precio.Name = "lbl_precio";
             lbl_precio.Size = new Size(79, 23);
             lbl_precio.TabIndex = 21;
@@ -270,7 +270,7 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Arial Rounded MT Bold", 12F);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(639, 476);
+            label3.Location = new Point(564, 471);
             label3.Name = "label3";
             label3.Size = new Size(105, 23);
             label3.TabIndex = 20;
@@ -283,7 +283,7 @@
             lbl_stock.BackColor = Color.Transparent;
             lbl_stock.Font = new Font("Arial Rounded MT Bold", 12F);
             lbl_stock.ForeColor = Color.White;
-            lbl_stock.Location = new Point(665, 413);
+            lbl_stock.Location = new Point(590, 408);
             lbl_stock.Name = "lbl_stock";
             lbl_stock.Size = new Size(79, 23);
             lbl_stock.TabIndex = 19;
@@ -296,7 +296,7 @@
             lbl_codigoproducto.BackColor = Color.Transparent;
             lbl_codigoproducto.Font = new Font("Arial Rounded MT Bold", 12F);
             lbl_codigoproducto.ForeColor = Color.White;
-            lbl_codigoproducto.Location = new Point(528, 323);
+            lbl_codigoproducto.Location = new Point(453, 318);
             lbl_codigoproducto.Name = "lbl_codigoproducto";
             lbl_codigoproducto.Size = new Size(216, 23);
             lbl_codigoproducto.TabIndex = 18;
@@ -309,7 +309,7 @@
             lbl_nombreproducto.BackColor = Color.Transparent;
             lbl_nombreproducto.Font = new Font("Arial Rounded MT Bold", 12F);
             lbl_nombreproducto.ForeColor = Color.White;
-            lbl_nombreproducto.Location = new Point(519, 239);
+            lbl_nombreproducto.Location = new Point(444, 234);
             lbl_nombreproducto.Name = "lbl_nombreproducto";
             lbl_nombreproducto.Size = new Size(225, 23);
             lbl_nombreproducto.TabIndex = 17;
@@ -322,7 +322,7 @@
             lbl_agregarproducto.BackColor = Color.Transparent;
             lbl_agregarproducto.Font = new Font("Arial Rounded MT Bold", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_agregarproducto.ForeColor = Color.White;
-            lbl_agregarproducto.Location = new Point(585, 78);
+            lbl_agregarproducto.Location = new Point(510, 73);
             lbl_agregarproducto.Name = "lbl_agregarproducto";
             lbl_agregarproducto.Size = new Size(433, 54);
             lbl_agregarproducto.TabIndex = 14;

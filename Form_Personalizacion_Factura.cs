@@ -136,7 +136,7 @@ namespace InkPos
             string json = JsonSerializer.Serialize(empresa, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(rutaJson, json);
 
-            MessageBox.Show("Información actualizada correctamente.", "Éxito", 
+            MessageBox.Show("Información actualizada correctamente.", "Éxito",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }

@@ -82,7 +82,7 @@
             // 
             button_settings_factura.Anchor = AnchorStyles.None;
             button_settings_factura.Image = (Image)resources.GetObject("button_settings_factura.Image");
-            button_settings_factura.Location = new Point(1580, 187);
+            button_settings_factura.Location = new Point(1526, 165);
             button_settings_factura.Name = "button_settings_factura";
             button_settings_factura.Size = new Size(62, 47);
             button_settings_factura.TabIndex = 39;

@@ -58,7 +58,7 @@
             // 
             // panel_home_admin
             // 
-            panel_home_admin.Anchor = AnchorStyles.None;
+            panel_home_admin.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel_home_admin.BackgroundImage = (Image)resources.GetObject("panel_home_admin.BackgroundImage");
             panel_home_admin.Controls.Add(panel_reporte_ventas);
             panel_home_admin.Controls.Add(button_salir);
@@ -79,7 +79,7 @@
             panel_reporte_ventas.BackColor = Color.Transparent;
             panel_reporte_ventas.Controls.Add(button_reporte_ventas);
             panel_reporte_ventas.Controls.Add(PB_reporte_ventas);
-            panel_reporte_ventas.Location = new Point(1304, 415);
+            panel_reporte_ventas.Location = new Point(1300, 445);
             panel_reporte_ventas.Name = "panel_reporte_ventas";
             panel_reporte_ventas.Size = new Size(205, 191);
             panel_reporte_ventas.TabIndex = 10;
@@ -124,7 +124,7 @@
             button_salir.Depth = 0;
             button_salir.HighEmphasis = true;
             button_salir.Icon = null;
-            button_salir.Location = new Point(918, 859);
+            button_salir.Location = new Point(850, 863);
             button_salir.Margin = new Padding(4, 6, 4, 6);
             button_salir.MouseState = MaterialSkin.MouseState.HOVER;
             button_salir.Name = "button_salir";
@@ -143,7 +143,7 @@
             panel_MProductos.BackColor = Color.Transparent;
             panel_MProductos.Controls.Add(button_maestro_productos);
             panel_MProductos.Controls.Add(PB_MProductos);
-            panel_MProductos.Location = new Point(666, 424);
+            panel_MProductos.Location = new Point(665, 445);
             panel_MProductos.Name = "panel_MProductos";
             panel_MProductos.Size = new Size(205, 191);
             panel_MProductos.TabIndex = 4;
@@ -184,7 +184,7 @@
             panel_facturas.BackColor = Color.Transparent;
             panel_facturas.Controls.Add(button_facturas);
             panel_facturas.Controls.Add(PB_facturas);
-            panel_facturas.Location = new Point(981, 415);
+            panel_facturas.Location = new Point(978, 445);
             panel_facturas.Name = "panel_facturas";
             panel_facturas.Size = new Size(205, 191);
             panel_facturas.TabIndex = 3;
@@ -226,7 +226,7 @@
             panel_button_GEmpleados.BackColor = Color.Transparent;
             panel_button_GEmpleados.Controls.Add(button_GEmpleados);
             panel_button_GEmpleados.Controls.Add(PB_GEmpleados);
-            panel_button_GEmpleados.Location = new Point(368, 421);
+            panel_button_GEmpleados.Location = new Point(367, 442);
             panel_button_GEmpleados.Name = "panel_button_GEmpleados";
             panel_button_GEmpleados.Size = new Size(205, 191);
             panel_button_GEmpleados.TabIndex = 2;
@@ -268,7 +268,7 @@
             lbl_nombreUsuario.BackColor = Color.Transparent;
             lbl_nombreUsuario.Font = new Font("Arial Rounded MT Bold", 28.2F);
             lbl_nombreUsuario.ForeColor = Color.White;
-            lbl_nombreUsuario.Location = new Point(951, 149);
+            lbl_nombreUsuario.Location = new Point(959, 199);
             lbl_nombreUsuario.Name = "lbl_nombreUsuario";
             lbl_nombreUsuario.Size = new Size(263, 54);
             lbl_nombreUsuario.TabIndex = 1;
@@ -281,7 +281,7 @@
             lbl_welcome.BackColor = Color.Transparent;
             lbl_welcome.Font = new Font("Arial Rounded MT Bold", 28.2F);
             lbl_welcome.ForeColor = Color.White;
-            lbl_welcome.Location = new Point(671, 149);
+            lbl_welcome.Location = new Point(614, 199);
             lbl_welcome.Name = "lbl_welcome";
             lbl_welcome.Size = new Size(277, 54);
             lbl_welcome.TabIndex = 0;

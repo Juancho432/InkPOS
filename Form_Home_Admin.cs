@@ -41,7 +41,6 @@
 
         private void Form_Home_Admin_Load(object sender, EventArgs e)
         {
-
             lbl_nombreUsuario.Text = EmpleadoActual.Nombre;
         }
 
@@ -60,5 +59,7 @@
             Hide();
             reporte_Venta.FormClosed += (s, args) => this.Show();
         }
+
+
     }
 }

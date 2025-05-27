@@ -160,7 +160,7 @@
             txtbox_buscar_empleado.HideSelection = true;
             txtbox_buscar_empleado.Hint = "Ingrese la cédula del empleado";
             txtbox_buscar_empleado.LeadingIcon = null;
-            txtbox_buscar_empleado.Location = new Point(637, 156);
+            txtbox_buscar_empleado.Location = new Point(615, 154);
             txtbox_buscar_empleado.Margin = new Padding(3, 4, 3, 4);
             txtbox_buscar_empleado.MaxLength = 32767;
             txtbox_buscar_empleado.MouseState = MaterialSkin.MouseState.OUT;
@@ -212,7 +212,7 @@
             lbl_GE.BackColor = Color.Transparent;
             lbl_GE.Font = new Font("Arial Rounded MT Bold", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_GE.ForeColor = Color.White;
-            lbl_GE.Location = new Point(568, 44);
+            lbl_GE.Location = new Point(546, 42);
             lbl_GE.Name = "lbl_GE";
             lbl_GE.Size = new Size(454, 46);
             lbl_GE.TabIndex = 6;
@@ -222,6 +222,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1522, 1055);
             Controls.Add(panel_GE);
             Icon = (Icon)resources.GetObject("$this.Icon");
