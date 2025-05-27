@@ -50,6 +50,7 @@
             // panel_settings_empleado
             // 
             panel_settings_empleado.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel_settings_empleado.BackgroundImage = (Image)resources.GetObject("panel_settings_empleado.BackgroundImage");
             panel_settings_empleado.Controls.Add(button_salir);
             panel_settings_empleado.Controls.Add(PB_ocultar);
             panel_settings_empleado.Controls.Add(PB_ver);
@@ -83,7 +84,7 @@
             PB_ocultar.Anchor = AnchorStyles.None;
             PB_ocultar.Cursor = Cursors.Hand;
             PB_ocultar.Image = (Image)resources.GetObject("PB_ocultar.Image");
-            PB_ocultar.Location = new Point(1128, 533);
+            PB_ocultar.Location = new Point(1140, 532);
             PB_ocultar.Name = "PB_ocultar";
             PB_ocultar.Size = new Size(51, 48);
             PB_ocultar.TabIndex = 12;
@@ -95,7 +96,7 @@
             PB_ver.Anchor = AnchorStyles.None;
             PB_ver.Cursor = Cursors.Hand;
             PB_ver.Image = (Image)resources.GetObject("PB_ver.Image");
-            PB_ver.Location = new Point(1129, 533);
+            PB_ver.Location = new Point(1141, 532);
             PB_ver.Name = "PB_ver";
             PB_ver.Size = new Size(51, 48);
             PB_ver.TabIndex = 11;
@@ -105,7 +106,9 @@
             // lbl_motivos
             // 
             lbl_motivos.Anchor = AnchorStyles.None;
+            lbl_motivos.BackColor = Color.Transparent;
             lbl_motivos.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_motivos.ForeColor = Color.White;
             lbl_motivos.Location = new Point(694, 253);
             lbl_motivos.Name = "lbl_motivos";
             lbl_motivos.Size = new Size(512, 60);
@@ -117,7 +120,9 @@
             // 
             lbl_info.Anchor = AnchorStyles.None;
             lbl_info.AutoSize = true;
+            lbl_info.BackColor = Color.Transparent;
             lbl_info.Font = new Font("Arial Rounded MT Bold", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_info.ForeColor = Color.White;
             lbl_info.Location = new Point(694, 171);
             lbl_info.Name = "lbl_info";
             lbl_info.Size = new Size(523, 54);
@@ -128,9 +133,12 @@
             // 
             lbl_NPassword.Anchor = AnchorStyles.None;
             lbl_NPassword.AutoSize = true;
+            lbl_NPassword.BackColor = Color.Transparent;
+            lbl_NPassword.Font = new Font("Arial Rounded MT Bold", 9F);
+            lbl_NPassword.ForeColor = Color.White;
             lbl_NPassword.Location = new Point(658, 552);
             lbl_NPassword.Name = "lbl_NPassword";
-            lbl_NPassword.Size = new Size(130, 20);
+            lbl_NPassword.Size = new Size(146, 17);
             lbl_NPassword.TabIndex = 6;
             lbl_NPassword.Text = "Nueva contraseña:";
             // 
@@ -138,9 +146,12 @@
             // 
             lbl_CActual.Anchor = AnchorStyles.None;
             lbl_CActual.AutoSize = true;
+            lbl_CActual.BackColor = Color.Transparent;
+            lbl_CActual.Font = new Font("Arial Rounded MT Bold", 9F);
+            lbl_CActual.ForeColor = Color.White;
             lbl_CActual.Location = new Point(590, 385);
             lbl_CActual.Name = "lbl_CActual";
-            lbl_CActual.Size = new Size(198, 20);
+            lbl_CActual.Size = new Size(226, 17);
             lbl_CActual.TabIndex = 5;
             lbl_CActual.Text = "Ingrese su contraseña actual:";
             // 
@@ -148,9 +159,12 @@
             // 
             lbl_telefono.Anchor = AnchorStyles.None;
             lbl_telefono.AutoSize = true;
-            lbl_telefono.Location = new Point(718, 471);
+            lbl_telefono.BackColor = Color.Transparent;
+            lbl_telefono.Font = new Font("Arial Rounded MT Bold", 9F);
+            lbl_telefono.ForeColor = Color.White;
+            lbl_telefono.Location = new Point(740, 471);
             lbl_telefono.Name = "lbl_telefono";
-            lbl_telefono.Size = new Size(70, 20);
+            lbl_telefono.Size = new Size(76, 17);
             lbl_telefono.TabIndex = 4;
             lbl_telefono.Text = "Teléfono:";
             // 
@@ -186,7 +200,7 @@
             txtbox_new_password.HideSelection = true;
             txtbox_new_password.Hint = "Dejar en blanco si no desea modificar";
             txtbox_new_password.LeadingIcon = null;
-            txtbox_new_password.Location = new Point(810, 533);
+            txtbox_new_password.Location = new Point(822, 532);
             txtbox_new_password.MaxLength = 32767;
             txtbox_new_password.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_new_password.Name = "txtbox_new_password";
@@ -216,7 +230,7 @@
             txtbox_actual_password.HideSelection = true;
             txtbox_actual_password.Hint = "Obligatorio";
             txtbox_actual_password.LeadingIcon = null;
-            txtbox_actual_password.Location = new Point(810, 357);
+            txtbox_actual_password.Location = new Point(822, 366);
             txtbox_actual_password.MaxLength = 32767;
             txtbox_actual_password.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_actual_password.Name = "txtbox_actual_password";
@@ -246,7 +260,7 @@
             txtbox_telefono.HideSelection = true;
             txtbox_telefono.Hint = "Dejar en blanco si no desea modificar";
             txtbox_telefono.LeadingIcon = null;
-            txtbox_telefono.Location = new Point(810, 443);
+            txtbox_telefono.Location = new Point(822, 454);
             txtbox_telefono.MaxLength = 32767;
             txtbox_telefono.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_telefono.Name = "txtbox_telefono";
@@ -269,6 +283,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1924, 1150);
             Controls.Add(panel_settings_empleado);
             Icon = (Icon)resources.GetObject("$this.Icon");

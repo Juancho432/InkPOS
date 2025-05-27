@@ -335,6 +335,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1522, 1055);
             Controls.Add(panel_agregar_producto);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form_Agregar_Producto";
             Text = "InkPOS _ Agregar Producto";
             WindowState = FormWindowState.Maximized;

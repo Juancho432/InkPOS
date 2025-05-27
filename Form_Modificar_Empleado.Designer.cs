@@ -46,6 +46,7 @@
             // panel_gestion_empleados
             // 
             panel_gestion_empleados.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel_gestion_empleados.BackgroundImage = (Image)resources.GetObject("panel_gestion_empleados.BackgroundImage");
             panel_gestion_empleados.Controls.Add(lbl_cargo);
             panel_gestion_empleados.Controls.Add(CB_cargo);
             panel_gestion_empleados.Controls.Add(lbl_ingresevalor);
@@ -65,7 +66,9 @@
             // 
             lbl_cargo.Anchor = AnchorStyles.None;
             lbl_cargo.AutoSize = true;
+            lbl_cargo.BackColor = Color.Transparent;
             lbl_cargo.Font = new Font("Arial Rounded MT Bold", 9F);
+            lbl_cargo.ForeColor = Color.White;
             lbl_cargo.Location = new Point(894, 543);
             lbl_cargo.Name = "lbl_cargo";
             lbl_cargo.Size = new Size(58, 17);
@@ -100,7 +103,9 @@
             // 
             lbl_ingresevalor.Anchor = AnchorStyles.None;
             lbl_ingresevalor.AutoSize = true;
+            lbl_ingresevalor.BackColor = Color.Transparent;
             lbl_ingresevalor.Font = new Font("Arial Rounded MT Bold", 9F);
+            lbl_ingresevalor.ForeColor = Color.White;
             lbl_ingresevalor.Location = new Point(789, 543);
             lbl_ingresevalor.Name = "lbl_ingresevalor";
             lbl_ingresevalor.Size = new Size(175, 17);
@@ -201,7 +206,7 @@
             button_salir.Depth = 0;
             button_salir.HighEmphasis = true;
             button_salir.Icon = null;
-            button_salir.Location = new Point(1165, 804);
+            button_salir.Location = new Point(1128, 798);
             button_salir.Margin = new Padding(4, 6, 4, 6);
             button_salir.MouseState = MaterialSkin.MouseState.HOVER;
             button_salir.Name = "button_salir";
@@ -223,7 +228,7 @@
             button_limpiar.Depth = 0;
             button_limpiar.HighEmphasis = true;
             button_limpiar.Icon = null;
-            button_limpiar.Location = new Point(968, 804);
+            button_limpiar.Location = new Point(931, 798);
             button_limpiar.Margin = new Padding(4, 6, 4, 6);
             button_limpiar.MouseState = MaterialSkin.MouseState.HOVER;
             button_limpiar.Name = "button_limpiar";
@@ -245,7 +250,7 @@
             button_confirmar.Depth = 0;
             button_confirmar.HighEmphasis = true;
             button_confirmar.Icon = null;
-            button_confirmar.Location = new Point(779, 804);
+            button_confirmar.Location = new Point(742, 798);
             button_confirmar.Margin = new Padding(4, 6, 4, 6);
             button_confirmar.MouseState = MaterialSkin.MouseState.HOVER;
             button_confirmar.Name = "button_confirmar";
@@ -262,7 +267,9 @@
             // 
             lbl_GestionEmpleados.Anchor = AnchorStyles.None;
             lbl_GestionEmpleados.AutoSize = true;
+            lbl_GestionEmpleados.BackColor = Color.Transparent;
             lbl_GestionEmpleados.Font = new Font("Arial Rounded MT Bold", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_GestionEmpleados.ForeColor = Color.White;
             lbl_GestionEmpleados.Location = new Point(779, 146);
             lbl_GestionEmpleados.Name = "lbl_GestionEmpleados";
             lbl_GestionEmpleados.Size = new Size(461, 54);
@@ -273,6 +280,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1924, 1175);
             Controls.Add(panel_gestion_empleados);
             Icon = (Icon)resources.GetObject("$this.Icon");

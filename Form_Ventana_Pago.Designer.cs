@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Ventana_Pago));
             panel_ventana_pago = new Panel();
             txtbox_codigo_transferencia = new MaterialSkin.Controls.MaterialTextBox2();
             lbl_codigo_transferencia = new Label();
@@ -45,6 +46,8 @@
             // 
             // panel_ventana_pago
             // 
+            panel_ventana_pago.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel_ventana_pago.BackgroundImage = (Image)resources.GetObject("panel_ventana_pago.BackgroundImage");
             panel_ventana_pago.Controls.Add(txtbox_codigo_transferencia);
             panel_ventana_pago.Controls.Add(lbl_codigo_transferencia);
             panel_ventana_pago.Controls.Add(lbl_cambio);
@@ -94,10 +97,12 @@
             // 
             lbl_codigo_transferencia.Anchor = AnchorStyles.None;
             lbl_codigo_transferencia.AutoSize = true;
-            lbl_codigo_transferencia.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_codigo_transferencia.BackColor = Color.Transparent;
+            lbl_codigo_transferencia.Font = new Font("Arial Rounded MT Bold", 16.2F);
+            lbl_codigo_transferencia.ForeColor = Color.White;
             lbl_codigo_transferencia.Location = new Point(362, 431);
             lbl_codigo_transferencia.Name = "lbl_codigo_transferencia";
-            lbl_codigo_transferencia.Size = new Size(318, 38);
+            lbl_codigo_transferencia.Size = new Size(356, 32);
             lbl_codigo_transferencia.TabIndex = 17;
             lbl_codigo_transferencia.Text = "Código de transferencia:";
             // 
@@ -105,10 +110,12 @@
             // 
             lbl_cambio.Anchor = AnchorStyles.None;
             lbl_cambio.AutoSize = true;
-            lbl_cambio.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_cambio.Location = new Point(563, 509);
+            lbl_cambio.BackColor = Color.Transparent;
+            lbl_cambio.Font = new Font("Arial Rounded MT Bold", 16.2F);
+            lbl_cambio.ForeColor = Color.White;
+            lbl_cambio.Location = new Point(589, 525);
             lbl_cambio.Name = "lbl_cambio";
-            lbl_cambio.Size = new Size(117, 38);
+            lbl_cambio.Size = new Size(129, 32);
             lbl_cambio.TabIndex = 16;
             lbl_cambio.Text = "Cambio:";
             // 
@@ -246,10 +253,12 @@
             // 
             lbl_valor_recibido.Anchor = AnchorStyles.None;
             lbl_valor_recibido.AutoSize = true;
-            lbl_valor_recibido.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_valor_recibido.BackColor = Color.Transparent;
+            lbl_valor_recibido.Font = new Font("Arial Rounded MT Bold", 16.2F);
+            lbl_valor_recibido.ForeColor = Color.White;
             lbl_valor_recibido.Location = new Point(487, 431);
             lbl_valor_recibido.Name = "lbl_valor_recibido";
-            lbl_valor_recibido.Size = new Size(193, 38);
+            lbl_valor_recibido.Size = new Size(218, 32);
             lbl_valor_recibido.TabIndex = 9;
             lbl_valor_recibido.Text = "Valor recibido:";
             // 
@@ -283,10 +292,12 @@
             // 
             lbl_Valor.Anchor = AnchorStyles.None;
             lbl_Valor.AutoSize = true;
-            lbl_Valor.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_Valor.Location = new Point(522, 149);
+            lbl_Valor.BackColor = Color.Transparent;
+            lbl_Valor.Font = new Font("Arial Rounded MT Bold", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_Valor.ForeColor = Color.White;
+            lbl_Valor.Location = new Point(492, 135);
             lbl_Valor.Name = "lbl_Valor";
-            lbl_Valor.Size = new Size(92, 41);
+            lbl_Valor.Size = new Size(160, 54);
             lbl_Valor.TabIndex = 7;
             lbl_Valor.Text = "Valor:";
             // 
@@ -294,8 +305,10 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1522, 1055);
             Controls.Add(panel_ventana_pago);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form_Ventana_Pago";
             Text = "InkPOS - Pago";
             WindowState = FormWindowState.Maximized;

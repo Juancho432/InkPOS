@@ -30,6 +30,8 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Reporte_Venta));
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panel_reporte_ventas = new Panel();
             dgv_ReporteVenta = new DataGridView();
             lbl_fecha_fin = new Label();
@@ -51,6 +53,8 @@
             // 
             // panel_reporte_ventas
             // 
+            panel_reporte_ventas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel_reporte_ventas.BackgroundImage = (Image)resources.GetObject("panel_reporte_ventas.BackgroundImage");
             panel_reporte_ventas.Controls.Add(dgv_ReporteVenta);
             panel_reporte_ventas.Controls.Add(lbl_fecha_fin);
             panel_reporte_ventas.Controls.Add(lbl_fecha_inicio);
@@ -74,7 +78,23 @@
             dgv_ReporteVenta.AllowUserToResizeRows = false;
             dgv_ReporteVenta.Anchor = AnchorStyles.None;
             dgv_ReporteVenta.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgv_ReporteVenta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgv_ReporteVenta.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgv_ReporteVenta.DefaultCellStyle = dataGridViewCellStyle4;
             dgv_ReporteVenta.Enabled = false;
             dgv_ReporteVenta.Location = new Point(182, 397);
             dgv_ReporteVenta.MultiSelect = false;
@@ -90,9 +110,12 @@
             // 
             lbl_fecha_fin.Anchor = AnchorStyles.None;
             lbl_fecha_fin.AutoSize = true;
+            lbl_fecha_fin.BackColor = Color.Transparent;
+            lbl_fecha_fin.Font = new Font("Arial Rounded MT Bold", 9F);
+            lbl_fecha_fin.ForeColor = Color.Transparent;
             lbl_fecha_fin.Location = new Point(970, 244);
             lbl_fecha_fin.Name = "lbl_fecha_fin";
-            lbl_fecha_fin.Size = new Size(50, 20);
+            lbl_fecha_fin.Size = new Size(55, 17);
             lbl_fecha_fin.TabIndex = 28;
             lbl_fecha_fin.Text = "Hasta:";
             // 
@@ -100,26 +123,31 @@
             // 
             lbl_fecha_inicio.Anchor = AnchorStyles.None;
             lbl_fecha_inicio.AutoSize = true;
+            lbl_fecha_inicio.BackColor = Color.Transparent;
+            lbl_fecha_inicio.Font = new Font("Arial Rounded MT Bold", 9F);
+            lbl_fecha_inicio.ForeColor = Color.White;
             lbl_fecha_inicio.Location = new Point(966, 171);
             lbl_fecha_inicio.Name = "lbl_fecha_inicio";
-            lbl_fecha_inicio.Size = new Size(54, 20);
+            lbl_fecha_inicio.Size = new Size(59, 17);
             lbl_fecha_inicio.TabIndex = 27;
             lbl_fecha_inicio.Text = "Desde:";
             // 
             // timepicker_fecha_fin
             // 
             timepicker_fecha_fin.Anchor = AnchorStyles.None;
+            timepicker_fecha_fin.Font = new Font("Arial Rounded MT Bold", 9F);
             timepicker_fecha_fin.Location = new Point(852, 265);
             timepicker_fecha_fin.Name = "timepicker_fecha_fin";
-            timepicker_fecha_fin.Size = new Size(291, 27);
+            timepicker_fecha_fin.Size = new Size(291, 25);
             timepicker_fecha_fin.TabIndex = 26;
             // 
             // timepicker_fecha_inicio
             // 
             timepicker_fecha_inicio.Anchor = AnchorStyles.None;
+            timepicker_fecha_inicio.Font = new Font("Arial Rounded MT Bold", 9F);
             timepicker_fecha_inicio.Location = new Point(852, 203);
             timepicker_fecha_inicio.Name = "timepicker_fecha_inicio";
-            timepicker_fecha_inicio.Size = new Size(291, 27);
+            timepicker_fecha_inicio.Size = new Size(291, 25);
             timepicker_fecha_inicio.TabIndex = 25;
             // 
             // txtbox_buscar_producto
@@ -167,10 +195,12 @@
             // 
             lbl_RF.Anchor = AnchorStyles.None;
             lbl_RF.AutoSize = true;
-            lbl_RF.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_RF.Location = new Point(654, 30);
+            lbl_RF.BackColor = Color.Transparent;
+            lbl_RF.Font = new Font("Arial Rounded MT Bold", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_RF.ForeColor = Color.White;
+            lbl_RF.Location = new Point(648, 76);
             lbl_RF.Name = "lbl_RF";
-            lbl_RF.Size = new Size(344, 54);
+            lbl_RF.Size = new Size(377, 46);
             lbl_RF.TabIndex = 20;
             lbl_RF.Text = "Reporte de ventas";
             // 
@@ -190,8 +220,10 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1522, 1175);
             Controls.Add(panel_reporte_ventas);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form_Reporte_Venta";
             Text = "InkPOS - Reporte de ventas";
             WindowState = FormWindowState.Maximized;
