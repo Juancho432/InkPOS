@@ -61,7 +61,7 @@
             panel_ventana_pago.Controls.Add(lbl_Valor);
             panel_ventana_pago.Location = new Point(5, 3);
             panel_ventana_pago.Name = "panel_ventana_pago";
-            panel_ventana_pago.Size = new Size(1513, 1171);
+            panel_ventana_pago.Size = new Size(1915, 1291);
             panel_ventana_pago.TabIndex = 0;
             // 
             // txtbox_codigo_transferencia
@@ -74,7 +74,7 @@
             txtbox_codigo_transferencia.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_codigo_transferencia.HideSelection = true;
             txtbox_codigo_transferencia.LeadingIcon = null;
-            txtbox_codigo_transferencia.Location = new Point(746, 421);
+            txtbox_codigo_transferencia.Location = new Point(975, 509);
             txtbox_codigo_transferencia.MaxLength = 32767;
             txtbox_codigo_transferencia.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_codigo_transferencia.Name = "txtbox_codigo_transferencia";
@@ -100,7 +100,7 @@
             lbl_codigo_transferencia.BackColor = Color.Transparent;
             lbl_codigo_transferencia.Font = new Font("Arial Rounded MT Bold", 16.2F);
             lbl_codigo_transferencia.ForeColor = Color.White;
-            lbl_codigo_transferencia.Location = new Point(362, 431);
+            lbl_codigo_transferencia.Location = new Point(591, 519);
             lbl_codigo_transferencia.Name = "lbl_codigo_transferencia";
             lbl_codigo_transferencia.Size = new Size(356, 32);
             lbl_codigo_transferencia.TabIndex = 17;
@@ -113,7 +113,7 @@
             lbl_cambio.BackColor = Color.Transparent;
             lbl_cambio.Font = new Font("Arial Rounded MT Bold", 16.2F);
             lbl_cambio.ForeColor = Color.White;
-            lbl_cambio.Location = new Point(589, 525);
+            lbl_cambio.Location = new Point(818, 613);
             lbl_cambio.Name = "lbl_cambio";
             lbl_cambio.Size = new Size(129, 32);
             lbl_cambio.TabIndex = 16;
@@ -129,7 +129,7 @@
             txtbox_valor_recibido.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_valor_recibido.HideSelection = true;
             txtbox_valor_recibido.LeadingIcon = null;
-            txtbox_valor_recibido.Location = new Point(746, 421);
+            txtbox_valor_recibido.Location = new Point(975, 509);
             txtbox_valor_recibido.MaxLength = 32767;
             txtbox_valor_recibido.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_valor_recibido.Name = "txtbox_valor_recibido";
@@ -159,7 +159,7 @@
             txtbox_cambio.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_cambio.HideSelection = true;
             txtbox_cambio.LeadingIcon = null;
-            txtbox_cambio.Location = new Point(746, 509);
+            txtbox_cambio.Location = new Point(975, 597);
             txtbox_cambio.MaxLength = 32767;
             txtbox_cambio.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_cambio.Name = "txtbox_cambio";
@@ -186,7 +186,7 @@
             button_cancelar.Depth = 0;
             button_cancelar.HighEmphasis = true;
             button_cancelar.Icon = null;
-            button_cancelar.Location = new Point(800, 712);
+            button_cancelar.Location = new Point(1029, 800);
             button_cancelar.Margin = new Padding(5);
             button_cancelar.MouseState = MaterialSkin.MouseState.HOVER;
             button_cancelar.Name = "button_cancelar";
@@ -207,7 +207,7 @@
             button_confirmar.Depth = 0;
             button_confirmar.HighEmphasis = true;
             button_confirmar.Icon = null;
-            button_confirmar.Location = new Point(630, 712);
+            button_confirmar.Location = new Point(859, 800);
             button_confirmar.Margin = new Padding(5);
             button_confirmar.MouseState = MaterialSkin.MouseState.HOVER;
             button_confirmar.Name = "button_confirmar";
@@ -230,7 +230,7 @@
             txtbox_valor.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtbox_valor.HideSelection = true;
             txtbox_valor.LeadingIcon = null;
-            txtbox_valor.Location = new Point(658, 141);
+            txtbox_valor.Location = new Point(887, 229);
             txtbox_valor.MaxLength = 32767;
             txtbox_valor.MouseState = MaterialSkin.MouseState.OUT;
             txtbox_valor.Name = "txtbox_valor";
@@ -256,7 +256,7 @@
             lbl_valor_recibido.BackColor = Color.Transparent;
             lbl_valor_recibido.Font = new Font("Arial Rounded MT Bold", 16.2F);
             lbl_valor_recibido.ForeColor = Color.White;
-            lbl_valor_recibido.Location = new Point(487, 431);
+            lbl_valor_recibido.Location = new Point(716, 519);
             lbl_valor_recibido.Name = "lbl_valor_recibido";
             lbl_valor_recibido.Size = new Size(218, 32);
             lbl_valor_recibido.TabIndex = 9;
@@ -279,7 +279,7 @@
             CB_transaccion.IntegralHeight = false;
             CB_transaccion.ItemHeight = 43;
             CB_transaccion.Items.AddRange(new object[] { "Efectivo", "Transferencia" });
-            CB_transaccion.Location = new Point(621, 269);
+            CB_transaccion.Location = new Point(850, 357);
             CB_transaccion.MaxDropDownItems = 4;
             CB_transaccion.MouseState = MaterialSkin.MouseState.OUT;
             CB_transaccion.Name = "CB_transaccion";
@@ -295,7 +295,7 @@
             lbl_Valor.BackColor = Color.Transparent;
             lbl_Valor.Font = new Font("Arial Rounded MT Bold", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_Valor.ForeColor = Color.White;
-            lbl_Valor.Location = new Point(492, 135);
+            lbl_Valor.Location = new Point(721, 223);
             lbl_Valor.Name = "lbl_Valor";
             lbl_Valor.Size = new Size(160, 54);
             lbl_Valor.TabIndex = 7;
@@ -306,7 +306,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(1522, 1055);
+            ClientSize = new Size(1924, 1175);
             Controls.Add(panel_ventana_pago);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form_Ventana_Pago";
