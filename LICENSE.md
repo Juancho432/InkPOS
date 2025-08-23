@@ -1,6 +1,6 @@
 # End User License Agreement (EULA) for InkPOS
 
-**Copyright (c) 2025 [Your Name or Organization]**
+**Copyright (c) 2025 Juan Manuel Jaramillo**
 
 This End User License Agreement ("Agreement") governs the use of the software product **InkPOS** (the "Software"). By installing, copying, or otherwise using the Software, you agree to be bound by the terms of this Agreement. If you do not agree, do not install or use the Software.
 
@@ -43,7 +43,7 @@ In no event shall the author(s) or copyright holder(s) be liable for any damages
 ---
 
 ## 7. Governing Law
-This Agreement shall be governed and construed in accordance with the laws of **[Your Country]**, without regard to its conflict of law principles.  
+This Agreement shall be governed and construed in accordance with the laws of **Colombia**, without regard to its conflict of law principles.  
 
 ---
 
