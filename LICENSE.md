@@ -1,6 +1,6 @@
 # End User License Agreement (EULA) for InkPOS
 
-**Copyright (c) 2025 Juan Manuel Jaramillo, Emmanuel Mora**
+**Copyright (c) 2025 Juan Manuel Jaramillo, Emmanuel Mora, Sebastián Echeverri**
 
 This End User License Agreement ("Agreement") governs the use of the software product **InkPOS** (the "Software"). By installing, copying, or otherwise using the Software, you agree to be bound by the terms of this Agreement. If you do not agree, do not install or use the Software.
 
